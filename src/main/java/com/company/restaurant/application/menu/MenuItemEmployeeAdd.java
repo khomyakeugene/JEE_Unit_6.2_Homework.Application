@@ -22,8 +22,7 @@ public class MenuItemEmployeeAdd extends MenuItemEmployeeFind implements MenuIte
     private void addEmployee() {
         String[] employeeName = readEmployeeName(true);
 
-        JobPositionList jobPositionList = new JobPositionList();
-        int jobPositionId = jobPositionList.readId();
+        int jobPositionId = new JobPositionList().readId();
         String phoneNumber = Util.readInputString(ENTER_PHONE_NUMBER_MESSAGE);
         Float salary = Util.readInputFloat(ENTER_SALARY_MESSAGE, false);
 
@@ -34,7 +33,11 @@ public class MenuItemEmployeeAdd extends MenuItemEmployeeFind implements MenuIte
         employee.setPhoneNumber(phoneNumber);
         employee.setSalary(salary);
 
-        getRestaurantController().addEmployee(employee);
-        dataHasBeenSuccessfullyAddedMessage();
+        try {
+            getRestaurantController().addEmployee(employee);
+            dataHasBeenSuccessfullyAddedMessage();
+        } catch (Exception e) {
+            errorMessage(e.getMessage());
+        }
     }
 }

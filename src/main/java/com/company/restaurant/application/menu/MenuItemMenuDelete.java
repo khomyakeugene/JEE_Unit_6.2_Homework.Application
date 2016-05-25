@@ -17,6 +17,9 @@ public class MenuItemMenuDelete extends MenuItemMenuFind implements MenuItem {
     }
 
     private void deleteCourse() {
+        // Show all data
+        tableList();
+
         readMenuName();
 
         Menu menu = findOneObject();

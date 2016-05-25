@@ -14,10 +14,14 @@ public class MenuItemMenuAdd extends MenuItemMenuFind implements MenuItem {
     }
 
     private void addMenu() {
-        readMenuName();
+        String menuName = readMenuName();
         if (menuName != null && !menuName.isEmpty()) {
-            getRestaurantController().addMenu(menuName);
-            dataHasBeenSuccessfullyAddedMessage();
+            try {
+                getRestaurantController().addMenu(menuName);
+                dataHasBeenSuccessfullyAddedMessage();
+            } catch (Exception e) {
+                errorMessage(e.getMessage());
+            }
         }
     }
 }
