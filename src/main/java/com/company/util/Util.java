@@ -3,7 +3,9 @@ package com.company.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -112,6 +114,27 @@ public class Util {
                 }
             }
         } while (result == null || result != exitCode);
+
+        return result;
+    }
+
+    private static String getLongestString(String[] data) {
+        Optional<String> longest = Arrays.stream(data).max((f1, f2) -> new Integer(f1.length()).compareTo(f2.length()));
+
+        return longest.isPresent() ? longest.get() : "";
+    }
+
+    public static int getLengthOfLongestString(String[] data) {
+        String s = getLongestString(data);
+        return s.length();
+    }
+
+    public static String[] convertColumnToStringArray (String[][] tableData, int columnNumber) {
+        String[] result = new String[tableData.length];
+
+        for (int i = 0; i < result.length; i++) {
+            result[i] = tableData[i][columnNumber];
+        }
 
         return result;
     }
