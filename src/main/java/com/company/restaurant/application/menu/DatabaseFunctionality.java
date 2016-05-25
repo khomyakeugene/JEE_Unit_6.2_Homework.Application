@@ -16,6 +16,7 @@ public abstract class DatabaseFunctionality<T>  {
     private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_ADDED = "Data has been successfully added";
+    private static final String INVALID_DATA_PATTERN = "%d is invalid <id> value. Please, input <id> again";
 
     public RestaurantController getRestaurantController() {
         return RestaurantConsoleApplication.getRestaurantController();
@@ -50,6 +51,10 @@ public abstract class DatabaseFunctionality<T>  {
 
     protected abstract String[] dataSetRowDataToStringArray(T dataSetRow);
 
+    protected boolean validateId(Integer Id) {
+        return true;
+    }
+
     public List<T> tableList() {
         List<T> data = findData();
 
@@ -76,4 +81,23 @@ public abstract class DatabaseFunctionality<T>  {
 
         return objject;
     }
+
+    public int readId(String enterIdentifierMessage) {
+        int result;
+
+        boolean needToRepeat;
+        do {
+            tableList();
+
+            result = Util.readInputInt(enterIdentifierMessage, true);
+            needToRepeat = !validateId(result);
+            if (needToRepeat) {
+                Util.printMessage(String.format(INVALID_DATA_PATTERN, result));
+            }
+        } while (needToRepeat);
+
+        return result;
+    }
+
+
 }

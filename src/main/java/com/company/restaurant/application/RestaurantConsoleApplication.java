@@ -190,13 +190,13 @@ public class RestaurantConsoleApplication {
     private static final String ORDER_MENU_ITEM_TEXT_CLOSED_ORDER_LIST = "Closed order tableList";
     private static final HashMap<Integer, MenuItem> orderMenuMap = new HashMap<Integer, MenuItem>(){
         {
-            put(ORDER_MENU_ITEM_CODE_ADD, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_ADD));
+            put(ORDER_MENU_ITEM_CODE_ADD, new MenuItemOrderAdd(ORDER_MENU_ITEM_TEXT_ADD));
             put(ORDER_MENU_ITEM_CODE_DELETE, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_DELETE));
             put(ORDER_MENU_ITEM_CODE_ADD_COURSE, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_ADD_COURSE));
             put(ORDER_MENU_ITEM_CODE_DEL_COURSE, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_DEL_COURSE));
             put(ORDER_MENU_ITEM_CODE_CLOSE_ORDER, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_CLOSE_ORDER));
-            put(ORDER_MENU_ITEM_CODE_OPEN_ORDER_LIST, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_OPEN_ORDER_LIST));
-            put(ORDER_MENU_ITEM_CODE_CLOSED_ORDER_LIST, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_CLOSED_ORDER_LIST));
+            put(ORDER_MENU_ITEM_CODE_OPEN_ORDER_LIST, new MenuItemOrderOpenOrderList(ORDER_MENU_ITEM_TEXT_OPEN_ORDER_LIST));
+            put(ORDER_MENU_ITEM_CODE_CLOSED_ORDER_LIST, new MenuItemOrderClosedOrderList(ORDER_MENU_ITEM_TEXT_CLOSED_ORDER_LIST));
             put(ORDER_MENU_ITEM_CODE_EXIT, new MenuItemEmptyAction(MENU_ITEM_TEXT_EXIT));
         }
     };
