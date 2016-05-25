@@ -2,6 +2,7 @@ package com.company.restaurant.application;
 
 import com.company.restaurant.model.Course;
 import com.company.util.MenuItem;
+import com.company.util.Util;
 
 /**
  * Created by Yevhen on 25.05.2016.
@@ -23,8 +24,12 @@ public class MenuItemCourseDelete extends MenuItemCourseFind implements MenuItem
         if (course == null) {
             dataHasNotBeenFoundMessage();
         } else {
-            getRestaurantController().delCourse(course);
-            dataHasBeenSuccessfullyDeletedMessage();
+            String errorMessage = getRestaurantController().delCourse(course);
+            if (errorMessage != null && !errorMessage.isEmpty()) {
+                Util.printMessage(errorMessage);
+            } else {
+                dataHasBeenSuccessfullyDeletedMessage();
+            }
         }
     }
 }
