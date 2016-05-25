@@ -28,9 +28,14 @@ public class MenuItemCourseFind extends MenuItemCourseList implements MenuItem {
         findCourseByName();
     }
 
-    private void findCourseByName() {
+    protected String readCourseName() {
         courseName = Util.readInputString(ENTER_NAME_MESSAGE);
 
+        return courseName;
+    }
+
+    private void findCourseByName() {
+        readCourseName();
         tableList();
     }
 }

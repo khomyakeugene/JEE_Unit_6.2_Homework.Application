@@ -35,10 +35,16 @@ public class MenuItemEmployeeFind extends MenuItemEmployeeList implements MenuIt
         findEmployee();
     }
 
-    private void findEmployee() {
+    protected String[] readEmployeeName() {
         firstName = Util.readInputString(ENTER_FIRST_NAME_MESSAGE).trim();
         secondName = Util.readInputString(ENTER_SECOND_NAME_MESSAGE).trim();
 
+        return new String[] {firstName, secondName};
+    }
+
+
+    private void findEmployee() {
+        readEmployeeName();
         tableList();
     }
 }

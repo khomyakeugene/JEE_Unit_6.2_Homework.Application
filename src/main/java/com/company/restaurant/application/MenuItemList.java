@@ -13,6 +13,7 @@ import java.util.List;
  */
 public abstract class MenuItemList<T> extends DatabaseMenuItem implements MenuItem {
     private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
+    private static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
 
     public MenuItemList(String itemText) {
         super(itemText);
@@ -35,11 +36,19 @@ public abstract class MenuItemList<T> extends DatabaseMenuItem implements MenuIt
 
     protected abstract String[] dataSetRowDataToStringArray(T dataSetRow);
 
+    protected void dataHasNotBeenFoundMessage() {
+        Util.printMessage(DATA_HAS_NOT_BEEN_FOUND_MESSAGE);
+    }
+
+    protected void dataHasBeenSuccessfullyDeletedMessage() {
+        Util.printMessage(DATA_HAS_BEEN_SUCCESSFULLY_DELETED);
+    }
+
     protected void tableList() {
         List<T> data = findData();
 
         if (data == null || data.size() == 0) {
-            Util.printMessage(DATA_HAS_NOT_BEEN_FOUND_MESSAGE);
+            dataHasNotBeenFoundMessage();
         } else {
             ArrayList<String[]> arrayList = new ArrayList<>();
 
