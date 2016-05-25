@@ -30,6 +30,10 @@ public class Util {
         return result;
     }
 
+    public static String toStringMaskNullAsEmpty(Object object) {
+        return (object == null) ? "" : object.toString();
+    }
+
     private static void printLine(String message) {
         System.out.print(message);
     }
@@ -119,7 +123,8 @@ public class Util {
     }
 
     private static String getLongestString(String[] data) {
-        Optional<String> longest = Arrays.stream(data).max((f1, f2) -> new Integer(f1.length()).compareTo(f2.length()));
+        Optional<String> longest = Arrays.stream(data).max((f1, f2) ->
+                new Integer((f1 == null) ? 0 : f1.length()).compareTo((f2 == null)? 0: f2.length()));
 
         return longest.isPresent() ? longest.get() : "";
     }
@@ -139,7 +144,7 @@ public class Util {
         return result;
     }
 
-    private void printTable(String[] table) {
+    public static void printTable(String[] table) {
         Arrays.stream(table).forEach(Util::printMessage);
     }
 }

@@ -5,7 +5,7 @@ import com.company.util.MenuItem;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class MenuItemCourseList extends SimpleMenuItem implements MenuItem {
+public class MenuItemCourseList extends DatabaseMenuItem implements MenuItem {
     public MenuItemCourseList(String itemText) {
         super(itemText);
     }

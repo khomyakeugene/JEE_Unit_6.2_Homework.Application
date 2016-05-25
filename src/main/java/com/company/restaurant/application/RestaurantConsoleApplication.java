@@ -119,13 +119,13 @@ public class RestaurantConsoleApplication {
     private static final String EMPLOYEE_MENU_ITEM_TEXT_ADD = "Add employee";
     private static final String EMPLOYEE_MENU_ITEM_TEXT_DELETE = "Delete employee";
     private static final String EMPLOYEE_MENU_ITEM_TEXT_FIND = "Find employee by name";
-    private static final String EMPLOYEE_MENU_ITEM_TEXT_LIST = "Get employee list";
+    private static final String EMPLOYEE_MENU_ITEM_TEXT_LIST = "Get employee tableList";
     private static final HashMap<Integer, MenuItem> employeeMenuMap = new HashMap<Integer, MenuItem>(){
         {
             put(EMPLOYEE_MENU_ITEM_CODE_ADD, new MenuItemEmployeeAdd(EMPLOYEE_MENU_ITEM_TEXT_ADD));
             put(EMPLOYEE_MENU_ITEM_CODE_DELETE, new MenuItemEmployeeDelete(EMPLOYEE_MENU_ITEM_TEXT_DELETE));
             put(EMPLOYEE_MENU_ITEM_CODE_FIND, new MenuItemEmployeeFind(EMPLOYEE_MENU_ITEM_TEXT_FIND));
-            put(EMPLOYEE_MENU_ITEM_CODE_LIST, new MenuItemEmployeeList(EMPLOYEE_MENU_ITEM_TEXT_LIST));
+            put(EMPLOYEE_MENU_ITEM_CODE_LIST, new MenuItemEmployeeWholeList(EMPLOYEE_MENU_ITEM_TEXT_LIST));
             put(EMPLOYEE_MENU_ITEM_CODE_EXIT, new MenuItemEmptyAction(MENU_ITEM_TEXT_EXIT));
         }
     };
@@ -138,7 +138,7 @@ public class RestaurantConsoleApplication {
     private static final String COURSE_MENU_ITEM_TEXT_ADD = "Add course";
     private static final String COURSE_MENU_ITEM_TEXT_DELETE = "Delete course";
     private static final String COURSE_MENU_ITEM_TEXT_FIND = "Find course by name";
-    private static final String COURSE_MENU_ITEM_TEXT_LIST = "Get course list";
+    private static final String COURSE_MENU_ITEM_TEXT_LIST = "Get course tableList";
     private static final HashMap<Integer, MenuItem> courseMenuMap = new HashMap<Integer, MenuItem>(){
         {
             put(COURSE_MENU_ITEM_CODE_ADD, new MenuItemCourseAdd(COURSE_MENU_ITEM_TEXT_ADD));
@@ -159,7 +159,7 @@ public class RestaurantConsoleApplication {
     private static final String MENU_MENU_ITEM_TEXT_ADD = "Add menu";
     private static final String MENU_MENU_ITEM_TEXT_DELETE = "Delete menu";
     private static final String MENU_MENU_ITEM_TEXT_FIND = "Find menu by name";
-    private static final String MENU_MENU_ITEM_TEXT_LIST = "Get menu list";
+    private static final String MENU_MENU_ITEM_TEXT_LIST = "Get menu tableList";
     private static final String MENU_MENU_ITEM_TEXT_ADD_COURSE = "Add course to menu";
     private static final String MENU_MENU_ITEM_TEXT_DEL_COURSE = "Delete course from menu";
     private static final HashMap<Integer, MenuItem> menuMenuMap = new HashMap<Integer, MenuItem>(){
@@ -187,8 +187,8 @@ public class RestaurantConsoleApplication {
     private static final String ORDER_MENU_ITEM_TEXT_ADD_COURSE = "Add course to order";
     private static final String ORDER_MENU_ITEM_TEXT_DEL_COURSE = "Delete course from order";
     private static final String ORDER_MENU_ITEM_TEXT_CLOSE_ORDER = "Close order";
-    private static final String ORDER_MENU_ITEM_TEXT_OPEN_ORDER_LIST = "Open order list";
-    private static final String ORDER_MENU_ITEM_TEXT_CLOSED_ORDER_LIST = "Closed order list";
+    private static final String ORDER_MENU_ITEM_TEXT_OPEN_ORDER_LIST = "Open order tableList";
+    private static final String ORDER_MENU_ITEM_TEXT_CLOSED_ORDER_LIST = "Closed order tableList";
     private static final HashMap<Integer, MenuItem> orderMenuMap = new HashMap<Integer, MenuItem>(){
         {
             put(ORDER_MENU_ITEM_CODE_ADD, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_ADD));
@@ -206,7 +206,7 @@ public class RestaurantConsoleApplication {
     private static final int KITCHEN_MENU_ITEM_CODE_COOKED_COURSE_LIST = 2;
     private static final int KITCHEN_MENU_ITEM_CODE_EXIT = 3;
     private static final String KITCHEN_MENU_ITEM_TEXT_ADD_COOKED_COURSE = "Add cooked course";
-    private static final String KITCHEN_MENU_ITEM_TEXT_COOKED_COURSE_LIST = "Cooked course list";
+    private static final String KITCHEN_MENU_ITEM_TEXT_COOKED_COURSE_LIST = "Cooked course tableList";
     private static final HashMap<Integer, MenuItem> kitchenMenuMap = new HashMap<Integer, MenuItem>(){
         {
             put(KITCHEN_MENU_ITEM_CODE_ADD_COOKED_COURSE, new MenuItemEmptyAction(KITCHEN_MENU_ITEM_TEXT_ADD_COOKED_COURSE));
@@ -224,8 +224,8 @@ public class RestaurantConsoleApplication {
     private static final String WAREHOUSE_MENU_ITEM_TEXT_ADD = "Add ingredient to warehouse";
     private static final String WAREHOUSE_MENU_ITEM_TEXT_DELETE = "Delete ingredient from";
     private static final String WAREHOUSE_MENU_ITEM_TEXT_FIND = "Find ingredient by name";
-    private static final String WAREHOUSE_MENU_ITEM_TEXT_LIST = "Get ingredient list";
-    private static final String WAREHOUSE_MENU_ITEM_TEXT_ELAPSING_LIST = "Get elapsing ingredient list";
+    private static final String WAREHOUSE_MENU_ITEM_TEXT_LIST = "Get ingredient tableList";
+    private static final String WAREHOUSE_MENU_ITEM_TEXT_ELAPSING_LIST = "Get elapsing ingredient tableList";
     private static final HashMap<Integer, MenuItem> warehouseMenuMap = new HashMap<Integer, MenuItem>(){
         {
             put(WAREHOUSE_MENU_ITEM_CODE_ADD, new MenuItemCourseAdd(WAREHOUSE_MENU_ITEM_TEXT_ADD));
@@ -237,10 +237,14 @@ public class RestaurantConsoleApplication {
         }
     };
 
-    private RestaurantController restaurantController;
+    private static RestaurantController restaurantController;
 
     public void setRestaurantController(RestaurantController restaurantController) {
         this.restaurantController = restaurantController;
+    }
+
+    public static RestaurantController getRestaurantController() {
+        return restaurantController;
     }
 
     private int chooseMainMenuItemCode() {

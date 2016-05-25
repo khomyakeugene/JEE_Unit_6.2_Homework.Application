@@ -5,7 +5,7 @@ import com.company.util.MenuItem;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class MenuItemCourseDelete extends SimpleMenuItem implements MenuItem {
+public class MenuItemCourseDelete extends DatabaseMenuItem implements MenuItem {
     public MenuItemCourseDelete(String itemText) {
         super(itemText);
     }
