@@ -19,23 +19,31 @@ public class MenuItemEmployeeDelete extends MenuItemEmployeeFind implements Menu
     }
 
     private void deleteEmployee() {
-        readEmployeeName();
+        // Show all data
+        tableList();
+
+        String[] employeeName = readEmployeeName();
         List<Employee> data = findData();
 
         if (data == null || data.size() == 0) {
             dataHasNotBeenFoundMessage();
         } else {
-            boolean wasErrorDetected = false;
-            for (Employee employee : data) {
-                String errorMessage = getRestaurantController().delEmployee(employee);
-                wasErrorDetected = errorMessage != null && !errorMessage.isEmpty();
-                if (wasErrorDetected) {
-                    Util.printMessage(errorMessage);
+            if (!employeeName[0].isEmpty() || !employeeName[1].isEmpty()) {
+                boolean wasErrorDetected;
+                boolean someDataWasSuccessfullyDeleted = false;
+                for (Employee employee : data) {
+                    String errorMessage = getRestaurantController().delEmployee(employee);
+                    wasErrorDetected = errorMessage != null && !errorMessage.isEmpty();
+                    if (wasErrorDetected) {
+                        Util.printMessage(errorMessage);
+                    } else {
+                        someDataWasSuccessfullyDeleted = true;
+                    }
+                }
+                if (someDataWasSuccessfullyDeleted) {
+                    dataHasBeenSuccessfullyDeletedMessage();
                 }
 
-            }
-            if (!wasErrorDetected) {
-                dataHasBeenSuccessfullyDeletedMessage();
             }
         }
     }
