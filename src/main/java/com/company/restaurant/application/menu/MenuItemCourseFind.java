@@ -3,6 +3,8 @@ package com.company.restaurant.application.menu;
 import com.company.restaurant.model.Course;
 import com.company.util.Util;
 
+import java.util.List;
+
 /**
  * Created by Yevhen on 25.05.2016.
  */
@@ -26,7 +28,7 @@ public class MenuItemCourseFind extends MenuItemCourseList implements MenuItem {
     }
 
     public String readCourseName() {
-        courseName = Util.readInputString(ENTER_NAME_MESSAGE);
+        courseName = Util.readInputString(ENTER_NAME_MESSAGE).trim();
 
         return courseName;
     }

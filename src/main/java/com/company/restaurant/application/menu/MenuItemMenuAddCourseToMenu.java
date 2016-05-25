@@ -20,13 +20,15 @@ public class MenuItemMenuAddCourseToMenu extends MenuItemMenuFind implements Men
         readMenuName();
         Menu menu = checkOneObjectExistence();
         if (menu != null) {
+            // To show new menu content further
+            MenuCoursesList menuCoursesList = new MenuCoursesList(menu);
             // Show all courses
             MenuItemCourseWholeList menuItemCourseWholeList = new MenuItemCourseWholeList("");
             menuItemCourseWholeList.tableList();
 
             // Get course names
             MenuItemCourseFind menuItemCourseFind = new MenuItemCourseFind("");
-            String courseName = null;
+            String courseName;
             do {
                 courseName = menuItemCourseFind.readCourseName();
                 if (courseName != null && !courseName.isEmpty()) {
@@ -34,6 +36,8 @@ public class MenuItemMenuAddCourseToMenu extends MenuItemMenuFind implements Men
                     if (course != null) {
                         getRestaurantController().addCourseToMenu(menu, course);
                         dataHasBeenSuccessfullyAddedMessage();
+                        // Show new menu content
+                        menuCoursesList.tableList();
                     }
                 }
             } while (courseName != null && !courseName.isEmpty());

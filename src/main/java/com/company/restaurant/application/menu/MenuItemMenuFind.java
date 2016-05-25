@@ -3,6 +3,8 @@ package com.company.restaurant.application.menu;
 import com.company.restaurant.model.Menu;
 import com.company.util.Util;
 
+import java.util.List;
+
 /**
  * Created by Yevhen on 25.05.2016.
  */
@@ -16,7 +18,7 @@ public class MenuItemMenuFind extends MenuItemMenuList implements MenuItem {
     }
 
     protected String readMenuName() {
-        menuName = Util.readInputString(ENTER_NAME_MESSAGE);
+        menuName = Util.readInputString(ENTER_NAME_MESSAGE).trim();
 
         return menuName;
     }

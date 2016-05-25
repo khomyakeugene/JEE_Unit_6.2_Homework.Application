@@ -3,12 +3,19 @@ package com.company.restaurant.application.menu;
 import com.company.restaurant.model.Menu;
 import com.company.util.Util;
 
+import java.util.List;
+
 /**
  * Created by Yevhen on 25.05.2016.
  */
 public class MenuItemMenuDelete extends MenuItemMenuFind implements MenuItem {
     public MenuItemMenuDelete(String itemText) {
         super(itemText);
+    }
+
+    @Override
+    protected List<Menu> findData() {
+        return getRestaurantController().findAllMenus();
     }
 
     @Override
@@ -19,7 +26,6 @@ public class MenuItemMenuDelete extends MenuItemMenuFind implements MenuItem {
     private void deleteCourse() {
         // Show all data
         tableList();
-
         readMenuName();
 
         Menu menu = findOneObject();
