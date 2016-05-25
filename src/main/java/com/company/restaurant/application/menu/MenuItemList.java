@@ -1,7 +1,6 @@
 package com.company.restaurant.application.menu;
 
 import com.company.util.AlignmentType;
-import com.company.util.MenuItem;
 import com.company.util.TableBuilder;
 import com.company.util.Util;
 

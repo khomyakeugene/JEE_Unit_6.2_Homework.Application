@@ -2,7 +2,6 @@ package com.company.restaurant.application.menu;
 
 import com.company.restaurant.application.RestaurantConsoleApplication;
 import com.company.restaurant.controllers.RestaurantController;
-import com.company.util.MenuItem;
 
 /**
  * Created by Yevhen on 25.05.2016.

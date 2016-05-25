@@ -1,7 +1,6 @@
 package com.company.restaurant.application.menu;
 
 import com.company.restaurant.model.Menu;
-import com.company.util.MenuItem;
 
 import java.util.ArrayList;
 

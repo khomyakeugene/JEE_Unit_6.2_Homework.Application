@@ -1,13 +1,13 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.model.Course;
+import com.company.restaurant.model.Menu;
 import com.company.util.Util;
 
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class MenuItemCourseDelete extends MenuItemCourseFind implements MenuItem {
-    public MenuItemCourseDelete(String itemText) {
+public class MenuItemMenuDelete extends MenuItemMenuFind implements MenuItem {
+    public MenuItemMenuDelete(String itemText) {
         super(itemText);
     }
 
@@ -17,13 +17,13 @@ public class MenuItemCourseDelete extends MenuItemCourseFind implements MenuItem
     }
 
     private void deleteCourse() {
-        readCourseName();
+        readMenuName();
 
-        Course course = findOneObject();
-        if (course == null) {
+        Menu menu = findOneObject();
+        if (menu == null) {
             dataHasNotBeenFoundMessage();
         } else {
-            String errorMessage = getRestaurantController().delCourse(course);
+            String errorMessage = getRestaurantController().delMenu(menuName);
             if (errorMessage != null && !errorMessage.isEmpty()) {
                 Util.printMessage(errorMessage);
             } else {
