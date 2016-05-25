@@ -1,5 +1,6 @@
 package com.company.restaurant.application;
 
+import com.company.restaurant.application.menu.*;
 import com.company.restaurant.controllers.RestaurantController;
 import com.company.util.MenuItem;
 import com.company.util.Util;
@@ -165,7 +166,7 @@ public class RestaurantConsoleApplication {
             put(MENU_MENU_ITEM_CODE_ADD, new MenuItemEmptyAction(MENU_MENU_ITEM_TEXT_ADD));
             put(MENU_MENU_ITEM_CODE_DELETE, new MenuItemEmptyAction(MENU_MENU_ITEM_TEXT_DELETE));
             put(MENU_MENU_ITEM_CODE_FIND, new MenuItemEmptyAction(MENU_MENU_ITEM_TEXT_FIND));
-            put(MENU_MENU_ITEM_CODE_LIST, new MenuItemEmptyAction(MENU_MENU_ITEM_TEXT_LIST));
+            put(MENU_MENU_ITEM_CODE_LIST, new MenuItemMenuWholeList(MENU_MENU_ITEM_TEXT_LIST));
             put(MENU_MENU_ITEM_CODE_ADD_COURSE, new MenuItemEmptyAction(MENU_MENU_ITEM_TEXT_ADD_COURSE));
             put(MENU_MENU_ITEM_CODE_DEL_COURSE, new MenuItemEmptyAction(MENU_MENU_ITEM_TEXT_DEL_COURSE));
             put(MENU_MENU_ITEM_CODE_EXIT, new MenuItemEmptyAction(MENU_ITEM_TEXT_EXIT));

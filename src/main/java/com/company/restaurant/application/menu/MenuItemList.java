@@ -1,4 +1,4 @@
-package com.company.restaurant.application;
+package com.company.restaurant.application.menu;
 
 import com.company.util.AlignmentType;
 import com.company.util.MenuItem;
