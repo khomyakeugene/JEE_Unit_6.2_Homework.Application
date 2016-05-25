@@ -5,10 +5,7 @@ import com.company.restaurant.application.menu.MenuItem;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Yevgen on 06.01.2016.
@@ -44,18 +41,26 @@ public class Util {
         printLine(message + "\n");
     }
 
-    public static String readInputString(String invitationMessage) {
+    public static String readInputString(String invitationMessage, boolean checkNotEmpty) {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        printMessage(invitationMessage);
         do {
+            printMessage(invitationMessage);
             try {
-                return bufferedReader.readLine();
+                String result = bufferedReader.readLine();
+                if (!checkNotEmpty || (result != null && !result.isEmpty())) {
+                    return result;
+                }
             } catch (IOException e) {
                 printMessage(String.format(PLEASE_REPEAT_ENTER, e.getClass().getName(), e.getMessage()));
             }
         } while (true);
     }
+
+    public static String readInputString(String invitationMessage) {
+        return readInputString(invitationMessage, false);
+    }
+
 
     public static Integer parseInt(String data) {
         Integer result;
@@ -69,6 +74,28 @@ public class Util {
 
         return result;
     }
+
+    public static int readInputInt(String enterMessageInvitation, boolean checkNotEmpty) {
+        Integer result = null;
+
+        do {
+            String stringData = readInputString(enterMessageInvitation, checkNotEmpty);
+            if (stringData != null && !stringData.isEmpty()) {
+                result = parseInt(stringData);
+            }
+        } while (result == null);
+
+        return result;
+    }
+
+    public static double readInputDouble(String enterMessageInvitation) {
+        final Scanner scanner = new Scanner(System.in);
+
+        printMessage(enterMessageInvitation);
+        return scanner.nextDouble();
+    }
+
+
 
     public static long getNanoTime() {
         return System.nanoTime();

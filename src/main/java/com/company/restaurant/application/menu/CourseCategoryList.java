@@ -8,16 +8,8 @@ import java.util.List;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class CourseCategoryList extends DatabaseFunctionality<CourseCategory> {
-    private static final String[] categoryListHeader = new String[] {
-            "Category Id",
-            "Category name"
-    };
-
-    @Override
-    protected String[] getListHeader() {
-        return categoryListHeader;
-    }
+public class CourseCategoryList extends SimpleDicFunctionality<CourseCategory> {
+    private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter course category identifier";
 
     @Override
     protected CourseCategory findOneObject() {
@@ -30,12 +22,12 @@ public class CourseCategoryList extends DatabaseFunctionality<CourseCategory> {
     }
 
     @Override
-    protected String[] dataSetRowDataToStringArray(CourseCategory courseCategory) {
-        ArrayList<String> arrayList = new ArrayList<>();
+    protected String getEnterIdentifierMessage() {
+        return ENTER_IDENTIFIER_MESSAGE;
+    }
 
-        arrayList.add(Integer.toString(courseCategory.getId()));
-        arrayList.add(courseCategory.getName());
-
-        return arrayList.toArray(new String[arrayList.size()]);
+    @Override
+    protected boolean validateId(Integer Id) {
+        return (getRestaurantController().findCourseCategoryById(Id) != null);
     }
 }

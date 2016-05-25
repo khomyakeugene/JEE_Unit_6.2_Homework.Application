@@ -16,6 +16,12 @@ public class MenuItemEmployeeAdd extends MenuItemEmployeeFind implements MenuIte
     }
 
     private void addEmployee() {
+        String[] employeeName = readEmployeeName(true);
+
+        JobPositionList jobPositionList = new JobPositionList();
+        int jobPositionId = jobPositionList.readId();
+
+
 
     }
 }
