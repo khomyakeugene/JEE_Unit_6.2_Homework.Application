@@ -32,6 +32,24 @@ public class RestaurantConsoleApplication {
         }
     };
 
+
+    private static final HashMap<Integer, MenuItem> mainMenuMenuItemMap = new HashMap<Integer, MenuItem>(){
+        {
+            put(MAIN_MENU_ITEM_EMPLOYEE_CODE, new MenuItem() {
+                @Override
+                public String menuText() {
+                    return "Employee operations";
+                }
+
+                @Override
+                public void menuAction() {
+                    employeeActivity();
+                }
+            } );
+        }
+    };
+
+
     private static final int EMPLOYEE_MENU_ITEM_ADD_CODE = 1;
     private static final int EMPLOYEE_MENU_ITEM_DELETE_CODE = 2;
     private static final int EMPLOYEE_MENU_ITEM_FIND_CODE = 3;
@@ -107,7 +125,7 @@ public class RestaurantConsoleApplication {
         }
     }
 
-    private void employeeActivity() {
+    private static void employeeActivity() {
         int menuItemCode;
 
         do {
@@ -118,7 +136,7 @@ public class RestaurantConsoleApplication {
         } while (menuItemCode != EMPLOYEE_MENU_ITEM_EXIT_CODE);
     }
 
-    private void employeeMenuActivity(int activityCode) {
+    private static void employeeMenuActivity(int activityCode) {
         switch (activityCode) {
             case EMPLOYEE_MENU_ITEM_ADD_CODE:
                 break;
