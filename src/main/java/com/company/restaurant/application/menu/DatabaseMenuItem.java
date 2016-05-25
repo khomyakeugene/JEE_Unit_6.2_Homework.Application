@@ -1,17 +1,17 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.RestaurantConsoleApplication;
-import com.company.restaurant.controllers.RestaurantController;
-
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class DatabaseMenuItem extends SimpleMenuItem implements MenuItem {
+public abstract class DatabaseMenuItem<T> extends DatabaseFunctionality<T> implements MenuItem {
+    private String itemText;
+
     public DatabaseMenuItem(String itemText) {
-        super(itemText);
+        this.itemText = itemText;
     }
 
-    RestaurantController getRestaurantController() {
-        return RestaurantConsoleApplication.getRestaurantController();
+    @Override
+    public String getItemText() {
+        return itemText;
     }
 }

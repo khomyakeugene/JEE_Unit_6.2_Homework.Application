@@ -1,5 +1,7 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.RestaurantConsoleApplication;
+import com.company.restaurant.controllers.RestaurantController;
 import com.company.util.AlignmentType;
 import com.company.util.TableBuilder;
 import com.company.util.Util;
@@ -10,13 +12,25 @@ import java.util.List;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class MenuItemBasicFunctionality<T> extends DatabaseMenuItem implements MenuItem {
+public abstract class DatabaseFunctionality<T>  {
     private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_ADDED = "Data has been successfully added";
 
-    public MenuItemBasicFunctionality(String itemText) {
-        super(itemText);
+    public RestaurantController getRestaurantController() {
+        return RestaurantConsoleApplication.getRestaurantController();
+    }
+
+    protected void dataHasNotBeenFoundMessage() {
+        Util.printMessage(DATA_HAS_NOT_BEEN_FOUND_MESSAGE);
+    }
+
+    protected void dataHasBeenSuccessfullyDeletedMessage() {
+        Util.printMessage(DATA_HAS_BEEN_SUCCESSFULLY_DELETED);
+    }
+
+    protected void dataHasBeenSuccessfullyAddedMessage() {
+        Util.printMessage(DATA_HAS_BEEN_SUCCESSFULLY_ADDED);
     }
 
     protected abstract String[] getListHeader();
@@ -35,18 +49,6 @@ public abstract class MenuItemBasicFunctionality<T> extends DatabaseMenuItem imp
     }
 
     protected abstract String[] dataSetRowDataToStringArray(T dataSetRow);
-
-    protected void dataHasNotBeenFoundMessage() {
-        Util.printMessage(DATA_HAS_NOT_BEEN_FOUND_MESSAGE);
-    }
-
-    protected void dataHasBeenSuccessfullyDeletedMessage() {
-        Util.printMessage(DATA_HAS_BEEN_SUCCESSFULLY_DELETED);
-    }
-
-    protected void dataHasBeenSuccessfullyAddedMessage() {
-        Util.printMessage(DATA_HAS_BEEN_SUCCESSFULLY_ADDED);
-    }
 
     public List<T> tableList() {
         List<T> data = findData();

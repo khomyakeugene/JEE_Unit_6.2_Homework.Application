@@ -11,7 +11,7 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class MenuCoursesList extends MenuItemBasicFunctionality<MenuCourseList> {
+public class MenuCoursesList extends DatabaseFunctionality<MenuCourseList> {
     private static final String[] courseListHeader = new String[] {
             "Course Id",
             "Course name",
@@ -24,8 +24,6 @@ public class MenuCoursesList extends MenuItemBasicFunctionality<MenuCourseList> 
     private Menu menu;
 
     public MenuCoursesList(Menu menu) {
-        super(null);
-
         this.menu = menu;
     }
 
@@ -56,10 +54,5 @@ public class MenuCoursesList extends MenuItemBasicFunctionality<MenuCourseList> 
         arrayList.add(toStringMaskNullAsEmpty(menuCourseList.getCourseNumber()));
 
         return arrayList.toArray(new String[arrayList.size()]);
-    }
-
-    @Override
-    public void menuAction() {
-
     }
 }

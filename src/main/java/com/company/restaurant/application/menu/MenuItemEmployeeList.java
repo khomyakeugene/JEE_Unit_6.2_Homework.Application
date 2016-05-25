@@ -9,7 +9,7 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class MenuItemEmployeeList extends MenuItemBasicFunctionality<Employee> implements MenuItem {
+public abstract class MenuItemEmployeeList extends DatabaseMenuItem<Employee> implements MenuItem {
     private static final String[] employeeListHeader = new String[] {
             "Employee Id",
             "Employee first name",
