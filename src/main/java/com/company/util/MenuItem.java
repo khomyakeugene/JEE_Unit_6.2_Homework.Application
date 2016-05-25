@@ -1,10 +1,10 @@
-package com.company.restaurant.application;
+package com.company.util;
 
 /**
  * Created by Yevhen on 25.05.2016.
  */
 public interface MenuItem {
-    String menuText();
+    String getItemText();
 
     void menuAction();
 }

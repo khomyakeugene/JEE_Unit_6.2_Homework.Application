@@ -3,16 +3,8 @@ package com.company.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Map;
 import java.util.Set;
-
-import static java.time.temporal.ChronoUnit.DAYS;
 
 /**
  * Created by Yevgen on 06.01.2016.
@@ -21,6 +13,20 @@ import static java.time.temporal.ChronoUnit.DAYS;
 public class Util {
     private final static String CODE_MENU_ITEM_PATTERN = "%d. %s";
     private final static String PLEASE_REPEAT_ENTER = "%s was generated with data \"%s\". Please, repeat enter action";
+
+    public static String toString(Object object) {
+        String result;
+        if (object == null) {
+            result = "null";
+        } else {
+            result = object.toString();
+            if (object instanceof String) {
+                result =  "\"" + result + "\"";
+            }
+        }
+
+        return result;
+    }
 
     private static void printLine(String message) {
         System.out.print(message);
@@ -43,22 +49,6 @@ public class Util {
         } while (true);
     }
 
-    public static void printMenu(Map<Integer, String> menu) {
-        menu.forEach((c, i) -> {printMessage(String.format(CODE_MENU_ITEM_PATTERN, c, i));});
-    }
-
-    public static int chooseMenuItemCode(String invitationMessage, Map<Integer, String> menu) {
-        Integer result;
-        Set<Integer> availableCode = menu.keySet();
-
-        do {
-            printMenu(menu);
-            result = parseInt(readInputString(invitationMessage));
-        } while (result == null || !availableCode.contains(result));
-
-        return result;
-    }
-
     public static Integer parseInt(String data) {
         Integer result;
 
@@ -72,23 +62,12 @@ public class Util {
         return result;
     }
 
-    public static LocalDate DateToLocalDate(Date date) {
-        Instant instant = date.toInstant();
-        ZonedDateTime zonedDateTime = instant.atZone(ZoneId.systemDefault());
-
-        return zonedDateTime.toLocalDate();
+    public static long getNanoTime() {
+        return System.nanoTime();
     }
 
-    public static Date dateAdd(Date date, int days) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.DATE, days);
-
-        return calendar.getTime();
-    }
-
-    public static long dateSub(Date date1, Date date2) {
-        return DateToLocalDate(date2).until(DateToLocalDate(date1), DAYS);
+    public static Long nanoToMicroTime(Long nanoTime) {
+        return (nanoTime == null) ? null : (nanoTime / 1000);
     }
 
     public static String getApplicationMainClassName() {
@@ -114,20 +93,25 @@ public class Util {
         return result;
     }
 
-    public static long getNanoTime() {
-        return System.nanoTime();
+    public static void printMenu(Map<Integer, MenuItem> menu) {
+        menu.forEach((c, i) -> printMessage(String.format(CODE_MENU_ITEM_PATTERN, c, i.getItemText())));
     }
 
-    public static Long nanoToMicroTime(Long nanoTime) {
-        return (nanoTime == null) ? null : (nanoTime / 1000);
-    }
+    public static int chooseMenuItemCode(String invitationMessage, Map<Integer, MenuItem> menu, int exitCode) {
+        Integer result;
+        Set<Integer> availableCode = menu.keySet();
 
-    public static String toString(Object object) {
-        String result = object.toString();
-
-        if (object instanceof String) {
-            result =  "\"" + result + "\"";
-        }
+        do {
+            printMenu(menu);
+            result = parseInt(readInputString(invitationMessage));
+            if (availableCode.contains(result)) {
+                if (result == exitCode) {
+                    break;
+                } else {
+                    menu.get(result).menuAction();
+                }
+            }
+        } while (result == null || result != exitCode);
 
         return result;
     }
