@@ -21,11 +21,6 @@ public class MenuItemMenuFind extends MenuItemMenuList implements MenuItem {
         return menuName;
     }
 
-    private void findMenuByName() {
-        readMenuName();
-        tableList();
-    }
-
     @Override
     protected Menu findOneObject() {
         return getRestaurantController().findMenuByName(menuName);
@@ -34,5 +29,10 @@ public class MenuItemMenuFind extends MenuItemMenuList implements MenuItem {
     @Override
     public void menuAction() {
         findMenuByName();
+    }
+
+    private void findMenuByName() {
+        readMenuName();
+        tableList();
     }
 }

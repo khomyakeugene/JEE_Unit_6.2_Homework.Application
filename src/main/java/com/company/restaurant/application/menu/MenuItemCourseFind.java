@@ -7,7 +7,7 @@ import com.company.util.Util;
  * Created by Yevhen on 25.05.2016.
  */
 public class MenuItemCourseFind extends MenuItemCourseList implements MenuItem {
-    private static final String ENTER_NAME_MESSAGE = "Please, enter course name";
+    private static final String ENTER_NAME_MESSAGE = "Please, enter course name (or just enter to finish)";
 
     private String courseName;
 
@@ -25,7 +25,7 @@ public class MenuItemCourseFind extends MenuItemCourseList implements MenuItem {
         findCourseByName();
     }
 
-    protected String readCourseName() {
+    public String readCourseName() {
         courseName = Util.readInputString(ENTER_NAME_MESSAGE);
 
         return courseName;

@@ -48,7 +48,7 @@ public abstract class MenuItemBasicFunctionality<T> extends DatabaseMenuItem imp
         Util.printMessage(DATA_HAS_BEEN_SUCCESSFULLY_ADDED);
     }
 
-    protected void tableList() {
+    public void tableList() {
         List<T> data = findData();
 
         if (data == null || data.size() == 0) {
@@ -62,5 +62,14 @@ public abstract class MenuItemBasicFunctionality<T> extends DatabaseMenuItem imp
             Util.printTable(TableBuilder.buildTable(arrayList.toArray(new String[arrayList.size()][listHeader.length]),
                     AlignmentType.LEFT, false));
         }
+    }
+
+    protected T checkOneObjectExistence() {
+        T objject = findOneObject();
+        if (objject == null) {
+            dataHasNotBeenFoundMessage();
+        }
+
+        return objject;
     }
 }
