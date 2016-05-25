@@ -163,7 +163,7 @@ public class RestaurantConsoleApplication {
     private static final String MENU_MENU_ITEM_TEXT_DEL_COURSE = "Delete course from menu";
     private static final HashMap<Integer, MenuItem> menuMenuMap = new HashMap<Integer, MenuItem>(){
         {
-            put(MENU_MENU_ITEM_CODE_ADD, new MenuItemEmptyAction(MENU_MENU_ITEM_TEXT_ADD));
+            put(MENU_MENU_ITEM_CODE_ADD, new MenuItemMenuAdd(MENU_MENU_ITEM_TEXT_ADD));
             put(MENU_MENU_ITEM_CODE_DELETE, new MenuItemMenuDelete(MENU_MENU_ITEM_TEXT_DELETE));
             put(MENU_MENU_ITEM_CODE_FIND, new MenuItemMenuFind(MENU_MENU_ITEM_TEXT_FIND));
             put(MENU_MENU_ITEM_CODE_LIST, new MenuItemMenuWholeList(MENU_MENU_ITEM_TEXT_LIST));

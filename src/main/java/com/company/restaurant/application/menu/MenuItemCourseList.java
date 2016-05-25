@@ -9,7 +9,7 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class MenuItemCourseList extends MenuItemList<Course>  implements MenuItem {
+public abstract class MenuItemCourseList extends MenuItemBasicFunctionality<Course> implements MenuItem {
     private static final String[] courseListHeader = new String[] {
             "Course Id",
             "Course name",
