@@ -14,7 +14,21 @@ public class MenuItemEmployeeWholeList extends MenuItemEmployeeList implements M
     }
 
     @Override
+    protected Employee findOneObject() {
+        return null;
+    }
+
+    @Override
     protected List<Employee> findData() {
         return getRestaurantController().findAllEmployees();
+    }
+
+    @Override
+    public void menuAction() {
+        EmployeeList();
+    }
+
+    private void EmployeeList() {
+        tableList();
     }
 }
