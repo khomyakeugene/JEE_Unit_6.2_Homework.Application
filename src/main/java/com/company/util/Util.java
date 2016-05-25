@@ -75,7 +75,33 @@ public class Util {
         return result;
     }
 
-    public static int readInputInt(String enterMessageInvitation, boolean checkNotEmpty) {
+    public static Double parseDouble(String data) {
+        Double result;
+
+        try {
+            result = Double.parseDouble(data);
+
+        } catch (NullPointerException | NumberFormatException e) {
+            result = null;
+        }
+
+        return result;
+    }
+
+    public static Float parseFloat(String data) {
+        Float result;
+
+        try {
+            result = Float.parseFloat(data);
+
+        } catch (NullPointerException | NumberFormatException e) {
+            result = null;
+        }
+
+        return result;
+    }
+
+    public static Integer readInputInt(String enterMessageInvitation, boolean checkNotEmpty) {
         Integer result = null;
 
         do {
@@ -83,19 +109,36 @@ public class Util {
             if (stringData != null && !stringData.isEmpty()) {
                 result = parseInt(stringData);
             }
-        } while (result == null);
+        } while (checkNotEmpty && result == null);
 
         return result;
     }
 
-    public static double readInputDouble(String enterMessageInvitation) {
-        final Scanner scanner = new Scanner(System.in);
+    public static Double readInputDouble(String enterMessageInvitation, boolean checkNotEmpty) {
+        Double result = null;
 
-        printMessage(enterMessageInvitation);
-        return scanner.nextDouble();
+        do {
+            String stringData = readInputString(enterMessageInvitation, checkNotEmpty);
+            if (stringData != null && !stringData.isEmpty()) {
+                result = parseDouble(stringData);
+            }
+        } while (checkNotEmpty && result == null);
+
+        return result;
     }
 
+    public static Float readInputFloat(String enterMessageInvitation, boolean checkNotEmpty) {
+        Float result = null;
 
+        do {
+            String stringData = readInputString(enterMessageInvitation, checkNotEmpty);
+            if (stringData != null && !stringData.isEmpty()) {
+                result = parseFloat(stringData);
+            }
+        } while (checkNotEmpty && result == null);
+
+        return result;
+    }
 
     public static long getNanoTime() {
         return System.nanoTime();
