@@ -45,5 +45,4 @@ public class MenuItemMenuDelCourseFromMenu extends MenuItemMenuFind implements M
             }
         }
     }
-
 }
