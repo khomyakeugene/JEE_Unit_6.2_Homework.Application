@@ -138,4 +138,8 @@ public class Util {
 
         return result;
     }
+
+    private void printTable(String[] table) {
+        Arrays.stream(table).forEach(Util::printMessage);
+    }
 }
