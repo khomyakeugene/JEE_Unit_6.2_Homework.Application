@@ -15,6 +15,7 @@ public class TableList extends SimpleDicFunctionality<Table> {
     private static final String[] listHeader = new String[] {
             "Table number"
     };
+
     @Override
     protected Table findOneObject() {
         return null;
@@ -43,7 +44,6 @@ public class TableList extends SimpleDicFunctionality<Table> {
 
         return arrayList.toArray(new String[arrayList.size()]);
     }
-
 
     @Override
     protected boolean validateId(Integer Id) {
