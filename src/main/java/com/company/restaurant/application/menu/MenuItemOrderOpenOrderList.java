@@ -13,17 +13,12 @@ public class MenuItemOrderOpenOrderList extends MenuItemOrderList implements Men
     }
 
     @Override
-    protected Order findOneObject() {
-        return null;
-    }
-
-    @Override
     protected List<Order> findData() {
         return getRestaurantController().findAllOpenOrders();
     }
 
     @Override
-    public void menuAction() {
+    protected void executeAction() {
         openOrderList();
     }
 

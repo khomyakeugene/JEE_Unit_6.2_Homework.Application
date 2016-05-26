@@ -2,6 +2,7 @@ package com.company.restaurant.application.menu;
 
 import com.company.restaurant.application.RestaurantConsoleApplication;
 import com.company.restaurant.controllers.RestaurantController;
+import com.company.restaurant.model.Order;
 import com.company.util.AlignmentType;
 import com.company.util.TableBuilder;
 import com.company.util.Util;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class DatabaseFunctionality<T>  {
+public abstract class DatabaseFunctionality<T> {
     private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_ADDED = "Data has been successfully added";
@@ -41,7 +42,13 @@ public abstract class DatabaseFunctionality<T>  {
 
     protected abstract String[] getListHeader();
 
-            protected abstract T findOneObject();
+    protected abstract T findOneObject();
+
+    protected abstract String[] dataSetRowDataToStringArray(T dataSetRow);
+
+    protected void errorMessage(String message) {
+        Util.printMessage(message);
+    }
 
     protected List<T> findData() {
         ArrayList<T> arrayList = new ArrayList<>();
@@ -54,7 +61,11 @@ public abstract class DatabaseFunctionality<T>  {
         return arrayList;
     }
 
-    protected abstract String[] dataSetRowDataToStringArray(T dataSetRow);
+    protected T findFirstObject() {
+        List<T> data = findData();
+
+        return (data == null || data.size() == 0) ? null : data.get(0);
+    }
 
     protected boolean validateId(Integer Id) {
         return true;
@@ -104,8 +115,12 @@ public abstract class DatabaseFunctionality<T>  {
         return result;
     }
 
-    protected T readObjectKeyData() {
-        return null;
+    protected void showInitialList() {
+        tableList();
+    }
+
+    protected void readObjectKeyData() {
+
     }
 
     protected String doActionOnDatabaseObject(T object) {
@@ -113,16 +128,21 @@ public abstract class DatabaseFunctionality<T>  {
     }
 
     protected void processObject() {
-        tableList();
+        showInitialList();
         readObjectKeyData();
-
         T object = findOneObject();
+
         if (object == null) {
             dataHasNotBeenFoundMessage();
         } else {
-            String errorMessage = doActionOnDatabaseObject(object);
+            String errorMessage = null;
+            try {
+                errorMessage = doActionOnDatabaseObject(object);
+            } catch (Exception e) {
+                errorMessage(e.getMessage());
+            }
             if (errorMessage != null && !errorMessage.isEmpty()) {
-                Util.printMessage(errorMessage);
+                errorMessage(errorMessage);
             } else {
                 actionHasBeenSuccessfullyPerformedMessage();
             }

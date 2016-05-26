@@ -20,18 +20,8 @@ public class MenuItemEmployeeFind extends MenuItemEmployeeList implements MenuIt
     }
 
     @Override
-    protected Employee findOneObject() {
-        return null;
-    }
-
-    @Override
     protected List<Employee> findData() {
         return getRestaurantController().findEmployeeByFirstAndSecondName(firstName, secondName);
-    }
-
-    @Override
-    public void menuAction() {
-        findEmployee();
     }
 
     protected String[] readEmployeeName(boolean checkNotEmpty) {
@@ -46,8 +36,23 @@ public class MenuItemEmployeeFind extends MenuItemEmployeeList implements MenuIt
     }
 
 
-    private void findEmployee() {
+    @Override
+    protected void showInitialList() {
+    }
+
+    @Override
+    protected void readObjectKeyData() {
         readEmployeeName();
+    }
+
+    @Override
+    protected String doActionOnDatabaseObject(Employee employee) {
         tableList();
+
+        return null;
+    }
+
+    @Override
+    protected void actionHasBeenSuccessfullyPerformedMessage() {
     }
 }

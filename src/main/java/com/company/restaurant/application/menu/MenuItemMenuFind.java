@@ -11,7 +11,7 @@ import java.util.List;
 public class MenuItemMenuFind extends MenuItemMenuList implements MenuItem {
     private static final String ENTER_NAME_MESSAGE = "Please, enter menu name";
 
-    protected String menuName;
+    private String menuName;
 
     public MenuItemMenuFind(String itemText) {
         super(itemText);
@@ -29,7 +29,7 @@ public class MenuItemMenuFind extends MenuItemMenuList implements MenuItem {
     }
 
     @Override
-    public void menuAction() {
+    protected void executeAction() {
         findMenuByName();
     }
 

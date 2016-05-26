@@ -9,7 +9,7 @@ public class MenuItemMenuAdd extends MenuItemMenuFind implements MenuItem {
     }
 
     @Override
-    public void menuAction() {
+    protected void executeAction() {
         addMenu();
     }
 

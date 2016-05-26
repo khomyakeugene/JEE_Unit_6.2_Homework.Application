@@ -16,10 +16,8 @@ public class MenuItemOrderDelete extends MenuItemOrderOpenOrderList implements M
     }
 
     @Override
-    protected Order readObjectKeyData() {
+    protected void readObjectKeyData() {
         readOrderId();
-
-        return null;
     }
 
     @Override
@@ -30,10 +28,5 @@ public class MenuItemOrderDelete extends MenuItemOrderOpenOrderList implements M
     @Override
     protected void actionHasBeenSuccessfullyPerformedMessage() {
         super.dataHasBeenSuccessfullyDeletedMessage();
-    }
-
-    @Override
-    public void menuAction() {
-        processObject();
     }
 }

@@ -3,8 +3,6 @@ package com.company.restaurant.application.menu;
 import com.company.restaurant.model.Course;
 import com.company.util.Util;
 
-import java.util.List;
-
 /**
  * Created by Yevhen on 25.05.2016.
  */
@@ -22,19 +20,29 @@ public class MenuItemCourseFind extends MenuItemCourseList implements MenuItem {
         return getRestaurantController().findCourseByName(courseName);
     }
 
-    @Override
-    public void menuAction() {
-        findCourseByName();
-    }
-
     public String readCourseName() {
         courseName = Util.readInputString(ENTER_NAME_MESSAGE).trim();
 
         return courseName;
     }
 
-    private void findCourseByName() {
+    @Override
+    protected void showInitialList() {
+    }
+
+    @Override
+    protected void readObjectKeyData() {
         readCourseName();
+    }
+
+    @Override
+    protected String doActionOnDatabaseObject(Course course) {
         tableList();
+
+        return null;
+    }
+
+    @Override
+    protected void actionHasBeenSuccessfullyPerformedMessage() {
     }
 }

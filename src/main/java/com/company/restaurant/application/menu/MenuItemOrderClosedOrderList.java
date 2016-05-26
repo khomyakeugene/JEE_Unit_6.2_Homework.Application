@@ -23,7 +23,7 @@ public class MenuItemOrderClosedOrderList extends MenuItemOrderList implements M
     }
 
     @Override
-    public void menuAction() {
+    protected void executeAction() {
         closedOrderList();
     }
 

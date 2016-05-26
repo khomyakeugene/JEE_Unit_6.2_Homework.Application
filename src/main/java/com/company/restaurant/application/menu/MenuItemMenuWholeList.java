@@ -23,7 +23,7 @@ public class MenuItemMenuWholeList extends MenuItemMenuList implements MenuItem 
     }
 
     @Override
-    public void menuAction() {
+    protected void executeAction() {
         menuList();
     }
 

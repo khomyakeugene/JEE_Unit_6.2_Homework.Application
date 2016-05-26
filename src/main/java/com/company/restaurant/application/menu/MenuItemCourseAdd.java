@@ -15,7 +15,7 @@ public class MenuItemCourseAdd extends MenuItemCourseFind implements MenuItem {
     }
 
     @Override
-    public void menuAction() {
+    protected void executeAction() {
         addCourse();
     }
 

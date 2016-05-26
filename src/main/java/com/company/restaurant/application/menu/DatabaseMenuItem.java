@@ -17,7 +17,16 @@ public abstract class DatabaseMenuItem<T> extends DatabaseFunctionality<T> imple
         return itemText;
     }
 
-    protected void errorMessage(String message) {
-        Util.printMessage(message);
+    protected void executeAction() {
+        processObject();
+    }
+
+    @Override
+    public final void menuAction() {
+        try {
+            executeAction();
+        } catch (Exception e) {
+            errorMessage(e.getMessage());
+        }
     }
 }

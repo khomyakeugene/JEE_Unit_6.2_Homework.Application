@@ -12,7 +12,7 @@ public class MenuItemMenuAddCourseToMenu extends MenuItemMenuFind implements Men
     }
 
     @Override
-    public void menuAction() {
+    protected void executeAction() {
         addCourseToMenu();
     }
 

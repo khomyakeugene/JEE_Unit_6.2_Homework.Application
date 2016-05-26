@@ -18,10 +18,8 @@ public class MenuItemCourseDelete extends MenuItemCourseFind implements MenuItem
     }
 
     @Override
-    protected Course readObjectKeyData() {
-        readCourseName();
-
-        return null;
+    protected void showInitialList() {
+        tableList();
     }
 
     @Override
@@ -32,10 +30,5 @@ public class MenuItemCourseDelete extends MenuItemCourseFind implements MenuItem
     @Override
     protected void actionHasBeenSuccessfullyPerformedMessage() {
         super.dataHasBeenSuccessfullyDeletedMessage();
-    }
-
-    @Override
-    public void menuAction() {
-        processObject();
     }
 }

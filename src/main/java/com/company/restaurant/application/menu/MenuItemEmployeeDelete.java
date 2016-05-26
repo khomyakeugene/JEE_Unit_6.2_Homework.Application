@@ -14,7 +14,7 @@ public class MenuItemEmployeeDelete extends MenuItemEmployeeFind implements Menu
     }
 
     @Override
-    public void menuAction() {
+    protected void executeAction() {
         deleteEmployee();
     }
 

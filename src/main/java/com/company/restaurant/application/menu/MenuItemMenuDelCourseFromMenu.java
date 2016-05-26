@@ -15,7 +15,7 @@ public class MenuItemMenuDelCourseFromMenu extends MenuItemMenuFind implements M
     }
 
     @Override
-    public void menuAction() {
+    protected void executeAction() {
         delCourseFromMenu();
     }
 

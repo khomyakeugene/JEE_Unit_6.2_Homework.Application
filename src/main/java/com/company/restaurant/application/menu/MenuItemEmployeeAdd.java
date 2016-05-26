@@ -15,7 +15,7 @@ public class MenuItemEmployeeAdd extends MenuItemEmployeeFind implements MenuIte
     }
 
     @Override
-    public void menuAction() {
+    protected void executeAction() {
         addEmployee();
     }
 

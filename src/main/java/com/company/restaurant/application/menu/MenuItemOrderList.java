@@ -5,6 +5,7 @@ import com.company.util.Util;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Yevhen on 25.05.2016.
@@ -59,5 +60,10 @@ public abstract class MenuItemOrderList extends DatabaseMenuItem<Order> implemen
         arrayList.add(Integer.toString(order.getTableNumber()));
 
         return arrayList.toArray(new String[arrayList.size()]);
+    }
+
+    @Override
+    protected Order findOneObject() {
+        return findFirstObject();
     }
 }

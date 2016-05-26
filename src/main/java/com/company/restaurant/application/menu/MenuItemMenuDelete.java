@@ -18,10 +18,8 @@ public class MenuItemMenuDelete extends MenuItemMenuFind implements MenuItem {
     }
 
     @Override
-    protected Menu readObjectKeyData() {
+    protected void readObjectKeyData() {
         readMenuName();
-
-        return null;
     }
 
     @Override
@@ -32,10 +30,5 @@ public class MenuItemMenuDelete extends MenuItemMenuFind implements MenuItem {
     @Override
     protected void actionHasBeenSuccessfullyPerformedMessage() {
         super.dataHasBeenSuccessfullyDeletedMessage();
-    }
-
-    @Override
-    public void menuAction() {
-        processObject();
     }
 }

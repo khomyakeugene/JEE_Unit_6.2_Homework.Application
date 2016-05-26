@@ -13,13 +13,13 @@ public class MenuItemOrderAdd extends MenuItemOrderList implements MenuItem {
     }
 
     @Override
-    protected Order findOneObject() {
-        return null;
+    protected void executeAction() {
+        addOrder();
     }
 
     @Override
-    public void menuAction() {
-        addOrder();
+    protected Order findOneObject() {
+        return null;
     }
 
     private void addOrder() {

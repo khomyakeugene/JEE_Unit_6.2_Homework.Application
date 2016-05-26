@@ -41,4 +41,9 @@ public abstract class MenuItemEmployeeList extends DatabaseMenuItem<Employee> im
 
         return arrayList.toArray(new String[arrayList.size()]);
     }
+
+    @Override
+    protected Employee findOneObject() {
+        return findFirstObject();
+    }
 }
