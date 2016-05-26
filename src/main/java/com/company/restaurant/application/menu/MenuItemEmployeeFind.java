@@ -37,7 +37,8 @@ public class MenuItemEmployeeFind extends MenuItemEmployeeList implements MenuIt
 
 
     @Override
-    protected void showInitialList() {
+    protected List<Employee> showInitialList() {
+        return null;
     }
 
     @Override

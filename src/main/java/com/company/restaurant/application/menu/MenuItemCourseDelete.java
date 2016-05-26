@@ -18,8 +18,13 @@ public class MenuItemCourseDelete extends MenuItemCourseFind implements MenuItem
     }
 
     @Override
-    protected void showInitialList() {
-        tableList();
+    protected List<Course> showInitialList() {
+        return tableList();
+    }
+
+    @Override
+    protected boolean initialListCanBeEmpty() {
+        return false;
     }
 
     @Override

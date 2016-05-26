@@ -3,6 +3,8 @@ package com.company.restaurant.application.menu;
 import com.company.restaurant.model.Course;
 import com.company.util.Util;
 
+import java.util.List;
+
 /**
  * Created by Yevhen on 25.05.2016.
  */
@@ -27,7 +29,8 @@ public class MenuItemCourseFind extends MenuItemCourseList implements MenuItem {
     }
 
     @Override
-    protected void showInitialList() {
+    protected List<Course> showInitialList() {
+        return null;
     }
 
     @Override

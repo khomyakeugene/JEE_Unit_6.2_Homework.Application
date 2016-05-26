@@ -115,8 +115,12 @@ public abstract class DatabaseFunctionality<T> {
         return result;
     }
 
-    protected void showInitialList() {
-        tableList();
+    protected List<T> showInitialList() {
+        return tableList();
+    }
+
+    protected boolean initialListCanBeEmpty() {
+        return true;
     }
 
     protected void readObjectKeyData() {
@@ -128,23 +132,25 @@ public abstract class DatabaseFunctionality<T> {
     }
 
     protected void processObject() {
-        showInitialList();
-        readObjectKeyData();
-        T object = findOneObject();
+        List<T> list = showInitialList();
+        if (initialListCanBeEmpty() || (list != null && list.size() > 0)) {
+            readObjectKeyData();
+            T object = findOneObject();
 
-        if (object == null) {
-            dataHasNotBeenFoundMessage();
-        } else {
-            String errorMessage = null;
-            try {
-                errorMessage = doActionOnDatabaseObject(object);
-            } catch (Exception e) {
-                errorMessage(e.getMessage());
-            }
-            if (errorMessage != null && !errorMessage.isEmpty()) {
-                errorMessage(errorMessage);
+            if (object == null) {
+                dataHasNotBeenFoundMessage();
             } else {
-                actionHasBeenSuccessfullyPerformedMessage();
+                String errorMessage = null;
+                try {
+                    errorMessage = doActionOnDatabaseObject(object);
+                } catch (Exception e) {
+                    errorMessage(e.getMessage());
+                }
+                if (errorMessage != null && !errorMessage.isEmpty()) {
+                    errorMessage(errorMessage);
+                } else {
+                    actionHasBeenSuccessfullyPerformedMessage();
+                }
             }
         }
     }
