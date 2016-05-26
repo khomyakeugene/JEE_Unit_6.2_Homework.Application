@@ -43,7 +43,6 @@ public class MenuItemEmployeeDelete extends MenuItemEmployeeFind implements Menu
                 if (someDataWasSuccessfullyDeleted) {
                     dataHasBeenSuccessfullyDeletedMessage();
                 }
-
             }
         }
     }
