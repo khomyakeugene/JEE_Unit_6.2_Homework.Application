@@ -26,7 +26,7 @@ public class MenuItemEmployeeDelete extends MenuItemEmployeeFind implements Menu
         List<Employee> data = findData();
 
         if (data == null || data.size() == 0) {
-            dataHasNotBeenFoundMessage();
+            oneObjectHasNotBeenFoundMessage();
         } else {
             if (!employeeName[0].isEmpty() || !employeeName[1].isEmpty()) {
                 boolean wasErrorDetected;

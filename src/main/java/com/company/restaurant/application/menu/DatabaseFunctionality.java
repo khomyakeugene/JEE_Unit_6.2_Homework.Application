@@ -2,7 +2,6 @@ package com.company.restaurant.application.menu;
 
 import com.company.restaurant.application.RestaurantConsoleApplication;
 import com.company.restaurant.controllers.RestaurantController;
-import com.company.restaurant.model.Order;
 import com.company.util.AlignmentType;
 import com.company.util.TableBuilder;
 import com.company.util.Util;
@@ -24,7 +23,11 @@ public abstract class DatabaseFunctionality<T> {
         return RestaurantConsoleApplication.getRestaurantController();
     }
 
-    protected void dataHasNotBeenFoundMessage() {
+    protected void listDataHasNotBeenFoundMessage() {
+        Util.printMessage(DATA_HAS_NOT_BEEN_FOUND_MESSAGE);
+    }
+
+    protected void oneObjectHasNotBeenFoundMessage() {
         Util.printMessage(DATA_HAS_NOT_BEEN_FOUND_MESSAGE);
     }
 
@@ -75,7 +78,7 @@ public abstract class DatabaseFunctionality<T> {
         List<T> data = findData();
 
         if (data == null || data.size() == 0) {
-            dataHasNotBeenFoundMessage();
+            listDataHasNotBeenFoundMessage();
         } else {
             ArrayList<String[]> arrayList = new ArrayList<>();
 
@@ -90,12 +93,12 @@ public abstract class DatabaseFunctionality<T> {
     }
 
     protected T checkOneObjectExistence() {
-        T objject = findOneObject();
-        if (objject == null) {
-            dataHasNotBeenFoundMessage();
+        T object = findOneObject();
+        if (object == null) {
+            oneObjectHasNotBeenFoundMessage();
         }
 
-        return objject;
+        return object;
     }
 
     public int readId(String enterIdentifierMessage) {
@@ -138,7 +141,7 @@ public abstract class DatabaseFunctionality<T> {
             T object = findOneObject();
 
             if (object == null) {
-                dataHasNotBeenFoundMessage();
+                oneObjectHasNotBeenFoundMessage();
             } else {
                 String errorMessage = null;
                 try {
