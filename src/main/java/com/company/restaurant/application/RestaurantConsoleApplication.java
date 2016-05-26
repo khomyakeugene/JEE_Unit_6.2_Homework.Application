@@ -191,7 +191,7 @@ public class RestaurantConsoleApplication {
     private static final HashMap<Integer, MenuItem> orderMenuMap = new HashMap<Integer, MenuItem>(){
         {
             put(ORDER_MENU_ITEM_CODE_ADD, new MenuItemOrderAdd(ORDER_MENU_ITEM_TEXT_ADD));
-            put(ORDER_MENU_ITEM_CODE_DELETE, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_DELETE));
+            put(ORDER_MENU_ITEM_CODE_DELETE, new MenuItemOrderDelete(ORDER_MENU_ITEM_TEXT_DELETE));
             put(ORDER_MENU_ITEM_CODE_ADD_COURSE, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_ADD_COURSE));
             put(ORDER_MENU_ITEM_CODE_DEL_COURSE, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_DEL_COURSE));
             put(ORDER_MENU_ITEM_CODE_CLOSE_ORDER, new MenuItemEmptyAction(ORDER_MENU_ITEM_TEXT_CLOSE_ORDER));

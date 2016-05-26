@@ -2,6 +2,7 @@ package com.company.restaurant.application.menu;
 
 import com.company.restaurant.application.RestaurantConsoleApplication;
 import com.company.restaurant.controllers.RestaurantController;
+import com.company.restaurant.model.Order;
 import com.company.util.AlignmentType;
 import com.company.util.TableBuilder;
 import com.company.util.Util;
@@ -99,5 +100,28 @@ public abstract class DatabaseFunctionality<T>  {
         return result;
     }
 
+    protected T readDeletingItemKeyData() {
+        return null;
+    }
 
+    protected String deleteObjectFromDatabase(T object) {
+        return null;
+    }
+
+    protected void deleteObject() {
+        tableList();
+        readDeletingItemKeyData();
+
+        T object = findOneObject();
+        if (object == null) {
+            dataHasNotBeenFoundMessage();
+        } else {
+            String errorMessage = deleteObjectFromDatabase(object);
+            if (errorMessage != null && !errorMessage.isEmpty()) {
+                Util.printMessage(errorMessage);
+            } else {
+                dataHasBeenSuccessfullyDeletedMessage();
+            }
+        }
+    }
 }

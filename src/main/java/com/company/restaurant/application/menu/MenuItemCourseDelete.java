@@ -1,6 +1,7 @@
 package com.company.restaurant.application.menu;
 
 import com.company.restaurant.model.Course;
+import com.company.restaurant.model.Menu;
 import com.company.util.Util;
 
 import java.util.List;
@@ -19,26 +20,19 @@ public class MenuItemCourseDelete extends MenuItemCourseFind implements MenuItem
     }
 
     @Override
-    public void menuAction() {
-        deleteCourse();
+    protected Course readDeletingItemKeyData() {
+        readCourseName();
+
+        return null;
     }
 
-    private void deleteCourse() {
-        // Show all data
-        tableList();
+    @Override
+    protected String deleteObjectFromDatabase(Course course) {
+        return getRestaurantController().delCourse(course);
+    }
 
-        if (!readCourseName().isEmpty()) {
-            Course course = findOneObject();
-            if (course == null) {
-                dataHasNotBeenFoundMessage();
-            } else {
-                String errorMessage = getRestaurantController().delCourse(course);
-                if (errorMessage != null && !errorMessage.isEmpty()) {
-                    Util.printMessage(errorMessage);
-                } else {
-                    dataHasBeenSuccessfullyDeletedMessage();
-                }
-            }
-        }
+    @Override
+    public void menuAction() {
+        deleteObject();
     }
 }
