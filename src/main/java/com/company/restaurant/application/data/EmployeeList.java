@@ -1,5 +1,6 @@
-package com.company.restaurant.application.menu;
+package com.company.restaurant.application.data;
 
+import com.company.restaurant.application.menu.DatabaseService;
 import com.company.restaurant.model.Employee;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 26.05.2016.
  */
-public class EmployeeList extends DatabaseFunctionality<Employee> {
+public class EmployeeList extends DatabaseService<Employee> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter employee identifier";
 
     private static final String[] listHeader = new String[] {

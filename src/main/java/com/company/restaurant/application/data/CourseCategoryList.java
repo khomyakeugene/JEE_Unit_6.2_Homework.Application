@@ -1,8 +1,7 @@
-package com.company.restaurant.application.menu;
+package com.company.restaurant.application.data;
 
 import com.company.restaurant.model.CourseCategory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

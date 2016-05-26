@@ -1,7 +1,6 @@
-package com.company.restaurant.application.menu;
+package com.company.restaurant.application.data;
 
 import com.company.restaurant.model.Table;
-import javafx.scene.control.Tab;
 
 import java.util.ArrayList;
 import java.util.List;

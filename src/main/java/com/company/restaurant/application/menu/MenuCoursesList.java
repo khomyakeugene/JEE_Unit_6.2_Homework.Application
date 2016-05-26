@@ -11,7 +11,7 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class MenuCoursesList extends DatabaseFunctionality<MenuCourseList> {
+public class MenuCoursesList extends DatabaseService<MenuCourseList> {
     private static final String[] courseListHeader = new String[] {
             "Course Id",
             "Course name",

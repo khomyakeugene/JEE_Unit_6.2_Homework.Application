@@ -1,7 +1,7 @@
-package com.company.restaurant.application.menu;
+package com.company.restaurant.application.data;
 
+import com.company.restaurant.application.menu.DatabaseService;
 import com.company.restaurant.model.Course;
-import com.company.restaurant.model.Table;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 26.05.2016.
  */
-public class CourseList extends DatabaseFunctionality<Course> {
+public class CourseList extends DatabaseService<Course> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter course id";
 
     private static final String[] listHeader = new String[] {

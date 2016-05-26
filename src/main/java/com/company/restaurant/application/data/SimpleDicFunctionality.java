@@ -1,7 +1,7 @@
-package com.company.restaurant.application.menu;
+package com.company.restaurant.application.data;
 
+import com.company.restaurant.application.menu.DatabaseService;
 import com.company.restaurant.model.SimpleDic;
-import com.company.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import static com.company.util.Util.readInputString;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class SimpleDicFunctionality<T extends SimpleDic> extends DatabaseFunctionality<T> {
+public abstract class SimpleDicFunctionality<T extends SimpleDic> extends DatabaseService<T> {
     private static final String[] listHeader = new String[] {
             "Id",
             "Name"

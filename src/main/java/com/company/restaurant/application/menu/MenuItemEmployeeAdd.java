@@ -1,5 +1,6 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.data.JobPositionList;
 import com.company.restaurant.model.Employee;
 import com.company.util.Util;
 

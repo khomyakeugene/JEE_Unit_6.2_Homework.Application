@@ -1,11 +1,9 @@
 package com.company.restaurant.application.menu;
 
-import com.company.util.Util;
-
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class DatabaseMenuItem<T> extends DatabaseFunctionality<T> implements MenuItem {
+public abstract class DatabaseMenuItem<T> extends DatabaseService<T> implements MenuItem {
     private String itemText;
 
     public DatabaseMenuItem(String itemText) {

@@ -1,7 +1,7 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.model.Course;
-import com.company.restaurant.model.Menu;
+import com.company.restaurant.application.data.EmployeeList;
+import com.company.restaurant.application.data.TableList;
 import com.company.restaurant.model.Order;
 
 /**

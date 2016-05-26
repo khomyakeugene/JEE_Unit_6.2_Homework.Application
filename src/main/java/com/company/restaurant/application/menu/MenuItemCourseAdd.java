@@ -1,5 +1,6 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.data.CourseCategoryList;
 import com.company.restaurant.model.Course;
 import com.company.util.Util;
 

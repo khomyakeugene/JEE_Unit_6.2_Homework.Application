@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class DatabaseFunctionality<T> {
+public abstract class DatabaseService<T> {
     private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_ADDED = "Data has been successfully added";
@@ -101,7 +101,7 @@ public abstract class DatabaseFunctionality<T> {
         return object;
     }
 
-    public int readId(String enterIdentifierMessage) {
+    protected int readId(String enterIdentifierMessage) {
         int result;
 
         boolean needToRepeat;
