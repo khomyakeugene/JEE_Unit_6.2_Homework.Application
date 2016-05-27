@@ -1,4 +1,4 @@
-package com.company.restaurant.application.menu;
+package com.company.restaurant.application.data;
 
 import com.company.restaurant.application.RestaurantConsoleApplication;
 import com.company.restaurant.controllers.RestaurantController;
@@ -92,7 +92,7 @@ public abstract class DatabaseService<T> {
         return data;
     }
 
-    protected T checkOneObjectExistence() {
+    public T checkOneObjectExistence() {
         T object = findOneObject();
         if (object == null) {
             oneObjectHasNotBeenFoundMessage();

@@ -1,5 +1,7 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.data.DatabaseService;
+
 /**
  * Created by Yevhen on 25.05.2016.
  */

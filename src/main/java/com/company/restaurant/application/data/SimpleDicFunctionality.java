@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data;
 
-import com.company.restaurant.application.menu.DatabaseService;
 import com.company.restaurant.model.SimpleDic;
 
 import java.util.ArrayList;
