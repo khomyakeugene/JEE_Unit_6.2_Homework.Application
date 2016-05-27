@@ -31,7 +31,7 @@ public class TableBuilder {
         char[] charLine = new char[lineLength];
         charLine[0] = CORNER_CHARACTER;
         for (int i = 0, j = 1; i < columnWidth.length; i++) {
-            for (int k = -(columnFieldLength<<1); k < columnWidth[i]; k++) {
+            for (int k = -(columnFieldLength << 1); k < columnWidth[i]; k++) {
                 charLine[j++] = ROW_CHARACTER;
             }
             charLine[j++] = CORNER_CHARACTER;
@@ -41,7 +41,7 @@ public class TableBuilder {
     }
 
     public static String[] buildTable(String[][] tableData, AlignmentType alignmentType, boolean useRowDelimiter) {
-        String[] result = new String[useRowDelimiter ? ((tableData.length<<1) + 1) : tableData.length + 3];
+        String[] result = new String[useRowDelimiter ? ((tableData.length << 1) + 1) : tableData.length + 3];
 
         // Calc column width supposing that all the lines have the same length
         int[] columnWidth = getColumnWidth(tableData);

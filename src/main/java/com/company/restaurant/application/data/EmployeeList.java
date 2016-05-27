@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 26.05.2016.
  */
-public class EmployeeList extends DatabaseService<Employee> {
+public class EmployeeList extends ExtendedDatabaseService<Employee> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter employee identifier";
 
     private static final String[] listHeader = new String[] {

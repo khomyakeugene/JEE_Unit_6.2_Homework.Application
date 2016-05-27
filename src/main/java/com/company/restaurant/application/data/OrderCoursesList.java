@@ -11,7 +11,7 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 /**
  * Created by Yevhen on 26.05.2016.
  */
-public class OrderCoursesList extends DatabaseService<OrderCourse> {
+public class OrderCoursesList extends ExtendedDatabaseService<OrderCourse> {
     private static final String[] courseListHeader = new String[] {
             "Course Id",
             "Course name",

@@ -1,6 +1,6 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.data.DatabaseService;
+import com.company.restaurant.application.data.ExtendedDatabaseService;
 import com.company.restaurant.model.Menu;
 import com.company.restaurant.model.MenuCourseList;
 
@@ -12,7 +12,7 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class MenuCoursesList extends DatabaseService<MenuCourseList> {
+public class MenuCoursesList extends ExtendedDatabaseService<MenuCourseList> {
     private static final String[] courseListHeader = new String[] {
             "Course Id",
             "Course name",

@@ -1,11 +1,11 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.data.DatabaseService;
+import com.company.restaurant.application.data.ExtendedDatabaseService;
 
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class DatabaseMenuItem<T> extends DatabaseService<T> implements MenuItem {
+public abstract class DatabaseMenuItem<T> extends ExtendedDatabaseService<T> implements MenuItem {
     private String itemText;
 
     public DatabaseMenuItem(String itemText) {

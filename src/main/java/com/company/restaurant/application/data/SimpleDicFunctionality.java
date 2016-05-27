@@ -10,7 +10,7 @@ import static com.company.util.Util.readInputString;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class SimpleDicFunctionality<T extends SimpleDic> extends DatabaseService<T> {
+public abstract class SimpleDicFunctionality<T extends SimpleDic> extends ExtendedDatabaseService<T> {
     private static final String[] listHeader = new String[] {
             "Id",
             "Name"
