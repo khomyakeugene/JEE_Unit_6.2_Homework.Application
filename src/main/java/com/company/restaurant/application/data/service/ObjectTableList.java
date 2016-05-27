@@ -1,5 +1,6 @@
-package com.company.restaurant.application.data;
+package com.company.restaurant.application.data.service;
 
+import com.company.restaurant.application.data.service.DatabaseService;
 import com.company.util.AlignmentType;
 import com.company.util.TableBuilder;
 import com.company.util.Util;

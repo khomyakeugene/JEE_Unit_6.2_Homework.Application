@@ -1,7 +1,8 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.data.CourseCategoryList;
+import com.company.restaurant.application.data.CourseCategoryChooser;
 import com.company.restaurant.model.Course;
+import com.company.restaurant.model.CourseCategory;
 import com.company.util.Util;
 
 /**
@@ -23,21 +24,19 @@ public class MenuItemCourseAdd extends MenuItemCourseFind implements MenuItem {
     private void addCourse() {
         String courseName = readCourseName();
         if (courseName != null && !courseName.isEmpty()) {
-            int courseCategoryId = new CourseCategoryList().readId();
-            Float weight = Util.readInputFloat(ENTER_WEIGHT_MESSAGE, true);
-            Float cost = Util.readInputFloat(ENTER_COST_MESSAGE, false);
+            CourseCategory courseCategory = new CourseCategoryChooser().chooseObjectFromList();
+            if (courseCategory != null) {
+                Float weight = Util.readInputFloat(ENTER_WEIGHT_MESSAGE, true);
+                Float cost = Util.readInputFloat(ENTER_COST_MESSAGE, false);
 
-            Course course = new Course();
-            course.setName(courseName);
-            course.setCategoryId(courseCategoryId);
-            course.setWeight(weight);
-            course.setCost(cost);
+                Course course = new Course();
+                course.setName(courseName);
+                course.setCategoryId(courseCategory.getId());
+                course.setWeight(weight);
+                course.setCost(cost);
 
-            try {
                 getRestaurantController().addCourse(course);
                 dataHasBeenSuccessfullyAddedMessage();
-            } catch (Exception e) {
-                errorMessage(e.getMessage());
             }
         }
     }

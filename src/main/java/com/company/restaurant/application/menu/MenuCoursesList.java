@@ -1,6 +1,6 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.data.ExtendedDatabaseService;
+import com.company.restaurant.application.data.service.ExtendedDatabaseService;
 import com.company.restaurant.model.Menu;
 import com.company.restaurant.model.MenuCourseList;
 

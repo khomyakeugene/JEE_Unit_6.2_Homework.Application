@@ -1,6 +1,6 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.data.ExtendedDatabaseService;
+import com.company.restaurant.application.data.service.ExtendedDatabaseService;
 
 /**
  * Created by Yevhen on 25.05.2016.

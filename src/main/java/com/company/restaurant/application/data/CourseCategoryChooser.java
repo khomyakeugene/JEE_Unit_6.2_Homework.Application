@@ -1,7 +1,7 @@
 package com.company.restaurant.application.data;
 
 import com.company.restaurant.application.data.service.ObjectChooser;
-import com.company.restaurant.model.JobPosition;
+import com.company.restaurant.model.CourseCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,16 +9,16 @@ import java.util.List;
 /**
  * Created by Yevhen on 27.05.2016.
  */
-public class JobPositionChooser extends ObjectChooser<JobPosition, Integer> {
-    private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter job position identifier";
+public class CourseCategoryChooser extends ObjectChooser<CourseCategory, Integer> {
+    private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter course category identifier";
     private static final String[] listHeader = new String[] {
-            "Job position id",
-            "Job position name"
+            "Course Id",
+            "Course name"
     };
 
     @Override
-    protected JobPosition findObject(Integer jobPositionId) {
-        return getRestaurantController().findJobPositionById(jobPositionId);
+    protected CourseCategory findObject(Integer courseCategoryId) {
+        return getRestaurantController().findCourseCategoryById(courseCategoryId);
     }
 
     @Override
@@ -27,8 +27,8 @@ public class JobPositionChooser extends ObjectChooser<JobPosition, Integer> {
     }
 
     @Override
-    protected List<JobPosition> prepareObjectList() {
-        return getRestaurantController().findAllJobPositions();
+    protected List<CourseCategory> prepareObjectList() {
+        return getRestaurantController().findAllCourseCategories();
     }
 
     @Override
@@ -37,11 +37,11 @@ public class JobPositionChooser extends ObjectChooser<JobPosition, Integer> {
     }
 
     @Override
-    protected String[] dataSetRowDataToStringArray(JobPosition jobPosition) {
+    protected String[] dataSetRowDataToStringArray(CourseCategory courseCategory) {
         ArrayList<String> arrayList = new ArrayList<>();
 
-        arrayList.add(Integer.toString(jobPosition.getId()));
-        arrayList.add(jobPosition.getName());
+        arrayList.add(Integer.toString(courseCategory.getId()));
+        arrayList.add(courseCategory.getName());
 
         return arrayList.toArray(new String[arrayList.size()]);
     }
