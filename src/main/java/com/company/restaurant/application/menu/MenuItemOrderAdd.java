@@ -1,8 +1,10 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.data.EmployeeList;
-import com.company.restaurant.application.data.TableList;
+import com.company.restaurant.application.data.EmployeeChooser;
+import com.company.restaurant.application.data.TableChooser;
+import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.Order;
+import com.company.restaurant.model.Table;
 
 /**
  * Created by Yevhen on 26.05.2016.
@@ -25,19 +27,18 @@ public class MenuItemOrderAdd extends MenuItemOrderList implements MenuItem {
     private void addOrder() {
         String orderNumber = readOrderNumber();
         if (orderNumber != null && !orderNumber.isEmpty()) {
-            int employeeId = new EmployeeList().readId();
-            int tableId = new TableList().readId();
+            Employee employee = new EmployeeChooser().chooseObjectFromList();
+            if (employee != null) {
+                Table table = new TableChooser().chooseObjectFromList();
+                if (table != null) {
+                    Order order = new Order();
+                    order.setOrderNumber(orderNumber);
+                    order.setEmployeeId(employee.getEmployeeId());
+                    order.setTableId(table.getTableId());
 
-            Order order = new Order();
-            order.setOrderNumber(orderNumber);
-            order.setEmployeeId(employeeId);
-            order.setTableId(tableId);
-
-            try {
-                getRestaurantController().addOrder(order);
-                dataHasBeenSuccessfullyAddedMessage();
-            } catch (Exception e) {
-                errorMessage(e.getMessage());
+                    getRestaurantController().addOrder(order);
+                    actionHasBeenSuccessfullyPerformedMessage();
+                }
             }
         }
     }

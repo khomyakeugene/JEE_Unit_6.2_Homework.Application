@@ -43,4 +43,9 @@ public class TableChooser extends ObjectChooser<Table, Integer> {
     protected Table findObject(Integer tableNumber) {
         return getRestaurantController().findTableByNumber(tableNumber);
     }
+
+    @Override
+    protected Integer readObjectKeyFieldValue() {
+        return readIntegerKeyFieldValue();
+    }
 }

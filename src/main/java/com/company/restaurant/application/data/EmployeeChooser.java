@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Yevhen on 26.05.2016.
+ * Created by Yevhen on 27.05.2016.
  */
-public class EmployeeList extends ExtendedDatabaseService<Employee> {
+public class EmployeeChooser extends ObjectChooser<Employee, Integer> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter employee identifier";
 
     private static final String[] listHeader = new String[] {
@@ -17,18 +17,23 @@ public class EmployeeList extends ExtendedDatabaseService<Employee> {
     };
 
     @Override
+    protected Employee findObject(Integer employeeId) {
+        return getRestaurantController().findEmployeeById(employeeId);
+    }
+
+    @Override
+    protected Integer readObjectKeyFieldValue() {
+        return readIntegerKeyFieldValue();
+    }
+
+    @Override
+    protected List<Employee> prepareObjectList() {
+        return getRestaurantController().findAllEmployees();
+    }
+
+    @Override
     protected String[] getListHeader() {
         return listHeader;
-    }
-
-    @Override
-    protected Employee findOneObject() {
-        return null;
-    }
-
-    @Override
-    protected List<Employee> findData() {
-        return getRestaurantController().findAllEmployees();
     }
 
     @Override
@@ -42,12 +47,7 @@ public class EmployeeList extends ExtendedDatabaseService<Employee> {
     }
 
     @Override
-    protected boolean validateId(Integer Id) {
-        return (getRestaurantController().findEmployeeById(Id) != null);
+    protected String getEnterIdentifierMessage() {
+        return ENTER_IDENTIFIER_MESSAGE;
     }
-
-    public int readId() {
-        return super.readId(ENTER_IDENTIFIER_MESSAGE);
-    }
-
 }

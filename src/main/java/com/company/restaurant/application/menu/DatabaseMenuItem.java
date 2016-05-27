@@ -26,7 +26,7 @@ public abstract class DatabaseMenuItem<T> extends ExtendedDatabaseService<T> imp
         try {
             executeAction();
         } catch (Exception e) {
-            errorMessage(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
