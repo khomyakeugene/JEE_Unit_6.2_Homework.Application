@@ -1,7 +1,8 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.data.JobPositionList;
+import com.company.restaurant.application.data.JobPositionChooser;
 import com.company.restaurant.model.Employee;
+import com.company.restaurant.model.JobPosition;
 import com.company.util.Util;
 
 /**
@@ -22,23 +23,23 @@ public class MenuItemEmployeeAdd extends MenuItemEmployeeFind implements MenuIte
 
     private void addEmployee() {
         String[] employeeName = readEmployeeName(true);
+        String firstName = employeeName[0];
+        String secondName = employeeName[1];
+        if (firstName != null && !firstName.isEmpty() && secondName != null && !secondName.isEmpty()) {
+            JobPosition jobPosition = new JobPositionChooser().chooseObjectFromList();
+            if (jobPosition != null) {
+                String phoneNumber = Util.readInputString(ENTER_PHONE_NUMBER_MESSAGE);
+                Float salary = Util.readInputFloat(ENTER_SALARY_MESSAGE, false);
+                Employee employee = new Employee();
+                employee.setFirstName(firstName);
+                employee.setSecondName(secondName);
+                employee.setJobPositionId(jobPosition.getId());
+                employee.setPhoneNumber(phoneNumber);
+                employee.setSalary(salary);
 
-        int jobPositionId = new JobPositionList().readId();
-        String phoneNumber = Util.readInputString(ENTER_PHONE_NUMBER_MESSAGE);
-        Float salary = Util.readInputFloat(ENTER_SALARY_MESSAGE, false);
-
-        Employee employee = new Employee();
-        employee.setFirstName(employeeName[0]);
-        employee.setSecondName(employeeName[1]);
-        employee.setJobPositionId(jobPositionId);
-        employee.setPhoneNumber(phoneNumber);
-        employee.setSalary(salary);
-
-        try {
-            getRestaurantController().addEmployee(employee);
-            dataHasBeenSuccessfullyAddedMessage();
-        } catch (Exception e) {
-            errorMessage(e.getMessage());
+                getRestaurantController().addEmployee(employee);
+                dataHasBeenSuccessfullyAddedMessage();
+            }
         }
     }
 }

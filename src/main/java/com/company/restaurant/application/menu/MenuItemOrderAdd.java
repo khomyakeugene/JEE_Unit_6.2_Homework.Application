@@ -37,7 +37,7 @@ public class MenuItemOrderAdd extends MenuItemOrderList implements MenuItem {
                     order.setTableId(table.getTableId());
 
                     getRestaurantController().addOrder(order);
-                    actionHasBeenSuccessfullyPerformedMessage();
+                    dataHasBeenSuccessfullyAddedMessage();
                 }
             }
         }

@@ -67,7 +67,6 @@ public class Util {
 
         try {
             result = Integer.parseInt(data);
-
         } catch (NullPointerException | NumberFormatException e) {
             result = null;
         }
@@ -80,7 +79,6 @@ public class Util {
 
         try {
             result = Double.parseDouble(data);
-
         } catch (NullPointerException | NumberFormatException e) {
             result = null;
         }
@@ -93,7 +91,6 @@ public class Util {
 
         try {
             result = Float.parseFloat(data);
-
         } catch (NullPointerException | NumberFormatException e) {
             result = null;
         }
@@ -104,12 +101,14 @@ public class Util {
     public static Integer readInputInt(String enterMessageInvitation, boolean checkNotEmpty) {
         Integer result = null;
 
+        boolean needRepeat = checkNotEmpty;
         do {
             String stringData = readInputString(enterMessageInvitation, checkNotEmpty);
             if (stringData != null && !stringData.isEmpty()) {
                 result = parseInt(stringData);
+                needRepeat = (result == null);
             }
-        } while (checkNotEmpty && result == null);
+        } while (needRepeat);
 
         return result;
     }
@@ -117,12 +116,14 @@ public class Util {
     public static Double readInputDouble(String enterMessageInvitation, boolean checkNotEmpty) {
         Double result = null;
 
+        boolean needRepeat = checkNotEmpty;
         do {
             String stringData = readInputString(enterMessageInvitation, checkNotEmpty);
             if (stringData != null && !stringData.isEmpty()) {
                 result = parseDouble(stringData);
+                needRepeat = (result == null);
             }
-        } while (checkNotEmpty && result == null);
+        } while (needRepeat);
 
         return result;
     }
@@ -130,12 +131,14 @@ public class Util {
     public static Float readInputFloat(String enterMessageInvitation, boolean checkNotEmpty) {
         Float result = null;
 
+        boolean needRepeat = checkNotEmpty;
         do {
             String stringData = readInputString(enterMessageInvitation, checkNotEmpty);
             if (stringData != null && !stringData.isEmpty()) {
                 result = parseFloat(stringData);
+                needRepeat = (result == null);
             }
-        } while (checkNotEmpty && result == null);
+        } while (needRepeat);
 
         return result;
     }
