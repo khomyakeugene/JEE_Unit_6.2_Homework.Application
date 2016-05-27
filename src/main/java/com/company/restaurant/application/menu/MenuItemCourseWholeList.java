@@ -1,33 +1,17 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.model.Course;
-
-import java.util.List;
+import com.company.restaurant.application.data.list.CourseTableList;
 
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class MenuItemCourseWholeList extends MenuItemCourseList implements MenuItem {
+public class MenuItemCourseWholeList extends DatabaseMenuItem implements MenuItem {
     public MenuItemCourseWholeList(String itemText) {
         super(itemText);
     }
 
     @Override
-    protected Course findOneObject() {
-        return null;
-    }
-
-    @Override
-    protected List<Course> findData() {
-        return getRestaurantController().findAllCourses();
-    }
-
-    @Override
-    protected void executeAction() {
-        courseList();
-    }
-
-    private void courseList() {
-        tableList();
+    protected void performAction() {
+        new CourseTableList().displayObjectList();
     }
 }

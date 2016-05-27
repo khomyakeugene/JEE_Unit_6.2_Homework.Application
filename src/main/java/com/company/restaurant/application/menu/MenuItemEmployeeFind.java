@@ -54,6 +54,6 @@ public class MenuItemEmployeeFind extends MenuItemEmployeeList implements MenuIt
     }
 
     @Override
-    protected void actionHasBeenSuccessfullyPerformedMessage() {
+    public void actionHasBeenSuccessfullyPerformedMessage() {
     }
 }

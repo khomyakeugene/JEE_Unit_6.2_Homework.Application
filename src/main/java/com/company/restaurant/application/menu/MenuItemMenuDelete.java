@@ -28,7 +28,7 @@ public class MenuItemMenuDelete extends MenuItemMenuFind implements MenuItem {
     }
 
     @Override
-    protected void actionHasBeenSuccessfullyPerformedMessage() {
+    public void actionHasBeenSuccessfullyPerformedMessage() {
         super.dataHasBeenSuccessfullyDeletedMessage();
     }
 }

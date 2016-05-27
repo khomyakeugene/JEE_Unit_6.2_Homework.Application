@@ -1,30 +1,20 @@
-package com.company.restaurant.application.data;
+package com.company.restaurant.application.data.list;
 
-import com.company.restaurant.application.data.service.ObjectChooser;
+import com.company.restaurant.application.data.service.ObjectTableList;
+import com.company.restaurant.application.data.service.ObjectTableListProto;
 import com.company.restaurant.model.JobPosition;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Yevhen on 27.05.2016.
+ * Created by Yevhen on 28.05.2016.
  */
-public class JobPositionChooser extends ObjectChooser<JobPosition, Integer> {
-    private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter job position identifier";
+public class JobPositionTableList extends ObjectTableListProto<JobPosition> implements ObjectTableList<JobPosition> {
     private static final String[] listHeader = new String[] {
             "Job position id",
             "Job position name"
     };
-
-    @Override
-    protected JobPosition findObject(Integer jobPositionId) {
-        return getRestaurantController().findJobPositionById(jobPositionId);
-    }
-
-    @Override
-    protected Integer readObjectKeyFieldValue() {
-        return readIntegerKeyFieldValue();
-    }
 
     @Override
     protected List<JobPosition> prepareObjectList() {
@@ -44,10 +34,5 @@ public class JobPositionChooser extends ObjectChooser<JobPosition, Integer> {
         arrayList.add(jobPosition.getName());
 
         return arrayList.toArray(new String[arrayList.size()]);
-    }
-
-    @Override
-    protected String getEnterIdentifierMessage() {
-        return ENTER_IDENTIFIER_MESSAGE;
     }
 }

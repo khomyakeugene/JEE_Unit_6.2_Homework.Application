@@ -5,12 +5,11 @@ import com.company.util.Util;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class MenuItemOrderList extends DatabaseMenuItem<Order> implements MenuItem {
+public abstract class MenuItemOrderList extends ExtendedDatabaseMenuItem<Order> implements MenuItem {
     private static final String ENTER_ORDER_NUMBER_MESSAGE = "Please, enter order number";
     private static final String ENTER_ORDER_ID_MESSAGE = "Please, enter order id";
 
@@ -23,9 +22,9 @@ public abstract class MenuItemOrderList extends DatabaseMenuItem<Order> implemen
             "Table number"
     };
 
-    protected String orderNumber;
+    private String orderNumber;
     protected Integer orderId;
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-mm-yyyy hh:mm:ss");
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-mm-yyyy hh:mm:ss");
 
     public MenuItemOrderList(String itemText) {
         super(itemText);

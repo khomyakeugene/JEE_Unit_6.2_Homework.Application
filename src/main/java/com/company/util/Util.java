@@ -101,8 +101,9 @@ public class Util {
     public static Integer readInputInt(String enterMessageInvitation, boolean checkNotEmpty) {
         Integer result = null;
 
-        boolean needRepeat = checkNotEmpty;
+        boolean needRepeat;
         do {
+            needRepeat = checkNotEmpty;
             String stringData = readInputString(enterMessageInvitation, checkNotEmpty);
             if (stringData != null && !stringData.isEmpty()) {
                 result = parseInt(stringData);
@@ -116,8 +117,9 @@ public class Util {
     public static Double readInputDouble(String enterMessageInvitation, boolean checkNotEmpty) {
         Double result = null;
 
-        boolean needRepeat = checkNotEmpty;
+        boolean needRepeat;
         do {
+            needRepeat = checkNotEmpty;
             String stringData = readInputString(enterMessageInvitation, checkNotEmpty);
             if (stringData != null && !stringData.isEmpty()) {
                 result = parseDouble(stringData);
@@ -131,8 +133,9 @@ public class Util {
     public static Float readInputFloat(String enterMessageInvitation, boolean checkNotEmpty) {
         Float result = null;
 
-        boolean needRepeat = checkNotEmpty;
+        boolean needRepeat;
         do {
+            needRepeat = checkNotEmpty;
             String stringData = readInputString(enterMessageInvitation, checkNotEmpty);
             if (stringData != null && !stringData.isEmpty()) {
                 result = parseFloat(stringData);

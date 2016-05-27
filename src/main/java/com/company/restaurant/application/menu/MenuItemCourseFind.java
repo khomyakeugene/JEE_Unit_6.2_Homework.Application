@@ -46,6 +46,6 @@ public class MenuItemCourseFind extends MenuItemCourseList implements MenuItem {
     }
 
     @Override
-    protected void actionHasBeenSuccessfullyPerformedMessage() {
+    public void actionHasBeenSuccessfullyPerformedMessage() {
     }
 }

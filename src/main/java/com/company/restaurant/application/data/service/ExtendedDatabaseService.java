@@ -11,35 +11,7 @@ import java.util.List;
  * Created by Yevhen on 25.05.2016.
  */
 public abstract class ExtendedDatabaseService<T> extends DatabaseService {
-    private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
-    private static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
-    private static final String DATA_HAS_BEEN_SUCCESSFULLY_ADDED = "Data has been successfully added";
-    private static final String ACTION_HAS_BEEN_SUCCESSFULLY_PERFORMED = "The action has been successfully performed";
     private static final String INVALID_DATA_PATTERN = "%d is invalid <id> value. Please, input <id> again";
-
-    protected void errorMessage(String message) {
-        Util.printMessage(message);
-    }
-
-    protected void listDataHasNotBeenFoundMessage() {
-        errorMessage(DATA_HAS_NOT_BEEN_FOUND_MESSAGE);
-    }
-
-    protected void oneObjectHasNotBeenFoundMessage() {
-        errorMessage(DATA_HAS_NOT_BEEN_FOUND_MESSAGE);
-    }
-
-    protected void dataHasBeenSuccessfullyDeletedMessage() {
-        errorMessage(DATA_HAS_BEEN_SUCCESSFULLY_DELETED);
-    }
-
-    protected void dataHasBeenSuccessfullyAddedMessage() {
-        errorMessage(DATA_HAS_BEEN_SUCCESSFULLY_ADDED);
-    }
-
-    protected void actionHasBeenSuccessfullyPerformedMessage() {
-        Util.printMessage(ACTION_HAS_BEEN_SUCCESSFULLY_PERFORMED);
-    }
 
     protected abstract String[] getListHeader();
 

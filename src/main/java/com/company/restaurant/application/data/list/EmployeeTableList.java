@@ -1,16 +1,19 @@
-package com.company.restaurant.application.menu;
+package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.application.data.service.ObjectTableList;
+import com.company.restaurant.application.data.service.ObjectTableListProto;
 import com.company.restaurant.model.Employee;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.company.util.Util.toStringMaskNullAsEmpty;
 
 /**
- * Created by Yevhen on 25.05.2016.
+ * Created by Yevhen on 28.05.2016.
  */
-public abstract class MenuItemEmployeeList extends ExtendedDatabaseMenuItem<Employee> implements MenuItem {
-    private static final String[] employeeListHeader = new String[] {
+public class EmployeeTableList extends ObjectTableListProto<Employee> implements ObjectTableList<Employee> {
+    private static final String[] listHeader = new String[] {
             "Employee Id",
             "Employee first name",
             "Employee second name",
@@ -19,13 +22,14 @@ public abstract class MenuItemEmployeeList extends ExtendedDatabaseMenuItem<Empl
             "Employee salary"
     };
 
-    public MenuItemEmployeeList(String itemText) {
-        super(itemText);
+    @Override
+    protected List<Employee> prepareObjectList() {
+        return getRestaurantController().findAllEmployees();
     }
 
     @Override
     protected String[] getListHeader() {
-        return employeeListHeader;
+        return listHeader;
     }
 
     @Override
@@ -40,10 +44,5 @@ public abstract class MenuItemEmployeeList extends ExtendedDatabaseMenuItem<Empl
         arrayList.add(toStringMaskNullAsEmpty(employee.getSalary()));
 
         return arrayList.toArray(new String[arrayList.size()]);
-    }
-
-    @Override
-    protected Employee findOneObject() {
-        return findFirstObject();
     }
 }

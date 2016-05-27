@@ -1,6 +1,7 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.data.CourseCategoryChooser;
+import com.company.restaurant.application.data.chooser.CourseCategoryChooser;
+import com.company.restaurant.application.data.list.CourseCategoryTableList;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.CourseCategory;
 import com.company.util.Util;
@@ -8,7 +9,7 @@ import com.company.util.Util;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class MenuItemCourseAdd extends MenuItemCourseFind implements MenuItem {
+public class MenuItemCourseAdd extends MenuItemCourse implements MenuItem {
     private static final String ENTER_WEIGHT_MESSAGE = "Please, enter course weight";
     private static final String ENTER_COST_MESSAGE = "Please, enter course cost";
 
@@ -17,14 +18,10 @@ public class MenuItemCourseAdd extends MenuItemCourseFind implements MenuItem {
     }
 
     @Override
-    protected void executeAction() {
-        addCourse();
-    }
-
-    private void addCourse() {
+    protected void performAction() {
         String courseName = readCourseName();
         if (courseName != null && !courseName.isEmpty()) {
-            CourseCategory courseCategory = new CourseCategoryChooser().chooseObjectFromList();
+            CourseCategory courseCategory = new CourseCategoryChooser(new CourseCategoryTableList()).chooseObjectFromList();
             if (courseCategory != null) {
                 Float weight = Util.readInputFloat(ENTER_WEIGHT_MESSAGE, true);
                 Float cost = Util.readInputFloat(ENTER_COST_MESSAGE, false);

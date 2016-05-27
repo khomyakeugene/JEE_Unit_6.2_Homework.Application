@@ -1,25 +1,19 @@
-package com.company.restaurant.application.data;
+package com.company.restaurant.application.data.list;
 
-import com.company.restaurant.application.data.service.ObjectChooser;
+import com.company.restaurant.application.data.service.ObjectTableList;
+import com.company.restaurant.application.data.service.ObjectTableListProto;
 import com.company.restaurant.model.Table;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Yevhen on 27.05.2016.
+ * Created by Yevhen on 28.05.2016.
  */
-public class TableChooser extends ObjectChooser<Table, Integer> {
-    private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter table number";
-
+public class TableTableList extends ObjectTableListProto<Table> implements ObjectTableList<Table> {
     private static final String[] listHeader = new String[] {
             "Table number"
     };
-
-    @Override
-    protected String getEnterIdentifierMessage() {
-        return ENTER_IDENTIFIER_MESSAGE;
-    }
 
     @Override
     protected List<Table> prepareObjectList() {
@@ -38,15 +32,5 @@ public class TableChooser extends ObjectChooser<Table, Integer> {
         arrayList.add(Integer.toString(table.getNumber()));
 
         return arrayList.toArray(new String[arrayList.size()]);
-    }
-
-    @Override
-    protected Table findObject(Integer tableNumber) {
-        return getRestaurantController().findTableByNumber(tableNumber);
-    }
-
-    @Override
-    protected Integer readObjectKeyFieldValue() {
-        return readIntegerKeyFieldValue();
     }
 }

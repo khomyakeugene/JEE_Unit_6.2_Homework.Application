@@ -1,32 +1,35 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.data.service.ExtendedDatabaseService;
+import com.company.restaurant.application.data.service.DatabaseService;
+import com.company.restaurant.controllers.RestaurantController;
+import com.company.util.Util;
 
 /**
- * Created by Yevhen on 25.05.2016.
+ * Created by Yevhen on 28.05.2016.
  */
-public abstract class DatabaseMenuItem<T> extends ExtendedDatabaseService<T> implements MenuItem {
-    private String itemText;
+public abstract class DatabaseMenuItem extends SafeMenuItem implements MenuItem {
+    private DatabaseService databaseService = new DatabaseService();
 
     public DatabaseMenuItem(String itemText) {
-        this.itemText = itemText;
+        super(itemText);
+    }
+
+    public RestaurantController getRestaurantController() {
+        return databaseService.getRestaurantController();
     }
 
     @Override
-    public String getItemText() {
-        return itemText;
+    protected abstract void performAction();
+
+    protected void dataHasBeenSuccessfullyAddedMessage() {
+        databaseService.dataHasBeenSuccessfullyAddedMessage();
     }
 
-    protected void executeAction() {
-        processObject();
+    protected void actionHasBeenSuccessfullyPerformedMessage() {
+        databaseService.actionHasBeenSuccessfullyPerformedMessage();
     }
 
-    @Override
-    public final void menuAction() {
-        try {
-            executeAction();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    protected void dataHasBeenSuccessfullyDeletedMessage() {
+        databaseService.dataHasBeenSuccessfullyDeletedMessage();
     }
 }

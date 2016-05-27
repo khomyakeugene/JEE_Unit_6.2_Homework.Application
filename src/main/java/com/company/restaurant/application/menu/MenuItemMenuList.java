@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public abstract class MenuItemMenuList extends DatabaseMenuItem<Menu> implements MenuItem {
+public abstract class MenuItemMenuList extends ExtendedDatabaseMenuItem<Menu> implements MenuItem {
     private static final String[] menuListHeader = new String[] {
             "Menu Id",
             "Menu name"

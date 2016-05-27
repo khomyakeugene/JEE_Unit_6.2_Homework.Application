@@ -1,16 +1,19 @@
-package com.company.restaurant.application.menu;
+package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.application.data.service.ObjectTableList;
+import com.company.restaurant.application.data.service.ObjectTableListProto;
 import com.company.restaurant.model.Course;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.company.util.Util.toStringMaskNullAsEmpty;
 
 /**
- * Created by Yevhen on 25.05.2016.
+ * Created by Yevhen on 28.05.2016.
  */
-public abstract class MenuItemCourseList extends ExtendedDatabaseMenuItem<Course> implements MenuItem {
-    private static final String[] courseListHeader = new String[] {
+public class CourseTableList extends ObjectTableListProto<Course> implements ObjectTableList<Course> {
+    private static final String[] listHeader = new String[] {
             "Course Id",
             "Course name",
             "Category name",
@@ -18,13 +21,14 @@ public abstract class MenuItemCourseList extends ExtendedDatabaseMenuItem<Course
             "Cost"
     };
 
-    public MenuItemCourseList(String itemText) {
-        super(itemText);
+    @Override
+    protected List<Course> prepareObjectList() {
+        return getRestaurantController().findAllCourses();
     }
 
     @Override
     protected String[] getListHeader() {
-        return courseListHeader;
+        return listHeader;
     }
 
     @Override
@@ -39,4 +43,5 @@ public abstract class MenuItemCourseList extends ExtendedDatabaseMenuItem<Course
 
         return arrayList.toArray(new String[arrayList.size()]);
     }
+
 }

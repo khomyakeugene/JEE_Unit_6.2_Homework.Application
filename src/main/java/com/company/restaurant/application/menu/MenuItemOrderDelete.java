@@ -26,7 +26,7 @@ public class MenuItemOrderDelete extends MenuItemOrderOpenOrderList implements M
     }
 
     @Override
-    protected void actionHasBeenSuccessfullyPerformedMessage() {
+    public void actionHasBeenSuccessfullyPerformedMessage() {
         super.dataHasBeenSuccessfullyDeletedMessage();
     }
 }

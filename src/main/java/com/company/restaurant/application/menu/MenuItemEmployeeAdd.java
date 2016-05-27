@@ -1,6 +1,7 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.data.JobPositionChooser;
+import com.company.restaurant.application.data.chooser.JobPositionChooser;
+import com.company.restaurant.application.data.list.JobPositionTableList;
 import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.JobPosition;
 import com.company.util.Util;
@@ -26,7 +27,7 @@ public class MenuItemEmployeeAdd extends MenuItemEmployeeFind implements MenuIte
         String firstName = employeeName[0];
         String secondName = employeeName[1];
         if (firstName != null && !firstName.isEmpty() && secondName != null && !secondName.isEmpty()) {
-            JobPosition jobPosition = new JobPositionChooser().chooseObjectFromList();
+            JobPosition jobPosition = new JobPositionChooser(new JobPositionTableList()).chooseObjectFromList();
             if (jobPosition != null) {
                 String phoneNumber = Util.readInputString(ENTER_PHONE_NUMBER_MESSAGE);
                 Float salary = Util.readInputFloat(ENTER_SALARY_MESSAGE, false);
