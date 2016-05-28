@@ -12,7 +12,7 @@ public abstract class ItemCollectorProto<ObjectType, ItemType> extends DatabaseS
         this.itemChooser = itemChooser;
     }
 
-    protected abstract void addItemToObject(ObjectType object, ItemType item);
+    public abstract void addItemToObject(ObjectType object, ItemType item);
 
     public void addItemsToObject() {
         ObjectType object = objectChooser.chooseObjectFromList();
