@@ -1,6 +1,6 @@
 package com.company.restaurant.application.menu;
 
-import com.company.restaurant.application.data.*;
+import com.company.restaurant.application.data.MenuCourseCollector;
 import com.company.restaurant.application.data.chooser.CourseChooser;
 import com.company.restaurant.application.data.chooser.MenuChooser;
 import com.company.restaurant.application.data.list.CourseTableList;
@@ -18,7 +18,7 @@ public class MenuItemMenuAddCourseToMenu extends SafeMenuItem implements MenuIte
 
     @Override
     protected void performAction() {
-        new CourseToMenuAdder(new MenuChooser(new MenuTableList()),
+        new MenuCourseCollector(new MenuChooser(new MenuTableList()),
                 new CourseChooser(new CourseTableList())).addItemsToObject();
     }
 }
