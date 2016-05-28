@@ -1,29 +1,25 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.menu.service.DatabaseMenuItem;
 import com.company.restaurant.application.menu.service.MenuItem;
+import com.company.util.Util;
 
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class MenuItemMenuAdd extends MenuItemMenuFind implements MenuItem {
+public class MenuItemMenuAdd extends DatabaseMenuItem implements MenuItem {
+    private static final String ENTER_NAME_MESSAGE = "Please, enter menu name";
+
     public MenuItemMenuAdd(String itemText) {
         super(itemText);
     }
 
     @Override
-    protected void executeAction() {
-        addMenu();
-    }
-
-    private void addMenu() {
-        String menuName = readMenuName();
+    protected void performAction() {
+        String menuName = Util.readInputString(ENTER_NAME_MESSAGE);
         if (menuName != null && !menuName.isEmpty()) {
-            try {
-                getRestaurantController().addMenu(menuName);
-                dataHasBeenSuccessfullyAddedMessage();
-            } catch (Exception e) {
-                errorMessage(e.getMessage());
-            }
+            getRestaurantController().addMenu(menuName.trim());
+            dataHasBeenSuccessfullyAddedMessage();
         }
     }
 }

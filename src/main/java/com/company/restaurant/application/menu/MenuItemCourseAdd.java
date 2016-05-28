@@ -30,7 +30,7 @@ public class MenuItemCourseAdd extends DatabaseMenuItem implements MenuItem {
                 Float cost = Util.readInputFloat(ENTER_COST_MESSAGE, false);
 
                 Course course = new Course();
-                course.setName(courseName);
+                course.setName(courseName.trim());
                 course.setCategoryId(courseCategory.getId());
                 course.setWeight(weight);
                 course.setCost(cost);

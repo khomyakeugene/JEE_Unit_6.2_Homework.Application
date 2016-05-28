@@ -1,35 +1,21 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.data.chooser.MenuChooser;
+import com.company.restaurant.application.data.list.MenuTableList;
+import com.company.restaurant.application.data.remover.MenuRemover;
+import com.company.restaurant.application.menu.service.DatabaseMenuItem;
 import com.company.restaurant.application.menu.service.MenuItem;
-import com.company.restaurant.model.Menu;
-
-import java.util.List;
 
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class MenuItemMenuDelete extends MenuItemMenuFind implements MenuItem {
+public class MenuItemMenuDelete extends DatabaseMenuItem implements MenuItem {
     public MenuItemMenuDelete(String itemText) {
         super(itemText);
     }
 
     @Override
-    protected List<Menu> findData() {
-        return getRestaurantController().findAllMenus();
-    }
-
-    @Override
-    protected void readObjectKeyData() {
-        readMenuName();
-    }
-
-    @Override
-    protected String doActionOnDatabaseObject(Menu menu) {
-        return getRestaurantController().delMenu(menu.getName());
-    }
-
-    @Override
-    public void actionHasBeenSuccessfullyPerformedMessage() {
-        super.dataHasBeenSuccessfullyDeletedMessage();
+    protected void performAction() {
+        new MenuRemover(new MenuChooser(new MenuTableList())).deleteObject();
     }
 }

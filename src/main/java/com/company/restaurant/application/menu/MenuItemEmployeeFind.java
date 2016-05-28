@@ -1,60 +1,20 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.data.finder.EmployeeFinder;
+import com.company.restaurant.application.data.list.EmployeeTableList;
+import com.company.restaurant.application.menu.service.DatabaseMenuItem;
 import com.company.restaurant.application.menu.service.MenuItem;
-import com.company.restaurant.model.Employee;
-import com.company.util.Util;
-
-import java.util.List;
 
 /**
  * Created by Yevhen on 25.05.2016.
  */
-public class MenuItemEmployeeFind extends MenuItemEmployeeList implements MenuItem {
-    private static final String ENTER_FIRST_NAME_MESSAGE = "Please, enter first name of employee";
-    private static final String ENTER_SECOND_NAME_MESSAGE = "Please, enter second name of employee";
-
-    private String firstName;
-    private String secondName;
-
+public class MenuItemEmployeeFind extends DatabaseMenuItem implements MenuItem {
     public MenuItemEmployeeFind(String itemText) {
         super(itemText);
     }
 
     @Override
-    protected List<Employee> findData() {
-        return getRestaurantController().findEmployeeByFirstAndSecondName(firstName, secondName);
-    }
-
-    protected String[] readEmployeeName(boolean checkNotEmpty) {
-        firstName = Util.readInputString(ENTER_FIRST_NAME_MESSAGE, checkNotEmpty).trim();
-        secondName = Util.readInputString(ENTER_SECOND_NAME_MESSAGE, checkNotEmpty).trim();
-
-        return new String[] {firstName, secondName};
-    }
-
-    protected String[] readEmployeeName() {
-        return readEmployeeName(false);
-    }
-
-
-    @Override
-    protected List<Employee> showInitialList() {
-        return null;
-    }
-
-    @Override
-    protected void readObjectKeyData() {
-        readEmployeeName();
-    }
-
-    @Override
-    protected String doActionOnDatabaseObject(Employee employee) {
-        tableList();
-
-        return null;
-    }
-
-    @Override
-    public void actionHasBeenSuccessfullyPerformedMessage() {
+    protected void performAction() {
+        new EmployeeFinder(new EmployeeTableList()).findAndDisplayObjectList();
     }
 }

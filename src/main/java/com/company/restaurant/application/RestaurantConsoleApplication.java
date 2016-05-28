@@ -1,8 +1,9 @@
 package com.company.restaurant.application;
 
 import com.company.restaurant.application.menu.*;
-import com.company.restaurant.controllers.RestaurantController;
 import com.company.restaurant.application.menu.service.MenuItem;
+import com.company.restaurant.application.menu.service.MenuItemEmptyAction;
+import com.company.restaurant.controllers.RestaurantController;
 import com.company.util.Util;
 
 import java.util.HashMap;
@@ -124,7 +125,7 @@ public class RestaurantConsoleApplication {
             put(EMPLOYEE_MENU_ITEM_CODE_ADD, new MenuItemEmployeeAdd(EMPLOYEE_MENU_ITEM_TEXT_ADD));
             put(EMPLOYEE_MENU_ITEM_CODE_DELETE, new MenuItemEmployeeDelete(EMPLOYEE_MENU_ITEM_TEXT_DELETE));
             put(EMPLOYEE_MENU_ITEM_CODE_FIND, new MenuItemEmployeeFind(EMPLOYEE_MENU_ITEM_TEXT_FIND));
-            put(EMPLOYEE_MENU_ITEM_CODE_LIST, new MenuItemEmployeeWholeList(EMPLOYEE_MENU_ITEM_TEXT_LIST));
+            put(EMPLOYEE_MENU_ITEM_CODE_LIST, new MenuItemEmployeeList(EMPLOYEE_MENU_ITEM_TEXT_LIST));
             put(EMPLOYEE_MENU_ITEM_CODE_EXIT, new MenuItemEmptyAction(MENU_ITEM_TEXT_EXIT));
         }
     };
