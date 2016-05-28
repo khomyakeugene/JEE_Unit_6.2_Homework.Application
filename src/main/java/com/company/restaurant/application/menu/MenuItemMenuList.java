@@ -8,12 +8,14 @@ import com.company.restaurant.application.menu.service.MenuItem;
  * Created by Yevhen on 25.05.2016.
  */
 public class MenuItemMenuList extends DatabaseMenuItem implements MenuItem {
+    private MenuTableList menuTableList = new MenuTableList();
+
     public MenuItemMenuList(String itemText) {
         super(itemText);
     }
 
     @Override
     protected void performAction() {
-        new MenuTableList().displayObjectList();
+        menuTableList.displayObjectList();
     }
 }

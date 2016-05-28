@@ -9,12 +9,14 @@ import com.company.restaurant.application.menu.service.MenuItem;
  * Created by Yevhen on 25.05.2016.
  */
 public class MenuItemCourseFind extends DatabaseMenuItem implements MenuItem {
+    private CourseFinder courseFinder = new CourseFinder(new CourseTableList());
+
     public MenuItemCourseFind(String itemText) {
         super(itemText);
     }
 
     @Override
     protected void performAction() {
-        new CourseFinder(new CourseTableList()).findAndDisplayObjectList();
+        courseFinder.findAndDisplayObjectList();
     }
 }

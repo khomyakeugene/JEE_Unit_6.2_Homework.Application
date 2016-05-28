@@ -10,12 +10,14 @@ import com.company.restaurant.application.menu.service.MenuItem;
  * Created by Yevhen on 25.05.2016.
  */
 public class MenuItemEmployeeDelete extends DatabaseMenuItem implements MenuItem {
+    private EmployeeRemover employeeRemover = new EmployeeRemover(new EmployeeChooser(new EmployeeTableList()));
+
     public MenuItemEmployeeDelete(String itemText) {
         super(itemText);
     }
 
     @Override
     protected void performAction() {
-        new EmployeeRemover(new EmployeeChooser(new EmployeeTableList())).deleteObject();
+        employeeRemover.deleteObject();
     }
 }

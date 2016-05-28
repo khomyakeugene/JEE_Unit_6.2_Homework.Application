@@ -12,14 +12,16 @@ import com.company.restaurant.application.menu.service.SafeMenuItem;
  * Created by Yevhen on 25.05.2016.
  */
 public class MenuItemMenuAddCourseToMenu extends SafeMenuItem implements MenuItem {
+    private MenuCourseCollector menuCourseCollector = new MenuCourseCollector(new MenuChooser(new MenuTableList()),
+            new CourseChooser(new CourseTableList()));
+
     public MenuItemMenuAddCourseToMenu(String itemText) {
         super(itemText);
     }
 
     @Override
     protected void performAction() {
-        new MenuCourseCollector(new MenuChooser(new MenuTableList()),
-                new CourseChooser(new CourseTableList())).addItemsToObject();
+        menuCourseCollector.addItemsToObject();
     }
 }
 

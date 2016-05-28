@@ -1,34 +1,21 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.data.list.ClosedOrderTableList;
+import com.company.restaurant.application.menu.service.DatabaseMenuItem;
 import com.company.restaurant.application.menu.service.MenuItem;
-import com.company.restaurant.model.Order;
-
-import java.util.List;
 
 /**
  * Created by Yevhen on 26.05.2016.
  */
-public class MenuItemOrderClosedOrderList extends MenuItemOrderList implements MenuItem {
+public class MenuItemOrderClosedOrderList extends DatabaseMenuItem implements MenuItem {
+    private ClosedOrderTableList closedOrderTableList = new ClosedOrderTableList();
+
     public MenuItemOrderClosedOrderList(String itemText) {
         super(itemText);
     }
 
     @Override
-    protected Order findOneObject() {
-        return null;
-    }
-
-    @Override
-    protected List<Order> findData() {
-        return getRestaurantController().findAllClosedOrders();
-    }
-
-    @Override
-    protected void executeAction() {
-        closedOrderList();
-    }
-
-    private void closedOrderList() {
-        tableList();
+    protected void performAction() {
+        closedOrderTableList.displayObjectList();
     }
 }

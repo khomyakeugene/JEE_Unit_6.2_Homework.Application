@@ -10,12 +10,14 @@ import com.company.restaurant.application.menu.service.MenuItem;
  * Created by Yevhen on 25.05.2016.
  */
 public class MenuItemCourseDelete extends DatabaseMenuItem implements MenuItem {
+    private CourseRemover courseRemover = new CourseRemover(new CourseChooser(new CourseTableList()));
+
     public MenuItemCourseDelete(String itemText) {
         super(itemText);
     }
 
     @Override
     protected void performAction() {
-        new CourseRemover(new CourseChooser(new CourseTableList())).deleteObject();
+        courseRemover.deleteObject();
     }
 }

@@ -1,33 +1,23 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.data.chooser.OrderChooser;
+import com.company.restaurant.application.data.list.OpenOrderTableList;
+import com.company.restaurant.application.data.remover.OrderRemover;
+import com.company.restaurant.application.menu.service.DatabaseMenuItem;
 import com.company.restaurant.application.menu.service.MenuItem;
-import com.company.restaurant.model.Order;
 
 /**
  * Created by Yevhen on 26.05.2016.
  */
-public class MenuItemOrderDelete extends MenuItemOrderOpenOrderList implements MenuItem {
+public class MenuItemOrderDelete extends DatabaseMenuItem implements MenuItem {
+    private OrderRemover orderRemover = new OrderRemover(new OrderChooser(new OpenOrderTableList()));
+
     public MenuItemOrderDelete(String itemText) {
         super(itemText);
     }
 
     @Override
-    protected Order findOneObject() {
-        return getRestaurantController().findOrderById(orderId);
-    }
-
-    @Override
-    protected void readObjectKeyData() {
-        readOrderId();
-    }
-
-    @Override
-    protected String doActionOnDatabaseObject(Order order) {
-        return getRestaurantController().delOrder(order);
-    }
-
-    @Override
-    public void actionHasBeenSuccessfullyPerformedMessage() {
-        super.dataHasBeenSuccessfullyDeletedMessage();
+    protected void performAction() {
+        orderRemover.deleteObject();
     }
 }

@@ -17,6 +17,8 @@ public class MenuItemEmployeeAdd extends DatabaseMenuItem implements MenuItem {
     private static final String ENTER_PHONE_NUMBER_MESSAGE = "Please, enter employee phone number";
     private static final String ENTER_SALARY_MESSAGE = "Please, enter employee salary";
 
+    private JobPositionChooser jobPositionChooser = new JobPositionChooser(new JobPositionTableList());
+
     public MenuItemEmployeeAdd(String itemText) {
         super(itemText);
     }
@@ -26,7 +28,7 @@ public class MenuItemEmployeeAdd extends DatabaseMenuItem implements MenuItem {
         String firstName = Util.readInputString(ENTER_FIRST_NAME_MESSAGE, true);
         String secondName = Util.readInputString(ENTER_SECOND_NAME_MESSAGE, true);
         if (firstName != null && !firstName.isEmpty() && secondName != null && !secondName.isEmpty()) {
-            JobPosition jobPosition = new JobPositionChooser(new JobPositionTableList()).chooseObjectFromList();
+            JobPosition jobPosition = jobPositionChooser.chooseObjectFromList();
             if (jobPosition != null) {
                 String phoneNumber = Util.readInputString(ENTER_PHONE_NUMBER_MESSAGE);
                 Float salary = Util.readInputFloat(ENTER_SALARY_MESSAGE, false);
