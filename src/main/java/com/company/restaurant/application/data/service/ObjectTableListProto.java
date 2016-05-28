@@ -42,17 +42,6 @@ public abstract class ObjectTableListProto<T> extends DatabaseService implements
         return objects;
     }
 
-    @Override
-    public List<T> displayObjectList(T object) {
-        List<T> objects = new ArrayList<>();
-        if (object != null) {
-            objects.add(object);
-        }
-
-        return displayObjectList(objects);
-    }
-
-    @Override
     public List<T> displayObjectList() {
         return displayObjectList(prepareObjectList());
     }

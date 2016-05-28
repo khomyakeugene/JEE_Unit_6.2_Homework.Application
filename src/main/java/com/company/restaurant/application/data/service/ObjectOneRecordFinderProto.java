@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,12 +20,21 @@ public abstract class ObjectOneRecordFinderProto<ObjectType, ObjectKeyFieldType>
         if (objectKeyFieldValue != null) {
             ObjectType object = findObject(objectKeyFieldValue);
             if (object != null) {
-                result = objectTableList.displayObjectList(object);
+                result = displayObjectList(object);
             } else {
                 objectDataHasNotBeenFoundMessage();
             }
         }
 
         return result;
+    }
+
+    List<ObjectType>  displayObjectList(ObjectType object) {
+        List<ObjectType> objects = new ArrayList<>();
+        if (object != null) {
+            objects.add(object);
+        }
+
+        return objectTableList.displayObjectList(objects);
     }
 }

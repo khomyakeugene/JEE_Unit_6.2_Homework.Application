@@ -9,8 +9,4 @@ public interface ObjectTableList<T> {
     List<T> prepareObjectList();
 
     List<T> displayObjectList(List<T> objects);
-
-    List<T> displayObjectList(T object);
-
-    List<T> displayObjectList();
 }
