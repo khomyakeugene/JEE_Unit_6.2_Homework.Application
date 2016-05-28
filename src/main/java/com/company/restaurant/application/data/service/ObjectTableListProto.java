@@ -11,9 +11,7 @@ import java.util.List;
  * Created by Yevhen on 27.05.2016.
  */
 public abstract class ObjectTableListProto<T> extends DatabaseService implements ObjectTableList<T> {
-    protected static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
-
-    protected abstract List<T> prepareObjectList();
+    private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
 
     protected abstract String[] getListHeader();
 

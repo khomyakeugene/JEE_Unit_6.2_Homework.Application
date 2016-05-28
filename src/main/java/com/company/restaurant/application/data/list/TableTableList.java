@@ -16,7 +16,7 @@ public class TableTableList extends ObjectTableListProto<Table> implements Objec
     };
 
     @Override
-    protected List<Table> prepareObjectList() {
+    public List<Table> prepareObjectList() {
         return getRestaurantController().findAllTables();
     }
 

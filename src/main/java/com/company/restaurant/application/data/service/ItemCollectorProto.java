@@ -5,14 +5,15 @@ package com.company.restaurant.application.data.service;
  */
 public abstract class ItemCollectorProto<ObjectType, ItemType> extends DatabaseService {
     private ObjectChooser<ObjectType> objectChooser;
-    private ObjectChooser<ItemType> itemChooser;
+    private ItemChooser<ObjectType, ItemType> itemChooser;
 
-    public ItemCollectorProto(ObjectChooser<ObjectType> objectChooser, ObjectChooser<ItemType> itemChooser) {
+    public ItemCollectorProto(ObjectChooser<ObjectType> objectChooser,
+                              ItemChooser<ObjectType, ItemType>  itemChooser) {
         this.objectChooser = objectChooser;
         this.itemChooser = itemChooser;
     }
 
-    public abstract void addItemToObject(ObjectType object, ItemType item);
+    protected abstract void addItemToObject(ObjectType object, ItemType item);
 
     public void addItemsToObject() {
         ObjectType object = objectChooser.chooseObjectFromList();

@@ -22,7 +22,7 @@ public class CourseTableList extends ObjectTableListProto<Course> implements Obj
     };
 
     @Override
-    protected List<Course> prepareObjectList() {
+    public List<Course> prepareObjectList() {
         return getRestaurantController().findAllCourses();
     }
 

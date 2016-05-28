@@ -18,7 +18,7 @@ public class CourseCategoryTableList extends ObjectTableListProto<CourseCategory
     };
 
     @Override
-    protected List<CourseCategory> prepareObjectList() {
+    public List<CourseCategory> prepareObjectList() {
         return getRestaurantController().findAllCourseCategories();
     }
 

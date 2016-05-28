@@ -17,7 +17,7 @@ public class MenuTableList extends ObjectTableListProto<Menu> implements ObjectT
     };
 
     @Override
-    protected List<Menu> prepareObjectList() {
+    public List<Menu> prepareObjectList() {
         return getRestaurantController().findAllMenus();
     }
 

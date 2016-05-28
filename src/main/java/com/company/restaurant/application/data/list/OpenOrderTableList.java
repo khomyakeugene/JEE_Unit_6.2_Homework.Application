@@ -13,7 +13,7 @@ public class OpenOrderTableList extends OrderTableList implements ObjectTableLis
     private static final String OPEN_ORDERS_HAVE_NOT_BEEN_FOUND_MESSAGE = "Open orders have not been found";
 
     @Override
-    protected List<Order> prepareObjectList() {
+    public List<Order> prepareObjectList() {
         return getRestaurantController().findAllOpenOrders();
     }
 
