@@ -1,45 +1,16 @@
 package com.company.restaurant.application.data.service;
 
-import com.company.util.Util;
-
 import java.util.List;
 
 /**
  * Created by Yevhen on 27.05.2016.
  */
-public abstract class ObjectChooserProto<ObjectType, ObjectKeyFieldType> extends DatabaseService
+public abstract class ObjectChooserProto<ObjectType, ObjectKeyFieldType>
+        extends ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType>
         implements ObjectChooser<ObjectType> {
-    private static final String ENTER_NAME_MESSAGE = "Please, enter name";
-    private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter identifier";
-
-    private ObjectTableList<ObjectType> objectTableList;
 
     public ObjectChooserProto(ObjectTableList<ObjectType> objectTableList) {
-        this.objectTableList = objectTableList;
-    }
-
-    protected abstract ObjectType findObject(ObjectKeyFieldType objectKeyFieldValue);
-
-    protected abstract ObjectKeyFieldType readObjectKeyFieldValue();
-
-    protected void objectDataHasNotBeenFoundMessage() {
-        oneObjectHasNotBeenFoundMessage();
-    }
-
-    protected String getEnterIdentifierMessage() {
-        return ENTER_IDENTIFIER_MESSAGE;
-    }
-
-    protected String enterNameMessage() {
-        return ENTER_NAME_MESSAGE;
-    }
-
-    protected String readStringKeyFieldValue() {
-        return Util.readInputString(enterNameMessage(), false);
-    }
-
-    protected Integer readIntegerKeyFieldValue() {
-        return Util.readInputInt(getEnterIdentifierMessage(), false);
+        super(objectTableList);
     }
 
     public ObjectType chooseObjectFromList() {
