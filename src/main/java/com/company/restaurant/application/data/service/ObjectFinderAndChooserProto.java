@@ -27,12 +27,12 @@ public abstract class ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType
         return ENTER_IDENTIFIER_MESSAGE;
     }
 
-    protected String enterNameMessage() {
+    protected String getEnterNameMessage() {
         return ENTER_NAME_MESSAGE;
     }
 
     protected String readStringKeyFieldValue() {
-        return Util.readInputString(enterNameMessage(), false);
+        return Util.readInputString(getEnterNameMessage(), false);
     }
 
     protected Integer readIntegerKeyFieldValue() {

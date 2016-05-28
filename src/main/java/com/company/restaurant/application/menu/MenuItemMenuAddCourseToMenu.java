@@ -5,6 +5,8 @@ import com.company.restaurant.application.data.chooser.CourseChooser;
 import com.company.restaurant.application.data.chooser.MenuChooser;
 import com.company.restaurant.application.data.list.CourseTableList;
 import com.company.restaurant.application.data.list.MenuTableList;
+import com.company.restaurant.application.menu.service.MenuItem;
+import com.company.restaurant.application.menu.service.SafeMenuItem;
 
 /**
  * Created by Yevhen on 25.05.2016.

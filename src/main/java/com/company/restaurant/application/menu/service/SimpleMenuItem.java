@@ -1,4 +1,6 @@
-package com.company.restaurant.application.menu;
+package com.company.restaurant.application.menu.service;
+
+import com.company.restaurant.application.menu.service.MenuItem;
 
 /**
  * Created by Yevhen on 25.05.2016.

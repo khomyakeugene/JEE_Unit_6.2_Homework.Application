@@ -2,6 +2,7 @@ package com.company.restaurant.application.menu;
 
 import com.company.restaurant.application.data.chooser.JobPositionChooser;
 import com.company.restaurant.application.data.list.JobPositionTableList;
+import com.company.restaurant.application.menu.service.MenuItem;
 import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.JobPosition;
 import com.company.util.Util;

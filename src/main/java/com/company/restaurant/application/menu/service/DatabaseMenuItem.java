@@ -1,8 +1,7 @@
-package com.company.restaurant.application.menu;
+package com.company.restaurant.application.menu.service;
 
 import com.company.restaurant.application.data.service.DatabaseService;
 import com.company.restaurant.controllers.RestaurantController;
-import com.company.util.Util;
 
 /**
  * Created by Yevhen on 28.05.2016.

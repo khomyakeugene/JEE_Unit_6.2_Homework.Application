@@ -1,9 +1,8 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.menu.service.MenuItem;
 import com.company.restaurant.model.Menu;
 import com.company.util.Util;
-
-import java.util.List;
 
 /**
  * Created by Yevhen on 25.05.2016.

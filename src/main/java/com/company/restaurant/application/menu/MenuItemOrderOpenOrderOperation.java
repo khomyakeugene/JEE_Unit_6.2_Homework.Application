@@ -1,5 +1,6 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.menu.service.MenuItem;
 import com.company.restaurant.model.Order;
 import com.company.util.Util;
 
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 26.05.2016.
  */
-public class MenuItemOrderOpenOrderOperation extends MenuItemOrderList implements MenuItem  {
+public class MenuItemOrderOpenOrderOperation extends MenuItemOrderList implements MenuItem {
     private static final String OPEN_ORDERS_HAVE_NOT_BEEN_FOUND_MESSAGE = "Open orders have not been found";
 
     public MenuItemOrderOpenOrderOperation(String itemText) {

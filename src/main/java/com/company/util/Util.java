@@ -1,6 +1,6 @@
 package com.company.util;
 
-import com.company.restaurant.application.menu.MenuItem;
+import com.company.restaurant.application.menu.service.MenuItem;
 
 import java.io.BufferedReader;
 import java.io.IOException;

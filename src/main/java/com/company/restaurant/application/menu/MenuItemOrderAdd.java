@@ -4,6 +4,7 @@ import com.company.restaurant.application.data.chooser.EmployeeChooser;
 import com.company.restaurant.application.data.list.EmployeeTableList;
 import com.company.restaurant.application.data.chooser.TableChooser;
 import com.company.restaurant.application.data.list.TableTableList;
+import com.company.restaurant.application.menu.service.MenuItem;
 import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.Order;
 import com.company.restaurant.model.Table;

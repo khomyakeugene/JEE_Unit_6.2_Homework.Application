@@ -6,8 +6,7 @@ import java.util.List;
  * Created by Yevhen on 28.05.2016.
  */
 public abstract class ObjectFinderProto<ObjectType, ObjectKeyFieldType>
-        extends ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType>
-        implements ObjectFinder<ObjectType>  {
+        extends ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType> {
 
     protected abstract List<ObjectType> findObjects(ObjectKeyFieldType objectKeyFieldValue);
 
@@ -27,7 +26,6 @@ public abstract class ObjectFinderProto<ObjectType, ObjectKeyFieldType>
         return result;
     }
 
-    @Override
     public List<ObjectType> findAndDisplayObjectList() {
         List<ObjectType> result = null;
 
