@@ -26,7 +26,7 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements Objec
 
     @Override
     protected Warehouse addObject() {
-        Warehouse result =  null;
+        Warehouse result = null;
 
         Ingredient ingredient = ingredientChooser.chooseObjectFromList();
         if (ingredient != null) {
