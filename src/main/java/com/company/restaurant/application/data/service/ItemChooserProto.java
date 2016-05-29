@@ -3,28 +3,26 @@ package com.company.restaurant.application.data.service;
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public class ItemChooserProto<ObjectType, ItemType, ItemKeyFieldType>
+public abstract class ItemChooserProto<ObjectType, ItemType, ItemKeyFieldType>
         extends ObjectChooserProto<ItemType, ItemKeyFieldType>
         implements ItemChooser<ObjectType, ItemType> {
 
-    public ItemChooserProto(ObjectTableList<ItemType> objectTableList) {
-        super(objectTableList);
-    }
+    protected ItemTableList<ObjectType, ItemType> itemTableList;
 
+    public ItemChooserProto(ItemTableList<ObjectType, ItemType> itemTableList) {
+        super(itemTableList);
 
-
-    @Override
-    public ItemType chooseObjectFromList(ObjectType object) {
-        return null;
+        this.itemTableList = itemTableList;
     }
 
     @Override
-    protected ItemType findObject(ItemKeyFieldType objectKeyFieldValue) {
-        return null;
-    }
+    protected abstract ItemType findObject(ItemKeyFieldType objectKeyFieldValue);
 
     @Override
-    protected ItemKeyFieldType readObjectKeyFieldValue() {
-        return null;
+    protected abstract ItemKeyFieldType readObjectKeyFieldValue();
+
+    @Override
+    public ItemType chooseItemFromList(ObjectType object) {
+        return chooseObjectFromList(itemTableList.prepareItemList(object));
     }
 }
