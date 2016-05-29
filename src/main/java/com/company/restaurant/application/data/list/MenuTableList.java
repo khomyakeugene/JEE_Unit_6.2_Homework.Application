@@ -3,6 +3,7 @@ package com.company.restaurant.application.data.list;
 import com.company.restaurant.application.data.service.ObjectTableList;
 import com.company.restaurant.application.data.service.ObjectTableListProto;
 import com.company.restaurant.model.Menu;
+import com.company.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
  * Created by Yevhen on 28.05.2016.
  */
 public class MenuTableList extends ObjectTableListProto<Menu> implements ObjectTableList<Menu> {
+    private static final String THERE_ARE_NO_MENUS_MESSAGE = "There are no menus";
+
     private static final String[] listHeader = new String[] {
             "Menu Id",
             "Menu name"
@@ -34,5 +37,10 @@ public class MenuTableList extends ObjectTableListProto<Menu> implements ObjectT
         arrayList.add(menu.getName());
 
         return arrayList.toArray(new String[arrayList.size()]);
+    }
+
+    @Override
+    protected void listDataHasNotBeenFoundMessage() {
+        Util.printMessage(THERE_ARE_NO_MENUS_MESSAGE);
     }
 }

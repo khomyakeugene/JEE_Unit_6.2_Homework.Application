@@ -15,15 +15,18 @@ public abstract class ObjectRemoverProto<T> extends DatabaseService {
     public String deleteObject() {
         String result = null;
 
-        T object = objectChooser.chooseObjectFromList();
-        if (object != null) {
-            result = delObject(object);
-            if (result  != null && !result.isEmpty()) {
-                errorMessage(result);
-            } else {
-                dataHasBeenSuccessfullyDeletedMessage();
+        T object;
+        do {
+            object = objectChooser.chooseObjectFromList();
+            if (object != null) {
+                result = delObject(object);
+                if (result  != null && !result.isEmpty()) {
+                    errorMessage(result);
+                } else {
+                    dataHasBeenSuccessfullyDeletedMessage();
+                }
             }
-        }
+        } while (object != null);
 
         return result;
     }

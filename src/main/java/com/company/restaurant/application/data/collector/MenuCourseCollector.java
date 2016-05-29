@@ -1,5 +1,11 @@
 package com.company.restaurant.application.data.collector;
 
+import com.company.restaurant.application.data.chooser.CourseChooser;
+import com.company.restaurant.application.data.chooser.MenuChooser;
+import com.company.restaurant.application.data.chooser.MenuCourseChooser;
+import com.company.restaurant.application.data.list.CourseTableList;
+import com.company.restaurant.application.data.list.MenuCourseTableList;
+import com.company.restaurant.application.data.list.MenuTableList;
 import com.company.restaurant.application.data.service.ItemChooser;
 import com.company.restaurant.application.data.service.ItemCollector;
 import com.company.restaurant.application.data.service.ItemCollectorProto;
@@ -12,11 +18,11 @@ import com.company.restaurant.model.MenuCourseList;
  * Created by Yevhen on 27.05.2016.
  */
 public class MenuCourseCollector extends ItemCollectorProto<Menu, Course, MenuCourseList>
-        implements ItemCollector {
+        implements ItemCollector<Menu> {
 
-    public MenuCourseCollector(ObjectChooser<Menu> objectChooser,
-                               ObjectChooser<Course> newItemChooser,
-                               ItemChooser<Menu, MenuCourseList> presentItemChooser) {
+    private MenuCourseCollector(ObjectChooser<Menu> objectChooser,
+                                ObjectChooser<Course> newItemChooser,
+                                ItemChooser<Menu, MenuCourseList> presentItemChooser) {
         super(objectChooser, newItemChooser, presentItemChooser);
     }
 
@@ -29,5 +35,12 @@ public class MenuCourseCollector extends ItemCollectorProto<Menu, Course, MenuCo
     protected void delItemFromObject(Menu menu, MenuCourseList menuCourseList) {
         getRestaurantController().delCourseFromMenu(menu,
                 getRestaurantController().findCourseById(menuCourseList.getCourseId()));
+    }
+
+    public static ItemCollector<Menu> newInstance() {
+        return new MenuCourseCollector(
+                new MenuChooser(new MenuTableList()),
+                new CourseChooser(new CourseTableList()),
+                new MenuCourseChooser(new MenuCourseTableList()));
     }
 }

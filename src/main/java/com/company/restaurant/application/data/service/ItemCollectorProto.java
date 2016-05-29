@@ -3,8 +3,8 @@ package com.company.restaurant.application.data.service;
 /**
  * Created by Yevhen on 27.05.2016.
  */
-public abstract class ItemCollectorProto<ObjectType, NewItemType, PresentItemType>
-        extends DatabaseService implements ItemCollector {
+public  abstract class ItemCollectorProto<ObjectType, NewItemType, PresentItemType>
+        extends DatabaseService implements ItemCollector<ObjectType> {
     private ObjectChooser<ObjectType> objectChooser;
     private ObjectChooser<NewItemType> newItemChooser;
     private ItemChooser<ObjectType, PresentItemType> presentItemChooser;
@@ -22,7 +22,11 @@ public abstract class ItemCollectorProto<ObjectType, NewItemType, PresentItemTyp
     protected abstract void delItemFromObject(ObjectType object, PresentItemType item);
 
     public void addItemsToObject() {
-        ObjectType object = objectChooser.chooseObjectFromList();
+        addItemsToObject(objectChooser.chooseObjectFromList());
+    }
+
+    @Override
+    public ObjectType addItemsToObject(ObjectType object) {
         if (object != null) {
             NewItemType item;
             do {
@@ -41,10 +45,16 @@ public abstract class ItemCollectorProto<ObjectType, NewItemType, PresentItemTyp
                 }
             } while (item != null);
         }
+
+        return object;
     }
 
     public void delItemsFromObject() {
-        ObjectType object = objectChooser.chooseObjectFromList();
+        delItemsFromObject(objectChooser.chooseObjectFromList());
+    }
+
+    @Override
+    public ObjectType delItemsFromObject(ObjectType object) {
         if (object != null) {
             PresentItemType item;
             do {
@@ -60,5 +70,7 @@ public abstract class ItemCollectorProto<ObjectType, NewItemType, PresentItemTyp
                 }
             } while (item != null);
         }
+
+        return object;
     }
 }

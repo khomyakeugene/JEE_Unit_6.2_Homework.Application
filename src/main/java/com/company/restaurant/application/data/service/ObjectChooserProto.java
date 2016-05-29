@@ -35,6 +35,11 @@ public abstract class ObjectChooserProto<ObjectType, ObjectKeyFieldType>
         return result;
     }
 
+    @Override
+    public List<ObjectType> displayObjectList() {
+        return objectTableList.displayObjectList(objectTableList.prepareObjectList());
+    }
+
     public ObjectType chooseObjectFromList() {
         return chooseObjectFromList(objectTableList.prepareObjectList());
     }

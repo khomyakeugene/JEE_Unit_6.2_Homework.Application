@@ -2,8 +2,10 @@ package com.company.restaurant.application.menu;
 
 import com.company.restaurant.application.data.chooser.EmployeeChooser;
 import com.company.restaurant.application.data.chooser.TableChooser;
+import com.company.restaurant.application.data.collector.OrderCourseCollector;
 import com.company.restaurant.application.data.list.EmployeeTableList;
 import com.company.restaurant.application.data.list.TableTableList;
+import com.company.restaurant.application.data.service.ItemCollector;
 import com.company.restaurant.application.menu.service.DatabaseMenuItem;
 import com.company.restaurant.application.menu.service.MenuItem;
 import com.company.restaurant.model.Employee;
@@ -19,13 +21,15 @@ public class MenuItemOrderAdd extends DatabaseMenuItem implements MenuItem {
 
     private EmployeeChooser employeeChooser = new EmployeeChooser(new EmployeeTableList());
     private TableChooser tableChooser = new TableChooser(new TableTableList());
+    private ItemCollector<Order> orderCourseCollector = OrderCourseCollector.newInstance();
 
     public MenuItemOrderAdd(String itemText) {
         super(itemText);
     }
 
-    @Override
-    protected void performAction() {
+    private Order addOrder() {
+        Order result = null;
+
         String orderNumber = Util.readInputString(ENTER_ORDER_NUMBER_MESSAGE);
         if (orderNumber != null && !orderNumber.isEmpty()) {
             Employee employee = employeeChooser.chooseObjectFromList();
@@ -37,10 +41,17 @@ public class MenuItemOrderAdd extends DatabaseMenuItem implements MenuItem {
                     order.setEmployeeId(employee.getEmployeeId());
                     order.setTableId(table.getTableId());
 
-                    getRestaurantController().addOrder(order);
+                    result = getRestaurantController().addOrder(order);
                     dataHasBeenSuccessfullyAddedMessage();
                 }
             }
         }
+
+        return result;
+    }
+
+    @Override
+    protected void performAction() {
+        orderCourseCollector.addItemsToObject(addOrder());
     }
 }

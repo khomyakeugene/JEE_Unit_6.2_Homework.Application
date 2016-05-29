@@ -1,5 +1,11 @@
 package com.company.restaurant.application.data.collector;
 
+import com.company.restaurant.application.data.chooser.CourseChooser;
+import com.company.restaurant.application.data.chooser.OrderChooser;
+import com.company.restaurant.application.data.chooser.OrderCourseChooser;
+import com.company.restaurant.application.data.list.CourseTableList;
+import com.company.restaurant.application.data.list.OpenOrderTableList;
+import com.company.restaurant.application.data.list.OrderCourseTableList;
 import com.company.restaurant.application.data.service.ItemChooser;
 import com.company.restaurant.application.data.service.ItemCollector;
 import com.company.restaurant.application.data.service.ItemCollectorProto;
@@ -12,11 +18,11 @@ import com.company.restaurant.model.OrderCourse;
  * Created by Yevhen on 29.05.2016.
  */
 public class OrderCourseCollector extends ItemCollectorProto<Order, Course, OrderCourse>
-        implements ItemCollector {
+        implements ItemCollector<Order> {
 
-    public OrderCourseCollector(ObjectChooser<Order> objectChooser,
-                                ObjectChooser<Course> newItemChooser,
-                                ItemChooser<Order, OrderCourse> presentItemChooser) {
+    private OrderCourseCollector(ObjectChooser<Order> objectChooser,
+                                 ObjectChooser<Course> newItemChooser,
+                                 ItemChooser<Order, OrderCourse> presentItemChooser) {
         super(objectChooser, newItemChooser, presentItemChooser);
     }
 
@@ -30,5 +36,13 @@ public class OrderCourseCollector extends ItemCollectorProto<Order, Course, Orde
         getRestaurantController().takeCourseFromOrder(order,
                 getRestaurantController().findCourseById(orderCourse.getCourseId()), 1);
 
+    }
+
+    public static ItemCollector<Order> newInstance() {
+        return new OrderCourseCollector(
+                new OrderChooser(
+                new OpenOrderTableList()),
+                new CourseChooser(new CourseTableList()),
+                new OrderCourseChooser(new OrderCourseTableList()));
     }
 }

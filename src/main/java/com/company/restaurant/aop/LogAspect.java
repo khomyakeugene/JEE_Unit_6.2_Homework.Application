@@ -15,7 +15,7 @@ public class LogAspect {
     private static final String RESOURCE_LOG_EXCLUDE_MASK =
             "!(execution(* get*(..)) || execution(* set*(..)))";
     private static final String RESOURCE_LOG_APPLICATION_MASK =
-            "(execution (* com.company.restaurant.application..*(..)))";
+            "(execution (* com.company.restaurant..*(..)))";
     private static final String RESOURCE_LOG_ALL_MASK =
             "(execution (* com.company..*(..)))" + " && " + RESOURCE_LOG_EXCLUDE_MASK;
     private static final String RESOURCE_LOG_INFO_MASK = "(" +
