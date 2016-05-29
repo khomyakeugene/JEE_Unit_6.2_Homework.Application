@@ -18,6 +18,6 @@ public class MenuItemEmployeeDelete extends DatabaseMenuItem implements MenuItem
 
     @Override
     protected void performAction() {
-        employeeRemover.deleteObject();
+        employeeRemover.deleteObjects();
     }
 }

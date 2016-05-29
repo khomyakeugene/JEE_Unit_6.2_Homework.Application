@@ -15,7 +15,7 @@ public abstract class ObjectRemoverProto<T> extends DatabaseService implements O
 
     protected abstract String delObject(T object);
 
-    public String deleteObject() {
+    public String deleteObjects() {
         String result = null;
 
         T object;
