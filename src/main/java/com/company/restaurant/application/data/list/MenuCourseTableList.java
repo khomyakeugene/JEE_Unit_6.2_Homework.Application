@@ -16,7 +16,6 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 public class MenuCourseTableList extends ItemTableListProto<Menu, MenuCourseList>
         implements ItemTableList<Menu, MenuCourseList> {
     private static final String MENU_IS_EMPTY_MESSAGE = "Menu is empty";
-
     private static final String[] listHeader = new String[] {
             "Course Id",
             "Course name",
@@ -48,10 +47,6 @@ public class MenuCourseTableList extends ItemTableListProto<Menu, MenuCourseList
         arrayList.add(toStringMaskNullAsEmpty(menuCourseList.getCourseNumber()));
 
         return arrayList.toArray(new String[arrayList.size()]);
-    }
-    @Override
-    public List<MenuCourseList> prepareObjectList() {
-        return getRestaurantController().findMenuCourses(null);
     }
 
     @Override

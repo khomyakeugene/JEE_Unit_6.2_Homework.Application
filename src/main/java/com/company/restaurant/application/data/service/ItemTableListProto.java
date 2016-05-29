@@ -11,4 +11,9 @@ public abstract class ItemTableListProto<ObjectType, ItemType> extends ObjectTab
     public List<ItemType> displayItemList(ObjectType object) {
         return displayObjectList(prepareItemList(object));
     }
+
+    @Override
+    public List<ItemType> prepareObjectList() {
+        return null;
+    }
 }
