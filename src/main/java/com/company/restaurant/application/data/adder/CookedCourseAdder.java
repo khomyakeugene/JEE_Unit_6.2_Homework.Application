@@ -37,7 +37,7 @@ public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> implements
                 getRestaurantController().addCookedCourse(course, employee, weight);
                 dataHasBeenSuccessfullyAddedMessage();
 
-                // Unfortunately, jus "manually" here (hope - temporarily...)  ...
+                // Unfortunately, just "manually" here (hope - temporarily...)  ...
                 result = new CookedCourse();
                 result.setCourseId(course.getCourseId());
                 result.setEmployeeId(employee.getEmployeeId());

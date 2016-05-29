@@ -2,6 +2,10 @@ package com.company.restaurant.application.data.service;
 
 import com.company.restaurant.application.RestaurantConsoleApplication;
 import com.company.restaurant.controllers.RestaurantController;
+import com.company.restaurant.model.IngredientDao;
+import com.company.restaurant.model.PortionDao;
+import com.company.restaurant.model.WarehouseAdapter;
+import com.company.restaurant.model.WarehouseDao;
 import com.company.util.Util;
 import com.sun.org.apache.bcel.internal.generic.PUSH;
 
@@ -16,6 +20,18 @@ public class DatabaseService {
 
     public RestaurantController getRestaurantController() {
         return RestaurantConsoleApplication.getRestaurantController();
+    }
+
+    public WarehouseAdapter getWarehouseAdapter() {
+        return getRestaurantController().getWarehouseAdapter();
+    }
+
+    public PortionDao getPortionDao() {
+        return getWarehouseAdapter().getPortionDao();
+    }
+
+    public IngredientDao getIngredientDao() {
+        return getWarehouseAdapter().getIngredientDao();
     }
 
     public void dataHasBeenSuccessfullyAddedMessage() {

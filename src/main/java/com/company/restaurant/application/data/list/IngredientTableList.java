@@ -1,0 +1,36 @@
+package com.company.restaurant.application.data.list;
+
+import com.company.restaurant.model.Ingredient;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Yevhen on 29.05.2016.
+ */
+public class IngredientTableList extends ObjectTableListProto<Ingredient> implements ObjectTableList<Ingredient> {
+    private static final String[] listHeader = new String[] {
+            "Ingredient Id",
+            "Ingredient name"
+    };
+
+    @Override
+    protected String[] getListHeader() {
+        return listHeader;
+    }
+
+    @Override
+    protected String[] dataSetRowDataToStringArray(Ingredient ingredient) {
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        arrayList.add(Integer.toString(ingredient.getId()));
+        arrayList.add(ingredient.getName());
+
+        return arrayList.toArray(new String[arrayList.size()]);
+    }
+
+    @Override
+    public List<Ingredient> prepareObjectList() {
+        return getIngredientDao().findAllIngredients();
+    }
+}

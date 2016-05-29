@@ -18,6 +18,7 @@ public class EmployeeAdder extends ObjectAdderProto<Employee> implements ObjectA
     private static final String ENTER_SALARY_MESSAGE = "Please, enter employee salary";
 
     private JobPositionChooser jobPositionChooser = new JobPositionChooser(new JobPositionTableList());
+
     private EmployeeAdder(ObjectTableList<Employee> objectTableList) {
         super(objectTableList);
     }
