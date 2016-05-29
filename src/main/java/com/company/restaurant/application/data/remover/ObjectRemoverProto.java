@@ -6,7 +6,7 @@ import com.company.restaurant.application.data.service.DatabaseService;
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public abstract class ObjectRemoverProto<T> extends DatabaseService {
+public abstract class ObjectRemoverProto<T> extends DatabaseService implements ObjectRemover<T> {
     private ObjectChooser<T> objectChooser;
 
     public ObjectRemoverProto(ObjectChooser<T> objectChooser) {
