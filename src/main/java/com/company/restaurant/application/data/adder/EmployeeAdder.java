@@ -34,7 +34,7 @@ public class EmployeeAdder extends ObjectAdderProto<Employee> implements ObjectA
                 JobPosition jobPosition = jobPositionChooser.chooseObjectFromList();
                 if (jobPosition != null) {
                     String phoneNumber = Util.readInputString(ENTER_PHONE_NUMBER_MESSAGE);
-                    Float salary = Util.readInputFloat(ENTER_SALARY_MESSAGE, false);
+                    Float salary = Util.readInputPositiveFloat(ENTER_SALARY_MESSAGE, false);
                     Employee employee = new Employee();
                     employee.setFirstName(firstName.trim());
                     employee.setSecondName(secondName.trim());

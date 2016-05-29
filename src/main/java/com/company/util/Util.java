@@ -5,7 +5,10 @@ import com.company.restaurant.application.menu.service.MenuItem;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 
 /**
  * Created by Yevgen on 06.01.2016.
@@ -74,18 +77,6 @@ public class Util {
         return result;
     }
 
-    public static Double parseDouble(String data) {
-        Double result;
-
-        try {
-            result = Double.parseDouble(data);
-        } catch (NullPointerException | NumberFormatException e) {
-            result = null;
-        }
-
-        return result;
-    }
-
     public static Float parseFloat(String data) {
         Float result;
 
@@ -114,22 +105,6 @@ public class Util {
         return result;
     }
 
-    public static Double readInputDouble(String enterMessageInvitation, boolean checkNotEmpty) {
-        Double result = null;
-
-        boolean needRepeat;
-        do {
-            needRepeat = checkNotEmpty;
-            String stringData = readInputString(enterMessageInvitation, checkNotEmpty);
-            if (stringData != null && !stringData.isEmpty()) {
-                result = parseDouble(stringData);
-                needRepeat = (result == null);
-            }
-        } while (needRepeat);
-
-        return result;
-    }
-
     public static Float readInputFloat(String enterMessageInvitation, boolean checkNotEmpty) {
         Float result = null;
 
@@ -142,6 +117,16 @@ public class Util {
                 needRepeat = (result == null);
             }
         } while (needRepeat);
+
+        return result;
+    }
+
+    public static Float readInputPositiveFloat(String enterMessageInvitation, boolean checkNotEmpty) {
+        Float result = null;
+
+        do {
+            result = readInputFloat(enterMessageInvitation, checkNotEmpty);
+        } while (result != null && result <= 0.0);
 
         return result;
     }

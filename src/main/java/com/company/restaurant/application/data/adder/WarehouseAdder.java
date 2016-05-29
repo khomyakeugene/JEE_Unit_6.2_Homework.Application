@@ -32,7 +32,7 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements Objec
         if (ingredient != null) {
             Portion portion = portionChooser.chooseObjectFromList();
             if (portion != null) {
-                Float amount = Util.readInputFloat(ENTER_INGREDIENT_AMOUNT_MESSAGE, true);
+                Float amount = Util.readInputPositiveFloat(ENTER_INGREDIENT_AMOUNT_MESSAGE, false);
                 if (amount != null) {
                     getRestaurantController().addIngredientToWarehouse(ingredient, portion, amount);
                     dataHasBeenSuccessfullyAddedMessage();

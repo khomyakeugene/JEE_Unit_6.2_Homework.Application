@@ -7,7 +7,7 @@ import com.company.restaurant.application.data.service.DatabaseService;
  * Created by Yevhen on 28.05.2016.
  */
 public abstract class ObjectRemoverProto<T> extends DatabaseService implements ObjectRemover<T> {
-    private ObjectChooser<T> objectChooser;
+    protected ObjectChooser<T> objectChooser;
 
     public ObjectRemoverProto(ObjectChooser<T> objectChooser) {
         this.objectChooser = objectChooser;
@@ -15,12 +15,16 @@ public abstract class ObjectRemoverProto<T> extends DatabaseService implements O
 
     protected abstract String delObject(T object);
 
+    protected T chooseObjectFromList() {
+        return objectChooser.chooseObjectFromList();
+    }
+
     public String deleteObjects() {
         String result = null;
 
         T object;
         do {
-            object = objectChooser.chooseObjectFromList();
+            object = chooseObjectFromList();
             if (object != null) {
                 result = delObject(object);
                 if (result  != null && !result.isEmpty()) {
