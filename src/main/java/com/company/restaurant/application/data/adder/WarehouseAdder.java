@@ -10,7 +10,6 @@ import com.company.restaurant.model.Ingredient;
 import com.company.restaurant.model.Portion;
 import com.company.restaurant.model.Warehouse;
 import com.company.util.Util;
-import com.mchange.lang.PotentiallySecondary;
 
 /**
  * Created by Yevhen on 29.05.2016.
@@ -27,7 +26,7 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements Objec
 
     @Override
     protected Warehouse addObject() {
-        Warehouse result = null;
+        Warehouse result =  null;
 
         Ingredient ingredient = ingredientChooser.chooseObjectFromList();
         if (ingredient != null) {
