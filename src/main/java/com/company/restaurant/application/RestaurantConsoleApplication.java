@@ -228,11 +228,11 @@ public class RestaurantConsoleApplication {
     private static final String WAREHOUSE_MENU_ITEM_TEXT_ELAPSING_LIST = "Get elapsing ingredient list";
     private static final HashMap<Integer, MenuItem> warehouseMenuMap = new HashMap<Integer, MenuItem>(){
         {
-            put(WAREHOUSE_MENU_ITEM_CODE_ADD, new MenuItemCourseAdd(WAREHOUSE_MENU_ITEM_TEXT_ADD));
-            put(WAREHOUSE_MENU_ITEM_CODE_DELETE, new MenuItemCourseDelete(WAREHOUSE_MENU_ITEM_TEXT_DELETE));
-            put(WAREHOUSE_MENU_ITEM_CODE_FIND, new MenuItemCourseFind(WAREHOUSE_MENU_ITEM_TEXT_FIND));
-            put(WAREHOUSE_MENU_ITEM_CODE_LIST, new MenuItemEmptyAction(WAREHOUSE_MENU_ITEM_TEXT_LIST));
-            put(WAREHOUSE_MENU_ITEM_CODE_ELAPSING_LIST, new MenuItemEmptyAction(WAREHOUSE_MENU_ITEM_TEXT_ELAPSING_LIST));
+            put(WAREHOUSE_MENU_ITEM_CODE_ADD, new MenuItemWarehouseAdd(WAREHOUSE_MENU_ITEM_TEXT_ADD));
+            put(WAREHOUSE_MENU_ITEM_CODE_DELETE, new MenuItemWarehouseDelete(WAREHOUSE_MENU_ITEM_TEXT_DELETE));
+            put(WAREHOUSE_MENU_ITEM_CODE_FIND, new MenuItemWarehouseFind(WAREHOUSE_MENU_ITEM_TEXT_FIND));
+            put(WAREHOUSE_MENU_ITEM_CODE_LIST, new MenuItemWarehouseList(WAREHOUSE_MENU_ITEM_TEXT_LIST));
+            put(WAREHOUSE_MENU_ITEM_CODE_ELAPSING_LIST, new MenuItemWarehouseElapsingList(WAREHOUSE_MENU_ITEM_TEXT_ELAPSING_LIST));
             put(WAREHOUSE_MENU_ITEM_CODE_EXIT, new MenuItemEmptyAction(MENU_ITEM_TEXT_EXIT));
         }
     };

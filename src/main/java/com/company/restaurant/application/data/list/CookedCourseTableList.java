@@ -24,7 +24,7 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
             "Cook datetime"
     };
 
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-mm-yyyy hh:mm:ss");
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
 
     @Override

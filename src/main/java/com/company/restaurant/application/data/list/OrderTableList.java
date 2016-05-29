@@ -18,7 +18,7 @@ public abstract class OrderTableList extends ObjectTableListProto<Order> impleme
             "Table number"
     };
 
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-mm-yyyy hh:mm:ss");
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
     @Override
     protected String[] getListHeader() {
