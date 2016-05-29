@@ -1,15 +1,9 @@
 package com.company.restaurant.application.data.collector;
 
-import com.company.restaurant.application.data.chooser.CourseChooser;
-import com.company.restaurant.application.data.chooser.OrderChooser;
-import com.company.restaurant.application.data.chooser.OrderCourseChooser;
+import com.company.restaurant.application.data.chooser.*;
 import com.company.restaurant.application.data.list.CourseTableList;
 import com.company.restaurant.application.data.list.OpenOrderTableList;
 import com.company.restaurant.application.data.list.OrderCourseTableList;
-import com.company.restaurant.application.data.service.ItemChooser;
-import com.company.restaurant.application.data.service.ItemCollector;
-import com.company.restaurant.application.data.service.ItemCollectorProto;
-import com.company.restaurant.application.data.service.ObjectChooser;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Order;
 import com.company.restaurant.model.OrderCourse;

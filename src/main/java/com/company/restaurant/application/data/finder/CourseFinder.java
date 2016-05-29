@@ -1,7 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
-import com.company.restaurant.application.data.service.ObjectOneRecordFinderProto;
-import com.company.restaurant.application.data.service.ObjectTableList;
+import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Course;
 
 /**

@@ -1,4 +1,8 @@
-package com.company.restaurant.application.data.service;
+package com.company.restaurant.application.data.collector;
+
+import com.company.restaurant.application.data.chooser.ItemChooser;
+import com.company.restaurant.application.data.chooser.ObjectChooser;
+import com.company.restaurant.application.data.service.DatabaseService;
 
 /**
  * Created by Yevhen on 27.05.2016.

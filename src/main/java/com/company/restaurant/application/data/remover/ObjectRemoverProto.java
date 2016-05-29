@@ -1,4 +1,7 @@
-package com.company.restaurant.application.data.service;
+package com.company.restaurant.application.data.remover;
+
+import com.company.restaurant.application.data.chooser.ObjectChooser;
+import com.company.restaurant.application.data.service.DatabaseService;
 
 /**
  * Created by Yevhen on 28.05.2016.

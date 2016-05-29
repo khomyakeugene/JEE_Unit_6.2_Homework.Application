@@ -1,8 +1,6 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.service.ItemChooser;
-import com.company.restaurant.application.data.service.ItemChooserProto;
-import com.company.restaurant.application.data.service.ItemTableList;
+import com.company.restaurant.application.data.list.ItemTableList;
 import com.company.restaurant.model.Menu;
 import com.company.restaurant.model.MenuCourseList;
 

@@ -1,7 +1,6 @@
 package com.company.restaurant.application.data.remover;
 
-import com.company.restaurant.application.data.service.ObjectChooser;
-import com.company.restaurant.application.data.service.ObjectRemoverProto;
+import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.model.Employee;
 
 /**

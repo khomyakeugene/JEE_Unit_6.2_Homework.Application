@@ -1,4 +1,4 @@
-package com.company.restaurant.application.data.service;
+package com.company.restaurant.application.data.chooser;
 
 import java.util.List;
 

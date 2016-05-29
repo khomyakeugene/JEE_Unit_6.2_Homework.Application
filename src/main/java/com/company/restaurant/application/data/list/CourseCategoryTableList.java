@@ -1,7 +1,5 @@
 package com.company.restaurant.application.data.list;
 
-import com.company.restaurant.application.data.service.ObjectTableList;
-import com.company.restaurant.application.data.service.ObjectTableListProto;
 import com.company.restaurant.model.CourseCategory;
 
 import java.util.ArrayList;

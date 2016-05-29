@@ -1,5 +1,7 @@
 package com.company.restaurant.application.data.service;
 
+import com.company.restaurant.application.data.list.ObjectTableList;
+
 /**
  * Created by Yevhen on 28.05.2016.
  */

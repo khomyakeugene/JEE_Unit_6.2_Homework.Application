@@ -2,10 +2,10 @@ package com.company.restaurant.application.menu;
 
 import com.company.restaurant.application.data.chooser.EmployeeChooser;
 import com.company.restaurant.application.data.chooser.TableChooser;
+import com.company.restaurant.application.data.collector.ItemCollector;
 import com.company.restaurant.application.data.collector.OrderCourseCollector;
 import com.company.restaurant.application.data.list.EmployeeTableList;
 import com.company.restaurant.application.data.list.TableTableList;
-import com.company.restaurant.application.data.service.ItemCollector;
 import com.company.restaurant.application.menu.service.DatabaseMenuItem;
 import com.company.restaurant.application.menu.service.MenuItem;
 import com.company.restaurant.model.Employee;

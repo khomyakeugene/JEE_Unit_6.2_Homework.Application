@@ -1,4 +1,7 @@
-package com.company.restaurant.application.data.service;
+package com.company.restaurant.application.data.chooser;
+
+import com.company.restaurant.application.data.list.ItemTableList;
+import com.company.restaurant.application.data.service.DataFinderAndChooserProto;
 
 import java.util.List;
 

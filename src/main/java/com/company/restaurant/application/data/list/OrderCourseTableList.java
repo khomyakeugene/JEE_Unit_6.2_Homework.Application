@@ -1,7 +1,5 @@
 package com.company.restaurant.application.data.list;
 
-import com.company.restaurant.application.data.service.ItemTableList;
-import com.company.restaurant.application.data.service.ItemTableListProto;
 import com.company.restaurant.model.Order;
 import com.company.restaurant.model.OrderCourse;
 
