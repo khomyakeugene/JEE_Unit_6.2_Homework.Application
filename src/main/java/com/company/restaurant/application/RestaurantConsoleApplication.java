@@ -222,10 +222,10 @@ public class RestaurantConsoleApplication {
     private static final int WAREHOUSE_MENU_ITEM_CODE_ELAPSING_LIST = 5;
     private static final int WAREHOUSE_MENU_ITEM_CODE_EXIT = 6;
     private static final String WAREHOUSE_MENU_ITEM_TEXT_ADD = "Add ingredient to warehouse";
-    private static final String WAREHOUSE_MENU_ITEM_TEXT_DELETE = "Delete ingredient from";
-    private static final String WAREHOUSE_MENU_ITEM_TEXT_FIND = "Find ingredient by name";
-    private static final String WAREHOUSE_MENU_ITEM_TEXT_LIST = "Get ingredient list";
-    private static final String WAREHOUSE_MENU_ITEM_TEXT_ELAPSING_LIST = "Get elapsing ingredient list";
+    private static final String WAREHOUSE_MENU_ITEM_TEXT_DELETE = "Take ingredient from warehouse";
+    private static final String WAREHOUSE_MENU_ITEM_TEXT_FIND = "Find ingredient in warehouse by name";
+    private static final String WAREHOUSE_MENU_ITEM_TEXT_LIST = "Get warehouse ingredient list";
+    private static final String WAREHOUSE_MENU_ITEM_TEXT_ELAPSING_LIST = "Get elapsing warehouse ingredient list";
     private static final HashMap<Integer, MenuItem> warehouseMenuMap = new HashMap<Integer, MenuItem>(){
         {
             put(WAREHOUSE_MENU_ITEM_CODE_ADD, new MenuItemWarehouseAdd(WAREHOUSE_MENU_ITEM_TEXT_ADD));
