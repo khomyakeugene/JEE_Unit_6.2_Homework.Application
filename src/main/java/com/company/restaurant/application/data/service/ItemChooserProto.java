@@ -1,28 +1,44 @@
 package com.company.restaurant.application.data.service;
 
+import java.util.List;
+
 /**
  * Created by Yevhen on 28.05.2016.
  */
 public abstract class ItemChooserProto<ObjectType, ItemType, ItemKeyFieldType>
-        extends ObjectChooserProto<ItemType, ItemKeyFieldType>
+        extends DataFinderAndChooserProto<ItemKeyFieldType>
         implements ItemChooser<ObjectType, ItemType> {
 
-    protected ItemTableList<ObjectType, ItemType> itemTableList;
+    private ItemTableList<ObjectType, ItemType> itemTableList;
 
     public ItemChooserProto(ItemTableList<ObjectType, ItemType> itemTableList) {
-        super(itemTableList);
-
         this.itemTableList = itemTableList;
     }
 
-    @Override
-    protected abstract ItemType findObject(ItemKeyFieldType objectKeyFieldValue);
+    protected abstract ItemType findItem(ObjectType object, ItemKeyFieldType itemKeyFieldValue);
 
-    @Override
-    protected abstract ItemKeyFieldType readObjectKeyFieldValue();
+    private ItemType chooseItemFromList(ObjectType object, List<ItemType> items) {
+        ItemType result = null;
+
+        ItemKeyFieldType itemKeyFieldValue = null;
+        do {
+            List<ItemType> list = itemTableList.displayObjectList(items);
+            if (list != null && list.size() > 0) {
+                itemKeyFieldValue = readKeyFieldValue();
+                if (itemKeyFieldValue != null) {
+                    result = findItem(object, itemKeyFieldValue);
+                    if (result == null) {
+                        objectDataHasNotBeenFoundMessage();
+                    }
+                }
+            }
+        } while (itemKeyFieldValue != null && result == null);
+
+        return result;
+    }
 
     @Override
     public ItemType chooseItemFromList(ObjectType object) {
-        return chooseObjectFromList(itemTableList.prepareItemList(object));
+        return chooseItemFromList(object, itemTableList.prepareItemList(object));
     }
 }

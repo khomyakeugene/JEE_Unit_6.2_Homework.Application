@@ -27,7 +27,7 @@ public class EmployeeFinder extends ObjectFinderProto<Employee, String> {
     }
 
     @Override
-    protected String readObjectKeyFieldValue() {
+    protected String readKeyFieldValue() {
         firstName = Util.readInputString(ENTER_FIRST_NAME_MESSAGE, false);
         secondName = Util.readInputString(ENTER_SECOND_NAME_MESSAGE, false);
         if (firstName != null || secondName != null) {

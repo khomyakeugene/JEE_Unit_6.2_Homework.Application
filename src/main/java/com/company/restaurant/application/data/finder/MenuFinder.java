@@ -20,7 +20,7 @@ public class MenuFinder extends ObjectOneRecordFinderProto<Menu, String> {
     }
 
     @Override
-    protected String readObjectKeyFieldValue() {
+    protected String readKeyFieldValue() {
         return readStringKeyFieldValue();
     }
 

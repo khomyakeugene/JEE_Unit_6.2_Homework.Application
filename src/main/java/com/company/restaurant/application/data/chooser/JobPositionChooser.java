@@ -20,7 +20,7 @@ public class JobPositionChooser extends ObjectChooserProto<JobPosition, Integer>
     }
 
     @Override
-    protected Integer readObjectKeyFieldValue() {
+    protected Integer readKeyFieldValue() {
         return readIntegerKeyFieldValue();
     }
 

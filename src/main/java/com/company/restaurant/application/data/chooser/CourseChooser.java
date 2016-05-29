@@ -22,7 +22,7 @@ public class CourseChooser extends ObjectChooserProto<Course, Integer>
     }
 
     @Override
-    protected Integer readObjectKeyFieldValue() {
+    protected Integer readKeyFieldValue() {
         return readIntegerKeyFieldValue();
     }
 

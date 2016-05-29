@@ -20,7 +20,7 @@ public class EmployeeChooser extends ObjectChooserProto<Employee, Integer> {
     }
 
     @Override
-    protected Integer readObjectKeyFieldValue() {
+    protected Integer readKeyFieldValue() {
         return readIntegerKeyFieldValue();
     }
 

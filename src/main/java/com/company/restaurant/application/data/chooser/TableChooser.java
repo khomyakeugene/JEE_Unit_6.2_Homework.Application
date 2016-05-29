@@ -25,7 +25,7 @@ public class TableChooser extends ObjectChooserProto<Table, Integer> {
     }
 
     @Override
-    protected Integer readObjectKeyFieldValue() {
+    protected Integer readKeyFieldValue() {
         return readIntegerKeyFieldValue();
     }
 }

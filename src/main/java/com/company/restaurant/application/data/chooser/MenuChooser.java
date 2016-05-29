@@ -20,7 +20,7 @@ public class MenuChooser extends ObjectChooserProto<Menu, Integer> {
     }
 
     @Override
-    protected Integer readObjectKeyFieldValue() {
+    protected Integer readKeyFieldValue() {
         return readIntegerKeyFieldValue();
     }
 

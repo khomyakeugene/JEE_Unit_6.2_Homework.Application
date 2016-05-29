@@ -20,7 +20,7 @@ public class CourseFinder extends ObjectOneRecordFinderProto<Course, String> {
     }
 
     @Override
-    protected String readObjectKeyFieldValue() {
+    protected String readKeyFieldValue() {
         return readStringKeyFieldValue();
     }
 

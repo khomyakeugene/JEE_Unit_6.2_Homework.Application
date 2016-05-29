@@ -13,10 +13,12 @@ public abstract class ObjectOneRecordFinderProto<ObjectType, ObjectKeyFieldType>
         super(objectTableList);
     }
 
+    protected abstract ObjectType findObject(ObjectKeyFieldType objectKeyFieldValue);
+
     public List<ObjectType> findAndDisplayObjectList() {
         List<ObjectType> result = null;
 
-        ObjectKeyFieldType objectKeyFieldValue = readObjectKeyFieldValue();
+        ObjectKeyFieldType objectKeyFieldValue = readKeyFieldValue();
         if (objectKeyFieldValue != null) {
             ObjectType object = findObject(objectKeyFieldValue);
             if (object != null) {
@@ -29,7 +31,7 @@ public abstract class ObjectOneRecordFinderProto<ObjectType, ObjectKeyFieldType>
         return result;
     }
 
-    List<ObjectType>  displayObjectList(ObjectType object) {
+    private List<ObjectType>  displayObjectList(ObjectType object) {
         List<ObjectType> objects = new ArrayList<>();
         if (object != null) {
             objects.add(object);

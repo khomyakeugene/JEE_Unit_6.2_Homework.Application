@@ -8,13 +8,12 @@ import java.util.List;
 public abstract class ObjectFinderProto<ObjectType, ObjectKeyFieldType>
         extends ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType> {
 
-    protected abstract List<ObjectType> findObjects(ObjectKeyFieldType objectKeyFieldValue);
-
     public ObjectFinderProto(ObjectTableList<ObjectType> objectTableList) {
         super(objectTableList);
     }
 
-    @Override
+    protected abstract List<ObjectType> findObjects(ObjectKeyFieldType objectKeyFieldValue);
+
     protected ObjectType findObject(ObjectKeyFieldType objectKeyFieldValue) {
         ObjectType result = null;
 
@@ -29,7 +28,7 @@ public abstract class ObjectFinderProto<ObjectType, ObjectKeyFieldType>
     public List<ObjectType> findAndDisplayObjectList() {
         List<ObjectType> result = null;
 
-        ObjectKeyFieldType objectKeyFieldValue = readObjectKeyFieldValue();
+        ObjectKeyFieldType objectKeyFieldValue = readKeyFieldValue();
         if (objectKeyFieldValue != null) {
             result = findObjects(objectKeyFieldValue);
             if (result != null && result.size() > 0) {

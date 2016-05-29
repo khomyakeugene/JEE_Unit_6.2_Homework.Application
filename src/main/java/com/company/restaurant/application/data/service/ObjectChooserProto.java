@@ -13,14 +13,16 @@ public abstract class ObjectChooserProto<ObjectType, ObjectKeyFieldType>
         super(objectTableList);
     }
 
-    protected ObjectType chooseObjectFromList(List<ObjectType> objects) {
+    protected abstract ObjectType findObject(ObjectKeyFieldType objectKeyFieldValue);
+
+    private ObjectType chooseObjectFromList(List<ObjectType> objects) {
         ObjectType result = null;
 
         ObjectKeyFieldType objectKeyFieldValue = null;
         do {
             List<ObjectType> list = objectTableList.displayObjectList(objects);
             if (list != null && list.size() > 0) {
-                objectKeyFieldValue = readObjectKeyFieldValue();
+                objectKeyFieldValue = readKeyFieldValue();
                 if (objectKeyFieldValue != null) {
                     result = findObject(objectKeyFieldValue);
                     if (result == null) {
