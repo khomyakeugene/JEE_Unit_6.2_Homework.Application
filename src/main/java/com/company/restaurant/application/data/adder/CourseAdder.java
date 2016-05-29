@@ -31,7 +31,7 @@ public class CourseAdder extends ObjectAdderProto<Course> implements ObjectAdder
             CourseCategory courseCategory = courseCategoryChooser.chooseObjectFromList();
             if (courseCategory != null) {
                 Float weight = Util.readInputFloat(ENTER_WEIGHT_MESSAGE, true);
-                Float cost = Util.readInputFloat(ENTER_COST_MESSAGE, false);
+                Float cost = Util.readInputFloat(ENTER_COST_MESSAGE, true);
 
                 Course course = new Course();
                 course.setName(courseName.trim());

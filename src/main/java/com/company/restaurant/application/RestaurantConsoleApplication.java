@@ -209,8 +209,8 @@ public class RestaurantConsoleApplication {
     private static final String KITCHEN_MENU_ITEM_TEXT_COOKED_COURSE_LIST = "Get cooked course list";
     private static final HashMap<Integer, MenuItem> kitchenMenuMap = new HashMap<Integer, MenuItem>(){
         {
-            put(KITCHEN_MENU_ITEM_CODE_ADD_COOKED_COURSE, new MenuItemEmptyAction(KITCHEN_MENU_ITEM_TEXT_ADD_COOKED_COURSE));
-            put(KITCHEN_MENU_ITEM_CODE_COOKED_COURSE_LIST, new MenuItemEmptyAction(KITCHEN_MENU_ITEM_TEXT_COOKED_COURSE_LIST));
+            put(KITCHEN_MENU_ITEM_CODE_ADD_COOKED_COURSE, new MenuItemCookedCourseAdd(KITCHEN_MENU_ITEM_TEXT_ADD_COOKED_COURSE));
+            put(KITCHEN_MENU_ITEM_CODE_COOKED_COURSE_LIST, new MenuItemCookedCourseList(KITCHEN_MENU_ITEM_TEXT_COOKED_COURSE_LIST));
             put(KITCHEN_MENU_ITEM_CODE_EXIT, new MenuItemEmptyAction(MENU_ITEM_TEXT_EXIT));
         }
     };
