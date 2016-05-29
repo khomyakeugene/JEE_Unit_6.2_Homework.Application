@@ -12,6 +12,7 @@ import com.company.restaurant.model.MenuCourseList;
 public class MenuCourseChooser extends ItemChooserProto<Menu, MenuCourseList, Integer>
         implements ItemChooser<Menu, MenuCourseList> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter course identifier";
+    private static final String MENU_IS_EMPTY_MESSAGE = "Menu is empty";
 
     public MenuCourseChooser(ItemTableList<Menu, MenuCourseList> itemTableList) {
         super(itemTableList);

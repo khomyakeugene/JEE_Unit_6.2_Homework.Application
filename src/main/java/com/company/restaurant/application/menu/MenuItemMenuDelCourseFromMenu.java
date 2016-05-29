@@ -13,6 +13,6 @@ public class MenuItemMenuDelCourseFromMenu extends MenuItemMenuCourse implements
 
     @Override
     protected void performAction() {
-
+        menuCourseCollector.delItemsFromObject();
     }
 }

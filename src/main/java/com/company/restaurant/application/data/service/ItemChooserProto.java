@@ -38,6 +38,11 @@ public abstract class ItemChooserProto<ObjectType, ItemType, ItemKeyFieldType>
     }
 
     @Override
+    public List<ItemType> displayItemList(ObjectType object) {
+        return itemTableList.displayItemList(object);
+    }
+
+    @Override
     public ItemType chooseItemFromList(ObjectType object) {
         return chooseItemFromList(object, itemTableList.prepareItemList(object));
     }
