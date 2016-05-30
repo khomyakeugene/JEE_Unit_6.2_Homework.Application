@@ -31,7 +31,7 @@ public abstract class OrderTableList extends ObjectTableListProto<Order> impleme
 
         arrayList.add(Integer.toString(order.getOrderId()));
         arrayList.add(order.getOrderNumber());
-        arrayList.add(simpleDateFormat.format(order.getOrderDatetime()));
+        arrayList.add(simpleDateFormat.format(order.getOrderDatetime().getTime()));
         arrayList.add(order.getStateTypeName());
         arrayList.add(order.getEmployeeFirstName() + " " + order.getEmployeeSecondName());
         arrayList.add(Integer.toString(order.getTableNumber()));
