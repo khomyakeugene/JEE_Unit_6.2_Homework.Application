@@ -16,19 +16,4 @@ public abstract class DatabaseMenuItem extends SafeMenuItem implements MenuItem 
     public RestaurantController getRestaurantController() {
         return databaseService.getRestaurantController();
     }
-
-    @Override
-    protected abstract void performAction();
-
-    protected void dataHasBeenSuccessfullyAddedMessage() {
-        databaseService.dataHasBeenSuccessfullyAddedMessage();
-    }
-
-    protected void actionHasBeenSuccessfullyPerformedMessage() {
-        databaseService.actionHasBeenSuccessfullyPerformedMessage();
-    }
-
-    protected void dataHasBeenSuccessfullyDeletedMessage() {
-        databaseService.dataHasBeenSuccessfullyDeletedMessage();
-    }
 }
