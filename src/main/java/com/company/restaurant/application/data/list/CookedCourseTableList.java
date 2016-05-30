@@ -18,10 +18,9 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
     private static final String[] listHeader = new String[]{
             "Course Id",
             "Course name",
-            "Weight",
-            "Cost",
             "Personnel name",
-            "Cook datetime"
+            "Cooking weight",
+            "Cooking datetime"
     };
 
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
@@ -38,9 +37,8 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
 
         arrayList.add(Integer.toString(cookedCourse.getCourseId()));
         arrayList.add(cookedCourse.getCourseName());
-        arrayList.add(toStringMaskNullAsEmpty(cookedCourse.getCourseWeight()));
-        arrayList.add(toStringMaskNullAsEmpty(cookedCourse.getCourseCost()));
         arrayList.add(cookedCourse.getEmployeeFirstName() + " " + cookedCourse.getEmployeeSecondName());
+        arrayList.add(toStringMaskNullAsEmpty(cookedCourse.getCookWeight()));
         arrayList.add(simpleDateFormat.format(cookedCourse.getCookDatetime().getTime()));
 
         return arrayList.toArray(new String[arrayList.size()]);
