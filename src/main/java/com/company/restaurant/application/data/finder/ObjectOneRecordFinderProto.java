@@ -10,7 +10,8 @@ import java.util.List;
  * Created by Yevhen on 28.05.2016.
  */
 public abstract class ObjectOneRecordFinderProto<ObjectType, ObjectKeyFieldType>
-        extends ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType> {
+        extends ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType>
+        implements ObjectFinder<ObjectType>  {
 
     public ObjectOneRecordFinderProto(ObjectTableList<ObjectType> objectTableList) {
         super(objectTableList);

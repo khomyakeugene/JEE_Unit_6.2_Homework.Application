@@ -9,7 +9,8 @@ import java.util.List;
  * Created by Yevhen on 28.05.2016.
  */
 public abstract class ObjectFinderProto<ObjectType, ObjectKeyFieldType>
-        extends ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType> {
+        extends ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType>
+        implements ObjectFinder<ObjectType> {
 
     public ObjectFinderProto(ObjectTableList<ObjectType> objectTableList) {
         super(objectTableList);

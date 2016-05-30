@@ -8,7 +8,8 @@ import java.util.List;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class WarehouseFinder extends ObjectFinderProto<Warehouse, String>  {
+public class WarehouseFinder extends ObjectFinderProto<Warehouse, String>
+        implements ObjectFinder<Warehouse> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter ingredient name";
 
     public WarehouseFinder(ObjectTableList<Warehouse> objectTableList) {

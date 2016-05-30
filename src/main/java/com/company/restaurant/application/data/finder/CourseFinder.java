@@ -6,7 +6,7 @@ import com.company.restaurant.model.Course;
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public class CourseFinder extends ObjectOneRecordFinderProto<Course, String> {
+public class CourseFinder extends ObjectOneRecordFinderProto<Course, String> implements ObjectFinder<Course> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter course name";
 
     public CourseFinder(ObjectTableList<Course> objectTableList) {

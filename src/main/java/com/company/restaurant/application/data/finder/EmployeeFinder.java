@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public class EmployeeFinder extends ObjectFinderProto<Employee, String> {
+public class EmployeeFinder extends ObjectFinderProto<Employee, String> implements ObjectFinder<Employee> {
     private static final String ENTER_FIRST_NAME_MESSAGE = "Please, enter first name of employee";
     private static final String ENTER_SECOND_NAME_MESSAGE = "Please, enter second name of employee";
 
