@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.application.data.list.CourseTableList;
 import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Course;
 
@@ -10,7 +11,7 @@ public class CourseChooser extends ObjectChooserProto<Course, Integer>
         implements ObjectChooser<Course> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter course identifier";
 
-    public CourseChooser(ObjectTableList<Course> objectTableList) {
+    private CourseChooser(ObjectTableList<Course> objectTableList) {
         super(objectTableList);
     }
 
@@ -27,5 +28,9 @@ public class CourseChooser extends ObjectChooserProto<Course, Integer>
     @Override
     protected String getEnterIdentifierMessage() {
         return ENTER_IDENTIFIER_MESSAGE;
+    }
+
+    public static ObjectChooser<Course> newInstance() {
+        return new CourseChooser(new CourseTableList());
     }
 }

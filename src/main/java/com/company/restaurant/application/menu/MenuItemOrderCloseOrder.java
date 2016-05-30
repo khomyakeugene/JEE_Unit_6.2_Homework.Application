@@ -1,7 +1,7 @@
 package com.company.restaurant.application.menu;
 
+import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.chooser.OrderChooser;
-import com.company.restaurant.application.data.list.OpenOrderTableList;
 import com.company.restaurant.application.data.service.DatabaseService;
 import com.company.restaurant.application.menu.service.MenuItem;
 import com.company.restaurant.application.menu.service.SafeMenuItem;
@@ -15,7 +15,7 @@ public class MenuItemOrderCloseOrder extends SafeMenuItem implements MenuItem {
     private static final String ORDER_HAS_BEEN_CLOSED_PATTERN = "Order with number <%s> has been closed";
 
     private DatabaseService databaseService = new DatabaseService();
-    private OrderChooser orderChooser = new OrderChooser(new OpenOrderTableList());
+    private ObjectChooser<Order> orderChooser = OrderChooser.newInstance();
 
     public MenuItemOrderCloseOrder(String itemText) {
         super(itemText);

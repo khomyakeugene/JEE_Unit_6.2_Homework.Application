@@ -2,7 +2,6 @@ package com.company.restaurant.application.data.remover;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.chooser.OrderChooser;
-import com.company.restaurant.application.data.list.OpenOrderTableList;
 import com.company.restaurant.model.Order;
 
 /**
@@ -19,6 +18,6 @@ public class OrderRemover extends ObjectRemoverProto<Order>  implements ObjectRe
     }
 
     public static ObjectRemover<Order> newInstance() {
-        return new OrderRemover(new OrderChooser(new OpenOrderTableList()));
+        return new OrderRemover(OrderChooser.newInstance());
     }
 }

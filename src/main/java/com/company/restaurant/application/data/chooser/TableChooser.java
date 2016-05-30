@@ -1,15 +1,16 @@
 package com.company.restaurant.application.data.chooser;
 
 import com.company.restaurant.application.data.list.ObjectTableList;
+import com.company.restaurant.application.data.list.TableTableList;
 import com.company.restaurant.model.Table;
 
 /**
  * Created by Yevhen on 27.05.2016.
  */
-public class TableChooser extends ObjectChooserProto<Table, Integer> {
+public class TableChooser extends ObjectChooserProto<Table, Integer> implements ObjectChooser<Table> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter table number";
 
-    public TableChooser(ObjectTableList<Table> objectTableList) {
+    private TableChooser(ObjectTableList<Table> objectTableList) {
         super(objectTableList);
     }
 
@@ -26,5 +27,9 @@ public class TableChooser extends ObjectChooserProto<Table, Integer> {
     @Override
     protected Integer readKeyFieldValue() {
         return readIntegerKeyFieldValue();
+    }
+
+    public static ObjectChooser<Table> newInstance() {
+        return new TableChooser(new TableTableList());
     }
 }

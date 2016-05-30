@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.application.data.list.IngredientTableList;
 import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Ingredient;
 
@@ -10,7 +11,7 @@ public class IngredientChooser extends ObjectChooserProto<Ingredient, Integer>
         implements ObjectChooser<Ingredient>  {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter ingredient identifier";
 
-    public IngredientChooser(ObjectTableList<Ingredient> objectTableList) {
+    private IngredientChooser(ObjectTableList<Ingredient> objectTableList) {
         super(objectTableList);
     }
 
@@ -27,5 +28,9 @@ public class IngredientChooser extends ObjectChooserProto<Ingredient, Integer>
     @Override
     protected String getEnterIdentifierMessage() {
         return ENTER_IDENTIFIER_MESSAGE;
+    }
+
+    public static ObjectChooser<Ingredient> newInstance() {
+        return new IngredientChooser(new IngredientTableList());
     }
 }

@@ -2,7 +2,6 @@ package com.company.restaurant.application.data.remover;
 
 import com.company.restaurant.application.data.chooser.CourseChooser;
 import com.company.restaurant.application.data.chooser.ObjectChooser;
-import com.company.restaurant.application.data.list.CourseTableList;
 import com.company.restaurant.model.Course;
 
 /**
@@ -19,6 +18,6 @@ public class CourseRemover extends ObjectRemoverProto<Course>  implements Object
     }
 
     public static ObjectRemover<Course> newInstance() {
-        return new CourseRemover(new CourseChooser(new CourseTableList()));
+        return new CourseRemover(CourseChooser.newInstance());
     }
 }

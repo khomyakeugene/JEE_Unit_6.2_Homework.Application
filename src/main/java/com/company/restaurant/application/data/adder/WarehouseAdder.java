@@ -1,10 +1,9 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.IngredientChooser;
+import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.chooser.PortionChooser;
-import com.company.restaurant.application.data.list.IngredientTableList;
 import com.company.restaurant.application.data.list.ObjectTableList;
-import com.company.restaurant.application.data.list.PortionTableList;
 import com.company.restaurant.application.data.list.WarehouseTableList;
 import com.company.restaurant.model.Ingredient;
 import com.company.restaurant.model.Portion;
@@ -17,10 +16,10 @@ import com.company.util.Util;
 public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements ObjectAdder<Warehouse> {
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
-    private IngredientChooser ingredientChooser = new IngredientChooser(new IngredientTableList());
-    private PortionChooser portionChooser = new PortionChooser(new PortionTableList());
+    private ObjectChooser<Ingredient> ingredientChooser = IngredientChooser.newInstance();
+    private ObjectChooser<Portion> portionChooser = PortionChooser.newInstance();
 
-    public WarehouseAdder(ObjectTableList<Warehouse> objectTableList) {
+    private WarehouseAdder(ObjectTableList<Warehouse> objectTableList) {
         super(objectTableList);
     }
 

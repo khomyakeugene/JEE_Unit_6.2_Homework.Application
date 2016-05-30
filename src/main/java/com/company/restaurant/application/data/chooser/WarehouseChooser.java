@@ -1,6 +1,7 @@
 package com.company.restaurant.application.data.chooser;
 
 import com.company.restaurant.application.data.list.ObjectTableList;
+import com.company.restaurant.application.data.list.WarehouseTableList;
 import com.company.restaurant.model.Warehouse;
 
 import java.util.List;
@@ -8,10 +9,11 @@ import java.util.List;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class WarehouseChooser extends ObjectChooserProto<Warehouse, Integer> {
+public class WarehouseChooser extends ObjectChooserProto<Warehouse, Integer>
+        implements ObjectChooser<Warehouse> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter ingredient identifier";
 
-    public WarehouseChooser(ObjectTableList<Warehouse> objectTableList) {
+    private WarehouseChooser(ObjectTableList<Warehouse> objectTableList) {
         super(objectTableList);
     }
 
@@ -30,5 +32,9 @@ public class WarehouseChooser extends ObjectChooserProto<Warehouse, Integer> {
     @Override
     protected String getEnterIdentifierMessage() {
         return ENTER_IDENTIFIER_MESSAGE;
+    }
+
+    public static ObjectChooser<Warehouse> newInstance() {
+        return new WarehouseChooser(new WarehouseTableList());
     }
 }

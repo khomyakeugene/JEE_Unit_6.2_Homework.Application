@@ -1,9 +1,6 @@
 package com.company.restaurant.application.data.collector;
 
 import com.company.restaurant.application.data.chooser.*;
-import com.company.restaurant.application.data.list.CourseTableList;
-import com.company.restaurant.application.data.list.OpenOrderTableList;
-import com.company.restaurant.application.data.list.OrderCourseTableList;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Order;
 import com.company.restaurant.model.OrderCourse;
@@ -34,9 +31,8 @@ public class OrderCourseCollector extends ItemCollectorProto<Order, Course, Orde
 
     public static ItemCollector<Order> newInstance() {
         return new OrderCourseCollector(
-                new OrderChooser(
-                new OpenOrderTableList()),
-                new CourseChooser(new CourseTableList()),
-                new OrderCourseChooser(new OrderCourseTableList()));
+                OrderChooser.newInstance(),
+                CourseChooser.newInstance(),
+                OrderCourseChooser.newInstance());
     }
 }

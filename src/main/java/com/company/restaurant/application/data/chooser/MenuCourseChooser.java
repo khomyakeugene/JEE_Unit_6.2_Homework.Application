@@ -1,6 +1,7 @@
 package com.company.restaurant.application.data.chooser;
 
 import com.company.restaurant.application.data.list.ItemTableList;
+import com.company.restaurant.application.data.list.MenuCourseTableList;
 import com.company.restaurant.model.Menu;
 import com.company.restaurant.model.MenuCourseList;
 
@@ -11,7 +12,7 @@ public class MenuCourseChooser extends ItemChooserProto<Menu, MenuCourseList, In
         implements ItemChooser<Menu, MenuCourseList> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter course identifier";
 
-    public MenuCourseChooser(ItemTableList<Menu, MenuCourseList> itemTableList) {
+    private MenuCourseChooser(ItemTableList<Menu, MenuCourseList> itemTableList) {
         super(itemTableList);
     }
 
@@ -28,5 +29,9 @@ public class MenuCourseChooser extends ItemChooserProto<Menu, MenuCourseList, In
     @Override
     protected MenuCourseList findItem(Menu menu, Integer courseId) {
         return getRestaurantController().findMenuCourseByCourseId(menu, courseId);
+    }
+
+    public static ItemChooser<Menu, MenuCourseList> newInstance() {
+        return new MenuCourseChooser(new MenuCourseTableList());
     }
 }

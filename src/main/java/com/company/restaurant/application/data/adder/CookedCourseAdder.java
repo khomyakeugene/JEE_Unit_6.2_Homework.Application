@@ -2,9 +2,8 @@ package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.CourseChooser;
 import com.company.restaurant.application.data.chooser.EmployeeChooser;
+import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.list.CookedCourseTableList;
-import com.company.restaurant.application.data.list.CourseTableList;
-import com.company.restaurant.application.data.list.EmployeeTableList;
 import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.CookedCourse;
 import com.company.restaurant.model.Course;
@@ -17,10 +16,10 @@ import com.company.util.Util;
 public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> implements ObjectAdder<CookedCourse>   {
     private static final String ENTER_WEIGHT_MESSAGE = "Please, enter course weight";
 
-    private CourseChooser courseChooser = new CourseChooser(new CourseTableList());
-    private EmployeeChooser employeeChooser = new EmployeeChooser(new EmployeeTableList());
+    private ObjectChooser<Course> courseChooser = CourseChooser.newInstance();
+    private ObjectChooser<Employee>  employeeChooser = EmployeeChooser.newInstance();
 
-    public CookedCourseAdder(ObjectTableList<CookedCourse> objectTableList) {
+    private CookedCourseAdder(ObjectTableList<CookedCourse> objectTableList) {
         super(objectTableList);
     }
 

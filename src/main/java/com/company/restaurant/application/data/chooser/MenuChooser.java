@@ -1,15 +1,16 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.application.data.list.MenuTableList;
 import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Menu;
 
 /**
  * Created by Yevhen on 27.05.2016.
  */
-public class MenuChooser extends ObjectChooserProto<Menu, Integer> {
+public class MenuChooser extends ObjectChooserProto<Menu, Integer> implements ObjectChooser<Menu> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter menu identifier";
 
-    public MenuChooser(ObjectTableList<Menu> objectTableList) {
+    private MenuChooser(ObjectTableList<Menu> objectTableList) {
         super(objectTableList);
     }
 
@@ -27,5 +28,9 @@ public class MenuChooser extends ObjectChooserProto<Menu, Integer> {
     @Override
     protected String getEnterIdentifierMessage() {
         return ENTER_IDENTIFIER_MESSAGE;
+    }
+
+    public static ObjectChooser<Menu> newInstance() {
+        return new MenuChooser(new MenuTableList());
     }
 }

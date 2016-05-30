@@ -3,7 +3,6 @@ package com.company.restaurant.application.data.remover;
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.chooser.PortionChooser;
 import com.company.restaurant.application.data.chooser.WarehouseChooser;
-import com.company.restaurant.application.data.list.PortionTableList;
 import com.company.restaurant.application.data.list.WarehouseTableList;
 import com.company.restaurant.model.Portion;
 import com.company.restaurant.model.Warehouse;
@@ -16,9 +15,9 @@ public class WarehouseRemover extends ObjectRemoverProto<Warehouse>  implements 
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
     private WarehouseTableList warehouseTableList = new WarehouseTableList();
-    private PortionChooser portionChooser = new PortionChooser(new PortionTableList());
+    private ObjectChooser<Portion> portionChooser = PortionChooser.newInstance();
 
-    public WarehouseRemover(ObjectChooser<Warehouse> objectChooser) {
+    private WarehouseRemover(ObjectChooser<Warehouse> objectChooser) {
         super(objectChooser);
     }
 
@@ -57,6 +56,6 @@ public class WarehouseRemover extends ObjectRemoverProto<Warehouse>  implements 
     }
 
     public static ObjectRemover<Warehouse> newInstance() {
-        return new WarehouseRemover(new WarehouseChooser(new WarehouseTableList()));
+        return new WarehouseRemover(WarehouseChooser.newInstance());
     }
 }

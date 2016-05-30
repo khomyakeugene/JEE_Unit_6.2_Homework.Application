@@ -1,9 +1,6 @@
 package com.company.restaurant.application.data.collector;
 
 import com.company.restaurant.application.data.chooser.*;
-import com.company.restaurant.application.data.list.CourseTableList;
-import com.company.restaurant.application.data.list.MenuCourseTableList;
-import com.company.restaurant.application.data.list.MenuTableList;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Menu;
 import com.company.restaurant.model.MenuCourseList;
@@ -33,8 +30,8 @@ public class MenuCourseCollector extends ItemCollectorProto<Menu, Course, MenuCo
 
     public static ItemCollector<Menu> newInstance() {
         return new MenuCourseCollector(
-                new MenuChooser(new MenuTableList()),
-                new CourseChooser(new CourseTableList()),
-                new MenuCourseChooser(new MenuCourseTableList()));
+                MenuChooser.newInstance(),
+                CourseChooser.newInstance(),
+                MenuCourseChooser.newInstance());
     }
 }
