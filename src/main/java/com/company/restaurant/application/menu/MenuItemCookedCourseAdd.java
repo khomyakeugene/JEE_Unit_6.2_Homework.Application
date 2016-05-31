@@ -16,6 +16,4 @@ public class MenuItemCookedCourseAdd extends SafeMenuItem implements MenuItem {
     protected void performAction() {
         cookedCourseAdder.addObjects();
     }
-
-
 }
