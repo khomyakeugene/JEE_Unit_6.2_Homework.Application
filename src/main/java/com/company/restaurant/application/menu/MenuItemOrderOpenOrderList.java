@@ -10,10 +10,6 @@ import com.company.restaurant.application.menu.service.SafeMenuItem;
 public class MenuItemOrderOpenOrderList extends SafeMenuItem implements MenuItem {
     private OpenOrderTableList openOrderTableList = new OpenOrderTableList();
 
-    public MenuItemOrderOpenOrderList(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         openOrderTableList.displayObjectList();

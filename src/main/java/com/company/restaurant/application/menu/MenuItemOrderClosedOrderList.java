@@ -10,10 +10,6 @@ import com.company.restaurant.application.menu.service.SafeMenuItem;
 public class MenuItemOrderClosedOrderList extends SafeMenuItem implements MenuItem {
     private ClosedOrderTableList closedOrderTableList = new ClosedOrderTableList();
 
-    public MenuItemOrderClosedOrderList(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         closedOrderTableList.displayObjectList();

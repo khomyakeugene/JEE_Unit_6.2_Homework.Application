@@ -11,10 +11,6 @@ import com.company.restaurant.application.menu.service.SafeMenuItem;
 public class MenuItemWarehouseFind extends SafeMenuItem implements MenuItem {
     private WarehouseFinder warehouseFinder = new WarehouseFinder(new WarehouseTableList());
 
-    public MenuItemWarehouseFind(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         warehouseFinder.findAndDisplayObjectList();

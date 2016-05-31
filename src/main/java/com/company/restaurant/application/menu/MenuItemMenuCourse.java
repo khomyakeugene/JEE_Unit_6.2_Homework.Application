@@ -11,8 +11,4 @@ import com.company.restaurant.model.Menu;
  */
 public abstract class MenuItemMenuCourse extends SafeMenuItem implements MenuItem {
     protected ItemCollector<Menu> menuCourseCollector = MenuCourseCollector.newInstance();
-
-    public MenuItemMenuCourse(String itemText) {
-        super(itemText);
-    }
 }

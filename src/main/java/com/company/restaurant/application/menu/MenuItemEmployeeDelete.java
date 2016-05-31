@@ -12,10 +12,6 @@ import com.company.restaurant.model.Employee;
 public class MenuItemEmployeeDelete extends SafeMenuItem implements MenuItem {
     private ObjectRemover<Employee> employeeRemover = EmployeeRemover.newInstance();
 
-    public MenuItemEmployeeDelete(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         employeeRemover.deleteObjects();

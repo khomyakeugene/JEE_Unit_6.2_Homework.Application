@@ -1,21 +1,16 @@
 package com.company.util;
 
-import com.company.restaurant.application.menu.service.MenuItem;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * Created by Yevgen on 06.01.2016.
  */
 
 public class Util {
-    private final static String CODE_MENU_ITEM_PATTERN = "%d. %s";
     private final static String PLEASE_REPEAT_ENTER = "%s was generated with data \"%s\". Please, repeat enter action";
 
     public static String toString(Object object) {
@@ -122,7 +117,7 @@ public class Util {
     }
 
     public static Float readInputPositiveFloat(String enterMessageInvitation, boolean checkNotEmpty) {
-        Float result = null;
+        Float result;
 
         do {
             result = readInputFloat(enterMessageInvitation, checkNotEmpty);
@@ -158,29 +153,6 @@ public class Util {
             StackTraceElement main = stack[stack.length - 1];
             result = main.getClass();
         }
-
-        return result;
-    }
-
-    public static void printMenu(Map<Integer, MenuItem> menu) {
-        menu.forEach((c, i) -> printMessage(String.format(CODE_MENU_ITEM_PATTERN, c, i.getItemText())));
-    }
-
-    public static int chooseMenuItemCode(String invitationMessage, Map<Integer, MenuItem> menu, int exitCode) {
-        Integer result;
-        Set<Integer> availableCode = menu.keySet();
-
-        do {
-            printMenu(menu);
-            result = parseInt(readInputString(invitationMessage));
-            if (availableCode.contains(result)) {
-                if (result == exitCode) {
-                    break;
-                } else {
-                    menu.get(result).menuAction();
-                }
-            }
-        } while (result == null || result != exitCode);
 
         return result;
     }

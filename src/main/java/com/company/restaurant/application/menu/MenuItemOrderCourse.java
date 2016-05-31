@@ -11,8 +11,4 @@ import com.company.restaurant.model.Order;
  */
 public abstract class MenuItemOrderCourse extends SafeMenuItem implements MenuItem {
     protected ItemCollector<Order> orderCourseCollector = OrderCourseCollector.newInstance();
-
-    public MenuItemOrderCourse(String itemText) {
-        super(itemText);
-    }
 }

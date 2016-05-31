@@ -12,10 +12,6 @@ import com.company.restaurant.model.Order;
 public class MenuItemOrderAdd extends SafeMenuItem implements MenuItem {
     private ObjectAdder<Order> orderAdder = OrderAdder.newInstance();
 
-    public MenuItemOrderAdd(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         orderAdder.addObjects();

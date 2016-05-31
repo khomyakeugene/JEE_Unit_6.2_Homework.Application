@@ -12,10 +12,6 @@ import com.company.restaurant.model.Employee;
 public class MenuItemEmployeeAdd extends SafeMenuItem implements MenuItem {
     private ObjectAdder<Employee> employeeAdder = EmployeeAdder.newInstance();
 
-    public MenuItemEmployeeAdd(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         employeeAdder.addObjects();

@@ -9,12 +9,8 @@ import com.company.restaurant.model.Warehouse;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class MenuItemWarehouseAdd extends SafeMenuItem implements MenuItem {
+public class MenuItemWarehouseAddIngredient extends SafeMenuItem implements MenuItem {
     private ObjectAdder<Warehouse> warehouseAdder = WarehouseAdder.newInstance();
-
-    public MenuItemWarehouseAdd(String itemText) {
-        super(itemText);
-    }
 
     @Override
     protected void performAction() {

@@ -11,10 +11,6 @@ import com.company.restaurant.application.menu.service.SafeMenuItem;
 public class MenuItemEmployeeFind extends SafeMenuItem implements MenuItem {
     private EmployeeFinder employeeFinder = new EmployeeFinder(new EmployeeTableList());
 
-    public MenuItemEmployeeFind(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         employeeFinder.findAndDisplayObjectList();

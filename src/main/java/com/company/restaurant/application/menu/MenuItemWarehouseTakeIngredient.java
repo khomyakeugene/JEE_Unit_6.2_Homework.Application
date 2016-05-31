@@ -9,12 +9,8 @@ import com.company.restaurant.model.Warehouse;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class MenuItemWarehouseDelete extends SafeMenuItem implements MenuItem {
-    ObjectRemover<Warehouse> warehouseRemover = WarehouseRemover.newInstance();
-
-    public MenuItemWarehouseDelete(String itemText) {
-        super(itemText);
-    }
+public class MenuItemWarehouseTakeIngredient extends SafeMenuItem implements MenuItem {
+    private ObjectRemover<Warehouse> warehouseRemover = WarehouseRemover.newInstance();
 
     @Override
     protected void performAction() {

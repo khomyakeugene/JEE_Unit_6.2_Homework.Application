@@ -8,8 +8,258 @@
 
     <import resource="classpath*:restaurant-controller-application-context.xml"/>
 
+    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem" id="mainMenu">
+        <property name="itemText" value="Main menu"/>
+        <property name="subMenu">
+            <map key-type="java.lang.Integer" value-type="com.company.restaurant.application.menu.service.MenuItem">
+                <entry key="1">
+                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                        <property name="itemText" value="Employee operations"/>
+                        <property name="subMenu">
+                            <map key-type="java.lang.Integer"
+                                 value-type="com.company.restaurant.application.menu.service.MenuItem">
+                                <entry key="1">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemEmployeeAdd">
+                                        <property name="itemText" value="Add employee"/>
+                                    </bean>
+                                </entry>
+                                <entry key="2">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemEmployeeDelete">
+                                        <property name="itemText" value="Delete employee"/>
+                                    </bean>
+                                </entry>
+                                <entry key="3">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemEmployeeFind">
+                                        <property name="itemText" value="Find employee by name"/>
+                                    </bean>
+                                </entry>
+                                <entry key="4">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemEmployeeList">
+                                        <property name="itemText" value="Get employee list"/>
+                                    </bean>
+                                </entry>
+                                <entry key="5">
+                                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                                        <property name="itemText" value="Exit"/>
+                                    </bean>
+                                </entry>
+                            </map>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="2">
+                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                        <property name="itemText" value="Course operations"/>
+                        <property name="subMenu">
+                            <map key-type="java.lang.Integer"
+                                 value-type="com.company.restaurant.application.menu.service.MenuItem">
+                                <entry key="1">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemCourseAdd">
+                                        <property name="itemText" value="Add course"/>
+                                    </bean>
+                                </entry>
+                                <entry key="2">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemCourseDelete">
+                                        <property name="itemText" value="Delete course"/>
+                                    </bean>
+                                </entry>
+                                <entry key="3">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemCourseFind">
+                                        <property name="itemText" value="Find course by name"/>
+                                    </bean>
+                                </entry>
+                                <entry key="4">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemCourseList">
+                                        <property name="itemText" value="Get course list"/>
+                                    </bean>
+                                </entry>
+                                <entry key="5">
+                                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                                        <property name="itemText" value="Exit"/>
+                                    </bean>
+                                </entry>
+                            </map>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="3">
+                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                        <property name="itemText" value="Menu operations"/>
+                        <property name="subMenu">
+                            <map key-type="java.lang.Integer"
+                                 value-type="com.company.restaurant.application.menu.service.MenuItem">
+                                <entry key="1">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuAdd">
+                                        <property name="itemText" value="Add menu"/>
+                                    </bean>
+                                </entry>
+                                <entry key="2">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuDelete">
+                                        <property name="itemText" value="Delete menu"/>
+                                    </bean>
+                                </entry>
+                                <entry key="3">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuDelete">
+                                        <property name="itemText" value="Delete menu"/>
+                                    </bean>
+                                </entry>
+                                <entry key="3">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuFind">
+                                        <property name="itemText" value="Find menu by name"/>
+                                    </bean>
+                                </entry>
+                                <entry key="4">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuList">
+                                        <property name="itemText" value="Get menu list"/>
+                                    </bean>
+                                </entry>
+                                <entry key="5">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuAddCourseToMenu">
+                                        <property name="itemText" value="Add course to menu"/>
+                                    </bean>
+                                </entry>
+                                <entry key="6">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuDelCourseFromMenu">
+                                        <property name="itemText" value="Delete course from menu"/>
+                                    </bean>
+                                </entry>
+
+                                <entry key="7">
+                                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                                        <property name="itemText" value="Exit"/>
+                                    </bean>
+                                </entry>
+                            </map>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="4">
+                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                        <property name="itemText" value="Order operations"/>
+                        <property name="subMenu">
+                            <map key-type="java.lang.Integer"
+                                 value-type="com.company.restaurant.application.menu.service.MenuItem">
+                                <entry key="1">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderAdd">
+                                        <property name="itemText" value="Add order"/>
+                                    </bean>
+                                </entry>
+                                <entry key="2">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderDelete">
+                                        <property name="itemText" value="Delete order"/>
+                                    </bean>
+                                </entry>
+                                <entry key="3">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderAddCourseToOrder">
+                                        <property name="itemText" value="Add course to order"/>
+                                    </bean>
+                                </entry>
+                                <entry key="4">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderTakeCourseFromOrder">
+                                        <property name="itemText" value="Take course from order"/>
+                                    </bean>
+                                </entry>
+                                <entry key="5">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderCloseOrder">
+                                        <property name="itemText" value="Close order"/>
+                                    </bean>
+                                </entry>
+                                <entry key="6">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderOpenOrderList">
+                                        <property name="itemText" value="Open order list"/>
+                                    </bean>
+                                </entry>
+                                <entry key="7">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderClosedOrderList">
+                                        <property name="itemText" value="Closed order list"/>
+                                    </bean>
+                                </entry>
+                                <entry key="8">
+                                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                                        <property name="itemText" value="Exit"/>
+                                    </bean>
+                                </entry>
+                            </map>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="5">
+                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                        <property name="itemText" value="Kitchen operations"/>
+                        <property name="subMenu">
+                            <map key-type="java.lang.Integer"
+                                 value-type="com.company.restaurant.application.menu.service.MenuItem">
+                                <entry key="1">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemCookedCourseAdd">
+                                        <property name="itemText" value="Add cooked course"/>
+                                    </bean>
+                                </entry>
+                                <entry key="2">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemCookedCourseList">
+                                        <property name="itemText" value="Get cooked course list"/>
+                                    </bean>
+                                </entry>
+                                <entry key="3">
+                                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                                        <property name="itemText" value="Exit"/>
+                                    </bean>
+                                </entry>
+                            </map>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="6">
+                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                        <property name="itemText" value="Warehouse operations"/>
+                        <property name="subMenu">
+                            <map key-type="java.lang.Integer"
+                                 value-type="com.company.restaurant.application.menu.service.MenuItem">
+                                <entry key="1">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemWarehouseAddIngredient">
+                                        <property name="itemText" value="Add ingredient to warehouse"/>
+                                    </bean>
+                                </entry>
+                                <entry key="2">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemWarehouseTakeIngredient">
+                                        <property name="itemText" value="Take ingredient from warehouse"/>
+                                    </bean>
+                                </entry>
+                                <entry key="3">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemWarehouseFind">
+                                        <property name="itemText" value="Find ingredient in warehouse by name"/>
+                                    </bean>
+                                </entry>
+                                <entry key="4">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemWarehouseList">
+                                        <property name="itemText" value="Get warehouse ingredient list"/>
+                                    </bean>
+                                </entry>
+                                <entry key="5">
+                                    <bean class="com.company.restaurant.application.menu.MenuItemWarehouseElapsingList">
+                                        <property name="itemText" value="Get elapsing warehouse ingredient list"/>
+                                    </bean>
+                                </entry>
+                                <entry key="6">
+                                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                                        <property name="itemText" value="Exit"/>
+                                    </bean>
+                                </entry>
+                            </map>
+                        </property>
+                    </bean>
+                </entry>
+                <entry key="7">
+                    <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem">
+                        <property name="itemText" value="Exit"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
     <bean class="com.company.restaurant.application.RestaurantConsoleApplication" id="restaurantConsoleApplication">
         <property name="restaurantController" ref="restaurantController"/>
+        <property name="mainMenu" ref="mainMenu"/>
     </bean>
 
     <!-- AOP-CONTEXT, , intentionally do not exclude from here and store in the separate context-file such as "aop-context.xml" -->

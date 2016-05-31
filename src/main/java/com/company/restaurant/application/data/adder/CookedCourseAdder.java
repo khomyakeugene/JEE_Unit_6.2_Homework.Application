@@ -15,6 +15,7 @@ import com.company.util.Util;
  */
 public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> implements ObjectAdder<CookedCourse>   {
     private static final String ENTER_WEIGHT_MESSAGE = "Please, enter course weight";
+    private static final String ALREADY_COOKED_COURSES_MESSAGE = "Already cooked courses:";
 
     private ObjectChooser<Course> courseChooser = CourseChooser.newInstance();
     private ObjectChooser<Employee>  employeeChooser = EmployeeChooser.newInstance();
@@ -50,5 +51,10 @@ public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> implements
 
     public static ObjectAdderProto<CookedCourse> newInstance() {
         return new CookedCourseAdder(new CookedCourseTableList());
+    }
+
+    @Override
+    protected String getExistingDataMessage() {
+        return ALREADY_COOKED_COURSES_MESSAGE;
     }
 }

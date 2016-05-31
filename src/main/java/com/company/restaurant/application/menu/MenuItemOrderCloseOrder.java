@@ -17,10 +17,6 @@ public class MenuItemOrderCloseOrder extends SafeMenuItem implements MenuItem {
     private DatabaseService databaseService = new DatabaseService();
     private ObjectChooser<Order> orderChooser = OrderChooser.newInstance();
 
-    public MenuItemOrderCloseOrder(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         Order order = orderChooser.chooseObjectFromList();

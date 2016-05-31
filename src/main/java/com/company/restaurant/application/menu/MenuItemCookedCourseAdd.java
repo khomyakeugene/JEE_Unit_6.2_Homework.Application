@@ -10,14 +10,12 @@ import com.company.restaurant.model.CookedCourse;
  * Created by Yevhen on 29.05.2016.
  */
 public class MenuItemCookedCourseAdd extends SafeMenuItem implements MenuItem {
-    ObjectAdderProto<CookedCourse> cookedCourseAdder = CookedCourseAdder.newInstance();
-
-    public MenuItemCookedCourseAdd(String itemText) {
-        super(itemText);
-    }
+    private ObjectAdderProto<CookedCourse> cookedCourseAdder = CookedCourseAdder.newInstance();
 
     @Override
     protected void performAction() {
         cookedCourseAdder.addObjects();
     }
+
+
 }

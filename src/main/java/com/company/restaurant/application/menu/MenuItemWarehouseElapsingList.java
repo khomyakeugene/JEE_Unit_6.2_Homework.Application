@@ -13,10 +13,6 @@ public class MenuItemWarehouseElapsingList extends SafeMenuItem implements MenuI
 
     private WarehouseTableList warehouseTableList = new WarehouseTableList();
 
-    public MenuItemWarehouseElapsingList(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         Float boundaryValue = Util.readInputPositiveFloat(ENTER_BOUNDARY_VALUE_MESSAGE, false);

@@ -12,10 +12,6 @@ import com.company.restaurant.model.Order;
 public class MenuItemOrderDelete extends SafeMenuItem implements MenuItem {
     private ObjectRemover<Order> orderRemover = OrderRemover.newInstance();
 
-    public MenuItemOrderDelete(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         orderRemover.deleteObjects();

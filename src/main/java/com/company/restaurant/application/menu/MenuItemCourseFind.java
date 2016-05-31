@@ -11,10 +11,6 @@ import com.company.restaurant.application.menu.service.SafeMenuItem;
 public class MenuItemCourseFind extends SafeMenuItem implements MenuItem {
     private CourseFinder courseFinder = new CourseFinder(new CourseTableList());
 
-    public MenuItemCourseFind(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         courseFinder.findAndDisplayObjectList();

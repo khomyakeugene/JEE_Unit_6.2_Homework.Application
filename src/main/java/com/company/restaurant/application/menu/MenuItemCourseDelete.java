@@ -12,10 +12,6 @@ import com.company.restaurant.model.Course;
 public class MenuItemCourseDelete extends SafeMenuItem implements MenuItem {
     private ObjectRemover<Course> courseRemover = CourseRemover.newInstance();
 
-    public MenuItemCourseDelete(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         courseRemover.deleteObjects();

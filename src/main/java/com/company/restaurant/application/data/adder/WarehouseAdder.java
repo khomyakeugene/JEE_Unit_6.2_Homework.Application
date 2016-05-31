@@ -14,6 +14,7 @@ import com.company.util.Util;
  * Created by Yevhen on 29.05.2016.
  */
 public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements ObjectAdder<Warehouse> {
+    private static final String ALREADY_IN_WAREHOUSE_MESSAGE = "Already in warehouse:";
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
     private ObjectChooser<Ingredient> ingredientChooser = IngredientChooser.newInstance();
@@ -50,5 +51,10 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements Objec
 
     public static ObjectAdder<Warehouse> newInstance() {
         return new WarehouseAdder(new WarehouseTableList());
+    }
+
+    @Override
+    protected String getExistingDataMessage() {
+        return ALREADY_IN_WAREHOUSE_MESSAGE;
     }
 }

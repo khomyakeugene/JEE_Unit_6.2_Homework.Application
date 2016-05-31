@@ -10,10 +10,6 @@ import com.company.restaurant.application.menu.service.SafeMenuItem;
 public class MenuItemCookedCourseList extends SafeMenuItem implements MenuItem {
     private CookedCourseTableList cookedCourseTableList = new CookedCourseTableList();
 
-    public MenuItemCookedCourseList(String itemText) {
-        super(itemText);
-    }
-
     @Override
     protected void performAction() {
         cookedCourseTableList.displayObjectList();
