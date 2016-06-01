@@ -1,9 +1,7 @@
 package com.company.restaurant.application.data.adder;
 
-import com.company.restaurant.application.data.chooser.IngredientChooser;
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.chooser.PortionChooser;
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.application.data.list.WarehouseTableList;
 import com.company.restaurant.model.Ingredient;
 import com.company.restaurant.model.Portion;
@@ -17,8 +15,12 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements Objec
     private static final String ALREADY_IN_WAREHOUSE_MESSAGE = "Already in warehouse:";
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
-    private ObjectChooser<Ingredient> ingredientChooser = IngredientChooser.newInstance();
+    private ObjectChooser<Ingredient> ingredientChooser;
     private ObjectChooser<Portion> portionChooser = PortionChooser.newInstance();
+
+    public void setIngredientChooser(ObjectChooser<Ingredient> ingredientChooser) {
+        this.ingredientChooser = ingredientChooser;
+    }
 
     @Override
     protected Warehouse addObject() {
