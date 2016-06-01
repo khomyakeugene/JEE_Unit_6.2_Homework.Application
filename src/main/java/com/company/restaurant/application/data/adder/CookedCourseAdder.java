@@ -1,10 +1,7 @@
 package com.company.restaurant.application.data.adder;
 
-import com.company.restaurant.application.data.chooser.CourseChooser;
-import com.company.restaurant.application.data.chooser.EmployeeChooser;
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.list.CookedCourseTableList;
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.CookedCourse;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Employee;
@@ -17,8 +14,16 @@ public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> implements
     private static final String ENTER_WEIGHT_MESSAGE = "Please, enter course weight";
     private static final String ALREADY_COOKED_COURSES_MESSAGE = "Already cooked courses:";
 
-    private ObjectChooser<Course> courseChooser = CourseChooser.newInstance();
-    private ObjectChooser<Employee>  employeeChooser = EmployeeChooser.newInstance();
+    private ObjectChooser<Course> courseChooser;
+    private ObjectChooser<Employee> employeeChooser;
+
+    public void setCourseChooser(ObjectChooser<Course> courseChooser) {
+        this.courseChooser = courseChooser;
+    }
+
+    public void setEmployeeChooser(ObjectChooser<Employee> employeeChooser) {
+        this.employeeChooser = employeeChooser;
+    }
 
     @Override
     protected CookedCourse addObject() {

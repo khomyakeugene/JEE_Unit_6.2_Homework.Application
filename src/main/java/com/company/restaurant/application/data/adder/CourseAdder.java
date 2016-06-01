@@ -1,9 +1,7 @@
 package com.company.restaurant.application.data.adder;
 
-import com.company.restaurant.application.data.chooser.CourseCategoryChooser;
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.list.CourseTableList;
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.CourseCategory;
 import com.company.util.Util;
@@ -16,7 +14,11 @@ public class CourseAdder extends ObjectAdderProto<Course> implements ObjectAdder
     private static final String ENTER_WEIGHT_MESSAGE = "Please, enter course weight";
     private static final String ENTER_COST_MESSAGE = "Please, enter course cost";
 
-    private ObjectChooser<CourseCategory> courseCategoryChooser = CourseCategoryChooser.newInstance();
+    private ObjectChooser<CourseCategory> courseCategoryChooser;
+
+    public void setCourseCategoryChooser(ObjectChooser<CourseCategory> courseCategoryChooser) {
+        this.courseCategoryChooser = courseCategoryChooser;
+    }
 
     @Override
     protected Course addObject() {
