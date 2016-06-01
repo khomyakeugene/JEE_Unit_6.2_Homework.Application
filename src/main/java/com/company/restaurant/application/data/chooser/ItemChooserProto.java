@@ -14,7 +14,7 @@ public abstract class ItemChooserProto<ObjectType, ItemType, ItemKeyFieldType>
 
     private ItemTableList<ObjectType, ItemType> itemTableList;
 
-    public ItemChooserProto(ItemTableList<ObjectType, ItemType> itemTableList) {
+    public void setItemTableList(ItemTableList<ObjectType, ItemType> itemTableList) {
         this.itemTableList = itemTableList;
     }
 

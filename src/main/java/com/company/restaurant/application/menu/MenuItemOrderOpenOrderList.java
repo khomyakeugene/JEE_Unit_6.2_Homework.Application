@@ -8,7 +8,11 @@ import com.company.restaurant.application.menu.service.SafeMenuItem;
  * Created by Yevhen on 26.05.2016.
  */
 public class MenuItemOrderOpenOrderList extends SafeMenuItem implements MenuItem {
-    private OpenOrderTableList openOrderTableList = new OpenOrderTableList();
+    private OpenOrderTableList openOrderTableList;
+
+    public void setOpenOrderTableList(OpenOrderTableList openOrderTableList) {
+        this.openOrderTableList = openOrderTableList;
+    }
 
     @Override
     protected void performAction() {

@@ -8,7 +8,11 @@ import com.company.restaurant.application.menu.service.SafeMenuItem;
  * Created by Yevhen on 29.05.2016.
  */
 public class MenuItemWarehouseList extends SafeMenuItem implements MenuItem {
-    private WarehouseTableList warehouseTableList = new WarehouseTableList();
+    protected WarehouseTableList warehouseTableList;
+
+    public void setWarehouseTableList(WarehouseTableList warehouseTableList) {
+        this.warehouseTableList = warehouseTableList;
+    }
 
     @Override
     protected void performAction() {

@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
+import com.company.restaurant.application.data.list.EmployeeTableList;
 import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Employee;
 import com.company.util.Util;
@@ -15,10 +16,6 @@ public class EmployeeFinder extends ObjectFinderProto<Employee, String> implemen
 
     private String firstName;
     private String secondName;
-
-    public EmployeeFinder(ObjectTableList<Employee> objectTableList) {
-        super(objectTableList);
-    }
 
     @Override
     protected List<Employee> findObjects(String objectKeyFieldValue) {
@@ -40,5 +37,12 @@ public class EmployeeFinder extends ObjectFinderProto<Employee, String> implemen
         } else {
             return null;
         }
+    }
+
+    public static ObjectFinder<Employee> newInstance() {
+        EmployeeFinder employeeFinder = new EmployeeFinder();
+        employeeFinder.setObjectTableList(new EmployeeTableList());
+
+        return employeeFinder;
     }
 }

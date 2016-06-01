@@ -47,5 +47,4 @@ public class WarehouseTableList extends ObjectTableListProto<Warehouse> implemen
     protected void listDataHasNotBeenFoundMessage() {
         Util.printMessage(THERE_ARE_NO_INGREDIENTS_IN_WAREHOUSE_MESSAGE);
     }
-
 }

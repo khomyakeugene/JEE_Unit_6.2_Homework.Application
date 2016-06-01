@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.finder;
 
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.application.data.service.ObjectFinderAndChooserProto;
 
 import java.util.ArrayList;
@@ -12,10 +11,6 @@ import java.util.List;
 public abstract class ObjectOneRecordFinderProto<ObjectType, ObjectKeyFieldType>
         extends ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType>
         implements ObjectFinder<ObjectType>  {
-
-    public ObjectOneRecordFinderProto(ObjectTableList<ObjectType> objectTableList) {
-        super(objectTableList);
-    }
 
     protected abstract ObjectType findObject(ObjectKeyFieldType objectKeyFieldValue);
 

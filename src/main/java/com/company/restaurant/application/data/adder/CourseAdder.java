@@ -18,10 +18,6 @@ public class CourseAdder extends ObjectAdderProto<Course> implements ObjectAdder
 
     private ObjectChooser<CourseCategory> courseCategoryChooser = CourseCategoryChooser.newInstance();
 
-    private CourseAdder(ObjectTableList<Course> objectTableList) {
-        super(objectTableList);
-    }
-
     @Override
     protected Course addObject() {
         Course result = null;
@@ -48,6 +44,9 @@ public class CourseAdder extends ObjectAdderProto<Course> implements ObjectAdder
     }
 
     public static ObjectAdder<Course> newInstance() {
-        return new CourseAdder(new CourseTableList());
+        CourseAdder courseAdder = new CourseAdder();
+        courseAdder.setObjectTableList(new CourseTableList());
+
+        return courseAdder;
     }
 }

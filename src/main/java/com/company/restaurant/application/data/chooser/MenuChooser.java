@@ -1,7 +1,6 @@
 package com.company.restaurant.application.data.chooser;
 
 import com.company.restaurant.application.data.list.MenuTableList;
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Menu;
 
 /**
@@ -9,10 +8,6 @@ import com.company.restaurant.model.Menu;
  */
 public class MenuChooser extends ObjectChooserProto<Menu, Integer> implements ObjectChooser<Menu> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter menu identifier";
-
-    private MenuChooser(ObjectTableList<Menu> objectTableList) {
-        super(objectTableList);
-    }
 
     @Override
     protected Menu findObject(Integer menuId) {
@@ -31,6 +26,9 @@ public class MenuChooser extends ObjectChooserProto<Menu, Integer> implements Ob
     }
 
     public static ObjectChooser<Menu> newInstance() {
-        return new MenuChooser(new MenuTableList());
+        MenuChooser menuChooser = new MenuChooser();
+        menuChooser.setObjectTableList(new MenuTableList());
+
+        return menuChooser;
     }
 }

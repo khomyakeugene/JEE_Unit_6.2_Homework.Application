@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.application.data.list.OpenOrderTableList;
 import com.company.restaurant.model.Order;
 
@@ -9,10 +8,6 @@ import com.company.restaurant.model.Order;
  */
 public class OrderChooser extends ObjectChooserProto<Order, Integer> implements ObjectChooser<Order> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter order identifier";
-
-    private OrderChooser(ObjectTableList<Order> objectTableList) {
-        super(objectTableList);
-    }
 
     @Override
     protected Order findObject(Integer orderId) {
@@ -30,6 +25,9 @@ public class OrderChooser extends ObjectChooserProto<Order, Integer> implements 
     }
 
     public static ObjectChooser<Order> newInstance() {
-        return new OrderChooser(new OpenOrderTableList());
+        OrderChooser orderChooser = new OrderChooser();
+        orderChooser.setObjectTableList(new OpenOrderTableList());
+
+        return orderChooser;
     }
 }

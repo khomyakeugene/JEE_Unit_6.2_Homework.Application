@@ -22,10 +22,6 @@ public class OrderAdder extends ObjectAdderProto<Order> implements ObjectAdder<O
     private ObjectChooser<Table> tableChooser = TableChooser.newInstance();
     private ItemCollector<Order> orderCourseCollector = OrderCourseCollector.newInstance();
 
-    private OrderAdder(ObjectTableList<Order> objectTableList) {
-        super(objectTableList);
-    }
-
     private Order addOrder() {
         Order result = null;
 
@@ -59,6 +55,9 @@ public class OrderAdder extends ObjectAdderProto<Order> implements ObjectAdder<O
     }
 
     public static ObjectAdder<Order> newInstance() {
-        return new OrderAdder(new OpenOrderTableList());
+        OrderAdder orderAdder = new OrderAdder();
+        orderAdder.setObjectTableList(new OpenOrderTableList());
+
+        return orderAdder;
     }
 }

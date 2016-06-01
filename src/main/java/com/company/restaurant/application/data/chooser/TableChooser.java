@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.application.data.list.TableTableList;
 import com.company.restaurant.model.Table;
 
@@ -9,10 +8,6 @@ import com.company.restaurant.model.Table;
  */
 public class TableChooser extends ObjectChooserProto<Table, Integer> implements ObjectChooser<Table> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter table number";
-
-    private TableChooser(ObjectTableList<Table> objectTableList) {
-        super(objectTableList);
-    }
 
     @Override
     protected String getEnterIdentifierMessage() {
@@ -30,6 +25,9 @@ public class TableChooser extends ObjectChooserProto<Table, Integer> implements 
     }
 
     public static ObjectChooser<Table> newInstance() {
-        return new TableChooser(new TableTableList());
+        TableChooser tableChooser = new TableChooser();
+        tableChooser.setObjectTableList(new TableTableList());
+
+        return tableChooser;
     }
 }

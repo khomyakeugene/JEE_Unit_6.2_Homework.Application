@@ -13,7 +13,7 @@ public abstract class ObjectAdderProto<T> extends DatabaseService implements Obj
     private static final String EXISTING_DATA = "Existing data:";
     private ObjectTableList<T> objectTableList;
 
-    public ObjectAdderProto(ObjectTableList<T> objectTableList) {
+    public void setObjectTableList(ObjectTableList<T> objectTableList) {
         this.objectTableList = objectTableList;
     }
 
@@ -37,7 +37,7 @@ public abstract class ObjectAdderProto<T> extends DatabaseService implements Obj
         return EXISTING_DATA;
     }
 
-    protected void existingDataMessage() {
+    private void existingDataMessage() {
         Util.printMessage(getExistingDataMessage());
     }
 }

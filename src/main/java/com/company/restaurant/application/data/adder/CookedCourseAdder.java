@@ -20,10 +20,6 @@ public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> implements
     private ObjectChooser<Course> courseChooser = CourseChooser.newInstance();
     private ObjectChooser<Employee>  employeeChooser = EmployeeChooser.newInstance();
 
-    private CookedCourseAdder(ObjectTableList<CookedCourse> objectTableList) {
-        super(objectTableList);
-    }
-
     @Override
     protected CookedCourse addObject() {
         CookedCourse result = null;
@@ -50,7 +46,10 @@ public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> implements
     }
 
     public static ObjectAdderProto<CookedCourse> newInstance() {
-        return new CookedCourseAdder(new CookedCourseTableList());
+        CookedCourseAdder cookedCourseAdder = new CookedCourseAdder();
+        cookedCourseAdder.setObjectTableList(new CookedCourseTableList());
+
+        return cookedCourseAdder;
     }
 
     @Override

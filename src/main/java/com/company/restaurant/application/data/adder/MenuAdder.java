@@ -15,11 +15,6 @@ public class MenuAdder extends ObjectAdderProto<Menu> implements ObjectAdder<Men
 
     private ItemCollector<Menu> menuCourseCollector = MenuCourseCollector.newInstance();
 
-
-    public MenuAdder(ObjectTableList<Menu> objectTableList) {
-        super(objectTableList);
-    }
-
     private Menu addMenu() {
         Menu result = null;
 
@@ -41,6 +36,9 @@ public class MenuAdder extends ObjectAdderProto<Menu> implements ObjectAdder<Men
     }
 
     public static ObjectAdder<Menu> newInstance() {
-        return new MenuAdder(new MenuTableList());
+        MenuAdder menuAdder = new MenuAdder();
+        menuAdder.setObjectTableList(new MenuTableList());
+
+        return menuAdder;
     }
 }

@@ -8,7 +8,11 @@ import com.company.restaurant.application.menu.service.SafeMenuItem;
  * Created by Yevhen on 29.05.2016.
  */
 public class MenuItemCookedCourseList extends SafeMenuItem implements MenuItem {
-    private CookedCourseTableList cookedCourseTableList = new CookedCourseTableList();
+    private CookedCourseTableList cookedCourseTableList;
+
+    public void setCookedCourseTableList(CookedCourseTableList cookedCourseTableList) {
+        this.cookedCourseTableList = cookedCourseTableList;
+    }
 
     @Override
     protected void performAction() {

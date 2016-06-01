@@ -1,7 +1,6 @@
 package com.company.restaurant.application.data.chooser;
 
 import com.company.restaurant.application.data.list.EmployeeTableList;
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Employee;
 
 /**
@@ -9,12 +8,6 @@ import com.company.restaurant.model.Employee;
  */
 public class EmployeeChooser extends ObjectChooserProto<Employee, Integer> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter employee identifier";
-
-    private EmployeeChooser(ObjectTableList<Employee> objectTableList) {
-        super(objectTableList);
-    }
-
-
 
     @Override
     protected Employee findObject(Integer employeeId) {
@@ -33,6 +26,9 @@ public class EmployeeChooser extends ObjectChooserProto<Employee, Integer> {
     }
 
     public static ObjectChooser<Employee> newInstance() {
-        return new EmployeeChooser(new EmployeeTableList());
+        EmployeeChooser employeeChooser = new EmployeeChooser();
+        employeeChooser.setObjectTableList(new EmployeeTableList());
+
+        return employeeChooser;
     }
 }

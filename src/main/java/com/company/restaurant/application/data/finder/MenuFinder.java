@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
+import com.company.restaurant.application.data.list.MenuTableList;
 import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Menu;
 
@@ -8,10 +9,6 @@ import com.company.restaurant.model.Menu;
  */
 public class MenuFinder extends ObjectOneRecordFinderProto<Menu, String> implements ObjectFinder<Menu> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter menu name";
-
-    public MenuFinder(ObjectTableList<Menu> objectTableList) {
-        super(objectTableList);
-    }
 
     @Override
     protected Menu findObject(String menuName) {
@@ -26,5 +23,12 @@ public class MenuFinder extends ObjectOneRecordFinderProto<Menu, String> impleme
     @Override
     protected String getEnterNameMessage() {
         return ENTER_NAME_MESSAGE;
+    }
+
+    public static ObjectFinder<Menu> newInstance() {
+        MenuFinder menuFinder = new MenuFinder();
+        menuFinder.setObjectTableList(new MenuTableList());
+
+        return menuFinder;
     }
 }

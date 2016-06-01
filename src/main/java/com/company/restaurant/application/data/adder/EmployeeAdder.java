@@ -3,7 +3,6 @@ package com.company.restaurant.application.data.adder;
 import com.company.restaurant.application.data.chooser.JobPositionChooser;
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.list.EmployeeTableList;
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.JobPosition;
 import com.company.util.Util;
@@ -18,10 +17,6 @@ public class EmployeeAdder extends ObjectAdderProto<Employee> implements ObjectA
     private static final String ENTER_SALARY_MESSAGE = "Please, enter employee salary";
 
     private ObjectChooser<JobPosition> jobPositionChooser = JobPositionChooser.newInstance();
-
-    private EmployeeAdder(ObjectTableList<Employee> objectTableList) {
-        super(objectTableList);
-    }
 
     @Override
     protected Employee addObject() {
@@ -52,6 +47,9 @@ public class EmployeeAdder extends ObjectAdderProto<Employee> implements ObjectA
     }
 
     public static ObjectAdder<Employee> newInstance() {
-        return new EmployeeAdder(new EmployeeTableList());
+        EmployeeAdder employeeAdder = new EmployeeAdder();
+        employeeAdder.setObjectTableList(new EmployeeTableList());
+
+        return employeeAdder;
     }
 }

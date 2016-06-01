@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.application.data.service.ObjectFinderAndChooserProto;
 
 import java.util.List;
@@ -11,10 +10,6 @@ import java.util.List;
 public abstract class ObjectChooserProto<ObjectType, ObjectKeyFieldType>
         extends ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType>
         implements ObjectChooser<ObjectType> {
-
-    public ObjectChooserProto(ObjectTableList<ObjectType> objectTableList) {
-        super(objectTableList);
-    }
 
     protected abstract ObjectType findObject(ObjectKeyFieldType objectKeyFieldValue);
 

@@ -20,10 +20,6 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements Objec
     private ObjectChooser<Ingredient> ingredientChooser = IngredientChooser.newInstance();
     private ObjectChooser<Portion> portionChooser = PortionChooser.newInstance();
 
-    private WarehouseAdder(ObjectTableList<Warehouse> objectTableList) {
-        super(objectTableList);
-    }
-
     @Override
     protected Warehouse addObject() {
         Warehouse result = null;
@@ -50,7 +46,10 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements Objec
     }
 
     public static ObjectAdder<Warehouse> newInstance() {
-        return new WarehouseAdder(new WarehouseTableList());
+        WarehouseAdder warehouseAdder = new WarehouseAdder();
+        warehouseAdder.setObjectTableList(new WarehouseTableList());
+
+        return warehouseAdder;
     }
 
     @Override

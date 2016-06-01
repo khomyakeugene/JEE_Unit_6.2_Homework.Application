@@ -10,7 +10,7 @@ public abstract class ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType
 
     protected ObjectTableList<ObjectType> objectTableList;
 
-    public ObjectFinderAndChooserProto(ObjectTableList<ObjectType> objectTableList) {
+    public void setObjectTableList(ObjectTableList<ObjectType> objectTableList) {
         this.objectTableList = objectTableList;
     }
 }

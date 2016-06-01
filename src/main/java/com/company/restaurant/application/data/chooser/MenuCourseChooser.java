@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.ItemTableList;
 import com.company.restaurant.application.data.list.MenuCourseTableList;
 import com.company.restaurant.model.Menu;
 import com.company.restaurant.model.MenuCourseList;
@@ -11,10 +10,6 @@ import com.company.restaurant.model.MenuCourseList;
 public class MenuCourseChooser extends ItemChooserProto<Menu, MenuCourseList, Integer>
         implements ItemChooser<Menu, MenuCourseList> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter course identifier";
-
-    private MenuCourseChooser(ItemTableList<Menu, MenuCourseList> itemTableList) {
-        super(itemTableList);
-    }
 
     @Override
     protected Integer readKeyFieldValue() {
@@ -32,6 +27,9 @@ public class MenuCourseChooser extends ItemChooserProto<Menu, MenuCourseList, In
     }
 
     public static ItemChooser<Menu, MenuCourseList> newInstance() {
-        return new MenuCourseChooser(new MenuCourseTableList());
+        MenuCourseChooser menuCourseChooser = new MenuCourseChooser();
+        menuCourseChooser.setItemTableList(new MenuCourseTableList());
+
+        return menuCourseChooser;
     }
 }

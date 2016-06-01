@@ -5,9 +5,7 @@ import com.company.restaurant.controllers.RestaurantController;
 import com.company.restaurant.model.IngredientDao;
 import com.company.restaurant.model.PortionDao;
 import com.company.restaurant.model.WarehouseAdapter;
-import com.company.restaurant.model.WarehouseDao;
 import com.company.util.Util;
-import com.sun.org.apache.bcel.internal.generic.PUSH;
 
 /**
  * Created by Yevhen on 27.05.2016.
@@ -18,23 +16,29 @@ public class DatabaseService {
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
     private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
 
+    private RestaurantController restaurantController;
+
+    public void setRestaurantController(RestaurantController restaurantController) {
+        this.restaurantController = restaurantController;
+    }
+
     public RestaurantController getRestaurantController() {
         return RestaurantConsoleApplication.getRestaurantController();
     }
 
-    public WarehouseAdapter getWarehouseAdapter() {
+    private WarehouseAdapter getWarehouseAdapter() {
         return getRestaurantController().getWarehouseAdapter();
     }
 
-    public PortionDao getPortionDao() {
+    protected PortionDao getPortionDao() {
         return getWarehouseAdapter().getPortionDao();
     }
 
-    public IngredientDao getIngredientDao() {
+    protected IngredientDao getIngredientDao() {
         return getWarehouseAdapter().getIngredientDao();
     }
 
-    public void dataHasBeenSuccessfullyAddedMessage() {
+    protected void dataHasBeenSuccessfullyAddedMessage() {
         Util.printMessage(DATA_HAS_BEEN_SUCCESSFULLY_ADDED);
     }
 
@@ -42,7 +46,7 @@ public class DatabaseService {
         Util.printMessage(ACTION_HAS_BEEN_SUCCESSFULLY_PERFORMED);
     }
 
-    public void dataHasBeenSuccessfullyDeletedMessage() {
+    protected void dataHasBeenSuccessfullyDeletedMessage() {
         Util.printMessage(DATA_HAS_BEEN_SUCCESSFULLY_DELETED);
     }
 

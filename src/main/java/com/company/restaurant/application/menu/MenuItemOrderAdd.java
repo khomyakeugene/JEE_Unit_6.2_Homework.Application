@@ -1,7 +1,6 @@
 package com.company.restaurant.application.menu;
 
 import com.company.restaurant.application.data.adder.ObjectAdder;
-import com.company.restaurant.application.data.adder.OrderAdder;
 import com.company.restaurant.application.menu.service.MenuItem;
 import com.company.restaurant.application.menu.service.SafeMenuItem;
 import com.company.restaurant.model.Order;
@@ -10,7 +9,11 @@ import com.company.restaurant.model.Order;
  * Created by Yevhen on 26.05.2016.
  */
 public class MenuItemOrderAdd extends SafeMenuItem implements MenuItem {
-    private ObjectAdder<Order> orderAdder = OrderAdder.newInstance();
+    private ObjectAdder<Order> orderAdder;
+
+    public void setOrderAdder(ObjectAdder<Order> orderAdder) {
+        this.orderAdder = orderAdder;
+    }
 
     @Override
     protected void performAction() {

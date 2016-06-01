@@ -21,5 +21,4 @@ public class OrderCloser extends DatabaseService {
             Util.printMessage(String.format(ORDER_HAS_BEEN_CLOSED_PATTERN, order.getOrderNumber()));
         }
     }
-
 }

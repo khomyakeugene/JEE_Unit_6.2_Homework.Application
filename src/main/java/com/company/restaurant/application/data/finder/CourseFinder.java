@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
+import com.company.restaurant.application.data.list.CourseTableList;
 import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Course;
 
@@ -8,10 +9,6 @@ import com.company.restaurant.model.Course;
  */
 public class CourseFinder extends ObjectOneRecordFinderProto<Course, String> implements ObjectFinder<Course> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter course name";
-
-    public CourseFinder(ObjectTableList<Course> objectTableList) {
-        super(objectTableList);
-    }
 
     @Override
     protected Course findObject(String courseName) {
@@ -26,5 +23,12 @@ public class CourseFinder extends ObjectOneRecordFinderProto<Course, String> imp
     @Override
     protected String getEnterNameMessage() {
         return ENTER_NAME_MESSAGE;
+    }
+
+    public static ObjectFinder<Course> newInstance() {
+        CourseFinder courseFinder = new CourseFinder();
+        courseFinder.setObjectTableList(new CourseTableList());
+
+        return courseFinder;
     }
 }
