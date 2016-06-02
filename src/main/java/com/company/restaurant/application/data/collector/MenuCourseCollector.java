@@ -11,12 +11,6 @@ import com.company.restaurant.model.MenuCourseList;
 public class MenuCourseCollector extends ItemCollectorProto<Menu, Course, MenuCourseList>
         implements ItemCollector<Menu> {
 
-    private MenuCourseCollector(ObjectChooser<Menu> objectChooser,
-                                ObjectChooser<Course> newItemChooser,
-                                ItemChooser<Menu, MenuCourseList> presentItemChooser) {
-        super(objectChooser, newItemChooser, presentItemChooser);
-    }
-
     @Override
     protected void addItemToObject(Menu menu, Course course) {
         getRestaurantController().addCourseToMenu(menu, course);
@@ -29,9 +23,11 @@ public class MenuCourseCollector extends ItemCollectorProto<Menu, Course, MenuCo
     }
 
     public static ItemCollector<Menu> newInstance() {
-        return new MenuCourseCollector(
-                MenuChooser.newInstance(),
-                CourseChooser.newInstance(),
-                MenuCourseChooser.newInstance());
+        MenuCourseCollector menuCourseCollector = new MenuCourseCollector();
+        menuCourseCollector.setObjectChooser(MenuChooser.newInstance());
+        menuCourseCollector.setNewItemChooser(CourseChooser.newInstance());
+        menuCourseCollector.setPresentItemChooser(MenuCourseChooser.newInstance());
+
+        return menuCourseCollector;
     }
 }

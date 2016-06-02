@@ -1,9 +1,7 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
-import com.company.restaurant.application.data.chooser.TableChooser;
 import com.company.restaurant.application.data.collector.ItemCollector;
-import com.company.restaurant.application.data.collector.OrderCourseCollector;
 import com.company.restaurant.application.data.list.OpenOrderTableList;
 import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.Order;
@@ -17,11 +15,19 @@ public class OrderAdder extends ObjectAdderProto<Order> implements ObjectAdder<O
     private static final String ENTER_ORDER_NUMBER_MESSAGE = "Please, enter order number";
 
     private ObjectChooser<Employee> employeeChooser;
-    private ObjectChooser<Table> tableChooser = TableChooser.newInstance();
-    private ItemCollector<Order> orderCourseCollector = OrderCourseCollector.newInstance();
+    private ObjectChooser<Table> tableChooser;
+    private ItemCollector<Order> orderCourseCollector;
 
     public void setEmployeeChooser(ObjectChooser<Employee> employeeChooser) {
         this.employeeChooser = employeeChooser;
+    }
+
+    public void setTableChooser(ObjectChooser<Table> tableChooser) {
+        this.tableChooser = tableChooser;
+    }
+
+    public void setOrderCourseCollector(ItemCollector<Order> orderCourseCollector) {
+        this.orderCourseCollector = orderCourseCollector;
     }
 
     private Order addOrder() {

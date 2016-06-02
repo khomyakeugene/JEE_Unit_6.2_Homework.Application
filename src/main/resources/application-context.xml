@@ -71,6 +71,47 @@
         <property name="restaurantController" ref="restaurantController"/>
         <property name="objectTableList" ref="jobPositionTableList"/>
     </bean>
+    <bean class="com.company.restaurant.application.data.chooser.MenuChooser" id="menuChooser">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectTableList" ref="menuTableList"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.chooser.MenuCourseChooser" id="menuCourseChooser">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="itemTableList" ref="menuCourseTableList"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.chooser.OpenOrderChooser" id="openOrderChooser">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectTableList" ref="openOrderTableList"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.chooser.OrderCourseChooser" id="orderCourseChooser">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="itemTableList" ref="orderCourseTableList"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.chooser.PortionChooser" id="portionChooser">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectTableList" ref="portionTableList"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.chooser.TableChooser" id="tableChooser">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectTableList" ref="tableTableList"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.chooser.WarehouseChooser" id="warehouseChooser">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectTableList" ref="warehouseTableList"/>
+    </bean>
+
+    <bean class="com.company.restaurant.application.data.collector.MenuCourseCollector" id="menuCourseCollector">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="menuChooser"/>
+        <property name="newItemChooser" ref="courseChooser"/>
+        <property name="presentItemChooser" ref="menuCourseChooser"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.collector.OrderCourseCollector" id="orderCourseCollector">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="openOrderChooser"/>
+        <property name="newItemChooser" ref="courseChooser"/>
+        <property name="presentItemChooser" ref="orderCourseChooser"/>
+    </bean>
 
     <bean class="com.company.restaurant.application.data.adder.CookedCourseAdder" id="cookedCourseAdder">
         <property name="restaurantController" ref="restaurantController"/>
@@ -91,16 +132,20 @@
     <bean class="com.company.restaurant.application.data.adder.MenuAdder" id="menuAdder">
         <property name="restaurantController" ref="restaurantController"/>
         <property name="objectTableList" ref="menuTableList"/>
+        <property name="menuCourseCollector" ref="menuCourseCollector"/>
     </bean>
     <bean class="com.company.restaurant.application.data.adder.OrderAdder" id="orderAdder">
         <property name="restaurantController" ref="restaurantController"/>
         <property name="objectTableList" ref="openOrderTableList"/>
         <property name="employeeChooser" ref="employeeChooser"/>
+        <property name="tableChooser" ref="tableChooser"/>
+        <property name="orderCourseCollector" ref="orderCourseCollector"/>
     </bean>
     <bean class="com.company.restaurant.application.data.adder.WarehouseAdder" id="warehouseAdder">
         <property name="restaurantController" ref="restaurantController"/>
         <property name="objectTableList" ref="warehouseTableList"/>
         <property name="ingredientChooser" ref="ingredientChooser"/>
+        <property name="portionChooser" ref="portionChooser"/>
     </bean>
 
     <bean class="com.company.restaurant.application.data.finder.CourseFinder" id="courseFinder">
@@ -237,11 +282,13 @@
                                 <entry key="5">
                                     <bean class="com.company.restaurant.application.menu.MenuItemMenuAddCourseToMenu">
                                         <property name="itemText" value="Add course to menu"/>
+                                        <property name="menuCourseCollector" ref="menuCourseCollector"/>
                                     </bean>
                                 </entry>
                                 <entry key="6">
                                     <bean class="com.company.restaurant.application.menu.MenuItemMenuDelCourseFromMenu">
                                         <property name="itemText" value="Delete course from menu"/>
+                                        <property name="menuCourseCollector" ref="menuCourseCollector"/>
                                     </bean>
                                 </entry>
 
@@ -274,11 +321,13 @@
                                 <entry key="3">
                                     <bean class="com.company.restaurant.application.menu.MenuItemOrderAddCourseToOrder">
                                         <property name="itemText" value="Add course to order"/>
+                                        <property name="orderCourseCollector" ref="orderCourseCollector"/>
                                     </bean>
                                 </entry>
                                 <entry key="4">
                                     <bean class="com.company.restaurant.application.menu.MenuItemOrderTakeCourseFromOrder">
                                         <property name="itemText" value="Take course from order"/>
+                                        <property name="orderCourseCollector" ref="orderCourseCollector"/>
                                     </bean>
                                 </entry>
                                 <entry key="5">

@@ -11,12 +11,6 @@ import com.company.restaurant.model.OrderCourse;
 public class OrderCourseCollector extends ItemCollectorProto<Order, Course, OrderCourse>
         implements ItemCollector<Order> {
 
-    private OrderCourseCollector(ObjectChooser<Order> objectChooser,
-                                 ObjectChooser<Course> newItemChooser,
-                                 ItemChooser<Order, OrderCourse> presentItemChooser) {
-        super(objectChooser, newItemChooser, presentItemChooser);
-    }
-
     @Override
     protected void addItemToObject(Order order, Course course) {
         getRestaurantController().addCourseToOrder(order, course, 1);
@@ -30,9 +24,11 @@ public class OrderCourseCollector extends ItemCollectorProto<Order, Course, Orde
     }
 
     public static ItemCollector<Order> newInstance() {
-        return new OrderCourseCollector(
-                OrderChooser.newInstance(),
-                CourseChooser.newInstance(),
-                OrderCourseChooser.newInstance());
+        OrderCourseCollector orderCourseCollector = new OrderCourseCollector();
+        orderCourseCollector.setObjectChooser(OpenOrderChooser.newInstance());
+        orderCourseCollector.setNewItemChooser(CourseChooser.newInstance());
+        orderCourseCollector.setPresentItemChooser(OrderCourseChooser.newInstance());
+
+        return orderCourseCollector;
     }
 }

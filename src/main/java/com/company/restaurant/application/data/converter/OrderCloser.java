@@ -1,7 +1,7 @@
 package com.company.restaurant.application.data.converter;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
-import com.company.restaurant.application.data.chooser.OrderChooser;
+import com.company.restaurant.application.data.chooser.OpenOrderChooser;
 import com.company.restaurant.application.data.service.DatabaseService;
 import com.company.restaurant.model.Order;
 import com.company.util.Util;
@@ -12,7 +12,7 @@ import com.company.util.Util;
 public class OrderCloser extends DatabaseService {
     private static final String ORDER_HAS_BEEN_CLOSED_PATTERN = "Order with number <%s> has been closed";
 
-    private ObjectChooser<Order> orderChooser = OrderChooser.newInstance();
+    private ObjectChooser<Order> orderChooser = OpenOrderChooser.newInstance();
 
     public void closeOrder() {
         Order order = orderChooser.chooseObjectFromList();

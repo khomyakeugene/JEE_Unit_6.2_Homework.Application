@@ -1,7 +1,6 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
-import com.company.restaurant.application.data.chooser.PortionChooser;
 import com.company.restaurant.application.data.list.WarehouseTableList;
 import com.company.restaurant.model.Ingredient;
 import com.company.restaurant.model.Portion;
@@ -16,10 +15,14 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements Objec
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
     private ObjectChooser<Ingredient> ingredientChooser;
-    private ObjectChooser<Portion> portionChooser = PortionChooser.newInstance();
+    private ObjectChooser<Portion> portionChooser;
 
     public void setIngredientChooser(ObjectChooser<Ingredient> ingredientChooser) {
         this.ingredientChooser = ingredientChooser;
+    }
+
+    public void setPortionChooser(ObjectChooser<Portion> portionChooser) {
+        this.portionChooser = portionChooser;
     }
 
     @Override

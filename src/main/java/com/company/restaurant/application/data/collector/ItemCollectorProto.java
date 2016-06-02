@@ -13,11 +13,15 @@ public  abstract class ItemCollectorProto<ObjectType, NewItemType, PresentItemTy
     private ObjectChooser<NewItemType> newItemChooser;
     private ItemChooser<ObjectType, PresentItemType> presentItemChooser;
 
-    public ItemCollectorProto(ObjectChooser<ObjectType> objectChooser,
-                              ObjectChooser<NewItemType> newItemChooser,
-                              ItemChooser<ObjectType, PresentItemType> presentItemChooser) {
+    public void setObjectChooser(ObjectChooser<ObjectType> objectChooser) {
         this.objectChooser = objectChooser;
+    }
+
+    public void setNewItemChooser(ObjectChooser<NewItemType> newItemChooser) {
         this.newItemChooser = newItemChooser;
+    }
+
+    public void setPresentItemChooser(ItemChooser<ObjectType, PresentItemType> presentItemChooser) {
         this.presentItemChooser = presentItemChooser;
     }
 
