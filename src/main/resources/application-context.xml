@@ -127,6 +127,18 @@
         <property name="newItemChooser" ref="courseChooser"/>
         <property name="presentItemChooser" ref="menuCourseChooser"/>
     </bean>
+    <bean class="com.company.restaurant.application.data.collector.OrderCourseAdder" id="orderCourseAdder">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="openOrderChooser"/>
+        <property name="newItemChooser" ref="courseChooser"/>
+        <property name="presentItemChooser" ref="orderCourseChooser"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.collector.OrderCourseRemover" id="orderCourseRemover">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="openOrderChooser"/>
+        <property name="newItemChooser" ref="courseChooser"/>
+        <property name="presentItemChooser" ref="orderCourseChooser"/>
+    </bean>
 
     <bean class="com.company.restaurant.application.data.adder.CookedCourseAdder" id="cookedCourseAdder">
         <property name="restaurantController" ref="restaurantController"/>
@@ -361,15 +373,15 @@
                                     </bean>
                                 </entry>
                                 <entry key="3">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderAddCourseToOrder">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Add course to order"/>
-                                        <property name="orderCourseCollector" ref="orderCourseCollector"/>
+                                        <property name="executor" ref="orderCourseAdder"/>
                                     </bean>
                                 </entry>
                                 <entry key="4">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderTakeCourseFromOrder">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Take course from order"/>
-                                        <property name="orderCourseCollector" ref="orderCourseCollector"/>
+                                        <property name="executor" ref="orderCourseRemover"/>
                                     </bean>
                                 </entry>
                                 <entry key="5">
@@ -439,9 +451,9 @@
                                     </bean>
                                 </entry>
                                 <entry key="2">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemWarehouseTakeIngredient">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Take ingredient from warehouse"/>
-                                        <property name="objectRemover" ref="warehouseRemover"/>
+                                        <property name="executor" ref="warehouseRemover"/>
                                     </bean>
                                 </entry>
                                 <entry key="3">
