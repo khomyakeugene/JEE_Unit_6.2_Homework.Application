@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.OpenOrderTableList;
 import com.company.restaurant.model.Order;
 
 /**
@@ -24,10 +23,4 @@ public class OpenOrderChooser extends ObjectChooserProto<Order, Integer> impleme
         return ENTER_IDENTIFIER_MESSAGE;
     }
 
-    public static ObjectChooser<Order> newInstance() {
-        OpenOrderChooser orderChooser = new OpenOrderChooser();
-        orderChooser.setObjectTableList(new OpenOrderTableList());
-
-        return orderChooser;
-    }
 }

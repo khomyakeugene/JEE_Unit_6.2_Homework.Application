@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.CourseTableList;
 import com.company.restaurant.model.Course;
 
 /**
@@ -25,10 +24,4 @@ public class CourseChooser extends ObjectChooserProto<Course, Integer>
         return ENTER_IDENTIFIER_MESSAGE;
     }
 
-    public static ObjectChooser<Course> newInstance() {
-        CourseChooser courseChooser = new CourseChooser();
-        courseChooser.setObjectTableList(new CourseTableList());
-
-        return courseChooser;
-    }
 }

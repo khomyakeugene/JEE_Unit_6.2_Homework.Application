@@ -1,7 +1,6 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
-import com.company.restaurant.application.data.list.CourseTableList;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.CourseCategory;
 import com.company.util.Util;
@@ -45,10 +44,4 @@ public class CourseAdder extends ObjectAdderProto<Course> implements ObjectAdder
         return result;
     }
 
-    public static ObjectAdder<Course> newInstance() {
-        CourseAdder courseAdder = new CourseAdder();
-        courseAdder.setObjectTableList(new CourseTableList());
-
-        return courseAdder;
-    }
 }

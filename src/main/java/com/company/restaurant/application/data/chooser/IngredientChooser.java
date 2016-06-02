@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.IngredientTableList;
 import com.company.restaurant.model.Ingredient;
 
 /**
@@ -25,10 +24,4 @@ public class IngredientChooser extends ObjectChooserProto<Ingredient, Integer>
         return ENTER_IDENTIFIER_MESSAGE;
     }
 
-    public static ObjectChooser<Ingredient> newInstance() {
-        IngredientChooser ingredientChooser = new IngredientChooser();
-        ingredientChooser.setObjectTableList(new IngredientTableList());
-
-        return ingredientChooser;
-    }
 }

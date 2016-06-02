@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.WarehouseTableList;
 import com.company.restaurant.model.Warehouse;
 
 import java.util.List;
@@ -29,10 +28,4 @@ public class WarehouseChooser extends ObjectChooserProto<Warehouse, Integer>
         return ENTER_IDENTIFIER_MESSAGE;
     }
 
-    public static ObjectChooser<Warehouse> newInstance() {
-        WarehouseChooser warehouseChooser = new WarehouseChooser();
-        warehouseChooser.setObjectTableList(new WarehouseTableList());
-
-        return warehouseChooser;
-    }
 }

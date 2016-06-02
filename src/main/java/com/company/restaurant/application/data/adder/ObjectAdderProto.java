@@ -2,6 +2,7 @@ package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.application.data.service.DatabaseService;
+import com.company.restaurant.application.menu.service.Executor;
 import com.company.util.Util;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public abstract class ObjectAdderProto<T> extends DatabaseService implements ObjectAdder<T> {
+public abstract class ObjectAdderProto<T> extends DatabaseService implements ObjectAdder<T>, Executor {
     private static final String EXISTING_DATA = "Existing data:";
     private ObjectTableList<T> objectTableList;
 
@@ -39,5 +40,11 @@ public abstract class ObjectAdderProto<T> extends DatabaseService implements Obj
 
     private void existingDataMessage() {
         Util.printMessage(getExistingDataMessage());
+    }
+
+
+    @Override
+    public void execute() {
+        addObjects();
     }
 }

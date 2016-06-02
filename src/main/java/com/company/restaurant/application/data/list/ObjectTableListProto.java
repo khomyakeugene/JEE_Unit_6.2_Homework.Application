@@ -1,6 +1,7 @@
 package com.company.restaurant.application.data.list;
 
 import com.company.restaurant.application.data.service.DatabaseService;
+import com.company.restaurant.application.menu.service.Executor;
 import com.company.util.AlignmentType;
 import com.company.util.TableBuilder;
 import com.company.util.Util;
@@ -11,7 +12,8 @@ import java.util.List;
 /**
  * Created by Yevhen on 27.05.2016.
  */
-public abstract class ObjectTableListProto<T> extends DatabaseService implements ObjectTableList<T> {
+public abstract class ObjectTableListProto<T> extends DatabaseService
+        implements ObjectTableList<T>, Executor {
     private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
 
     protected abstract String[] getListHeader();
@@ -45,5 +47,10 @@ public abstract class ObjectTableListProto<T> extends DatabaseService implements
 
     public List<T> displayObjectList() {
         return displayObjectList(prepareObjectList());
+    }
+
+    @Override
+    public void execute() {
+        displayObjectList();
     }
 }

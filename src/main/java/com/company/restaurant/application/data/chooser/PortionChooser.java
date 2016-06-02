@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.PortionTableList;
 import com.company.restaurant.model.Portion;
 
 /**
@@ -24,10 +23,4 @@ public class PortionChooser extends ObjectChooserProto<Portion, Integer> impleme
         return ENTER_IDENTIFIER_MESSAGE;
     }
 
-    public static ObjectChooser<Portion> newInstance() {
-        PortionChooser portionChooser = new PortionChooser();
-        portionChooser.setObjectTableList(new PortionTableList());
-
-        return portionChooser;
-    }
 }

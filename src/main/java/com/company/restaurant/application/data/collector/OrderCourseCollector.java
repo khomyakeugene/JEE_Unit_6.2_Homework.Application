@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.collector;
 
-import com.company.restaurant.application.data.chooser.*;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Order;
 import com.company.restaurant.model.OrderCourse;
@@ -21,14 +20,5 @@ public class OrderCourseCollector extends ItemCollectorProto<Order, Course, Orde
         getRestaurantController().takeCourseFromOrder(order,
                 getRestaurantController().findCourseById(orderCourse.getCourseId()), 1);
 
-    }
-
-    public static ItemCollector<Order> newInstance() {
-        OrderCourseCollector orderCourseCollector = new OrderCourseCollector();
-        orderCourseCollector.setObjectChooser(OpenOrderChooser.newInstance());
-        orderCourseCollector.setNewItemChooser(CourseChooser.newInstance());
-        orderCourseCollector.setPresentItemChooser(OrderCourseChooser.newInstance());
-
-        return orderCourseCollector;
     }
 }

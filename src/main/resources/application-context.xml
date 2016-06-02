@@ -168,6 +168,34 @@
         <property name="objectTableList" ref="warehouseTableList"/>
     </bean>
 
+    <bean class="com.company.restaurant.application.data.remover.CourseRemover" id="courseRemover">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="courseChooser"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.remover.EmployeeRemover" id="employeeRemover">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="employeeChooser"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.remover.MenuRemover" id="menuRemover">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="menuChooser"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.remover.OrderRemover" id="orderRemover">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="openOrderChooser"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.remover.WarehouseRemover" id="warehouseRemover">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="warehouseChooser"/>
+        <property name="warehouseTableList" ref="warehouseTableList"/>
+        <property name="portionChooser" ref="portionChooser"/>
+    </bean>
+
+    <bean class="com.company.restaurant.application.data.converter.OrderCloser" id="orderCloser">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="openOrderChooser"/>
+    </bean>
+
     <bean class="com.company.restaurant.application.menu.service.SimpleMenuItem" id="mainMenu">
         <property name="itemText" value="Main menu"/>
         <property name="subMenu">
@@ -179,26 +207,27 @@
                             <map key-type="java.lang.Integer"
                                  value-type="com.company.restaurant.application.menu.service.MenuItem">
                                 <entry key="1">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemEmployeeAdd">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Add employee"/>
-                                        <property name="employeeAdder" ref="employeeAdder"/>
+                                        <property name="executor" ref="employeeAdder"/>
                                     </bean>
                                 </entry>
                                 <entry key="2">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemEmployeeDelete">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Delete employee"/>
+                                        <property name="executor" ref="employeeRemover"/>
                                     </bean>
                                 </entry>
                                 <entry key="3">
                                     <bean class="com.company.restaurant.application.menu.MenuItemEmployeeFind">
                                         <property name="itemText" value="Find employee by name"/>
-                                        <property name="employeeFinder" ref="employeeFinder"/>
+                                        <property name="objectFinder" ref="employeeFinder"/>
                                     </bean>
                                 </entry>
                                 <entry key="4">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemEmployeeList">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Get employee list"/>
-                                        <property name="employeeTableList" ref="employeeTableList"/>
+                                        <property name="executor" ref="employeeTableList"/>
                                     </bean>
                                 </entry>
                                 <entry key="5">
@@ -217,26 +246,27 @@
                             <map key-type="java.lang.Integer"
                                  value-type="com.company.restaurant.application.menu.service.MenuItem">
                                 <entry key="1">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemCourseAdd">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Add course"/>
-                                        <property name="courseAdder" ref="courseAdder"/>
+                                        <property name="executor" ref="courseAdder"/>
                                     </bean>
                                 </entry>
                                 <entry key="2">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemCourseDelete">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Delete course"/>
+                                        <property name="executor" ref="courseRemover"/>
                                     </bean>
                                 </entry>
                                 <entry key="3">
                                     <bean class="com.company.restaurant.application.menu.MenuItemCourseFind">
                                         <property name="itemText" value="Find course by name"/>
-                                        <property name="courseFinder" ref="courseFinder"/>
+                                        <property name="objectFinder" ref="courseFinder"/>
                                     </bean>
                                 </entry>
                                 <entry key="4">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemCourseList">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Get course list"/>
-                                        <property name="courseTableList" ref="courseTableList"/>
+                                        <property name="executor" ref="courseTableList"/>
                                     </bean>
                                 </entry>
                                 <entry key="5">
@@ -255,19 +285,15 @@
                             <map key-type="java.lang.Integer"
                                  value-type="com.company.restaurant.application.menu.service.MenuItem">
                                 <entry key="1">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuAdd">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Add menu"/>
-                                        <property name="menuAdder" ref="menuAdder"/>
+                                        <property name="executor" ref="menuAdder"/>
                                     </bean>
                                 </entry>
                                 <entry key="2">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuDelete">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Delete menu"/>
-                                    </bean>
-                                </entry>
-                                <entry key="3">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuDelete">
-                                        <property name="itemText" value="Delete menu"/>
+                                        <property name="executor" ref="menuRemover"/>
                                     </bean>
                                 </entry>
                                 <entry key="3">
@@ -277,9 +303,9 @@
                                     </bean>
                                 </entry>
                                 <entry key="4">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuList">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Get menu list"/>
-                                        <property name="menuTableList" ref="menuTableList"/>
+                                        <property name="executor" ref="menuTableList"/>
                                     </bean>
                                 </entry>
                                 <entry key="5">
@@ -311,14 +337,15 @@
                             <map key-type="java.lang.Integer"
                                  value-type="com.company.restaurant.application.menu.service.MenuItem">
                                 <entry key="1">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderAdd">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Add order"/>
-                                        <property name="orderAdder" ref="orderAdder"/>
+                                        <property name="executor" ref="orderAdder"/>
                                     </bean>
                                 </entry>
                                 <entry key="2">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderDelete">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Delete order"/>
+                                        <property name="executor" ref="orderRemover"/>
                                     </bean>
                                 </entry>
                                 <entry key="3">
@@ -334,20 +361,21 @@
                                     </bean>
                                 </entry>
                                 <entry key="5">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderCloseOrder">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Close order"/>
+                                        <property name="executor" ref="orderCloser"/>
                                     </bean>
                                 </entry>
                                 <entry key="6">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderOpenOrderList">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Open order list"/>
-                                        <property name="openOrderTableList" ref="openOrderTableList"/>
+                                        <property name="executor" ref="openOrderTableList"/>
                                     </bean>
                                 </entry>
                                 <entry key="7">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemOrderClosedOrderList">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Closed order list"/>
-                                        <property name="closedOrderTableList" ref="closedOrderTableList"/>
+                                        <property name="executor" ref="closedOrderTableList"/>
                                     </bean>
                                 </entry>
                                 <entry key="8">
@@ -366,15 +394,15 @@
                             <map key-type="java.lang.Integer"
                                  value-type="com.company.restaurant.application.menu.service.MenuItem">
                                 <entry key="1">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemCookedCourseAdd">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Add cooked course"/>
-                                        <property name="cookedCourseAdder" ref="cookedCourseAdder"/>
+                                        <property name="executor" ref="cookedCourseAdder"/>
                                     </bean>
                                 </entry>
                                 <entry key="2">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemCookedCourseList">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Get cooked course list"/>
-                                        <property name="cookedCourseTableList" ref="cookedCourseTableList"/>
+                                        <property name="executor" ref="cookedCourseTableList"/>
                                     </bean>
                                 </entry>
                                 <entry key="3">
@@ -393,14 +421,15 @@
                             <map key-type="java.lang.Integer"
                                  value-type="com.company.restaurant.application.menu.service.MenuItem">
                                 <entry key="1">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemWarehouseAddIngredient">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Add ingredient to warehouse"/>
-                                        <property name="warehouseAdder" ref="warehouseAdder"/>
+                                        <property name="executor" ref="warehouseAdder"/>
                                     </bean>
                                 </entry>
                                 <entry key="2">
                                     <bean class="com.company.restaurant.application.menu.MenuItemWarehouseTakeIngredient">
                                         <property name="itemText" value="Take ingredient from warehouse"/>
+                                        <property name="objectRemover" ref="warehouseRemover"/>
                                     </bean>
                                 </entry>
                                 <entry key="3">
@@ -410,9 +439,9 @@
                                     </bean>
                                 </entry>
                                 <entry key="4">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemWarehouseList">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Get warehouse ingredient list"/>
-                                        <property name="warehouseTableList" ref="warehouseTableList"/>
+                                        <property name="executor" ref="warehouseTableList"/>
                                     </bean>
                                 </entry>
                                 <entry key="5">

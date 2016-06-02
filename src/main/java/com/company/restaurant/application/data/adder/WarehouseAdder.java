@@ -1,7 +1,6 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
-import com.company.restaurant.application.data.list.WarehouseTableList;
 import com.company.restaurant.model.Ingredient;
 import com.company.restaurant.model.Portion;
 import com.company.restaurant.model.Warehouse;
@@ -48,13 +47,6 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements Objec
         }
 
         return result;
-    }
-
-    public static ObjectAdder<Warehouse> newInstance() {
-        WarehouseAdder warehouseAdder = new WarehouseAdder();
-        warehouseAdder.setObjectTableList(new WarehouseTableList());
-
-        return warehouseAdder;
     }
 
     @Override

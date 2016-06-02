@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.TableTableList;
 import com.company.restaurant.model.Table;
 
 /**
@@ -24,10 +23,4 @@ public class TableChooser extends ObjectChooserProto<Table, Integer> implements 
         return readIntegerKeyFieldValue();
     }
 
-    public static ObjectChooser<Table> newInstance() {
-        TableChooser tableChooser = new TableChooser();
-        tableChooser.setObjectTableList(new TableTableList());
-
-        return tableChooser;
-    }
 }

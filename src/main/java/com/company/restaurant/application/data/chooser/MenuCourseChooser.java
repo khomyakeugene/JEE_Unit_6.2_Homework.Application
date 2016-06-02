@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.MenuCourseTableList;
 import com.company.restaurant.model.Menu;
 import com.company.restaurant.model.MenuCourseList;
 
@@ -26,10 +25,4 @@ public class MenuCourseChooser extends ItemChooserProto<Menu, MenuCourseList, In
         return getRestaurantController().findMenuCourseByCourseId(menu, courseId);
     }
 
-    public static ItemChooser<Menu, MenuCourseList> newInstance() {
-        MenuCourseChooser menuCourseChooser = new MenuCourseChooser();
-        menuCourseChooser.setItemTableList(new MenuCourseTableList());
-
-        return menuCourseChooser;
-    }
 }

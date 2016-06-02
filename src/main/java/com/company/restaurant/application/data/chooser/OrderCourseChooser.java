@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.OrderCourseTableList;
 import com.company.restaurant.model.Order;
 import com.company.restaurant.model.OrderCourse;
 
@@ -26,10 +25,4 @@ public class OrderCourseChooser extends ItemChooserProto<Order, OrderCourse, Int
         return getRestaurantController().findOrderCourseByCourseId(order,courseId);
     }
 
-    public static ItemChooser<Order, OrderCourse> newInstance() {
-        OrderCourseChooser orderCourseChooser = new OrderCourseChooser();
-        orderCourseChooser.setItemTableList(new OrderCourseTableList());
-
-        return orderCourseChooser;
-    }
 }

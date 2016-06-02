@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.JobPositionTableList;
 import com.company.restaurant.model.JobPosition;
 
 /**
@@ -24,10 +23,4 @@ public class JobPositionChooser extends ObjectChooserProto<JobPosition, Integer>
         return ENTER_IDENTIFIER_MESSAGE;
     }
 
-    public static ObjectChooser<JobPosition> newInstance() {
-        JobPositionChooser jobPositionChooser = new JobPositionChooser();
-        jobPositionChooser.setObjectTableList(new JobPositionTableList());
-
-        return jobPositionChooser;
-    }
 }

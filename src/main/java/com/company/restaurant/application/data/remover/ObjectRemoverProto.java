@@ -2,14 +2,16 @@ package com.company.restaurant.application.data.remover;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.service.DatabaseService;
+import com.company.restaurant.application.menu.service.Executor;
 
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public abstract class ObjectRemoverProto<T> extends DatabaseService implements ObjectRemover<T> {
-    protected ObjectChooser<T> objectChooser;
+public abstract class ObjectRemoverProto<T> extends DatabaseService
+        implements ObjectRemover<T>, Executor {
+    private ObjectChooser<T> objectChooser;
 
-    public ObjectRemoverProto(ObjectChooser<T> objectChooser) {
+    public void setObjectChooser(ObjectChooser<T> objectChooser) {
         this.objectChooser = objectChooser;
     }
 
@@ -36,5 +38,10 @@ public abstract class ObjectRemoverProto<T> extends DatabaseService implements O
         } while (object != null);
 
         return result;
+    }
+
+    @Override
+    public void execute() {
+        deleteObjects();
     }
 }

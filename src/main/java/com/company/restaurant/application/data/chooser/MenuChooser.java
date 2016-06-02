@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.MenuTableList;
 import com.company.restaurant.model.Menu;
 
 /**
@@ -25,10 +24,4 @@ public class MenuChooser extends ObjectChooserProto<Menu, Integer> implements Ob
         return ENTER_IDENTIFIER_MESSAGE;
     }
 
-    public static ObjectChooser<Menu> newInstance() {
-        MenuChooser menuChooser = new MenuChooser();
-        menuChooser.setObjectTableList(new MenuTableList());
-
-        return menuChooser;
-    }
 }

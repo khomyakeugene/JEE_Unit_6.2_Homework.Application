@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.chooser;
 
-import com.company.restaurant.application.data.list.EmployeeTableList;
 import com.company.restaurant.model.Employee;
 
 /**
@@ -23,12 +22,5 @@ public class EmployeeChooser extends ObjectChooserProto<Employee, Integer> {
     @Override
     protected String getEnterIdentifierMessage() {
         return ENTER_IDENTIFIER_MESSAGE;
-    }
-
-    public static ObjectChooser<Employee> newInstance() {
-        EmployeeChooser employeeChooser = new EmployeeChooser();
-        employeeChooser.setObjectTableList(new EmployeeTableList());
-
-        return employeeChooser;
     }
 }

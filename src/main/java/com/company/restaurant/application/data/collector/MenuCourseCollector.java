@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.collector;
 
-import com.company.restaurant.application.data.chooser.*;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Menu;
 import com.company.restaurant.model.MenuCourseList;
@@ -22,12 +21,4 @@ public class MenuCourseCollector extends ItemCollectorProto<Menu, Course, MenuCo
                 getRestaurantController().findCourseById(menuCourseList.getCourseId()));
     }
 
-    public static ItemCollector<Menu> newInstance() {
-        MenuCourseCollector menuCourseCollector = new MenuCourseCollector();
-        menuCourseCollector.setObjectChooser(MenuChooser.newInstance());
-        menuCourseCollector.setNewItemChooser(CourseChooser.newInstance());
-        menuCourseCollector.setPresentItemChooser(MenuCourseChooser.newInstance());
-
-        return menuCourseCollector;
-    }
 }

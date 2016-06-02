@@ -1,7 +1,6 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.collector.ItemCollector;
-import com.company.restaurant.application.data.list.MenuTableList;
 import com.company.restaurant.model.Menu;
 import com.company.util.Util;
 
@@ -35,12 +34,5 @@ public class MenuAdder extends ObjectAdderProto<Menu> implements ObjectAdder<Men
         menuCourseCollector.addItemsToObject(result);
 
         return result;
-    }
-
-    public static ObjectAdder<Menu> newInstance() {
-        MenuAdder menuAdder = new MenuAdder();
-        menuAdder.setObjectTableList(new MenuTableList());
-
-        return menuAdder;
     }
 }

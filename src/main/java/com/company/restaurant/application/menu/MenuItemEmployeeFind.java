@@ -9,14 +9,14 @@ import com.company.restaurant.model.Employee;
  * Created by Yevhen on 25.05.2016.
  */
 public class MenuItemEmployeeFind extends SafeMenuItem implements MenuItem {
-    private ObjectFinder<Employee> employeeFinder;
+    private ObjectFinder<Employee> objectFinder;
 
-    public void setEmployeeFinder(ObjectFinder<Employee> employeeFinder) {
-        this.employeeFinder = employeeFinder;
+    public void setObjectFinder(ObjectFinder<Employee> objectFinder) {
+        this.objectFinder = objectFinder;
     }
 
     @Override
     protected void performAction() {
-        employeeFinder.findAndDisplayObjectList();
+        objectFinder.findAndDisplayObjectList();
     }
 }

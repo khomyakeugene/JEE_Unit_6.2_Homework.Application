@@ -2,7 +2,7 @@ package com.company.restaurant.application.data.remover;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.chooser.PortionChooser;
-import com.company.restaurant.application.data.chooser.WarehouseChooser;
+import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.application.data.list.WarehouseTableList;
 import com.company.restaurant.model.Portion;
 import com.company.restaurant.model.Warehouse;
@@ -14,11 +14,15 @@ import com.company.util.Util;
 public class WarehouseRemover extends ObjectRemoverProto<Warehouse>  implements ObjectRemover<Warehouse>   {
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
-    private WarehouseTableList warehouseTableList = new WarehouseTableList();
-    private ObjectChooser<Portion> portionChooser = PortionChooser.newInstance();
+    private ObjectTableList<Warehouse> warehouseTableList;
+    private ObjectChooser<Portion> portionChooser;
 
-    private WarehouseRemover(ObjectChooser<Warehouse> objectChooser) {
-        super(objectChooser);
+    public void setWarehouseTableList(ObjectTableList<Warehouse> warehouseTableList) {
+        this.warehouseTableList = warehouseTableList;
+    }
+
+    public void setPortionChooser(ObjectChooser<Portion> portionChooser) {
+        this.portionChooser = portionChooser;
     }
 
     @Override
@@ -53,9 +57,5 @@ public class WarehouseRemover extends ObjectRemoverProto<Warehouse>  implements 
         }
 
         return null;
-    }
-
-    public static ObjectRemover<Warehouse> newInstance() {
-        return new WarehouseRemover(WarehouseChooser.newInstance());
     }
 }

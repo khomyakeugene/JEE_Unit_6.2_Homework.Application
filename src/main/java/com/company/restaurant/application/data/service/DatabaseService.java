@@ -11,7 +11,6 @@ import com.company.util.Util;
  * Created by Yevhen on 27.05.2016.
  */
 public class DatabaseService {
-    private static final String ACTION_HAS_BEEN_SUCCESSFULLY_PERFORMED = "The action has been successfully performed";
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_ADDED = "Data has been successfully added";
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
     private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
@@ -40,10 +39,6 @@ public class DatabaseService {
 
     protected void dataHasBeenSuccessfullyAddedMessage() {
         Util.printMessage(DATA_HAS_BEEN_SUCCESSFULLY_ADDED);
-    }
-
-    public void actionHasBeenSuccessfullyPerformedMessage() {
-        Util.printMessage(ACTION_HAS_BEEN_SUCCESSFULLY_PERFORMED);
     }
 
     protected void dataHasBeenSuccessfullyDeletedMessage() {

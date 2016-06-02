@@ -1,7 +1,6 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
-import com.company.restaurant.application.data.list.EmployeeTableList;
 import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.JobPosition;
 import com.company.util.Util;
@@ -47,12 +46,5 @@ public class EmployeeAdder extends ObjectAdderProto<Employee> implements ObjectA
         }
 
         return result;
-    }
-
-    public static ObjectAdder<Employee> newInstance() {
-        EmployeeAdder employeeAdder = new EmployeeAdder();
-        employeeAdder.setObjectTableList(new EmployeeTableList());
-
-        return employeeAdder;
     }
 }
