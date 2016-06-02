@@ -469,7 +469,6 @@
     </bean>
 
     <bean class="com.company.restaurant.application.RestaurantConsoleApplication" id="restaurantConsoleApplication">
-        <property name="restaurantController" ref="restaurantController"/>
         <property name="mainMenu" ref="mainMenu"/>
     </bean>
 

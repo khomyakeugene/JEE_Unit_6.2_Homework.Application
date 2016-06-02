@@ -22,7 +22,7 @@ public class DatabaseService {
     }
 
     public RestaurantController getRestaurantController() {
-        return RestaurantConsoleApplication.getRestaurantController();
+        return restaurantController;
     }
 
     private WarehouseAdapter getWarehouseAdapter() {

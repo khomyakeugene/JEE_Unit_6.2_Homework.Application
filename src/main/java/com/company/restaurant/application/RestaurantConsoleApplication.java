@@ -11,19 +11,10 @@ public class RestaurantConsoleApplication {
     private static final String TITLE_MESSAGE = "Welcome to the restaurant application!";
     private static final String FAREWELL_MESSAGE = "Thank you for use our application";
 
-    private static RestaurantController staticRestaurantController;
     private MenuItem mainMenu;
 
     public void setMainMenu(MenuItem mainMenu) {
         this.mainMenu = mainMenu;
-    }
-
-    public void setRestaurantController(RestaurantController restaurantController) {
-        staticRestaurantController = restaurantController;
-    }
-
-    public static RestaurantController getRestaurantController() {
-        return staticRestaurantController;
     }
 
     private void mainMenuProcess() {

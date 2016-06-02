@@ -24,7 +24,9 @@ public abstract class DataFinderAndChooserProto<KeyFieldType> extends DatabaseSe
     }
 
     protected String readStringKeyFieldValue() {
-        return Util.readInputString(getEnterNameMessage(), false);
+        String result = Util.readInputString(getEnterNameMessage(), false);
+
+        return (result == null) ? null : result.trim();
     }
 
     protected Integer readIntegerKeyFieldValue() {
