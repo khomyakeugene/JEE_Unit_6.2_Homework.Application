@@ -2,7 +2,7 @@ package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.collector.ItemCollector;
-import com.company.restaurant.application.data.list.OpenOrderTableList;
+import com.company.restaurant.application.data.list.OrderTableList;
 import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.Order;
 import com.company.restaurant.model.Table;
@@ -64,7 +64,7 @@ public class OrderAdder extends ObjectAdderProto<Order> implements ObjectAdder<O
 
     public static ObjectAdder<Order> newInstance() {
         OrderAdder orderAdder = new OrderAdder();
-        orderAdder.setObjectTableList(new OpenOrderTableList());
+        orderAdder.setObjectTableList(new OrderTableList());
 
         return orderAdder;
     }

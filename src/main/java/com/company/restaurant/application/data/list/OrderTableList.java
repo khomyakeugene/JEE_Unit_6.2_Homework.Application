@@ -4,11 +4,12 @@ import com.company.restaurant.model.Order;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public abstract class OrderTableList extends ObjectTableListProto<Order> implements ObjectTableList<Order> {
+public class OrderTableList extends ObjectTableListProto<Order> implements ObjectTableList<Order> {
     private static final String[] listHeader = new String[] {
             "Order Id",
             "Order number",
@@ -38,4 +39,10 @@ public abstract class OrderTableList extends ObjectTableListProto<Order> impleme
 
         return arrayList.toArray(new String[arrayList.size()]);
     }
+
+    @Override
+    public List<Order> prepareObjectList() {
+        return getRestaurantController().findAllOrders();
+    }
+
 }

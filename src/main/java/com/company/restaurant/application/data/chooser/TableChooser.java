@@ -7,7 +7,7 @@ import com.company.restaurant.model.Table;
  * Created by Yevhen on 27.05.2016.
  */
 public class TableChooser extends ObjectChooserProto<Table, Integer> implements ObjectChooser<Table> {
-    private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter table number";
+    private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter table id";
 
     @Override
     protected String getEnterIdentifierMessage() {
@@ -15,8 +15,8 @@ public class TableChooser extends ObjectChooserProto<Table, Integer> implements 
     }
 
     @Override
-    protected Table findObject(Integer tableNumber) {
-        return getRestaurantController().findTableByNumber(tableNumber);
+    protected Table findObject(Integer tableId) {
+        return getRestaurantController().findTableById(tableId);
     }
 
     @Override

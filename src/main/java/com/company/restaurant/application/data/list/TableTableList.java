@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class TableTableList extends ObjectTableListProto<Table> implements ObjectTableList<Table> {
     private static final String[] listHeader = new String[] {
+            "Table id",
             "Table number"
     };
 
@@ -27,6 +28,7 @@ public class TableTableList extends ObjectTableListProto<Table> implements Objec
     protected String[] dataSetRowDataToStringArray(Table table) {
         ArrayList<String> arrayList = new ArrayList<>();
 
+        arrayList.add(Integer.toString(table.getTableId()));
         arrayList.add(Integer.toString(table.getNumber()));
 
         return arrayList.toArray(new String[arrayList.size()]);
