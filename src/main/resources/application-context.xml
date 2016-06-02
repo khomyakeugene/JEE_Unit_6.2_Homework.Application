@@ -115,6 +115,18 @@
         <property name="newItemChooser" ref="courseChooser"/>
         <property name="presentItemChooser" ref="orderCourseChooser"/>
     </bean>
+    <bean class="com.company.restaurant.application.data.collector.MenuCourseAdder" id="menuCourseAdder">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="menuChooser"/>
+        <property name="newItemChooser" ref="courseChooser"/>
+        <property name="presentItemChooser" ref="menuCourseChooser"/>
+    </bean>
+    <bean class="com.company.restaurant.application.data.collector.MenuCourseRemover" id="menuCourseRemover">
+        <property name="restaurantController" ref="restaurantController"/>
+        <property name="objectChooser" ref="menuChooser"/>
+        <property name="newItemChooser" ref="courseChooser"/>
+        <property name="presentItemChooser" ref="menuCourseChooser"/>
+    </bean>
 
     <bean class="com.company.restaurant.application.data.adder.CookedCourseAdder" id="cookedCourseAdder">
         <property name="restaurantController" ref="restaurantController"/>
@@ -309,15 +321,15 @@
                                     </bean>
                                 </entry>
                                 <entry key="5">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuAddCourseToMenu">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Add course to menu"/>
-                                        <property name="menuCourseCollector" ref="menuCourseCollector"/>
+                                        <property name="executor" ref="menuCourseAdder"/>
                                     </bean>
                                 </entry>
                                 <entry key="6">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuDelCourseFromMenu">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Delete course from menu"/>
-                                        <property name="menuCourseCollector" ref="menuCourseCollector"/>
+                                        <property name="executor" ref="menuCourseRemover"/>
                                     </bean>
                                 </entry>
 
