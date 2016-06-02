@@ -5,7 +5,7 @@ import com.company.restaurant.model.Course;
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public class CourseRemover extends ObjectRemoverProto<Course>  implements ObjectRemover<Course>  {
+public class CourseRemover extends ObjectRemoverProto<Course> {
     @Override
     protected String delObject(Course course) {
         return getRestaurantController().delCourse(course);

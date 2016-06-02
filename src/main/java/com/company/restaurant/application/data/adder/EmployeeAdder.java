@@ -8,7 +8,7 @@ import com.company.util.Util;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class EmployeeAdder extends ObjectAdderProto<Employee> implements ObjectAdder<Employee> {
+public class EmployeeAdder extends ObjectAdderProto<Employee> {
     private static final String ENTER_FIRST_NAME_MESSAGE = "Please, enter first name of employee";
     private static final String ENTER_SECOND_NAME_MESSAGE = "Please, enter second name of employee";
     private static final String ENTER_PHONE_NUMBER_MESSAGE = "Please, enter employee phone number";

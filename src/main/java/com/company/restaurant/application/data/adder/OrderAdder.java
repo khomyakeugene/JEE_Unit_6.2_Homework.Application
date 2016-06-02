@@ -10,7 +10,7 @@ import com.company.util.Util;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class OrderAdder extends ObjectAdderProto<Order> implements ObjectAdder<Order>  {
+public class OrderAdder extends ObjectAdderProto<Order>  {
     private static final String ENTER_ORDER_NUMBER_MESSAGE = "Please, enter order number";
 
     private ObjectChooser<Employee> employeeChooser;

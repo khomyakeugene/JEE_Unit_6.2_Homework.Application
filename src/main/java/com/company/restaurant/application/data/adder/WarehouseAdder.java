@@ -9,7 +9,7 @@ import com.company.util.Util;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class WarehouseAdder extends ObjectAdderProto<Warehouse> implements ObjectAdder<Warehouse> {
+public class WarehouseAdder extends ObjectAdderProto<Warehouse> {
     private static final String ALREADY_IN_WAREHOUSE_MESSAGE = "Already in warehouse:";
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 

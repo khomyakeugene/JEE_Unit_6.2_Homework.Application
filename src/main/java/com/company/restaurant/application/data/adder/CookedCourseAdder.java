@@ -9,8 +9,7 @@ import com.company.util.Util;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class CookedCourseAdder extends ObjectAdderProto<CookedCourse>
-        implements ObjectAdder<CookedCourse> {
+public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> {
     private static final String ENTER_WEIGHT_MESSAGE = "Please, enter course weight";
     private static final String ALREADY_COOKED_COURSES_MESSAGE = "Already cooked courses:";
 

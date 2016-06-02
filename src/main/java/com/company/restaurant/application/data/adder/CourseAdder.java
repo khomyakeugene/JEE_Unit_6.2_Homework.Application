@@ -8,7 +8,7 @@ import com.company.util.Util;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class CourseAdder extends ObjectAdderProto<Course> implements ObjectAdder<Course>  {
+public class CourseAdder extends ObjectAdderProto<Course> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter course name";
     private static final String ENTER_WEIGHT_MESSAGE = "Please, enter course weight";
     private static final String ENTER_COST_MESSAGE = "Please, enter course cost";
@@ -43,5 +43,4 @@ public class CourseAdder extends ObjectAdderProto<Course> implements ObjectAdder
 
         return result;
     }
-
 }

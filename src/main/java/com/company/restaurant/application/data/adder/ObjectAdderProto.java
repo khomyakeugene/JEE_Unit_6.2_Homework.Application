@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public abstract class ObjectAdderProto<T> extends DatabaseService implements ObjectAdder<T>, Executor {
+public abstract class ObjectAdderProto<T> extends DatabaseService implements Executor {
     private static final String EXISTING_DATA = "Existing data:";
     private ObjectTableList<T> objectTableList;
 
@@ -20,8 +20,7 @@ public abstract class ObjectAdderProto<T> extends DatabaseService implements Obj
 
     protected abstract T addObject();
 
-    @Override
-    public List<T> addObjects() {
+    private List<T> addObjects() {
         List<T> result ;
         T object;
 

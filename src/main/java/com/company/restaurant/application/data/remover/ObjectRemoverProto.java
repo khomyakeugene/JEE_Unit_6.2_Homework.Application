@@ -7,8 +7,7 @@ import com.company.restaurant.application.data.service.Executor;
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public abstract class ObjectRemoverProto<T> extends DatabaseService
-        implements ObjectRemover<T>, Executor {
+public abstract class ObjectRemoverProto<T> extends DatabaseService implements Executor {
     private ObjectChooser<T> objectChooser;
 
     public void setObjectChooser(ObjectChooser<T> objectChooser) {
@@ -21,7 +20,7 @@ public abstract class ObjectRemoverProto<T> extends DatabaseService
         return objectChooser.chooseObjectFromList();
     }
 
-    public String deleteObjects() {
+    private String deleteObjects() {
         String result = null;
 
         T object;

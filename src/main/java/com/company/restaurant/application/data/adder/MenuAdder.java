@@ -7,7 +7,7 @@ import com.company.util.Util;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class MenuAdder extends ObjectAdderProto<Menu> implements ObjectAdder<Menu> {
+public class MenuAdder extends ObjectAdderProto<Menu> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter menu name";
 
     private ItemCollector<Menu> menuCourseCollector;

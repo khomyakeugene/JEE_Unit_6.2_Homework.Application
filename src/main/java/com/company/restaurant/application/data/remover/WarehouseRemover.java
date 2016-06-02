@@ -11,7 +11,7 @@ import com.company.util.Util;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class WarehouseRemover extends ObjectRemoverProto<Warehouse>  implements ObjectRemover<Warehouse>   {
+public class WarehouseRemover extends ObjectRemoverProto<Warehouse> {
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
     private ObjectTableList<Warehouse> warehouseTableList;
