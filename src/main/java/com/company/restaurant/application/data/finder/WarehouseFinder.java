@@ -8,8 +8,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class WarehouseFinder extends ObjectFinderProto<Warehouse, String>
-        implements ObjectFinder<Warehouse> {
+public class WarehouseFinder extends ObjectFinderProto<Warehouse, String> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter ingredient name";
 
     @Override
@@ -25,12 +24,5 @@ public class WarehouseFinder extends ObjectFinderProto<Warehouse, String>
     @Override
     protected String getEnterNameMessage() {
         return ENTER_NAME_MESSAGE;
-    }
-
-    public static ObjectFinder<Warehouse> newInstance() {
-        WarehouseFinder warehouseFinder = new WarehouseFinder();
-        warehouseFinder.setObjectTableList(new WarehouseTableList());
-
-        return warehouseFinder;
     }
 }

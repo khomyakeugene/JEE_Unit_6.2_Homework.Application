@@ -10,7 +10,7 @@ import java.util.List;
  */
 public abstract class ObjectFinderProto<ObjectType, ObjectKeyFieldType>
         extends ObjectFinderAndChooserProto<ObjectType, ObjectKeyFieldType>
-        implements ObjectFinder<ObjectType>, Executor {
+        implements Executor {
 
     protected abstract List<ObjectType> findObjects(ObjectKeyFieldType objectKeyFieldValue);
 
@@ -25,7 +25,7 @@ public abstract class ObjectFinderProto<ObjectType, ObjectKeyFieldType>
         return result;
     }
 
-    public List<ObjectType> findAndDisplayObjectList() {
+    private List<ObjectType> findAndDisplayObjectList() {
         List<ObjectType> result = null;
 
         ObjectKeyFieldType objectKeyFieldValue = readKeyFieldValue();

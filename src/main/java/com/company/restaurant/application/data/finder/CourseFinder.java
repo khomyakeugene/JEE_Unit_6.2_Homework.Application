@@ -1,13 +1,11 @@
 package com.company.restaurant.application.data.finder;
 
-import com.company.restaurant.application.data.list.CourseTableList;
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Course;
 
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public class CourseFinder extends ObjectOneRecordFinderProto<Course, String> implements ObjectFinder<Course> {
+public class CourseFinder extends ObjectOneRecordFinderProto<Course, String> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter course name";
 
     @Override
@@ -23,12 +21,5 @@ public class CourseFinder extends ObjectOneRecordFinderProto<Course, String> imp
     @Override
     protected String getEnterNameMessage() {
         return ENTER_NAME_MESSAGE;
-    }
-
-    public static ObjectFinder<Course> newInstance() {
-        CourseFinder courseFinder = new CourseFinder();
-        courseFinder.setObjectTableList(new CourseTableList());
-
-        return courseFinder;
     }
 }

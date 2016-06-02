@@ -1,7 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
 import com.company.restaurant.application.data.list.EmployeeTableList;
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Employee;
 import com.company.util.Util;
 
@@ -10,7 +9,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public class EmployeeFinder extends ObjectFinderProto<Employee, String> implements ObjectFinder<Employee> {
+public class EmployeeFinder extends ObjectFinderProto<Employee, String> {
     private static final String ENTER_FIRST_NAME_MESSAGE = "Please, enter first name of employee";
     private static final String ENTER_SECOND_NAME_MESSAGE = "Please, enter second name of employee";
 
@@ -39,10 +38,4 @@ public class EmployeeFinder extends ObjectFinderProto<Employee, String> implemen
         }
     }
 
-    public static ObjectFinder<Employee> newInstance() {
-        EmployeeFinder employeeFinder = new EmployeeFinder();
-        employeeFinder.setObjectTableList(new EmployeeTableList());
-
-        return employeeFinder;
-    }
 }

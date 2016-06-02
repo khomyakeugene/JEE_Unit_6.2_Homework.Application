@@ -7,7 +7,7 @@ import com.company.restaurant.model.Menu;
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public class MenuFinder extends ObjectOneRecordFinderProto<Menu, String> implements ObjectFinder<Menu> {
+public class MenuFinder extends ObjectOneRecordFinderProto<Menu, String> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter menu name";
 
     @Override
@@ -25,10 +25,4 @@ public class MenuFinder extends ObjectOneRecordFinderProto<Menu, String> impleme
         return ENTER_NAME_MESSAGE;
     }
 
-    public static ObjectFinder<Menu> newInstance() {
-        MenuFinder menuFinder = new MenuFinder();
-        menuFinder.setObjectTableList(new MenuTableList());
-
-        return menuFinder;
-    }
 }
