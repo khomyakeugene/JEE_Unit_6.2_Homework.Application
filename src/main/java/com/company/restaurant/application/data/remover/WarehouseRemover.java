@@ -1,9 +1,7 @@
 package com.company.restaurant.application.data.remover;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
-import com.company.restaurant.application.data.chooser.PortionChooser;
 import com.company.restaurant.application.data.list.ObjectTableList;
-import com.company.restaurant.application.data.list.WarehouseTableList;
 import com.company.restaurant.model.Portion;
 import com.company.restaurant.model.Warehouse;
 import com.company.util.Util;
@@ -26,7 +24,7 @@ public class WarehouseRemover extends ObjectRemoverProto<Warehouse> {
     }
 
     @Override
-    protected String delObject(Warehouse warehouse) {
+    protected String deleteObject(Warehouse warehouse) {
         getRestaurantController().takeIngredientFromWarehouse(
                 getIngredientDao().findIngredientById(warehouse.getIngredientId()),
                 getPortionDao().findPortionById(warehouse.getPortionId()),

@@ -7,7 +7,7 @@ import com.company.restaurant.model.Order;
  */
 public class OrderRemover extends ObjectRemoverProto<Order> {
     @Override
-    protected String delObject(Order order) {
+    protected String deleteObject(Order order) {
         return getRestaurantController().delOrder(order);
     }
 }

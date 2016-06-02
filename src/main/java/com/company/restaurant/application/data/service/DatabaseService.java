@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.service;
 
-import com.company.restaurant.application.RestaurantConsoleApplication;
 import com.company.restaurant.controllers.RestaurantController;
 import com.company.restaurant.model.IngredientDao;
 import com.company.restaurant.model.PortionDao;
@@ -12,8 +11,8 @@ import com.company.util.Util;
  */
 public class DatabaseService {
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_ADDED = "Data has been successfully added";
-    private static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
     private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
+    protected static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
 
     private RestaurantController restaurantController;
 

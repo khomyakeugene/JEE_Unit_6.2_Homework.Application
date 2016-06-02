@@ -7,7 +7,7 @@ import com.company.restaurant.model.Menu;
  */
 public class MenuRemover extends ObjectRemoverProto<Menu> {
     @Override
-    protected String delObject(Menu menu) {
+    protected String deleteObject(Menu menu) {
         return getRestaurantController().delMenu(menu);
     }
 }
