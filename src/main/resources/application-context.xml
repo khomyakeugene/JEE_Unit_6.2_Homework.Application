@@ -219,9 +219,9 @@
                                     </bean>
                                 </entry>
                                 <entry key="3">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemEmployeeFind">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Find employee by name"/>
-                                        <property name="objectFinder" ref="employeeFinder"/>
+                                        <property name="executor" ref="employeeFinder"/>
                                     </bean>
                                 </entry>
                                 <entry key="4">
@@ -258,9 +258,9 @@
                                     </bean>
                                 </entry>
                                 <entry key="3">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemCourseFind">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Find course by name"/>
-                                        <property name="objectFinder" ref="courseFinder"/>
+                                        <property name="executor" ref="courseFinder"/>
                                     </bean>
                                 </entry>
                                 <entry key="4">
@@ -297,9 +297,9 @@
                                     </bean>
                                 </entry>
                                 <entry key="3">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemMenuFind">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Find menu by name"/>
-                                        <property name="menuFinder" ref="menuFinder"/>
+                                        <property name="executor" ref="menuFinder"/>
                                     </bean>
                                 </entry>
                                 <entry key="4">
@@ -433,9 +433,9 @@
                                     </bean>
                                 </entry>
                                 <entry key="3">
-                                    <bean class="com.company.restaurant.application.menu.MenuItemWarehouseFind">
+                                    <bean class="com.company.restaurant.application.menu.service.SafeMenuItem">
                                         <property name="itemText" value="Find ingredient in warehouse by name"/>
-                                        <property name="warehouseFinder" ref="warehouseFinder"/>
+                                        <property name="executor" ref="warehouseFinder"/>
                                     </bean>
                                 </entry>
                                 <entry key="4">
