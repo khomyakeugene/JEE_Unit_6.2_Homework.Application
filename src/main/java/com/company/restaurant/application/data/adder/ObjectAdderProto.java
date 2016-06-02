@@ -2,7 +2,7 @@ package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.application.data.service.DatabaseService;
-import com.company.restaurant.application.menu.service.Executor;
+import com.company.restaurant.application.data.service.Executor;
 import com.company.util.Util;
 
 import java.util.List;

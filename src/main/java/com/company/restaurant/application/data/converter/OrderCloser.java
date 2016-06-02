@@ -1,6 +1,6 @@
 package com.company.restaurant.application.data.converter;
 
-import com.company.restaurant.application.menu.service.Executor;
+import com.company.restaurant.application.data.service.Executor;
 import com.company.restaurant.model.Order;
 
 /**

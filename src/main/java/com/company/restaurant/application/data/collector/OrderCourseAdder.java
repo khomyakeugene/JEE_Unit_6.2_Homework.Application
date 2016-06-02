@@ -1,6 +1,6 @@
 package com.company.restaurant.application.data.collector;
 
-import com.company.restaurant.application.menu.service.Executor;
+import com.company.restaurant.application.data.service.Executor;
 
 /**
  * Created by Yevhen on 02.06.2016.

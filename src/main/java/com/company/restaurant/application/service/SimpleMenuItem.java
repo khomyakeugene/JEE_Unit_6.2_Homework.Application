@@ -1,4 +1,4 @@
-package com.company.restaurant.application.menu.service;
+package com.company.restaurant.application.service;
 
 import com.company.util.Util;
 
@@ -43,8 +43,7 @@ public class SimpleMenuItem implements MenuItem {
         } else {
             boolean continueProcess = true;
             while (continueProcess) {
-                menu.forEach((c, i) ->
-                        Util.printMessage(String.format(CODE_MENU_ITEM_PATTERN, c, i.getItemText())));
+                menu.forEach((c, i) -> Util.printMessage(String.format(CODE_MENU_ITEM_PATTERN, c, i.getItemText())));
 
                 MenuItem menuItem = menu.get(Util.parseInt(Util.readInputString(CHOOSE_ACTIVITY_MESSAGE)));
                 if (menuItem != null) {

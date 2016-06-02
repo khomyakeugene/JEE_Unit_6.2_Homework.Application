@@ -1,7 +1,6 @@
 package com.company.restaurant.application;
 
-import com.company.restaurant.application.menu.service.MenuItem;
-import com.company.restaurant.controllers.RestaurantController;
+import com.company.restaurant.application.service.MenuItem;
 import com.company.util.Util;
 
 /**

@@ -1,7 +1,6 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
-import com.company.restaurant.application.menu.service.Executor;
 import com.company.restaurant.model.CookedCourse;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Employee;

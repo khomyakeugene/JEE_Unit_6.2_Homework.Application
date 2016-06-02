@@ -1,7 +1,7 @@
 package com.company.restaurant.application.data.finder;
 
 import com.company.restaurant.application.data.service.ObjectFinderAndChooserProto;
-import com.company.restaurant.application.menu.service.Executor;
+import com.company.restaurant.application.data.service.Executor;
 
 import java.util.ArrayList;
 import java.util.List;

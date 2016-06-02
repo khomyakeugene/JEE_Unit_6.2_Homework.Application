@@ -2,7 +2,7 @@ package com.company.restaurant.application.data.remover;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.service.DatabaseService;
-import com.company.restaurant.application.menu.service.Executor;
+import com.company.restaurant.application.data.service.Executor;
 
 /**
  * Created by Yevhen on 28.05.2016.

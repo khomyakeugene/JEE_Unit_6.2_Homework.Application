@@ -1,4 +1,4 @@
-package com.company.restaurant.application.menu.service;
+package com.company.restaurant.application.service;
 
 import java.util.Map;
 

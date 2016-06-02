@@ -1,4 +1,6 @@
-package com.company.restaurant.application.menu.service;
+package com.company.restaurant.application.service;
+
+import com.company.restaurant.application.data.service.Executor;
 
 /**
  * Created by Yevhen on 27.05.2016.
@@ -10,7 +12,7 @@ public class SafeMenuItem extends SimpleMenuItem implements MenuItem {
         this.executor = executor;
     }
 
-    protected void performAction() {
+    private void performAction() {
         executor.execute();
     }
 

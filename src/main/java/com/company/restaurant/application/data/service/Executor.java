@@ -1,4 +1,4 @@
-package com.company.restaurant.application.menu.service;
+package com.company.restaurant.application.data.service;
 
 /**
  * Created by Yevhen on 02.06.2016.
