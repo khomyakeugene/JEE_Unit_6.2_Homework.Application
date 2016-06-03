@@ -1,7 +1,5 @@
 package com.company.restaurant.application.data.finder;
 
-import com.company.restaurant.application.data.list.MenuTableList;
-import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.model.Menu;
 
 /**
