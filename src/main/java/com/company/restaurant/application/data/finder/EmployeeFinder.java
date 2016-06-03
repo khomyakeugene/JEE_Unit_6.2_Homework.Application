@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.finder;
 
-import com.company.restaurant.application.data.list.EmployeeTableList;
 import com.company.restaurant.model.Employee;
 import com.company.util.Util;
 

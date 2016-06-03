@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.finder;
 
-import com.company.restaurant.application.data.list.WarehouseTableList;
 import com.company.restaurant.model.Warehouse;
 
 import java.util.List;
