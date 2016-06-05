@@ -127,7 +127,7 @@
 
         <dependency>
             <groupId>com.company</groupId>
-            <artifactId>JEE_Unit_6.2_Homework.Controller</artifactId>
+            <artifactId>Restaurant.Controller</artifactId>
             <version>1.0</version>
         </dependency>
 
