@@ -1,6 +1,7 @@
 package com.company.restaurant.application.data.collector;
 
 import com.company.restaurant.controllers.CourseController;
+import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Menu;
 import com.company.restaurant.model.MenuCourseList;
@@ -12,19 +13,24 @@ public class MenuCourseCollector extends ItemCollectorProto<Menu, Course, MenuCo
         implements ItemCollector<Menu> {
 
     private CourseController courseController;
+    private MenuController menuController;
 
     public void setCourseController(CourseController courseController) {
         this.courseController = courseController;
     }
 
+    public void setMenuController(MenuController menuController) {
+        this.menuController = menuController;
+    }
+
     @Override
     protected void addItemToObject(Menu menu, Course course) {
-        getRestaurantController().addCourseToMenu(menu, course);
+        menuController.addCourseToMenu(menu, course);
     }
 
     @Override
     protected void delItemFromObject(Menu menu, MenuCourseList menuCourseList) {
-        getRestaurantController().delCourseFromMenu(menu,
+        menuController.delCourseFromMenu(menu,
                 courseController.findCourseById(menuCourseList.getCourseId()));
     }
 

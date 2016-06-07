@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
+import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Menu;
 
 /**
@@ -8,9 +9,15 @@ import com.company.restaurant.model.Menu;
 public class MenuFinder extends ObjectOneRecordFinderProto<Menu, String> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter menu name";
 
+    private MenuController menuController;
+
+    public void setMenuController(MenuController menuController) {
+        this.menuController = menuController;
+    }
+
     @Override
     protected Menu findObject(String menuName) {
-        return getRestaurantController().findMenuByName(menuName);
+        return menuController.findMenuByName(menuName);
     }
 
     @Override

@@ -30,10 +30,10 @@
         <property name="employeeController" ref="employeeController"/>
     </bean>
     <bean class="com.company.restaurant.application.data.list.MenuCourseTableList" id="menuCourseTableList">
-        <property name="restaurantController" ref="restaurantController"/>
+        <property name="menuController" ref="menuController"/>
     </bean>
     <bean class="com.company.restaurant.application.data.list.MenuTableList" id="menuTableList">
-        <property name="restaurantController" ref="restaurantController"/>
+        <property name="menuController" ref="menuController"/>
     </bean>
     <bean class="com.company.restaurant.application.data.list.OpenOrderTableList" id="openOrderTableList">
         <property name="orderController" ref="orderController"/>
@@ -78,11 +78,11 @@
         <property name="objectTableList" ref="jobPositionTableList"/>
     </bean>
     <bean class="com.company.restaurant.application.data.chooser.MenuChooser" id="menuChooser">
-        <property name="restaurantController" ref="restaurantController"/>
+        <property name="menuController" ref="menuController"/>
         <property name="objectTableList" ref="menuTableList"/>
     </bean>
     <bean class="com.company.restaurant.application.data.chooser.MenuCourseChooser" id="menuCourseChooser">
-        <property name="restaurantController" ref="restaurantController"/>
+        <property name="menuController" ref="menuController"/>
         <property name="itemTableList" ref="menuCourseTableList"/>
     </bean>
     <bean class="com.company.restaurant.application.data.chooser.OpenOrderChooser" id="openOrderChooser">
@@ -107,6 +107,7 @@
     </bean>
 
     <bean class="com.company.restaurant.application.data.collector.MenuCourseCollector" id="menuCourseCollector">
+        <property name="menuController" ref="menuController"/>
         <property name="courseController" ref="courseController"/>
         <property name="objectChooser" ref="menuChooser"/>
         <property name="newItemChooser" ref="courseChooser"/>
@@ -120,12 +121,14 @@
         <property name="presentItemChooser" ref="orderCourseChooser"/>
     </bean>
     <bean class="com.company.restaurant.application.data.collector.MenuCourseAdder" id="menuCourseAdder">
+        <property name="menuController" ref="menuController"/>
         <property name="courseController" ref="courseController"/>
         <property name="objectChooser" ref="menuChooser"/>
         <property name="newItemChooser" ref="courseChooser"/>
         <property name="presentItemChooser" ref="menuCourseChooser"/>
     </bean>
     <bean class="com.company.restaurant.application.data.collector.MenuCourseRemover" id="menuCourseRemover">
+        <property name="menuController" ref="menuController"/>
         <property name="courseController" ref="courseController"/>
         <property name="objectChooser" ref="menuChooser"/>
         <property name="newItemChooser" ref="courseChooser"/>
@@ -163,7 +166,7 @@
         <property name="jobPositionChooser" ref="jobPositionChooser"/>
     </bean>
     <bean class="com.company.restaurant.application.data.adder.MenuAdder" id="menuAdder">
-        <property name="restaurantController" ref="restaurantController"/>
+        <property name="menuController" ref="menuController"/>
         <property name="objectTableList" ref="menuTableList"/>
         <property name="menuCourseCollector" ref="menuCourseCollector"/>
     </bean>
@@ -190,7 +193,7 @@
         <property name="objectTableList" ref="employeeTableList"/>
     </bean>
     <bean class="com.company.restaurant.application.data.finder.MenuFinder" id="menuFinder">
-        <property name="restaurantController" ref="restaurantController"/>
+        <property name="menuController" ref="menuController"/>
         <property name="objectTableList" ref="menuTableList"/>
     </bean>
     <bean class="com.company.restaurant.application.data.finder.WarehouseFinder" id="warehouseFinder">
@@ -207,7 +210,7 @@
         <property name="objectChooser" ref="employeeChooser"/>
     </bean>
     <bean class="com.company.restaurant.application.data.remover.MenuRemover" id="menuRemover">
-        <property name="restaurantController" ref="restaurantController"/>
+        <property name="menuController" ref="menuController"/>
         <property name="objectChooser" ref="menuChooser"/>
     </bean>
     <bean class="com.company.restaurant.application.data.remover.OrderRemover" id="orderRemover">

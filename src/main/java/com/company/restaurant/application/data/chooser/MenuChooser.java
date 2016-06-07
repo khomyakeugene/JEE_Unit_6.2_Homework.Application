@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Menu;
 
 /**
@@ -8,9 +9,15 @@ import com.company.restaurant.model.Menu;
 public class MenuChooser extends ObjectChooserProto<Menu, Integer> implements ObjectChooser<Menu> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter menu identifier";
 
+    private MenuController menuController;
+
+    public void setMenuController(MenuController menuController) {
+        this.menuController = menuController;
+    }
+
     @Override
     protected Menu findObject(Integer menuId) {
-        return getRestaurantController().findMenuById(menuId);
+        return menuController.findMenuById(menuId);
     }
 
     @Override

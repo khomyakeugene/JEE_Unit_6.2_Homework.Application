@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.service;
 
-import com.company.restaurant.controllers.RestaurantController;
 import com.company.util.Util;
 
 /**
@@ -10,16 +9,6 @@ public class DatabaseService {
     private static final String DATA_HAS_BEEN_SUCCESSFULLY_ADDED = "Data has been successfully added";
     private static final String DATA_HAS_NOT_BEEN_FOUND_MESSAGE = "Data has not been found";
     protected static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
-
-    private RestaurantController restaurantController;
-
-    public void setRestaurantController(RestaurantController restaurantController) {
-        this.restaurantController = restaurantController;
-    }
-
-    protected RestaurantController getRestaurantController() {
-        return restaurantController;
-    }
 
     protected void dataHasBeenSuccessfullyAddedMessage() {
         Util.printMessage(DATA_HAS_BEEN_SUCCESSFULLY_ADDED);

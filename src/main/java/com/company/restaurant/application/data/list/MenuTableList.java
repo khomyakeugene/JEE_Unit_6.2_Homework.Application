@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Menu;
 import com.company.util.Util;
 
@@ -11,15 +12,20 @@ import java.util.List;
  */
 public class MenuTableList extends ObjectTableListProto<Menu> implements ObjectTableList<Menu> {
     private static final String THERE_ARE_NO_MENUS_MESSAGE = "There are no menus";
-
     private static final String[] listHeader = new String[] {
             "Menu Id",
             "Menu name"
     };
 
+    private MenuController menuController;
+
+    public void setMenuController(MenuController menuController) {
+        this.menuController = menuController;
+    }
+
     @Override
     public List<Menu> prepareObjectList() {
-        return getRestaurantController().findAllMenus();
+        return menuController.findAllMenus();
     }
 
     @Override

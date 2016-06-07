@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Menu;
 import com.company.restaurant.model.MenuCourseList;
 
@@ -23,9 +24,15 @@ public class MenuCourseTableList extends ItemTableListProto<Menu, MenuCourseList
             "Number in menu"
     };
 
+    private MenuController menuController;
+
+    public void setMenuController(MenuController menuController) {
+        this.menuController = menuController;
+    }
+
     @Override
     public List<MenuCourseList> prepareItemList(Menu menu) {
-        return getRestaurantController().findMenuCourses(menu);
+        return menuController.findMenuCourses(menu);
     }
 
     @Override
