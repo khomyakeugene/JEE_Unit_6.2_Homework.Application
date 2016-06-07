@@ -1,6 +1,7 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
+import com.company.restaurant.controllers.KitchenController;
 import com.company.restaurant.model.CookedCourse;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Employee;
@@ -13,8 +14,13 @@ public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> {
     private static final String ENTER_WEIGHT_MESSAGE = "Please, enter course weight";
     private static final String ALREADY_COOKED_COURSES_MESSAGE = "Already cooked courses:";
 
+    private KitchenController kitchenController;
     private ObjectChooser<Course> courseChooser;
     private ObjectChooser<Employee> employeeChooser;
+
+    public void setKitchenController(KitchenController kitchenController) {
+        this.kitchenController = kitchenController;
+    }
 
     public void setCourseChooser(ObjectChooser<Course> courseChooser) {
         this.courseChooser = courseChooser;
@@ -34,7 +40,7 @@ public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> {
             if (employee != null) {
                 Float weight = Util.readInputPositiveFloat(ENTER_WEIGHT_MESSAGE, true);
                 if (weight != null) {
-                    getKitchenController().addCookedCourse(course, employee, weight);
+                    kitchenController.addCookedCourse(course, employee, weight);
                     dataHasBeenSuccessfullyAddedMessage();
 
                     // Unfortunately, "right now" just "manually imitation" here (hope - temporarily...)  ...

@@ -13,7 +13,6 @@
         <property name="orderController" ref="orderController"/>
     </bean>
     <bean class="com.company.restaurant.application.data.list.CookedCourseTableList" id="cookedCourseTableList">
-        <property name="restaurantController" ref="restaurantController"/>
         <property name="kitchenController" ref="kitchenController"/>
     </bean>
     <bean class="com.company.restaurant.application.data.list.CourseCategoryTableList" id="courseCategoryTableList">
@@ -158,7 +157,6 @@
     </bean>
 
     <bean class="com.company.restaurant.application.data.adder.CookedCourseAdder" id="cookedCourseAdder">
-        <property name="restaurantController" ref="restaurantController"/>
         <property name="kitchenController" ref="kitchenController"/>
         <property name="objectTableList" ref="cookedCourseTableList"/>
         <property name="courseChooser" ref="courseChooser"/>

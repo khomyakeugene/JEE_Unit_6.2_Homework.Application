@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.service;
 
-import com.company.restaurant.controllers.KitchenController;
 import com.company.restaurant.controllers.OrderController;
 import com.company.restaurant.controllers.RestaurantController;
 import com.company.restaurant.controllers.WarehouseController;
@@ -16,7 +15,6 @@ public class DatabaseService {
 
     private RestaurantController restaurantController;
     private OrderController orderController;
-    private KitchenController kitchenController;
     private WarehouseController warehouseController;
 
     public void setRestaurantController(RestaurantController restaurantController) {
@@ -33,14 +31,6 @@ public class DatabaseService {
 
     public void setWarehouseController(WarehouseController warehouseController) {
         this.warehouseController = warehouseController;
-    }
-
-    protected KitchenController getKitchenController() {
-        return kitchenController;
-    }
-
-    public void setKitchenController(KitchenController kitchenController) {
-        this.kitchenController = kitchenController;
     }
 
     public OrderController getOrderController() {

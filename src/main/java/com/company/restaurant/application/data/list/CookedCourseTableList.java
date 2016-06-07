@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.controllers.KitchenController;
 import com.company.restaurant.model.CookedCourse;
 import com.company.util.Util;
 
@@ -25,6 +26,11 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
 
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
+    private KitchenController kitchenController;
+
+    public void setKitchenController(KitchenController kitchenController) {
+        this.kitchenController = kitchenController;
+    }
 
     @Override
     protected String[] getListHeader() {
@@ -46,7 +52,7 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
 
     @Override
     public List<CookedCourse> prepareObjectList() {
-        return getKitchenController().findAllCookedCourses();
+        return kitchenController.findAllCookedCourses();
     }
 
     @Override
