@@ -13,7 +13,7 @@ public class WarehouseChooser extends ObjectChooserProto<Warehouse, Integer>
 
     @Override
     protected Warehouse findObject(Integer ingredientId) {
-        List<Warehouse> list = getRestaurantController().findIngredientInWarehouseById(ingredientId);
+        List<Warehouse> list = getWarehouseController().findIngredientInWarehouseById(ingredientId);
 
         return (list == null || list.size() == 0) ? null : list.get(0);
     }

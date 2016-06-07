@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Ingredient;
 
 import java.util.ArrayList;
@@ -13,6 +14,8 @@ public class IngredientTableList extends ObjectTableListProto<Ingredient> implem
             "Ingredient Id",
             "Ingredient name"
     };
+
+    private WarehouseController warehouseController;
 
     @Override
     protected String[] getListHeader() {
@@ -31,6 +34,6 @@ public class IngredientTableList extends ObjectTableListProto<Ingredient> implem
 
     @Override
     public List<Ingredient> prepareObjectList() {
-        return getIngredientDao().findAllIngredients();
+        return getWarehouseController().findAllIngredients();
     }
 }

@@ -10,7 +10,7 @@ public class OpenOrderChooser extends ObjectChooserProto<Order, Integer> impleme
 
     @Override
     protected Order findObject(Integer orderId) {
-        return getRestaurantController().findOrderById(orderId);
+        return getOrderController().findOrderById(orderId);
     }
 
     @Override

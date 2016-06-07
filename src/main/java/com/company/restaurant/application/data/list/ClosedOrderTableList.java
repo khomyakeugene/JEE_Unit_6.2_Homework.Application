@@ -10,6 +10,6 @@ import java.util.List;
 public class ClosedOrderTableList extends OrderTableList implements ObjectTableList<Order> {
     @Override
     public List<Order> prepareObjectList() {
-        return getRestaurantController().findAllClosedOrders();
+        return getOrderController().findAllClosedOrders();
     }
 }

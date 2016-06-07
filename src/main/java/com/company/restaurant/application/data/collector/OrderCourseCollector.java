@@ -12,12 +12,12 @@ public class OrderCourseCollector extends ItemCollectorProto<Order, Course, Orde
 
     @Override
     protected void addItemToObject(Order order, Course course) {
-        getRestaurantController().addCourseToOrder(order, course, 1);
+        getOrderController().addCourseToOrder(order, course, 1);
     }
 
     @Override
     protected void delItemFromObject(Order order, OrderCourse orderCourse) {
-        getRestaurantController().takeCourseFromOrder(order,
+        getOrderController().takeCourseFromOrder(order,
                 getRestaurantController().findCourseById(orderCourse.getCourseId()), 1);
 
     }

@@ -22,7 +22,7 @@ public class OrderCourseChooser extends ItemChooserProto<Order, OrderCourse, Int
 
     @Override
     protected OrderCourse findItem(Order order, Integer courseId) {
-        return getRestaurantController().findOrderCourseByCourseId(order,courseId);
+        return getOrderController().findOrderCourseByCourseId(order,courseId);
     }
 
 }

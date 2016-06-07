@@ -2,6 +2,7 @@ package com.company.restaurant.application.data.remover;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.list.ObjectTableList;
+import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Portion;
 import com.company.restaurant.model.Warehouse;
 import com.company.util.Util;
@@ -12,6 +13,7 @@ import com.company.util.Util;
 public class WarehouseRemover extends ObjectRemoverProto<Warehouse> {
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
+    private WarehouseController warehouseController;
     private ObjectTableList<Warehouse> warehouseTableList;
     private ObjectChooser<Portion> portionChooser;
 
@@ -25,9 +27,9 @@ public class WarehouseRemover extends ObjectRemoverProto<Warehouse> {
 
     @Override
     protected String deleteObject(Warehouse warehouse) {
-        getRestaurantController().takeIngredientFromWarehouse(
-                getIngredientDao().findIngredientById(warehouse.getIngredientId()),
-                getPortionDao().findPortionById(warehouse.getPortionId()),
+        warehouseController.takeIngredientFromWarehouse(
+                warehouseController.findIngredientById(warehouse.getIngredientId()),
+                warehouseController.findPortionById(warehouse.getPortionId()),
                 warehouse.getAmount());
 
         return null;
@@ -39,7 +41,7 @@ public class WarehouseRemover extends ObjectRemoverProto<Warehouse> {
         if (result != null) {
             // Show only this ingredient
             warehouseTableList.displayObjectList(
-                    getRestaurantController().findIngredientInWarehouseById(result.getIngredientId()));
+                    getWarehouseController().findIngredientInWarehouseById(result.getIngredientId()));
             // Get potion id
             Portion portion = portionChooser.chooseObjectFromList();
             if (portion != null) {

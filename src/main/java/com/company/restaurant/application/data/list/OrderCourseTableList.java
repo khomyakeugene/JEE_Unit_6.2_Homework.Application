@@ -25,7 +25,7 @@ public class OrderCourseTableList extends ItemTableListProto<Order, OrderCourse>
 
     @Override
     public List<OrderCourse> prepareItemList(Order order) {
-        return getRestaurantController().findAllOrderCourses(order);
+        return getOrderController().findAllOrderCourses(order);
     }
 
     @Override

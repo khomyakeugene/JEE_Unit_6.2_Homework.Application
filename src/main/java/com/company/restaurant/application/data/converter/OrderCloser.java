@@ -11,7 +11,7 @@ public class OrderCloser extends ObjectProcessorProto<Order> {
 
     @Override
     protected String processObject(Order order) {
-        getRestaurantController().closeOrder(order);
+        getOrderController().closeOrder(order);
 
         return null;
     }

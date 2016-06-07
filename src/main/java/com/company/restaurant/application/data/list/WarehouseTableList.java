@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Warehouse;
 import com.company.util.Util;
 
@@ -21,6 +22,8 @@ public class WarehouseTableList extends ObjectTableListProto<Warehouse> implemen
     };
 
 
+    protected WarehouseController warehouseController;
+
     @Override
     protected String[] getListHeader() {
         return listHeader;
@@ -40,7 +43,7 @@ public class WarehouseTableList extends ObjectTableListProto<Warehouse> implemen
 
     @Override
     public List<Warehouse> prepareObjectList() {
-        return getRestaurantController().findAllWarehouseIngredients();
+        return getWarehouseController().findAllWarehouseIngredients();
     }
 
     @Override

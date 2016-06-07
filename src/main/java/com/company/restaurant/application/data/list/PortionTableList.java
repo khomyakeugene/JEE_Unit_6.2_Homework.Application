@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Portion;
 
 import java.util.ArrayList;
@@ -13,6 +14,8 @@ public class PortionTableList extends ObjectTableListProto<Portion> implements O
             "Portion Id",
             "Portion description"
     };
+
+    private WarehouseController warehouseController;
 
     @Override
     protected String[] getListHeader() {
@@ -31,6 +34,6 @@ public class PortionTableList extends ObjectTableListProto<Portion> implements O
 
     @Override
     public List<Portion> prepareObjectList() {
-        return getPortionDao().findAllPortions();
+        return getWarehouseController().findAllPortions();
     }
 }

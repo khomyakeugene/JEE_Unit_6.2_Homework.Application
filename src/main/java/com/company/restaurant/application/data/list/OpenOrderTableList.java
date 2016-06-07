@@ -13,7 +13,7 @@ public class OpenOrderTableList extends OrderTableList implements ObjectTableLis
 
     @Override
     public List<Order> prepareObjectList() {
-        return getRestaurantController().findAllOpenOrders();
+        return getOrderController().findAllOpenOrders();
     }
 
     @Override

@@ -46,7 +46,7 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
 
     @Override
     public List<CookedCourse> prepareObjectList() {
-        return getRestaurantController().findAllCookedCourses();
+        return getKitchenController().findAllCookedCourses();
     }
 
     @Override

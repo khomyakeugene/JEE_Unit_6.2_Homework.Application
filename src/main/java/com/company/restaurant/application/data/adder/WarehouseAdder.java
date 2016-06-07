@@ -34,7 +34,7 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> {
             if (portion != null) {
                 Float amount = Util.readInputPositiveFloat(ENTER_INGREDIENT_AMOUNT_MESSAGE, false);
                 if (amount != null) {
-                    getRestaurantController().addIngredientToWarehouse(ingredient, portion, amount);
+                    getWarehouseController().addIngredientToWarehouse(ingredient, portion, amount);
                     dataHasBeenSuccessfullyAddedMessage();
 
                     // Unfortunately, just "manually" here (hope - temporarily...)  ...

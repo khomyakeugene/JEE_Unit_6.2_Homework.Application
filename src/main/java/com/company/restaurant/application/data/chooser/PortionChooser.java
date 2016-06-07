@@ -10,7 +10,7 @@ public class PortionChooser extends ObjectChooserProto<Portion, Integer> impleme
 
     @Override
     protected Portion findObject(Integer portionId) {
-        return getPortionDao().findPortionById(portionId);
+        return getWarehouseController().findPortionById(portionId);
     }
 
     @Override

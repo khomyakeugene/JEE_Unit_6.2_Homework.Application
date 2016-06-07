@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
+import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Warehouse;
 
 import java.util.List;
@@ -10,9 +11,11 @@ import java.util.List;
 public class WarehouseFinder extends ObjectFinderProto<Warehouse, String> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter ingredient name";
 
+    private WarehouseController warehouseController;
+
     @Override
     protected List<Warehouse> findObjects(String name) {
-        return getRestaurantController().findIngredientInWarehouseByName(name);
+        return getWarehouseController().findIngredientInWarehouseByName(name);
     }
 
     @Override

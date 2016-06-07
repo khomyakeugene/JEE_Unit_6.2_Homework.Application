@@ -43,7 +43,7 @@ public class OrderAdder extends ObjectAdderProto<Order>  {
                     order.setEmployeeId(employee.getEmployeeId());
                     order.setTableId(table.getTableId());
 
-                    result = getRestaurantController().addOrder(order);
+                    result = getOrderController().addOrder(order);
                     dataHasBeenSuccessfullyAddedMessage();
                 }
             }

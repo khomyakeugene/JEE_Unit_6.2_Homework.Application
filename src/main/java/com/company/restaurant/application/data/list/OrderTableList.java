@@ -42,7 +42,7 @@ public class OrderTableList extends ObjectTableListProto<Order> implements Objec
 
     @Override
     public List<Order> prepareObjectList() {
-        return getRestaurantController().findAllOrders();
+        return getOrderController().findAllOrders();
     }
 
 }

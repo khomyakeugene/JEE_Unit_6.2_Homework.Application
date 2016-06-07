@@ -11,7 +11,7 @@ public class IngredientChooser extends ObjectChooserProto<Ingredient, Integer>
 
     @Override
     protected Ingredient findObject(Integer ingredientId) {
-        return getIngredientDao().findIngredientById(ingredientId);
+        return getWarehouseController().findIngredientById(ingredientId);
     }
 
     @Override
