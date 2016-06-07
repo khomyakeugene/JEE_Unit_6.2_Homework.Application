@@ -1,6 +1,7 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
+import com.company.restaurant.controllers.CourseController;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.CourseCategory;
 import com.company.util.Util;
@@ -13,7 +14,12 @@ public class CourseAdder extends ObjectAdderProto<Course> {
     private static final String ENTER_WEIGHT_MESSAGE = "Please, enter course weight";
     private static final String ENTER_COST_MESSAGE = "Please, enter course cost";
 
+    private CourseController courseController;
     private ObjectChooser<CourseCategory> courseCategoryChooser;
+
+    public void setCourseController(CourseController courseController) {
+        this.courseController = courseController;
+    }
 
     public void setCourseCategoryChooser(ObjectChooser<CourseCategory> courseCategoryChooser) {
         this.courseCategoryChooser = courseCategoryChooser;
@@ -36,7 +42,7 @@ public class CourseAdder extends ObjectAdderProto<Course> {
                 course.setWeight(weight);
                 course.setCost(cost);
 
-                result = getRestaurantController().addCourse(course);
+                result = courseController.addCourse(course);
                 dataHasBeenSuccessfullyAddedMessage();
             }
         }

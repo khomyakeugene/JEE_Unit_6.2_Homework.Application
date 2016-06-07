@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.collector;
 
+import com.company.restaurant.controllers.CourseController;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Order;
 import com.company.restaurant.model.OrderCourse;
@@ -10,6 +11,12 @@ import com.company.restaurant.model.OrderCourse;
 public class OrderCourseCollector extends ItemCollectorProto<Order, Course, OrderCourse>
         implements ItemCollector<Order> {
 
+    protected CourseController courseController;
+
+    public void setCourseController(CourseController courseController) {
+        this.courseController = courseController;
+    }
+
     @Override
     protected void addItemToObject(Order order, Course course) {
         getOrderController().addCourseToOrder(order, course, 1);
@@ -18,7 +25,7 @@ public class OrderCourseCollector extends ItemCollectorProto<Order, Course, Orde
     @Override
     protected void delItemFromObject(Order order, OrderCourse orderCourse) {
         getOrderController().takeCourseFromOrder(order,
-                getRestaurantController().findCourseById(orderCourse.getCourseId()), 1);
+                courseController.findCourseById(orderCourse.getCourseId()), 1);
 
     }
 }

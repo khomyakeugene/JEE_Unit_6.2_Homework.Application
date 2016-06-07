@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.controllers.CourseController;
 import com.company.restaurant.model.CourseCategory;
 
 /**
@@ -8,9 +9,15 @@ import com.company.restaurant.model.CourseCategory;
 public class CourseCategoryChooser extends ObjectChooserProto<CourseCategory, Integer> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter course category identifier";
 
+    private CourseController courseController;
+
+    public void setCourseController(CourseController courseController) {
+        this.courseController = courseController;
+    }
+
     @Override
     protected CourseCategory findObject(Integer courseCategoryId) {
-        return getRestaurantController().findCourseCategoryById(courseCategoryId);
+        return courseController.findCourseCategoryById(courseCategoryId);
     }
 
     @Override

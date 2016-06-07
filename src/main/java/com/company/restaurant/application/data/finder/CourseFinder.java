@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
+import com.company.restaurant.controllers.CourseController;
 import com.company.restaurant.model.Course;
 
 /**
@@ -8,9 +9,15 @@ import com.company.restaurant.model.Course;
 public class CourseFinder extends ObjectOneRecordFinderProto<Course, String> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter course name";
 
+    private CourseController courseController;
+
+    public void setCourseController(CourseController courseController) {
+        this.courseController = courseController;
+    }
+
     @Override
     protected Course findObject(String courseName) {
-        return getRestaurantController().findCourseByName(courseName);
+        return courseController.findCourseByName(courseName);
     }
 
     @Override

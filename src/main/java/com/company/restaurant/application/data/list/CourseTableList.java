@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.controllers.CourseController;
 import com.company.restaurant.model.Course;
 
 import java.util.ArrayList;
@@ -19,9 +20,15 @@ public class CourseTableList extends ObjectTableListProto<Course> implements Obj
             "Cost"
     };
 
+    private CourseController courseController;
+
+    public void setCourseController(CourseController courseController) {
+        this.courseController = courseController;
+    }
+
     @Override
     public List<Course> prepareObjectList() {
-        return getRestaurantController().findAllCourses();
+        return courseController.findAllCourses();
     }
 
     @Override
