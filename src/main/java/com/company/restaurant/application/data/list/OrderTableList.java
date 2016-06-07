@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.controllers.OrderController;
 import com.company.restaurant.model.Order;
 
 import java.text.SimpleDateFormat;
@@ -18,6 +19,12 @@ public class OrderTableList extends ObjectTableListProto<Order> implements Objec
             "Personnel name",
             "Table number"
     };
+
+    protected OrderController orderController;
+
+    public void setOrderController(OrderController orderController) {
+        this.orderController = orderController;
+    }
 
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
@@ -42,7 +49,7 @@ public class OrderTableList extends ObjectTableListProto<Order> implements Objec
 
     @Override
     public List<Order> prepareObjectList() {
-        return getOrderController().findAllOrders();
+        return orderController.findAllOrders();
     }
 
 }

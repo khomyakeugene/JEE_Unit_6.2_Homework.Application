@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.controllers.OrderController;
 import com.company.restaurant.model.Order;
 
 /**
@@ -8,9 +9,15 @@ import com.company.restaurant.model.Order;
 public class OpenOrderChooser extends ObjectChooserProto<Order, Integer> implements ObjectChooser<Order> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter order identifier";
 
+    private OrderController orderController;
+
+    public void setOrderController(OrderController orderController) {
+        this.orderController = orderController;
+    }
+
     @Override
     protected Order findObject(Integer orderId) {
-        return getOrderController().findOrderById(orderId);
+        return orderController.findOrderById(orderId);
     }
 
     @Override

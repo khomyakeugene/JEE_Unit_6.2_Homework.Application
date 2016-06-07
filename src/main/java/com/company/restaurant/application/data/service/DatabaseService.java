@@ -1,6 +1,5 @@
 package com.company.restaurant.application.data.service;
 
-import com.company.restaurant.controllers.OrderController;
 import com.company.restaurant.controllers.RestaurantController;
 import com.company.restaurant.controllers.WarehouseController;
 import com.company.util.Util;
@@ -14,7 +13,6 @@ public class DatabaseService {
     protected static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
 
     private RestaurantController restaurantController;
-    private OrderController orderController;
     private WarehouseController warehouseController;
 
     public void setRestaurantController(RestaurantController restaurantController) {
@@ -31,14 +29,6 @@ public class DatabaseService {
 
     public void setWarehouseController(WarehouseController warehouseController) {
         this.warehouseController = warehouseController;
-    }
-
-    public OrderController getOrderController() {
-        return orderController;
-    }
-
-    public void setOrderController(OrderController orderController) {
-        this.orderController = orderController;
     }
 
     protected void dataHasBeenSuccessfullyAddedMessage() {

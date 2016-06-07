@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.controllers.OrderController;
 import com.company.restaurant.model.Order;
 import com.company.restaurant.model.OrderCourse;
 
@@ -23,9 +24,16 @@ public class OrderCourseTableList extends ItemTableListProto<Order, OrderCourse>
             "Quantity in order"
     };
 
+    private OrderController orderController;
+
+    public void setOrderController(OrderController orderController) {
+        this.orderController = orderController;
+    }
+
+
     @Override
     public List<OrderCourse> prepareItemList(Order order) {
-        return getOrderController().findAllOrderCourses(order);
+        return orderController.findAllOrderCourses(order);
     }
 
     @Override

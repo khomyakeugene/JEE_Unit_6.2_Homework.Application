@@ -11,9 +11,10 @@ import java.util.List;
 public class OpenOrderTableList extends OrderTableList implements ObjectTableList<Order> {
     private static final String OPEN_ORDERS_HAVE_NOT_BEEN_FOUND_MESSAGE = "Open orders have not been found";
 
+
     @Override
     public List<Order> prepareObjectList() {
-        return getOrderController().findAllOpenOrders();
+        return orderController.findAllOpenOrders();
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.collector.ItemCollector;
+import com.company.restaurant.controllers.OrderController;
 import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.Order;
 import com.company.restaurant.model.Table;
@@ -13,9 +14,14 @@ import com.company.util.Util;
 public class OrderAdder extends ObjectAdderProto<Order>  {
     private static final String ENTER_ORDER_NUMBER_MESSAGE = "Please, enter order number";
 
+    private OrderController orderController;
     private ObjectChooser<Employee> employeeChooser;
     private ObjectChooser<Table> tableChooser;
     private ItemCollector<Order> orderCourseCollector;
+
+    public void setOrderController(OrderController orderController) {
+        this.orderController = orderController;
+    }
 
     public void setEmployeeChooser(ObjectChooser<Employee> employeeChooser) {
         this.employeeChooser = employeeChooser;
@@ -43,7 +49,7 @@ public class OrderAdder extends ObjectAdderProto<Order>  {
                     order.setEmployeeId(employee.getEmployeeId());
                     order.setTableId(table.getTableId());
 
-                    result = getOrderController().addOrder(order);
+                    result = orderController.addOrder(order);
                     dataHasBeenSuccessfullyAddedMessage();
                 }
             }
