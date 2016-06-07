@@ -13,9 +13,13 @@ public class WarehouseFinder extends ObjectFinderProto<Warehouse, String> {
 
     private WarehouseController warehouseController;
 
+    public void setWarehouseController(WarehouseController warehouseController) {
+        this.warehouseController = warehouseController;
+    }
+
     @Override
     protected List<Warehouse> findObjects(String name) {
-        return getWarehouseController().findIngredientInWarehouseByName(name);
+        return warehouseController.findIngredientInWarehouseByName(name);
     }
 
     @Override

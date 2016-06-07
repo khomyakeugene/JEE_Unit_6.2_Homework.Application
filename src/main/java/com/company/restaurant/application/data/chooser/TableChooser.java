@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.controllers.TableController;
 import com.company.restaurant.model.Table;
 
 /**
@@ -8,6 +9,12 @@ import com.company.restaurant.model.Table;
 public class TableChooser extends ObjectChooserProto<Table, Integer> implements ObjectChooser<Table> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter table id";
 
+    private TableController tableController;
+
+    public void setTableController(TableController tableController) {
+        this.tableController = tableController;
+    }
+
     @Override
     protected String getEnterIdentifierMessage() {
         return ENTER_IDENTIFIER_MESSAGE;
@@ -15,7 +22,7 @@ public class TableChooser extends ObjectChooserProto<Table, Integer> implements 
 
     @Override
     protected Table findObject(Integer tableId) {
-        return getRestaurantController().findTableById(tableId);
+        return tableController.findTableById(tableId);
     }
 
     @Override

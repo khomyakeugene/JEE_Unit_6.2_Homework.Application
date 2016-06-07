@@ -17,6 +17,10 @@ public class WarehouseRemover extends ObjectRemoverProto<Warehouse> {
     private ObjectTableList<Warehouse> warehouseTableList;
     private ObjectChooser<Portion> portionChooser;
 
+    public void setWarehouseController(WarehouseController warehouseController) {
+        this.warehouseController = warehouseController;
+    }
+
     public void setWarehouseTableList(ObjectTableList<Warehouse> warehouseTableList) {
         this.warehouseTableList = warehouseTableList;
     }
@@ -41,7 +45,7 @@ public class WarehouseRemover extends ObjectRemoverProto<Warehouse> {
         if (result != null) {
             // Show only this ingredient
             warehouseTableList.displayObjectList(
-                    getWarehouseController().findIngredientInWarehouseById(result.getIngredientId()));
+                    warehouseController.findIngredientInWarehouseById(result.getIngredientId()));
             // Get potion id
             Portion portion = portionChooser.chooseObjectFromList();
             if (portion != null) {

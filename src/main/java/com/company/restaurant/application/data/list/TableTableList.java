@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.controllers.TableController;
 import com.company.restaurant.model.Table;
 
 import java.util.ArrayList;
@@ -14,9 +15,15 @@ public class TableTableList extends ObjectTableListProto<Table> implements Objec
             "Table number"
     };
 
+    private TableController tableController;
+
+    public void setTableController(TableController tableController) {
+        this.tableController = tableController;
+    }
+
     @Override
     public List<Table> prepareObjectList() {
-        return getRestaurantController().findAllTables();
+        return tableController.findAllTables();
     }
 
     @Override

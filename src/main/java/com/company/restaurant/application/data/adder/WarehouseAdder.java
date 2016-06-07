@@ -1,6 +1,7 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
+import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Ingredient;
 import com.company.restaurant.model.Portion;
 import com.company.restaurant.model.Warehouse;
@@ -13,8 +14,13 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> {
     private static final String ALREADY_IN_WAREHOUSE_MESSAGE = "Already in warehouse:";
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
+    private WarehouseController warehouseController;
     private ObjectChooser<Ingredient> ingredientChooser;
     private ObjectChooser<Portion> portionChooser;
+
+    public void setWarehouseController(WarehouseController warehouseController) {
+        this.warehouseController = warehouseController;
+    }
 
     public void setIngredientChooser(ObjectChooser<Ingredient> ingredientChooser) {
         this.ingredientChooser = ingredientChooser;
@@ -34,7 +40,7 @@ public class WarehouseAdder extends ObjectAdderProto<Warehouse> {
             if (portion != null) {
                 Float amount = Util.readInputPositiveFloat(ENTER_INGREDIENT_AMOUNT_MESSAGE, false);
                 if (amount != null) {
-                    getWarehouseController().addIngredientToWarehouse(ingredient, portion, amount);
+                    warehouseController.addIngredientToWarehouse(ingredient, portion, amount);
                     dataHasBeenSuccessfullyAddedMessage();
 
                     // Unfortunately, just "manually" here (hope - temporarily...)  ...

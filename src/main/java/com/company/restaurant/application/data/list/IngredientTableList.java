@@ -17,6 +17,10 @@ public class IngredientTableList extends ObjectTableListProto<Ingredient> implem
 
     private WarehouseController warehouseController;
 
+    public void setWarehouseController(WarehouseController warehouseController) {
+        this.warehouseController = warehouseController;
+    }
+
     @Override
     protected String[] getListHeader() {
         return listHeader;
@@ -34,6 +38,6 @@ public class IngredientTableList extends ObjectTableListProto<Ingredient> implem
 
     @Override
     public List<Ingredient> prepareObjectList() {
-        return getWarehouseController().findAllIngredients();
+        return warehouseController.findAllIngredients();
     }
 }

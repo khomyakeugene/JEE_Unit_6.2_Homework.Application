@@ -21,8 +21,11 @@ public class WarehouseTableList extends ObjectTableListProto<Warehouse> implemen
             "Portion name"
     };
 
-
     protected WarehouseController warehouseController;
+
+    public void setWarehouseController(WarehouseController warehouseController) {
+        this.warehouseController = warehouseController;
+    }
 
     @Override
     protected String[] getListHeader() {
@@ -43,7 +46,7 @@ public class WarehouseTableList extends ObjectTableListProto<Warehouse> implemen
 
     @Override
     public List<Warehouse> prepareObjectList() {
-        return getWarehouseController().findAllWarehouseIngredients();
+        return warehouseController.findAllWarehouseIngredients();
     }
 
     @Override

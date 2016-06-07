@@ -17,6 +17,10 @@ public class PortionTableList extends ObjectTableListProto<Portion> implements O
 
     private WarehouseController warehouseController;
 
+    public void setWarehouseController(WarehouseController warehouseController) {
+        this.warehouseController = warehouseController;
+    }
+
     @Override
     protected String[] getListHeader() {
         return listHeader;
@@ -34,6 +38,6 @@ public class PortionTableList extends ObjectTableListProto<Portion> implements O
 
     @Override
     public List<Portion> prepareObjectList() {
-        return getWarehouseController().findAllPortions();
+        return warehouseController.findAllPortions();
     }
 }

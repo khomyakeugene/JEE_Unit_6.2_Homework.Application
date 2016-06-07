@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Ingredient;
 
 /**
@@ -9,9 +10,15 @@ public class IngredientChooser extends ObjectChooserProto<Ingredient, Integer>
         implements ObjectChooser<Ingredient>  {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter ingredient identifier";
 
+    private WarehouseController warehouseController;
+
+    public void setWarehouseController(WarehouseController warehouseController) {
+        this.warehouseController = warehouseController;
+    }
+
     @Override
     protected Ingredient findObject(Integer ingredientId) {
-        return getWarehouseController().findIngredientById(ingredientId);
+        return warehouseController.findIngredientById(ingredientId);
     }
 
     @Override

@@ -13,7 +13,7 @@ public class WarehouseElapsingTableList extends WarehouseTableList {
         Float boundaryValue = Util.readInputPositiveFloat(ENTER_BOUNDARY_VALUE_MESSAGE, false);
         if (boundaryValue != null) {
             displayObjectList(
-                    getWarehouseController().findAllElapsingWarehouseIngredients(boundaryValue));
+                    warehouseController.findAllElapsingWarehouseIngredients(boundaryValue));
         }
     }
 }

@@ -48,7 +48,7 @@
         <property name="warehouseController" ref="warehouseController"/>
     </bean>
     <bean class="com.company.restaurant.application.data.list.TableTableList" id="tableTableList">
-        <property name="restaurantController" ref="restaurantController"/>
+        <property name="tableController" ref="tableController"/>
     </bean>
     <bean class="com.company.restaurant.application.data.list.WarehouseTableList" id="warehouseTableList">
         <property name="warehouseController" ref="warehouseController"/>
@@ -70,7 +70,6 @@
         <property name="objectTableList" ref="employeeTableList"/>
     </bean>
     <bean class="com.company.restaurant.application.data.chooser.IngredientChooser" id="ingredientChooser">
-        <property name="restaurantController" ref="restaurantController"/>
         <property name="warehouseController" ref="warehouseController"/>
         <property name="objectTableList" ref="ingredientTableList"/>
     </bean>
@@ -99,7 +98,7 @@
         <property name="objectTableList" ref="portionTableList"/>
     </bean>
     <bean class="com.company.restaurant.application.data.chooser.TableChooser" id="tableChooser">
-        <property name="restaurantController" ref="restaurantController"/>
+        <property name="tableController" ref="tableController"/>
         <property name="objectTableList" ref="tableTableList"/>
     </bean>
     <bean class="com.company.restaurant.application.data.chooser.WarehouseChooser" id="warehouseChooser">
@@ -176,7 +175,6 @@
         <property name="orderCourseCollector" ref="orderCourseCollector"/>
     </bean>
     <bean class="com.company.restaurant.application.data.adder.WarehouseAdder" id="warehouseAdder">
-        <property name="restaurantController" ref="restaurantController"/>
         <property name="warehouseController" ref="warehouseController"/>
         <property name="objectTableList" ref="warehouseTableList"/>
         <property name="ingredientChooser" ref="ingredientChooser"/>
