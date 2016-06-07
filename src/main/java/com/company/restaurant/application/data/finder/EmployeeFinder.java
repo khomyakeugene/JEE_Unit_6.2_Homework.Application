@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
+import com.company.restaurant.controllers.EmployeeController;
 import com.company.restaurant.model.Employee;
 import com.company.util.Util;
 
@@ -15,9 +16,15 @@ public class EmployeeFinder extends ObjectFinderProto<Employee, String> {
     private String firstName;
     private String secondName;
 
+    private EmployeeController employeeController;
+
+    public void setEmployeeController(EmployeeController employeeController) {
+        this.employeeController = employeeController;
+    }
+
     @Override
     protected List<Employee> findObjects(String objectKeyFieldValue) {
-        return getEmployeeController().findEmployeeByFirstAndSecondName(firstName, secondName);
+        return employeeController.findEmployeeByFirstAndSecondName(firstName, secondName);
     }
 
     @Override

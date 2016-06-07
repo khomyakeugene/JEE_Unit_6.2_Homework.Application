@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.controllers.EmployeeController;
 import com.company.restaurant.model.Employee;
 
 /**
@@ -8,9 +9,15 @@ import com.company.restaurant.model.Employee;
 public class EmployeeChooser extends ObjectChooserProto<Employee, Integer> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter employee identifier";
 
+    private EmployeeController employeeController;
+
+    public void setEmployeeController(EmployeeController employeeController) {
+        this.employeeController = employeeController;
+    }
+
     @Override
     protected Employee findObject(Integer employeeId) {
-        return getEmployeeController().findEmployeeById(employeeId);
+        return employeeController.findEmployeeById(employeeId);
     }
 
     @Override

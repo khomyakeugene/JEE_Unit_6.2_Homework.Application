@@ -1,6 +1,7 @@
 package com.company.restaurant.application.data.adder;
 
 import com.company.restaurant.application.data.chooser.ObjectChooser;
+import com.company.restaurant.controllers.EmployeeController;
 import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.JobPosition;
 import com.company.util.Util;
@@ -14,7 +15,12 @@ public class EmployeeAdder extends ObjectAdderProto<Employee> {
     private static final String ENTER_PHONE_NUMBER_MESSAGE = "Please, enter employee phone number";
     private static final String ENTER_SALARY_MESSAGE = "Please, enter employee salary";
 
+    private EmployeeController employeeController;
     private ObjectChooser<JobPosition> jobPositionChooser;
+
+    public void setEmployeeController(EmployeeController employeeController) {
+        this.employeeController = employeeController;
+    }
 
     public void setJobPositionChooser(ObjectChooser<JobPosition> jobPositionChooser) {
         this.jobPositionChooser = jobPositionChooser;
@@ -39,7 +45,7 @@ public class EmployeeAdder extends ObjectAdderProto<Employee> {
                     employee.setPhoneNumber(phoneNumber);
                     employee.setSalary(salary);
 
-                    result = getEmployeeController().addEmployee(employee);
+                    result = employeeController.addEmployee(employee);
                     dataHasBeenSuccessfullyAddedMessage();
                 }
             }

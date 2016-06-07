@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.controllers.EmployeeController;
 import com.company.restaurant.model.JobPosition;
 
 import java.util.ArrayList;
@@ -14,9 +15,15 @@ public class JobPositionTableList extends ObjectTableListProto<JobPosition> impl
             "Job position name"
     };
 
+    private EmployeeController employeeController;
+
+    public void setEmployeeController(EmployeeController employeeController) {
+        this.employeeController = employeeController;
+    }
+
     @Override
     public List<JobPosition> prepareObjectList() {
-        return getEmployeeController().findAllJobPositions();
+        return employeeController.findAllJobPositions();
     }
 
     @Override

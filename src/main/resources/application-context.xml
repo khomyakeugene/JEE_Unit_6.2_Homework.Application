@@ -208,7 +208,6 @@
         <property name="objectTableList" ref="menuTableList"/>
     </bean>
     <bean class="com.company.restaurant.application.data.finder.WarehouseFinder" id="warehouseFinder">
-        <property name="restaurantController" ref="restaurantController"/>
         <property name="warehouseController" ref="warehouseController"/>
         <property name="objectTableList" ref="warehouseTableList"/>
     </bean>
