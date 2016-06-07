@@ -10,7 +10,7 @@ public class JobPositionChooser extends ObjectChooserProto<JobPosition, Integer>
 
     @Override
     protected JobPosition findObject(Integer jobPositionId) {
-        return getRestaurantController().findJobPositionById(jobPositionId);
+        return getEmployeeController().findJobPositionById(jobPositionId);
     }
 
     @Override

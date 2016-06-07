@@ -16,7 +16,7 @@ public class JobPositionTableList extends ObjectTableListProto<JobPosition> impl
 
     @Override
     public List<JobPosition> prepareObjectList() {
-        return getRestaurantController().findAllJobPositions();
+        return getEmployeeController().findAllJobPositions();
     }
 
     @Override

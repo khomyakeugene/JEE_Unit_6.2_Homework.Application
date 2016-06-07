@@ -1,9 +1,6 @@
 package com.company.restaurant.application.data.service;
 
-import com.company.restaurant.controllers.KitchenController;
-import com.company.restaurant.controllers.OrderController;
-import com.company.restaurant.controllers.RestaurantController;
-import com.company.restaurant.controllers.WarehouseController;
+import com.company.restaurant.controllers.*;
 import com.company.util.Util;
 
 /**
@@ -15,10 +12,10 @@ public class DatabaseService {
     protected static final String DATA_HAS_BEEN_SUCCESSFULLY_DELETED = "Data has been successfully deleted";
 
     private RestaurantController restaurantController;
-    private WarehouseController warehouseController;
-    private KitchenController kitchenController;
+    private EmployeeController employeeController;
     private OrderController orderController;
-
+    private KitchenController kitchenController;
+    private WarehouseController warehouseController;
 
     public void setRestaurantController(RestaurantController restaurantController) {
         this.restaurantController = restaurantController;
@@ -26,6 +23,14 @@ public class DatabaseService {
 
     public RestaurantController getRestaurantController() {
         return restaurantController;
+    }
+
+    protected EmployeeController getEmployeeController() {
+        return employeeController;
+    }
+
+    public void setEmployeeController(EmployeeController employeeController) {
+        this.employeeController = employeeController;
     }
 
     public WarehouseController getWarehouseController() {

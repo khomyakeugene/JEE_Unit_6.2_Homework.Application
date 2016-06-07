@@ -8,6 +8,6 @@ import com.company.restaurant.model.Employee;
 public class EmployeeRemover extends ObjectRemoverProto<Employee> {
     @Override
     protected String deleteObject(Employee employee) {
-        return getRestaurantController().delEmployee(employee);
+        return getEmployeeController().delEmployee(employee);
     }
 }

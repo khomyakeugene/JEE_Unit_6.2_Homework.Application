@@ -17,7 +17,7 @@ public class EmployeeFinder extends ObjectFinderProto<Employee, String> {
 
     @Override
     protected List<Employee> findObjects(String objectKeyFieldValue) {
-        return getRestaurantController().findEmployeeByFirstAndSecondName(firstName, secondName);
+        return getEmployeeController().findEmployeeByFirstAndSecondName(firstName, secondName);
     }
 
     @Override
@@ -36,5 +36,4 @@ public class EmployeeFinder extends ObjectFinderProto<Employee, String> {
             return null;
         }
     }
-
 }

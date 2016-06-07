@@ -22,7 +22,7 @@ public class EmployeeTableList extends ObjectTableListProto<Employee> implements
 
     @Override
     public List<Employee> prepareObjectList() {
-        return getRestaurantController().findAllEmployees();
+        return getEmployeeController().findAllEmployees();
     }
 
     @Override

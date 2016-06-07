@@ -39,7 +39,7 @@ public class EmployeeAdder extends ObjectAdderProto<Employee> {
                     employee.setPhoneNumber(phoneNumber);
                     employee.setSalary(salary);
 
-                    result = getRestaurantController().addEmployee(employee);
+                    result = getEmployeeController().addEmployee(employee);
                     dataHasBeenSuccessfullyAddedMessage();
                 }
             }
