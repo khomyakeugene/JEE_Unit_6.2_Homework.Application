@@ -12,6 +12,7 @@ import java.util.List;
  */
 public abstract class ObjectAdderProto<T> extends DatabaseService implements Executor {
     private static final String EXISTING_DATA = "Existing data:";
+
     private ObjectTableList<T> objectTableList;
 
     public void setObjectTableList(ObjectTableList<T> objectTableList) {
