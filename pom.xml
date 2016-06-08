@@ -11,10 +11,11 @@
 
     <properties>
         <main.class>com.company.Bootstrap</main.class>
+        <restaurant.controller>Restaurant.Controller.Jdbc</restaurant.controller>
     </properties>
 
     <build>
-        <defaultGoal>install</defaultGoal>
+        <defaultGoal>package</defaultGoal>
 
         <resources>
             <resource>
@@ -127,7 +128,7 @@
 
         <dependency>
             <groupId>com.company</groupId>
-            <artifactId>Restaurant.Controller</artifactId>
+            <artifactId>${restaurant.controller}</artifactId>
             <version>1.0</version>
         </dependency>
 
