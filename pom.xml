@@ -15,7 +15,7 @@
     </properties>
 
     <build>
-        <defaultGoal>package</defaultGoal>
+        <defaultGoal>install</defaultGoal>
 
         <resources>
             <resource>
