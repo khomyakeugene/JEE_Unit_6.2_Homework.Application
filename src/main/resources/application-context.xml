@@ -6,7 +6,7 @@
                "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <import resource="classpath*:restaurant-controller-application-context.xml"/>
+    <import resource="classpath*:restaurant-controller-context.xml"/>
 
     <bean class="com.company.restaurant.application.data.list.ClosedOrderTableList" id="closedOrderTableList">
         <property name="orderController" ref="orderController"/>
