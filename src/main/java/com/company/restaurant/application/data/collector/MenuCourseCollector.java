@@ -4,12 +4,12 @@ import com.company.restaurant.controllers.CourseController;
 import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Menu;
-import com.company.restaurant.model.MenuCourseList;
+import com.company.restaurant.model.MenuCourseView;
 
 /**
  * Created by Yevhen on 27.05.2016.
  */
-public class MenuCourseCollector extends ItemCollectorProto<Menu, Course, MenuCourseList>
+public class MenuCourseCollector extends ItemCollectorProto<Menu, Course, MenuCourseView>
         implements ItemCollector<Menu> {
 
     private CourseController courseController;
@@ -29,7 +29,7 @@ public class MenuCourseCollector extends ItemCollectorProto<Menu, Course, MenuCo
     }
 
     @Override
-    protected void delItemFromObject(Menu menu, MenuCourseList menuCourseList) {
+    protected void delItemFromObject(Menu menu, MenuCourseView menuCourseList) {
         menuController.delCourseFromMenu(menu,
                 courseController.findCourseById(menuCourseList.getCourseId()));
     }

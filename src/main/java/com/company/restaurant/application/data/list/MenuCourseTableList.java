@@ -2,7 +2,7 @@ package com.company.restaurant.application.data.list;
 
 import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Menu;
-import com.company.restaurant.model.MenuCourseList;
+import com.company.restaurant.model.MenuCourseView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,8 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class MenuCourseTableList extends ItemTableListProto<Menu, MenuCourseList>
-        implements ItemTableList<Menu, MenuCourseList> {
+public class MenuCourseTableList extends ItemTableListProto<Menu, MenuCourseView>
+        implements ItemTableList<Menu, MenuCourseView> {
     private static final String MENU_IS_EMPTY_MESSAGE = "Menu is empty";
     private static final String[] listHeader = new String[] {
             "Course Id",
@@ -31,7 +31,7 @@ public class MenuCourseTableList extends ItemTableListProto<Menu, MenuCourseList
     }
 
     @Override
-    public List<MenuCourseList> prepareItemList(Menu menu) {
+    public List<MenuCourseView> prepareItemList(Menu menu) {
         return menuController.findMenuCourses(menu);
     }
 
@@ -41,7 +41,7 @@ public class MenuCourseTableList extends ItemTableListProto<Menu, MenuCourseList
     }
 
     @Override
-    protected String[] dataSetRowDataToStringArray(MenuCourseList menuCourseList) {
+    protected String[] dataSetRowDataToStringArray(MenuCourseView menuCourseList) {
         ArrayList<String> arrayList = new ArrayList<>();
 
         arrayList.add(Integer.toString(menuCourseList.getCourseId()));
