@@ -1,12 +1,12 @@
 package com.company.restaurant.application.data.remover;
 
 import com.company.restaurant.controllers.OrderController;
-import com.company.restaurant.model.Order;
+import com.company.restaurant.model.OrderView;
 
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public class OrderRemover extends ObjectRemoverProto<Order> {
+public class OrderRemover extends ObjectRemoverProto<OrderView> {
     private OrderController orderController;
 
     public void setOrderController(OrderController orderController) {
@@ -14,7 +14,7 @@ public class OrderRemover extends ObjectRemoverProto<Order> {
     }
 
     @Override
-    protected String deleteObject(Order order) {
-        return orderController.delOrder(order);
+    protected String deleteObject(OrderView orderView) {
+        return orderController.delOrder(orderView);
     }
 }

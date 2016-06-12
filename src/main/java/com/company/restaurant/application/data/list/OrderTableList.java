@@ -1,7 +1,7 @@
 package com.company.restaurant.application.data.list;
 
 import com.company.restaurant.controllers.OrderController;
-import com.company.restaurant.model.Order;
+import com.company.restaurant.model.OrderView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public class OrderTableList extends ObjectTableListProto<Order> implements ObjectTableList<Order> {
+public class OrderTableList extends ObjectTableListProto<OrderView> implements ObjectTableList<OrderView> {
     private static final String[] listHeader = new String[] {
             "Order Id",
             "Order number",
@@ -34,21 +34,21 @@ public class OrderTableList extends ObjectTableListProto<Order> implements Objec
     }
 
     @Override
-    protected String[] dataSetRowDataToStringArray(Order order) {
+    protected String[] dataSetRowDataToStringArray(OrderView orderView) {
         ArrayList<String> arrayList = new ArrayList<>();
 
-        arrayList.add(Integer.toString(order.getOrderId()));
-        arrayList.add(order.getOrderNumber());
-        arrayList.add(simpleDateFormat.format(order.getOrderDatetime().getTime()));
-        arrayList.add(order.getStateTypeName());
-        arrayList.add(order.getEmployeeFirstName() + " " + order.getEmployeeSecondName());
-        arrayList.add(Integer.toString(order.getTableNumber()));
+        arrayList.add(Integer.toString(orderView.getOrderId()));
+        arrayList.add(orderView.getOrderNumber());
+        arrayList.add(simpleDateFormat.format(orderView.getOrderDatetime().getTime()));
+        arrayList.add(orderView.getStateTypeName());
+        arrayList.add(orderView.getEmployeeFirstName() + " " + orderView.getEmployeeSecondName());
+        arrayList.add(Integer.toString(orderView.getTableNumber()));
 
         return arrayList.toArray(new String[arrayList.size()]);
     }
 
     @Override
-    public List<Order> prepareObjectList() {
+    public List<OrderView> prepareObjectList() {
         return orderController.findAllOrders();
     }
 

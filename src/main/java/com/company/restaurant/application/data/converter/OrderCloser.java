@@ -2,12 +2,12 @@ package com.company.restaurant.application.data.converter;
 
 import com.company.restaurant.application.data.service.ObjectProcessorProto;
 import com.company.restaurant.controllers.OrderController;
-import com.company.restaurant.model.Order;
+import com.company.restaurant.model.OrderView;
 
 /**
  * Created by Yevhen on 01.06.2016.
  */
-public class OrderCloser extends ObjectProcessorProto<Order> {
+public class OrderCloser extends ObjectProcessorProto<OrderView> {
     private static final String ORDER_HAS_BEEN_CLOSED_PATTERN = "Order with number <%s> has been closed";
 
     private OrderController orderController;
@@ -17,14 +17,14 @@ public class OrderCloser extends ObjectProcessorProto<Order> {
     }
 
     @Override
-    protected String processObject(Order order) {
-        orderController.closeOrder(order);
+    protected String processObject(OrderView orderView) {
+        orderController.closeOrder(orderView);
 
         return null;
     }
 
     @Override
-    protected String getActionHasBeenSuccessfullyPerformedMessage(Order order) {
-        return String.format(ORDER_HAS_BEEN_CLOSED_PATTERN, order.getOrderNumber());
+    protected String getActionHasBeenSuccessfullyPerformedMessage(OrderView orderView) {
+        return String.format(ORDER_HAS_BEEN_CLOSED_PATTERN, orderView.getOrderNumber());
     }
 }

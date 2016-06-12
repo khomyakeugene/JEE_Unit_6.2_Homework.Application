@@ -3,14 +3,14 @@ package com.company.restaurant.application.data.collector;
 import com.company.restaurant.controllers.CourseController;
 import com.company.restaurant.controllers.OrderController;
 import com.company.restaurant.model.Course;
-import com.company.restaurant.model.Order;
 import com.company.restaurant.model.OrderCourse;
+import com.company.restaurant.model.OrderView;
 
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class OrderCourseCollector extends ItemCollectorProto<Order, Course, OrderCourse>
-        implements ItemCollector<Order> {
+public class OrderCourseCollector extends ItemCollectorProto<OrderView, Course, OrderCourse>
+        implements ItemCollector<OrderView> {
 
     protected OrderController orderController;
     protected CourseController courseController;
@@ -24,13 +24,13 @@ public class OrderCourseCollector extends ItemCollectorProto<Order, Course, Orde
     }
 
     @Override
-    protected void addItemToObject(Order order, Course course) {
-        orderController.addCourseToOrder(order, course, 1);
+    protected void addItemToObject(OrderView orderView, Course course) {
+        orderController.addCourseToOrder(orderView, course, 1);
     }
 
     @Override
-    protected void delItemFromObject(Order order, OrderCourse orderCourse) {
-        orderController.takeCourseFromOrder(order,
+    protected void delItemFromObject(OrderView orderView, OrderCourse orderCourse) {
+        orderController.takeCourseFromOrder(orderView,
                 courseController.findCourseById(orderCourse.getCourseId()), 1);
 
     }
