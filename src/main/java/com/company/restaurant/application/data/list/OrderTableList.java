@@ -26,7 +26,7 @@ public class OrderTableList extends ObjectTableListProto<OrderView> implements O
         this.orderController = orderController;
     }
 
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 
     @Override
     protected String[] getListHeader() {
