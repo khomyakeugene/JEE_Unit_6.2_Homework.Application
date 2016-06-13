@@ -1,14 +1,14 @@
 package com.company.restaurant.application.data.chooser;
 
 import com.company.restaurant.controllers.OrderController;
-import com.company.restaurant.model.OrderCourse;
+import com.company.restaurant.model.OrderCourseView;
 import com.company.restaurant.model.OrderView;
 
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class OrderCourseChooser extends ItemChooserProto<OrderView, OrderCourse, Integer>
-        implements ItemChooser<OrderView, OrderCourse> {
+public class OrderCourseChooser extends ItemChooserProto<OrderView, OrderCourseView, Integer>
+        implements ItemChooser<OrderView, OrderCourseView> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter course identifier";
 
     private OrderController orderController;
@@ -28,8 +28,8 @@ public class OrderCourseChooser extends ItemChooserProto<OrderView, OrderCourse,
     }
 
     @Override
-    protected OrderCourse findItem(OrderView orderView, Integer courseId) {
-        return orderController.findOrderCourseByCourseId(orderView,courseId);
+    protected OrderCourseView findItem(OrderView orderView, Integer courseId) {
+        return orderController.findOrderCourseByCourseId(orderView, courseId);
     }
 
 }
