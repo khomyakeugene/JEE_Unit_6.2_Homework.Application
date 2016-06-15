@@ -1,14 +1,14 @@
 package com.company.restaurant.application.data.finder;
 
 import com.company.restaurant.controllers.WarehouseController;
-import com.company.restaurant.model.Warehouse;
+import com.company.restaurant.model.WarehouseView;
 
 import java.util.List;
 
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class WarehouseFinder extends ObjectFinderProto<Warehouse, String> {
+public class WarehouseFinder extends ObjectFinderProto<WarehouseView, String> {
     private static final String ENTER_NAME_MESSAGE = "Please, enter ingredient name";
 
     private WarehouseController warehouseController;
@@ -18,7 +18,7 @@ public class WarehouseFinder extends ObjectFinderProto<Warehouse, String> {
     }
 
     @Override
-    protected List<Warehouse> findObjects(String name) {
+    protected List<WarehouseView> findObjects(String name) {
         return warehouseController.findIngredientInWarehouseByName(name);
     }
 

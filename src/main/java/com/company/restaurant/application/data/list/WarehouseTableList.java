@@ -1,7 +1,7 @@
 package com.company.restaurant.application.data.list;
 
 import com.company.restaurant.controllers.WarehouseController;
-import com.company.restaurant.model.Warehouse;
+import com.company.restaurant.model.WarehouseView;
 import com.company.util.Util;
 
 import java.util.ArrayList;
@@ -12,7 +12,8 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class WarehouseTableList extends ObjectTableListProto<Warehouse> implements ObjectTableList<Warehouse>  {
+public class WarehouseTableList extends ObjectTableListProto<WarehouseView>
+        implements ObjectTableList<WarehouseView>  {
     private static final String THERE_ARE_NO_INGREDIENTS_IN_WAREHOUSE_MESSAGE = "There are no ingredients in warehouse";
     private static final String[] listHeader = new String[]{
             "Ingredient Id",
@@ -33,7 +34,7 @@ public class WarehouseTableList extends ObjectTableListProto<Warehouse> implemen
     }
 
     @Override
-    protected String[] dataSetRowDataToStringArray(Warehouse warehouse) {
+    protected String[] dataSetRowDataToStringArray(WarehouseView warehouse) {
         ArrayList<String> arrayList = new ArrayList<>();
 
         arrayList.add(Integer.toString(warehouse.getIngredientId()));
@@ -45,7 +46,7 @@ public class WarehouseTableList extends ObjectTableListProto<Warehouse> implemen
     }
 
     @Override
-    public List<Warehouse> prepareObjectList() {
+    public List<WarehouseView> prepareObjectList() {
         return warehouseController.findAllWarehouseIngredients();
     }
 

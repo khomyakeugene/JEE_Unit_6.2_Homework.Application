@@ -1,15 +1,15 @@
 package com.company.restaurant.application.data.chooser;
 
 import com.company.restaurant.controllers.WarehouseController;
-import com.company.restaurant.model.Warehouse;
+import com.company.restaurant.model.WarehouseView;
 
 import java.util.List;
 
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class WarehouseChooser extends ObjectChooserProto<Warehouse, Integer>
-        implements ObjectChooser<Warehouse> {
+public class WarehouseChooser extends ObjectChooserProto<WarehouseView, Integer>
+        implements ObjectChooser<WarehouseView> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter ingredient identifier";
 
     private WarehouseController warehouseController;
@@ -19,8 +19,8 @@ public class WarehouseChooser extends ObjectChooserProto<Warehouse, Integer>
     }
 
     @Override
-    protected Warehouse findObject(Integer ingredientId) {
-        List<Warehouse> list = warehouseController.findIngredientInWarehouseById(ingredientId);
+    protected WarehouseView findObject(Integer ingredientId) {
+        List<WarehouseView> list = warehouseController.findIngredientInWarehouseById(ingredientId);
 
         return (list == null || list.size() == 0) ? null : list.get(0);
     }

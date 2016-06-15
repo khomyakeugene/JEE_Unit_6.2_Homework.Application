@@ -4,24 +4,24 @@ import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.list.ObjectTableList;
 import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Portion;
-import com.company.restaurant.model.Warehouse;
+import com.company.restaurant.model.WarehouseView;
 import com.company.util.Util;
 
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class WarehouseRemover extends ObjectRemoverProto<Warehouse> {
+public class WarehouseRemover extends ObjectRemoverProto<WarehouseView> {
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
     private WarehouseController warehouseController;
-    private ObjectTableList<Warehouse> warehouseTableList;
+    private ObjectTableList<WarehouseView> warehouseTableList;
     private ObjectChooser<Portion> portionChooser;
 
     public void setWarehouseController(WarehouseController warehouseController) {
         this.warehouseController = warehouseController;
     }
 
-    public void setWarehouseTableList(ObjectTableList<Warehouse> warehouseTableList) {
+    public void setWarehouseTableList(ObjectTableList<WarehouseView> warehouseTableList) {
         this.warehouseTableList = warehouseTableList;
     }
 
@@ -30,18 +30,18 @@ public class WarehouseRemover extends ObjectRemoverProto<Warehouse> {
     }
 
     @Override
-    protected String deleteObject(Warehouse warehouse) {
+    protected String deleteObject(WarehouseView warehouseView) {
         warehouseController.takeIngredientFromWarehouse(
-                warehouseController.findIngredientById(warehouse.getIngredientId()),
-                warehouseController.findPortionById(warehouse.getPortionId()),
-                warehouse.getAmount());
+                warehouseController.findIngredientById(warehouseView.getIngredientId()),
+                warehouseController.findPortionById(warehouseView.getPortionId()),
+                warehouseView.getAmount());
 
         return null;
     }
 
     @Override
-    protected Warehouse chooseObjectFromList() {
-        Warehouse result = super.chooseObjectFromList();
+    protected WarehouseView chooseObjectFromList() {
+        WarehouseView result = super.chooseObjectFromList();
         if (result != null) {
             // Show only this ingredient
             warehouseTableList.displayObjectList(
