@@ -14,7 +14,7 @@ public class CourseRemover extends ObjectRemoverProto<Course> {
     }
 
     @Override
-    protected String deleteObject(Course course) {
-        return courseController.delCourse(course);
+    protected void deleteObject(Course course) {
+        courseController.delCourse(course);
     }
 }

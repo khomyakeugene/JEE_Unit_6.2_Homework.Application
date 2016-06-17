@@ -6,7 +6,7 @@ import com.company.restaurant.application.data.service.ObjectProcessorProto;
  * Created by Yevhen on 02.06.2016.
  */
 public abstract class ObjectRemoverProto<T> extends ObjectProcessorProto<T> {
-    protected abstract String deleteObject(T object);
+    protected abstract void deleteObject(T object);
 
     @Override
     protected String getActionHasBeenSuccessfullyPerformedMessage(T object) {
@@ -15,6 +15,8 @@ public abstract class ObjectRemoverProto<T> extends ObjectProcessorProto<T> {
 
     @Override
     protected String processObject(T object) {
-        return deleteObject(object);
+        deleteObject(object);
+
+        return null;
     }
 }

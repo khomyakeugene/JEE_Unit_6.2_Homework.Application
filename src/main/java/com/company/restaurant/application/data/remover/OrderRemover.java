@@ -14,7 +14,7 @@ public class OrderRemover extends ObjectRemoverProto<OrderView> {
     }
 
     @Override
-    protected String deleteObject(OrderView orderView) {
-        return orderController.delOrder(orderView);
+    protected void deleteObject(OrderView orderView) {
+        orderController.delOrder(orderView);
     }
 }

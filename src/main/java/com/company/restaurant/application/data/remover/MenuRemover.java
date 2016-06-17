@@ -14,7 +14,7 @@ public class MenuRemover extends ObjectRemoverProto<Menu> {
     }
 
     @Override
-    protected String deleteObject(Menu menu) {
-        return menuController.delMenu(menu);
+    protected void deleteObject(Menu menu) {
+        menuController.delMenu(menu);
     }
 }

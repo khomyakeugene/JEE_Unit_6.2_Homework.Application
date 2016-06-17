@@ -30,13 +30,11 @@ public class WarehouseRemover extends ObjectRemoverProto<WarehouseView> {
     }
 
     @Override
-    protected String deleteObject(WarehouseView warehouseView) {
+    protected void deleteObject(WarehouseView warehouseView) {
         warehouseController.takeIngredientFromWarehouse(
                 warehouseController.findIngredientById(warehouseView.getIngredientId()),
                 warehouseController.findPortionById(warehouseView.getPortionId()),
                 warehouseView.getAmount());
-
-        return null;
     }
 
     @Override

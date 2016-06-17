@@ -14,7 +14,7 @@ public class EmployeeRemover extends ObjectRemoverProto<Employee> {
     }
 
     @Override
-    protected String deleteObject(Employee employee) {
-        return employeeController.delEmployee(employee);
+    protected void deleteObject(Employee employee) {
+        employeeController.delEmployee(employee);
     }
 }
