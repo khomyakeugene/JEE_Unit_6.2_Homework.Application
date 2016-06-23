@@ -20,8 +20,7 @@ public class OrderCourseTableList extends ItemTableListProto<OrderView, OrderCou
             "Course name",
             "Category name",
             "Weight",
-            "Cost",
-            "Quantity in orderView"
+            "Cost"
     };
 
     private OrderController orderController;
@@ -50,7 +49,6 @@ public class OrderCourseTableList extends ItemTableListProto<OrderView, OrderCou
         arrayList.add(orderCourse.getCourseCategoryName());
         arrayList.add(toStringMaskNullAsEmpty(orderCourse.getCourseWeight()));
         arrayList.add(toStringMaskNullAsEmpty(orderCourse.getCourseCost()));
-        arrayList.add(Integer.toString(orderCourse.getCourseQuantity()));
 
         return arrayList.toArray(new String[arrayList.size()]);
     }

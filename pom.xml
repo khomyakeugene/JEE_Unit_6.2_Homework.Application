@@ -7,12 +7,12 @@
     <groupId>com.company</groupId>
     <artifactId>JEE_Unit_6.2_Homework.Application</artifactId>
     <packaging>jar</packaging>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <properties>
         <main.class>com.company.Bootstrap</main.class>
-        <!-- <restaurant.controller>Restaurant.Controller.Jdbc</restaurant.controller> -->
-        <restaurant.controller>Restaurant.Controller.Hibernate</restaurant.controller>
+        <restaurant.controller>Restaurant.Controller.Jdbc</restaurant.controller>
+        <!--<restaurant.controller>Restaurant.Controller.Hibernate</restaurant.controller>-->
     </properties>
 
     <build>
@@ -123,7 +123,7 @@
         <dependency>
             <groupId>com.company</groupId>
             <artifactId>${restaurant.controller}</artifactId>
-            <version>1.0</version>
+            <version>1.1</version>
         </dependency>
 
     </dependencies>

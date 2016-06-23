@@ -25,13 +25,13 @@ public class OrderCourseCollector extends ItemCollectorProto<OrderView, Course, 
 
     @Override
     protected void addItemToObject(OrderView orderView, Course course) {
-        orderController.addCourseToOrder(orderView, course, 1);
+        orderController.addCourseToOrder(orderView, course);
     }
 
     @Override
     protected void delItemFromObject(OrderView orderView, OrderCourseView orderCourse) {
         orderController.takeCourseFromOrder(orderView,
-                courseController.findCourseById(orderCourse.getCourseId()), 1);
+                courseController.findCourseById(orderCourse.getCourseId()));
 
     }
 }
