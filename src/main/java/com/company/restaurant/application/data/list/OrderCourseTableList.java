@@ -1,7 +1,7 @@
 package com.company.restaurant.application.data.list;
 
 import com.company.restaurant.controllers.OrderController;
-import com.company.restaurant.model.OrderCourseView;
+import com.company.restaurant.model.Course;
 import com.company.restaurant.model.OrderView;
 
 import java.util.ArrayList;
@@ -12,8 +12,8 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class OrderCourseTableList extends ItemTableListProto<OrderView, OrderCourseView>
-        implements ItemTableList<OrderView, OrderCourseView> {
+public class OrderCourseTableList extends ItemTableListProto<OrderView, Course>
+        implements ItemTableList<OrderView, Course> {
     private static final String ORDER_IS_EMPTY_MESSAGE = "Order is empty";
     private static final String[] listHeader = new String[] {
             "Course Id",
@@ -31,7 +31,7 @@ public class OrderCourseTableList extends ItemTableListProto<OrderView, OrderCou
 
 
     @Override
-    public List<OrderCourseView> prepareItemList(OrderView orderView) {
+    public List<Course> prepareItemList(OrderView orderView) {
         return orderController.findAllOrderCourses(orderView);
     }
 
@@ -41,14 +41,14 @@ public class OrderCourseTableList extends ItemTableListProto<OrderView, OrderCou
     }
 
     @Override
-    protected String[] dataSetRowDataToStringArray(OrderCourseView orderCourse) {
+    protected String[] dataSetRowDataToStringArray(Course course) {
         ArrayList<String> arrayList = new ArrayList<>();
 
-        arrayList.add(Integer.toString(orderCourse.getCourseId()));
-        arrayList.add(orderCourse.getCourseName());
-        arrayList.add(orderCourse.getCourseCategoryName());
-        arrayList.add(toStringMaskNullAsEmpty(orderCourse.getCourseWeight()));
-        arrayList.add(toStringMaskNullAsEmpty(orderCourse.getCourseCost()));
+        arrayList.add(Integer.toString(course.getCourseId()));
+        arrayList.add(course.getName());
+        arrayList.add(course.getCourseCategoryName());
+        arrayList.add(toStringMaskNullAsEmpty(course.getWeight()));
+        arrayList.add(toStringMaskNullAsEmpty(course.getCost()));
 
         return arrayList.toArray(new String[arrayList.size()]);
     }
