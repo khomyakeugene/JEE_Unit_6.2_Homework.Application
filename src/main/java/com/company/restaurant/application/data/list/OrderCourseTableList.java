@@ -2,7 +2,7 @@ package com.company.restaurant.application.data.list;
 
 import com.company.restaurant.controllers.OrderController;
 import com.company.restaurant.model.Course;
-import com.company.restaurant.model.OrderView;
+import com.company.restaurant.model.Order;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,8 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class OrderCourseTableList extends ItemTableListProto<OrderView, Course>
-        implements ItemTableList<OrderView, Course> {
+public class OrderCourseTableList extends ItemTableListProto<Order, Course>
+        implements ItemTableList<Order, Course> {
     private static final String ORDER_IS_EMPTY_MESSAGE = "Order is empty";
     private static final String[] listHeader = new String[] {
             "Course Id",
@@ -31,8 +31,8 @@ public class OrderCourseTableList extends ItemTableListProto<OrderView, Course>
 
 
     @Override
-    public List<Course> prepareItemList(OrderView orderView) {
-        return orderController.findAllOrderCourses(orderView);
+    public List<Course> prepareItemList(Order order) {
+        return orderController.findAllOrderCourses(order);
     }
 
     @Override

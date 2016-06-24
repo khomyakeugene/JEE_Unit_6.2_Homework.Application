@@ -4,20 +4,20 @@ import com.company.restaurant.application.data.chooser.ObjectChooser;
 import com.company.restaurant.application.data.collector.ItemCollector;
 import com.company.restaurant.controllers.OrderController;
 import com.company.restaurant.model.Employee;
-import com.company.restaurant.model.OrderView;
+import com.company.restaurant.model.Order;
 import com.company.restaurant.model.Table;
 import com.company.util.Util;
 
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class OrderAdder extends ObjectAdderProto<OrderView>  {
+public class OrderAdder extends ObjectAdderProto<Order>  {
     private static final String ENTER_ORDER_NUMBER_MESSAGE = "Please, enter order number";
 
     private OrderController orderController;
     private ObjectChooser<Employee> employeeChooser;
     private ObjectChooser<Table> tableChooser;
-    private ItemCollector<OrderView> orderCourseCollector;
+    private ItemCollector<Order> orderCourseCollector;
 
     public void setOrderController(OrderController orderController) {
         this.orderController = orderController;
@@ -31,12 +31,12 @@ public class OrderAdder extends ObjectAdderProto<OrderView>  {
         this.tableChooser = tableChooser;
     }
 
-    public void setOrderCourseCollector(ItemCollector<OrderView> orderCourseCollector) {
+    public void setOrderCourseCollector(ItemCollector<Order> orderCourseCollector) {
         this.orderCourseCollector = orderCourseCollector;
     }
 
-    private OrderView addOrder() {
-        OrderView result = null;
+    private Order addOrder() {
+        Order result = null;
 
         String orderNumber = Util.readInputString(ENTER_ORDER_NUMBER_MESSAGE);
         if (orderNumber != null && !orderNumber.isEmpty()) {
@@ -44,12 +44,12 @@ public class OrderAdder extends ObjectAdderProto<OrderView>  {
             if (employee != null) {
                 Table table = tableChooser.chooseObjectFromList();
                 if (table != null) {
-                    OrderView orderView = new OrderView();
-                    orderView.setOrderNumber(orderNumber.trim());
-                    orderView.setEmployeeId(employee.getEmployeeId());
-                    orderView.setTableId(table.getTableId());
+                    Order order = new Order();
+                    order.setOrderNumber(orderNumber.trim());
+                    order.setEmployeeId(employee.getEmployeeId());
+                    order.setTableId(table.getTableId());
 
-                    result = orderController.addOrder(orderView);
+                    result = orderController.addOrder(order);
                     dataHasBeenSuccessfullyAddedMessage();
                 }
             }
@@ -60,8 +60,8 @@ public class OrderAdder extends ObjectAdderProto<OrderView>  {
 
 
     @Override
-    protected OrderView addObject() {
-        OrderView result = addOrder();
+    protected Order addObject() {
+        Order result = addOrder();
         orderCourseCollector.addItemsToObject(result);
 
         return result;
