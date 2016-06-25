@@ -38,7 +38,7 @@ public class CourseAdder extends ObjectAdderProto<Course> {
 
                 Course course = new Course();
                 course.setName(courseName.trim());
-                course.setCategoryId(courseCategory.getId());
+                course.setCourseCategory(courseCategory);
                 course.setWeight(weight);
                 course.setCost(cost);
 

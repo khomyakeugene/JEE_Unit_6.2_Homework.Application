@@ -42,7 +42,7 @@ public class CourseTableList extends ObjectTableListProto<Course> implements Obj
 
         arrayList.add(Integer.toString(course.getCourseId()));
         arrayList.add(course.getName());
-        arrayList.add(course.getCourseCategoryName());
+        arrayList.add(course.getCourseCategory().getName());
         arrayList.add(toStringMaskNullAsEmpty(course.getWeight()));
         arrayList.add(toStringMaskNullAsEmpty(course.getCost()));
 
