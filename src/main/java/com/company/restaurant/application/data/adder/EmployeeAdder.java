@@ -41,7 +41,7 @@ public class EmployeeAdder extends ObjectAdderProto<Employee> {
                     Employee employee = new Employee();
                     employee.setFirstName(firstName.trim());
                     employee.setSecondName(secondName.trim());
-                    employee.setJobPositionId(jobPosition.getId());
+                    employee.setJobPosition(jobPosition);
                     employee.setPhoneNumber(phoneNumber);
                     employee.setSalary(salary);
 

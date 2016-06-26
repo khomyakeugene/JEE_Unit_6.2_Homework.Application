@@ -44,7 +44,7 @@ public class EmployeeTableList extends ObjectTableListProto<Employee> implements
         arrayList.add(Integer.toString(employee.getEmployeeId()));
         arrayList.add(employee.getFirstName());
         arrayList.add(employee.getSecondName());
-        arrayList.add(employee.getJobPositionName());
+        arrayList.add(employee.getJobPosition().getName());
         arrayList.add(employee.getPhoneNumber());
         arrayList.add(toStringMaskNullAsEmpty(employee.getSalary()));
 

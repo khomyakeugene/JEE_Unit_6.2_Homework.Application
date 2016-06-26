@@ -46,8 +46,8 @@ public class OrderAdder extends ObjectAdderProto<Order>  {
                 if (table != null) {
                     Order order = new Order();
                     order.setOrderNumber(orderNumber.trim());
-                    order.setEmployeeId(employee.getEmployeeId());
-                    order.setTableId(table.getTableId());
+                    order.setWaiter(employee);
+                    order.setTable(table);
 
                     result = orderController.addOrder(order);
                     dataHasBeenSuccessfullyAddedMessage();
