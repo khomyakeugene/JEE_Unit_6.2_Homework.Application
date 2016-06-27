@@ -1,14 +1,14 @@
 package com.company.restaurant.application.data.chooser;
 
 import com.company.restaurant.controllers.MenuController;
+import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Menu;
-import com.company.restaurant.model.MenuCourseView;
 
 /**
  * Created by Yevhen on 28.05.2016.
  */
-public class MenuCourseChooser extends ItemChooserProto<Menu, MenuCourseView, Integer>
-        implements ItemChooser<Menu, MenuCourseView> {
+public class MenuCourseChooser extends ItemChooserProto<Menu, Course, Integer>
+        implements ItemChooser<Menu, Course> {
     private static final String ENTER_IDENTIFIER_MESSAGE = "Please, enter course identifier";
 
     private MenuController menuController;
@@ -28,7 +28,7 @@ public class MenuCourseChooser extends ItemChooserProto<Menu, MenuCourseView, In
     }
 
     @Override
-    protected MenuCourseView findItem(Menu menu, Integer courseId) {
+    protected Course findItem(Menu menu, Integer courseId) {
         return menuController.findMenuCourseByCourseId(menu, courseId);
     }
 
