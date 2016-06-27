@@ -7,7 +7,7 @@ import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Order;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import static com.company.util.Util.toStringMaskNullAsEmpty;
 
@@ -33,7 +33,7 @@ public class OrderCourseTableList extends ItemTableListProto<Order, Course>
 
 
     @Override
-    public List<Course> prepareItemList(Order order) {
+    public Collection<Course> prepareItemList(Order order) {
         return orderController.findAllOrderCourses(order);
     }
 

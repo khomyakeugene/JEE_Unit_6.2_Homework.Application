@@ -6,7 +6,7 @@ import com.company.restaurant.controllers.EmployeeController;
 import com.company.restaurant.model.Employee;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import static com.company.util.Util.toStringMaskNullAsEmpty;
 
@@ -30,7 +30,7 @@ public class EmployeeTableList extends ObjectTableListProto<Employee> implements
     }
 
     @Override
-    public List<Employee> prepareObjectList() {
+    public Collection<Employee> prepareObjectList() {
         return employeeController.findAllEmployees();
     }
 

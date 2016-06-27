@@ -7,7 +7,7 @@ import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Menu;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import static com.company.util.Util.toStringMaskNullAsEmpty;
 
@@ -32,7 +32,7 @@ public class MenuCourseTableList extends ItemTableListProto<Menu, Course>
     }
 
     @Override
-    public List<Course> prepareItemList(Menu menu) {
+    public Collection<Course> prepareItemList(Menu menu) {
         return menuController.findMenuCourses(menu);
     }
 

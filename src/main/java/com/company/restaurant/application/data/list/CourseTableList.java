@@ -6,7 +6,7 @@ import com.company.restaurant.controllers.CourseController;
 import com.company.restaurant.model.Course;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import static com.company.util.Util.toStringMaskNullAsEmpty;
 
@@ -29,7 +29,7 @@ public class CourseTableList extends ObjectTableListProto<Course> implements Obj
     }
 
     @Override
-    public List<Course> prepareObjectList() {
+    public Collection<Course> prepareObjectList() {
         return courseController.findAllCourses();
     }
 

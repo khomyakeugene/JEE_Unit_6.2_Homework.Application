@@ -1,12 +1,12 @@
 package com.company.restaurant.application.data.list.proto;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 28.05.2016.
  */
 public interface ObjectTableList<T> {
-    List<T> prepareObjectList();
+    Collection<T> prepareObjectList();
 
-    List<T> displayObjectList(List<T> objects);
+    Collection<T> displayObjectList(Collection<T> objects);
 }

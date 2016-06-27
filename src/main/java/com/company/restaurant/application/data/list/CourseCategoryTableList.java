@@ -6,7 +6,7 @@ import com.company.restaurant.controllers.CourseController;
 import com.company.restaurant.model.CourseCategory;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 28.05.2016.
@@ -25,7 +25,7 @@ public class CourseCategoryTableList extends ObjectTableListProto<CourseCategory
     }
 
     @Override
-    public List<CourseCategory> prepareObjectList() {
+    public Collection<CourseCategory> prepareObjectList() {
         return courseController.findAllCourseCategories();
     }
 

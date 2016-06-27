@@ -6,7 +6,7 @@ import com.company.restaurant.controllers.TableController;
 import com.company.restaurant.model.Table;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 28.05.2016.
@@ -24,7 +24,7 @@ public class TableTableList extends ObjectTableListProto<Table> implements Objec
     }
 
     @Override
-    public List<Table> prepareObjectList() {
+    public Collection<Table> prepareObjectList() {
         return tableController.findAllTables();
     }
 

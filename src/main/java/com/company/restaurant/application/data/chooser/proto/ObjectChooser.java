@@ -1,12 +1,12 @@
 package com.company.restaurant.application.data.chooser.proto;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 27.05.2016.
  */
 public interface ObjectChooser<T> {
-    List<T> displayObjectList();
+    Collection<T> displayObjectList();
 
     T chooseObjectFromList();
 }

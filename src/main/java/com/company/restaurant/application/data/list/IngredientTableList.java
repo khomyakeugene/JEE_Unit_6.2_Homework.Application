@@ -6,7 +6,7 @@ import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Ingredient;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 29.05.2016.
@@ -39,7 +39,7 @@ public class IngredientTableList extends ObjectTableListProto<Ingredient> implem
     }
 
     @Override
-    public List<Ingredient> prepareObjectList() {
+    public Collection<Ingredient> prepareObjectList() {
         return warehouseController.findAllIngredients();
     }
 }

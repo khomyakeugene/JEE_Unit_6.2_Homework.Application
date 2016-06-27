@@ -5,7 +5,7 @@ import com.company.restaurant.application.data.service.DatabaseService;
 import com.company.restaurant.application.data.service.Executor;
 import com.company.util.Util;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 29.05.2016.
@@ -21,8 +21,8 @@ public abstract class ObjectAdderProto<T> extends DatabaseService implements Exe
 
     protected abstract T addObject();
 
-    private List<T> addObjects() {
-        List<T> result ;
+    private Collection<T> addObjects() {
+        Collection<T> result ;
         T object;
 
         do {

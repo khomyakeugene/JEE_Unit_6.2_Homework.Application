@@ -8,7 +8,7 @@ import com.company.util.Util;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import static com.company.util.Util.toStringMaskNullAsEmpty;
 
@@ -53,7 +53,7 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourseView
     }
 
     @Override
-    public List<CookedCourseView> prepareObjectList() {
+    public Collection<CookedCourseView> prepareObjectList() {
         return kitchenController.findAllCookedCourses();
     }
 

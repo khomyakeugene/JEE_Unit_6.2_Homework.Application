@@ -6,7 +6,7 @@ import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Portion;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 29.05.2016.
@@ -39,7 +39,7 @@ public class PortionTableList extends ObjectTableListProto<Portion> implements O
     }
 
     @Override
-    public List<Portion> prepareObjectList() {
+    public Collection<Portion> prepareObjectList() {
         return warehouseController.findAllPortions();
     }
 }

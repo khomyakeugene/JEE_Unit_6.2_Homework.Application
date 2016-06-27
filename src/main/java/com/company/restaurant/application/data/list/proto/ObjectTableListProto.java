@@ -7,7 +7,7 @@ import com.company.util.TableBuilder;
 import com.company.util.Util;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 27.05.2016.
@@ -29,7 +29,7 @@ public abstract class ObjectTableListProto<T> extends DatabaseService
     }
 
     @Override
-    public List<T> displayObjectList(List<T> objects) {
+    public Collection<T> displayObjectList(Collection<T> objects) {
         if (objects != null && objects.size() > 0) {
             ArrayList<String[]> arrayList = new ArrayList<>();
 
@@ -45,7 +45,7 @@ public abstract class ObjectTableListProto<T> extends DatabaseService
         return objects;
     }
 
-    public List<T> displayObjectList() {
+    public Collection<T> displayObjectList() {
         return displayObjectList(prepareObjectList());
     }
 

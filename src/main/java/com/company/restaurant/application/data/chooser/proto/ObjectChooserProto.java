@@ -2,7 +2,7 @@ package com.company.restaurant.application.data.chooser.proto;
 
 import com.company.restaurant.application.data.service.ObjectFinderAndChooserProto;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 27.05.2016.
@@ -13,12 +13,12 @@ public abstract class ObjectChooserProto<ObjectType, ObjectKeyFieldType>
 
     protected abstract ObjectType findObject(ObjectKeyFieldType objectKeyFieldValue);
 
-    private ObjectType chooseObjectFromList(List<ObjectType> objects) {
+    private ObjectType chooseObjectFromList(Collection<ObjectType> objects) {
         ObjectType result = null;
 
         ObjectKeyFieldType objectKeyFieldValue = null;
         do {
-            List<ObjectType> list = objectTableList.displayObjectList(objects);
+            Collection<ObjectType> list = objectTableList.displayObjectList(objects);
             if (list != null && list.size() > 0) {
                 objectKeyFieldValue = readKeyFieldValue();
                 if (objectKeyFieldValue != null) {
@@ -34,7 +34,7 @@ public abstract class ObjectChooserProto<ObjectType, ObjectKeyFieldType>
     }
 
     @Override
-    public List<ObjectType> displayObjectList() {
+    public Collection<ObjectType> displayObjectList() {
         return objectTableList.displayObjectList(objectTableList.prepareObjectList());
     }
 

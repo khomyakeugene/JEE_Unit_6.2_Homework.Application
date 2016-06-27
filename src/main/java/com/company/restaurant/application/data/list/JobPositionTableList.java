@@ -6,7 +6,7 @@ import com.company.restaurant.controllers.EmployeeController;
 import com.company.restaurant.model.JobPosition;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 28.05.2016.
@@ -24,7 +24,7 @@ public class JobPositionTableList extends ObjectTableListProto<JobPosition> impl
     }
 
     @Override
-    public List<JobPosition> prepareObjectList() {
+    public Collection<JobPosition> prepareObjectList() {
         return employeeController.findAllJobPositions();
     }
 

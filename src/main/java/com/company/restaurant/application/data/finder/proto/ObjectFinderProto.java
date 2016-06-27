@@ -3,6 +3,7 @@ package com.company.restaurant.application.data.finder.proto;
 import com.company.restaurant.application.data.service.Executor;
 import com.company.restaurant.application.data.service.ObjectFinderAndChooserProto;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -25,8 +26,8 @@ public abstract class ObjectFinderProto<ObjectType, ObjectKeyFieldType>
         return result;
     }
 
-    private List<ObjectType> findAndDisplayObjectList() {
-        List<ObjectType> result = null;
+    private Collection<ObjectType> findAndDisplayObjectList() {
+        Collection<ObjectType> result = null;
 
         ObjectKeyFieldType objectKeyFieldValue = readKeyFieldValue();
         if (objectKeyFieldValue != null) {

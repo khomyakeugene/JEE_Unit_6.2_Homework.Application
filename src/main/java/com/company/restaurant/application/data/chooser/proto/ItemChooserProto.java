@@ -3,7 +3,7 @@ package com.company.restaurant.application.data.chooser.proto;
 import com.company.restaurant.application.data.list.proto.ItemTableList;
 import com.company.restaurant.application.data.service.DataFinderAndChooserProto;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 28.05.2016.
@@ -20,13 +20,13 @@ public abstract class ItemChooserProto<ObjectType, ItemType, ItemKeyFieldType>
 
     protected abstract ItemType findItem(ObjectType object, ItemKeyFieldType itemKeyFieldValue);
 
-    private ItemType chooseItemFromList(ObjectType object, List<ItemType> items) {
+    private ItemType chooseItemFromList(ObjectType object, Collection<ItemType> items) {
         ItemType result = null;
 
         ItemKeyFieldType itemKeyFieldValue = null;
         do {
-            List<ItemType> list = itemTableList.displayObjectList(items);
-            if (list != null && list.size() > 0) {
+            Collection<ItemType> collection = itemTableList.displayObjectList(items);
+            if (collection != null && collection.size() > 0) {
                 itemKeyFieldValue = readKeyFieldValue();
                 if (itemKeyFieldValue != null) {
                     result = findItem(object, itemKeyFieldValue);
@@ -41,7 +41,7 @@ public abstract class ItemChooserProto<ObjectType, ItemType, ItemKeyFieldType>
     }
 
     @Override
-    public List<ItemType> displayItemList(ObjectType object) {
+    public Collection<ItemType> displayItemList(ObjectType object) {
         return itemTableList.displayItemList(object);
     }
 

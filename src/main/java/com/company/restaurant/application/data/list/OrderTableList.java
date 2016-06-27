@@ -7,7 +7,7 @@ import com.company.restaurant.model.Order;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 28.05.2016.
@@ -50,7 +50,7 @@ public class OrderTableList extends ObjectTableListProto<Order> implements Objec
     }
 
     @Override
-    public List<Order> prepareObjectList() {
+    public Collection<Order> prepareObjectList() {
         return orderController.findAllOrders();
     }
 

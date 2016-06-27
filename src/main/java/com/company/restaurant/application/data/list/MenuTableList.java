@@ -7,7 +7,7 @@ import com.company.restaurant.model.Menu;
 import com.company.util.Util;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Yevhen on 28.05.2016.
@@ -26,7 +26,7 @@ public class MenuTableList extends ObjectTableListProto<Menu> implements ObjectT
     }
 
     @Override
-    public List<Menu> prepareObjectList() {
+    public Collection<Menu> prepareObjectList() {
         return menuController.findAllMenus();
     }
 

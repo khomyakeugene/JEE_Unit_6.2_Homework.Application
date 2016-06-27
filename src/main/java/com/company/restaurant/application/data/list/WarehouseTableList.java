@@ -7,7 +7,7 @@ import com.company.restaurant.model.WarehouseView;
 import com.company.util.Util;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import static com.company.util.Util.toStringMaskNullAsEmpty;
 
@@ -48,7 +48,7 @@ public class WarehouseTableList extends ObjectTableListProto<WarehouseView>
     }
 
     @Override
-    public List<WarehouseView> prepareObjectList() {
+    public Collection<WarehouseView> prepareObjectList() {
         return warehouseController.findAllWarehouseIngredients();
     }
 
