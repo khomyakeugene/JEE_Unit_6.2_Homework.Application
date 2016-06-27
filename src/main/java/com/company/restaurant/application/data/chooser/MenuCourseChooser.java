@@ -13,8 +13,6 @@ public class MenuCourseChooser extends ItemChooserProto<Menu, Course, Integer>
 
     private MenuController menuController;
 
-
-
     public void setMenuController(MenuController menuController) {
         this.menuController = menuController;
     }
