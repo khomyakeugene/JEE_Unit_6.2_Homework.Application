@@ -1,4 +1,4 @@
-package com.company.restaurant.application.data.remover;
+package com.company.restaurant.application.data.remover.proto;
 
 import com.company.restaurant.application.data.service.ObjectProcessorProto;
 

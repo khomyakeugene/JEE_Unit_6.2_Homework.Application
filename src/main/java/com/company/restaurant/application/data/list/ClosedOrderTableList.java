@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.application.data.list.proto.ObjectTableList;
 import com.company.restaurant.model.Order;
 
 import java.util.List;

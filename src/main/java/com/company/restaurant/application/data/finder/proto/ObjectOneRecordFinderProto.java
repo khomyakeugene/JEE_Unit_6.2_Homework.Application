@@ -1,4 +1,4 @@
-package com.company.restaurant.application.data.finder;
+package com.company.restaurant.application.data.finder.proto;
 
 import java.util.ArrayList;
 import java.util.List;

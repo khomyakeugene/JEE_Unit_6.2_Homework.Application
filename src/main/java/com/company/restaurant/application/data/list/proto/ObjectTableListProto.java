@@ -1,4 +1,4 @@
-package com.company.restaurant.application.data.list;
+package com.company.restaurant.application.data.list.proto;
 
 import com.company.restaurant.application.data.service.DatabaseService;
 import com.company.restaurant.application.data.service.Executor;

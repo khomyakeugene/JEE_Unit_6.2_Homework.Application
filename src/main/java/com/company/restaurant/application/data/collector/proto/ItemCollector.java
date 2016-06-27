@@ -1,4 +1,4 @@
-package com.company.restaurant.application.data.collector;
+package com.company.restaurant.application.data.collector.proto;
 
 /**
  * Created by Yevhen on 29.05.2016.

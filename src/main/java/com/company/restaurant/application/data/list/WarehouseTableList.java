@@ -1,5 +1,7 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.application.data.list.proto.ObjectTableList;
+import com.company.restaurant.application.data.list.proto.ObjectTableListProto;
 import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.WarehouseView;
 import com.company.util.Util;
@@ -13,7 +15,7 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
  * Created by Yevhen on 29.05.2016.
  */
 public class WarehouseTableList extends ObjectTableListProto<WarehouseView>
-        implements ObjectTableList<WarehouseView>  {
+        implements ObjectTableList<WarehouseView> {
     private static final String THERE_ARE_NO_INGREDIENTS_IN_WAREHOUSE_MESSAGE = "There are no ingredients in the warehouse";
     private static final String[] listHeader = new String[]{
             "Ingredient Id",

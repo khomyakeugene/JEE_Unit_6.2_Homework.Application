@@ -1,5 +1,7 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.application.data.list.proto.ObjectTableList;
+import com.company.restaurant.application.data.list.proto.ObjectTableListProto;
 import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Menu;
 import com.company.util.Util;

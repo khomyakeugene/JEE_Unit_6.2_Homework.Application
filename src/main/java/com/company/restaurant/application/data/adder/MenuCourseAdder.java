@@ -1,5 +1,6 @@
-package com.company.restaurant.application.data.collector;
+package com.company.restaurant.application.data.adder;
 
+import com.company.restaurant.application.data.collector.MenuCourseCollector;
 import com.company.restaurant.application.data.service.Executor;
 
 /**

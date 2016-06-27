@@ -1,7 +1,8 @@
 package com.company.restaurant.application.data.remover;
 
-import com.company.restaurant.application.data.chooser.ObjectChooser;
-import com.company.restaurant.application.data.list.ObjectTableList;
+import com.company.restaurant.application.data.chooser.proto.ObjectChooser;
+import com.company.restaurant.application.data.list.proto.ObjectTableList;
+import com.company.restaurant.application.data.remover.proto.ObjectRemoverProto;
 import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Portion;
 import com.company.restaurant.model.WarehouseView;

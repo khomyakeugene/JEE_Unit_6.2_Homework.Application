@@ -1,6 +1,7 @@
 package com.company.restaurant.application.data.adder;
 
-import com.company.restaurant.application.data.chooser.ObjectChooser;
+import com.company.restaurant.application.data.adder.proto.ObjectAdderProto;
+import com.company.restaurant.application.data.chooser.proto.ObjectChooser;
 import com.company.restaurant.controllers.KitchenController;
 import com.company.restaurant.model.CookedCourseView;
 import com.company.restaurant.model.Course;

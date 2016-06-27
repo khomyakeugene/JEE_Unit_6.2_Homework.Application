@@ -1,5 +1,7 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.application.data.chooser.proto.ObjectChooser;
+import com.company.restaurant.application.data.chooser.proto.ObjectChooserProto;
 import com.company.restaurant.controllers.EmployeeController;
 import com.company.restaurant.model.JobPosition;
 

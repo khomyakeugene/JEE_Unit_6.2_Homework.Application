@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
+import com.company.restaurant.application.data.finder.proto.ObjectFinderProto;
 import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.WarehouseView;
 

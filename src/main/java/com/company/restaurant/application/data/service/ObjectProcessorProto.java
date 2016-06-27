@@ -1,6 +1,6 @@
 package com.company.restaurant.application.data.service;
 
-import com.company.restaurant.application.data.chooser.ObjectChooser;
+import com.company.restaurant.application.data.chooser.proto.ObjectChooser;
 import com.company.util.Util;
 
 /**

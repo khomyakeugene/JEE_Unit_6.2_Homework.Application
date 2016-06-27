@@ -1,5 +1,7 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.application.data.list.proto.ObjectTableList;
+import com.company.restaurant.application.data.list.proto.ObjectTableListProto;
 import com.company.restaurant.controllers.CourseController;
 import com.company.restaurant.model.CourseCategory;
 

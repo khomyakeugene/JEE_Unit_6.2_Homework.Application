@@ -1,5 +1,7 @@
 package com.company.restaurant.application.data.list;
 
+import com.company.restaurant.application.data.list.proto.ObjectTableList;
+import com.company.restaurant.application.data.list.proto.ObjectTableListProto;
 import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Portion;
 
@@ -9,7 +11,7 @@ import java.util.List;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class PortionTableList extends ObjectTableListProto<Portion> implements ObjectTableList<Portion>  {
+public class PortionTableList extends ObjectTableListProto<Portion> implements ObjectTableList<Portion> {
     private static final String[] listHeader = new String[] {
             "Portion Id",
             "Portion description"

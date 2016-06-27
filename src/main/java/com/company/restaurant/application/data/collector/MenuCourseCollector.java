@@ -1,5 +1,7 @@
 package com.company.restaurant.application.data.collector;
 
+import com.company.restaurant.application.data.collector.proto.ItemCollector;
+import com.company.restaurant.application.data.collector.proto.ItemCollectorProto;
 import com.company.restaurant.controllers.CourseController;
 import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Course;

@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.remover;
 
+import com.company.restaurant.application.data.remover.proto.ObjectRemoverProto;
 import com.company.restaurant.controllers.EmployeeController;
 import com.company.restaurant.model.Employee;
 

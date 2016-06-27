@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
+import com.company.restaurant.application.data.finder.proto.ObjectOneRecordFinderProto;
 import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Menu;
 

@@ -1,4 +1,4 @@
-package com.company.restaurant.application.data.chooser;
+package com.company.restaurant.application.data.chooser.proto;
 
 import java.util.List;
 

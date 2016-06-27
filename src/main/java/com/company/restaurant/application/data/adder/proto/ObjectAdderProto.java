@@ -1,6 +1,6 @@
-package com.company.restaurant.application.data.adder;
+package com.company.restaurant.application.data.adder.proto;
 
-import com.company.restaurant.application.data.list.ObjectTableList;
+import com.company.restaurant.application.data.list.proto.ObjectTableList;
 import com.company.restaurant.application.data.service.DatabaseService;
 import com.company.restaurant.application.data.service.Executor;
 import com.company.util.Util;

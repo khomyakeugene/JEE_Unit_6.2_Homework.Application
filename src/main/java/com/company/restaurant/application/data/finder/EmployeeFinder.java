@@ -1,5 +1,6 @@
 package com.company.restaurant.application.data.finder;
 
+import com.company.restaurant.application.data.finder.proto.ObjectFinderProto;
 import com.company.restaurant.controllers.EmployeeController;
 import com.company.restaurant.model.Employee;
 import com.company.util.Util;

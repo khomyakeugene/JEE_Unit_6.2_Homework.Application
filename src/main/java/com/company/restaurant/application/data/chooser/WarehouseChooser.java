@@ -1,5 +1,7 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.application.data.chooser.proto.ObjectChooser;
+import com.company.restaurant.application.data.chooser.proto.ObjectChooserProto;
 import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.WarehouseView;
 

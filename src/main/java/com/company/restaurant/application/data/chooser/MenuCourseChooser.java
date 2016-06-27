@@ -1,5 +1,7 @@
 package com.company.restaurant.application.data.chooser;
 
+import com.company.restaurant.application.data.chooser.proto.ItemChooser;
+import com.company.restaurant.application.data.chooser.proto.ItemChooserProto;
 import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Menu;

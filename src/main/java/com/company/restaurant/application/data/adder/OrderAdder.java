@@ -1,7 +1,8 @@
 package com.company.restaurant.application.data.adder;
 
-import com.company.restaurant.application.data.chooser.ObjectChooser;
-import com.company.restaurant.application.data.collector.ItemCollector;
+import com.company.restaurant.application.data.adder.proto.ObjectAdderProto;
+import com.company.restaurant.application.data.chooser.proto.ObjectChooser;
+import com.company.restaurant.application.data.collector.proto.ItemCollector;
 import com.company.restaurant.controllers.OrderController;
 import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.Order;
@@ -11,7 +12,7 @@ import com.company.util.Util;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class OrderAdder extends ObjectAdderProto<Order>  {
+public class OrderAdder extends ObjectAdderProto<Order> {
     private static final String ENTER_ORDER_NUMBER_MESSAGE = "Please, enter order number";
 
     private OrderController orderController;

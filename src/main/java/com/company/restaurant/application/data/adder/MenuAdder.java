@@ -1,6 +1,7 @@
 package com.company.restaurant.application.data.adder;
 
-import com.company.restaurant.application.data.collector.ItemCollector;
+import com.company.restaurant.application.data.adder.proto.ObjectAdderProto;
+import com.company.restaurant.application.data.collector.proto.ItemCollector;
 import com.company.restaurant.controllers.MenuController;
 import com.company.restaurant.model.Menu;
 import com.company.util.Util;

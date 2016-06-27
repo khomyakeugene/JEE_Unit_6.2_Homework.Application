@@ -1,4 +1,4 @@
-package com.company.restaurant.application.data.chooser;
+package com.company.restaurant.application.data.chooser.proto;
 
 import com.company.restaurant.application.data.service.ObjectFinderAndChooserProto;
 
