@@ -41,14 +41,8 @@ public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> {
             if (employee != null) {
                 Float weight = Util.readInputPositiveFloat(ENTER_WEIGHT_MESSAGE, true);
                 if (weight != null) {
-                    kitchenController.addCookedCourse(course, employee, weight);
+                    result = kitchenController.addCookedCourse(course, employee, weight);
                     dataHasBeenSuccessfullyAddedMessage();
-
-                    // Unfortunately, "right now" just "manually imitation" here (hope - temporarily...)  ...
-                    result = new CookedCourse();
-                    result.setCourse(course);
-                    result.setEmployee(employee);
-                    result.setCookWeight(weight);
                 }
             }
         }
