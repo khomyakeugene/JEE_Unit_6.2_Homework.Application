@@ -50,7 +50,7 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
         arrayList.add(course.getName());
         Employee employee = cookedCourse.getEmployee();
         arrayList.add(employee.getFirstName() + " " + employee.getSecondName());
-        arrayList.add(toStringMaskNullAsEmpty(cookedCourse.getCookWeight()));
+        arrayList.add(toStringMaskNullAsEmpty(cookedCourse.getWeight()));
         arrayList.add(simpleDateFormat.format(cookedCourse.getCookDatetime().getTime()));
 
         return arrayList.toArray(new String[arrayList.size()]);
