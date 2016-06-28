@@ -3,7 +3,7 @@ package com.company.restaurant.application.data.adder;
 import com.company.restaurant.application.data.adder.proto.ObjectAdderProto;
 import com.company.restaurant.application.data.chooser.proto.ObjectChooser;
 import com.company.restaurant.controllers.KitchenController;
-import com.company.restaurant.model.CookedCourseView;
+import com.company.restaurant.model.CookedCourse;
 import com.company.restaurant.model.Course;
 import com.company.restaurant.model.Employee;
 import com.company.util.Util;
@@ -11,7 +11,7 @@ import com.company.util.Util;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class CookedCourseAdder extends ObjectAdderProto<CookedCourseView> {
+public class CookedCourseAdder extends ObjectAdderProto<CookedCourse> {
     private static final String ENTER_WEIGHT_MESSAGE = "Please, enter course weight";
     private static final String ALREADY_COOKED_COURSES_MESSAGE = "Already cooked courses:";
 
@@ -32,8 +32,8 @@ public class CookedCourseAdder extends ObjectAdderProto<CookedCourseView> {
     }
 
     @Override
-    protected CookedCourseView addObject() {
-        CookedCourseView result = null;
+    protected CookedCourse addObject() {
+        CookedCourse result = null;
 
         Course course = courseChooser.chooseObjectFromList();
         if (course != null) {
@@ -45,9 +45,9 @@ public class CookedCourseAdder extends ObjectAdderProto<CookedCourseView> {
                     dataHasBeenSuccessfullyAddedMessage();
 
                     // Unfortunately, "right now" just "manually imitation" here (hope - temporarily...)  ...
-                    result = new CookedCourseView();
-                    result.setCourseId(course.getCourseId());
-                    result.setEmployeeId(employee.getEmployeeId());
+                    result = new CookedCourse();
+                    result.setCourse(course);
+                    result.setEmployee(employee);
                     result.setCookWeight(weight);
                 }
             }

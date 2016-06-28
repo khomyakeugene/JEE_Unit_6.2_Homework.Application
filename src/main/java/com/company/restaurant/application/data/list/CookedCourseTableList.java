@@ -3,7 +3,9 @@ package com.company.restaurant.application.data.list;
 import com.company.restaurant.application.data.list.proto.ObjectTableList;
 import com.company.restaurant.application.data.list.proto.ObjectTableListProto;
 import com.company.restaurant.controllers.KitchenController;
-import com.company.restaurant.model.CookedCourseView;
+import com.company.restaurant.model.CookedCourse;
+import com.company.restaurant.model.Course;
+import com.company.restaurant.model.Employee;
 import com.company.util.Util;
 
 import java.text.SimpleDateFormat;
@@ -15,8 +17,8 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class CookedCourseTableList extends ObjectTableListProto<CookedCourseView>
-        implements ObjectTableList<CookedCourseView> {
+public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
+        implements ObjectTableList<CookedCourse> {
     private static final String THERE_ARE_NO_COOKED_COURSES_YET_MESSAGE = "There are no cooked courses yet";
     private static final String[] listHeader = new String[]{
             "Course Id",
@@ -40,20 +42,22 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourseView
     }
 
     @Override
-    protected String[] dataSetRowDataToStringArray(CookedCourseView cookedCourseView) {
+    protected String[] dataSetRowDataToStringArray(CookedCourse cookedCourse) {
         ArrayList<String> arrayList = new ArrayList<>();
 
-        arrayList.add(Integer.toString(cookedCourseView.getCourseId()));
-        arrayList.add(cookedCourseView.getCourseName());
-        arrayList.add(cookedCourseView.getEmployeeFirstName() + " " + cookedCourseView.getEmployeeSecondName());
-        arrayList.add(toStringMaskNullAsEmpty(cookedCourseView.getCookWeight()));
-        arrayList.add(simpleDateFormat.format(cookedCourseView.getCookDatetime().getTime()));
+        Course course = cookedCourse.getCourse();
+        arrayList.add(Integer.toString(course.getCourseId()));
+        arrayList.add(course.getName());
+        Employee employee = cookedCourse.getEmployee();
+        arrayList.add(employee.getFirstName() + " " + employee.getSecondName());
+        arrayList.add(toStringMaskNullAsEmpty(cookedCourse.getCookWeight()));
+        arrayList.add(simpleDateFormat.format(cookedCourse.getCookDatetime().getTime()));
 
         return arrayList.toArray(new String[arrayList.size()]);
     }
 
     @Override
-    public Collection<CookedCourseView> prepareObjectList() {
+    public Collection<CookedCourse> prepareObjectList() {
         return kitchenController.findAllCookedCourses();
     }
 
