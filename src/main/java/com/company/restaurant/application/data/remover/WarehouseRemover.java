@@ -5,24 +5,24 @@ import com.company.restaurant.application.data.list.proto.ObjectTableList;
 import com.company.restaurant.application.data.remover.proto.ObjectRemoverProto;
 import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Portion;
-import com.company.restaurant.model.WarehouseView;
+import com.company.restaurant.model.Warehouse;
 import com.company.util.Util;
 
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class WarehouseRemover extends ObjectRemoverProto<WarehouseView> {
+public class WarehouseRemover extends ObjectRemoverProto<Warehouse> {
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
     private WarehouseController warehouseController;
-    private ObjectTableList<WarehouseView> warehouseTableList;
+    private ObjectTableList<Warehouse> warehouseTableList;
     private ObjectChooser<Portion> portionChooser;
 
     public void setWarehouseController(WarehouseController warehouseController) {
         this.warehouseController = warehouseController;
     }
 
-    public void setWarehouseTableList(ObjectTableList<WarehouseView> warehouseTableList) {
+    public void setWarehouseTableList(ObjectTableList<Warehouse> warehouseTableList) {
         this.warehouseTableList = warehouseTableList;
     }
 
@@ -31,24 +31,24 @@ public class WarehouseRemover extends ObjectRemoverProto<WarehouseView> {
     }
 
     @Override
-    protected void deleteObject(WarehouseView warehouseView) {
+    protected void deleteObject(Warehouse warehouseView) {
         warehouseController.takeIngredientFromWarehouse(
-                warehouseController.findIngredientById(warehouseView.getIngredientId()),
-                warehouseController.findPortionById(warehouseView.getPortionId()),
+                warehouseController.findIngredientById(warehouseView.getIngredient().getIngredientId()),
+                warehouseController.findPortionById(warehouseView.getPortion().getPortionId()),
                 warehouseView.getAmount());
     }
 
     @Override
-    protected WarehouseView chooseObjectFromList() {
-        WarehouseView result = super.chooseObjectFromList();
+    protected Warehouse chooseObjectFromList() {
+        Warehouse result = super.chooseObjectFromList();
         if (result != null) {
             // Show only this ingredient
             warehouseTableList.displayObjectList(
-                    warehouseController.findIngredientInWarehouseById(result.getIngredientId()));
+                    warehouseController.findIngredientInWarehouseById(result.getIngredient().getIngredientId()));
             // Get potion id
             Portion portion = portionChooser.chooseObjectFromList();
             if (portion != null) {
-                result.setPortionId(portion.getPortionId());
+                result.getPortion().setPortionId(portion.getPortionId());
 
                 Float amount = Util.readInputPositiveFloat(ENTER_INGREDIENT_AMOUNT_MESSAGE, false);
                 if (amount != null) {

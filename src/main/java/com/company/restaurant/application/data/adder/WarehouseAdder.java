@@ -5,13 +5,13 @@ import com.company.restaurant.application.data.chooser.proto.ObjectChooser;
 import com.company.restaurant.controllers.WarehouseController;
 import com.company.restaurant.model.Ingredient;
 import com.company.restaurant.model.Portion;
-import com.company.restaurant.model.WarehouseView;
+import com.company.restaurant.model.Warehouse;
 import com.company.util.Util;
 
 /**
  * Created by Yevhen on 29.05.2016.
  */
-public class WarehouseAdder extends ObjectAdderProto<WarehouseView> {
+public class WarehouseAdder extends ObjectAdderProto<Warehouse> {
     private static final String ALREADY_IN_WAREHOUSE_MESSAGE = "Already in warehouse:";
     private static final String ENTER_INGREDIENT_AMOUNT_MESSAGE = "Please, enter ingredient amount";
 
@@ -32,8 +32,8 @@ public class WarehouseAdder extends ObjectAdderProto<WarehouseView> {
     }
 
     @Override
-    protected WarehouseView addObject() {
-        WarehouseView result = null;
+    protected Warehouse addObject() {
+        Warehouse result = null;
 
         Ingredient ingredient = ingredientChooser.chooseObjectFromList();
         if (ingredient != null) {
@@ -45,9 +45,9 @@ public class WarehouseAdder extends ObjectAdderProto<WarehouseView> {
                     dataHasBeenSuccessfullyAddedMessage();
 
                     // Unfortunately, just "manually" here (hope - temporarily...)  ...
-                    result = new WarehouseView();
-                    result.setIngredientId(ingredient.getIngredientId());
-                    result.setPortionId(portion.getPortionId());
+                    result = new Warehouse();
+                    result.setIngredient(ingredient);
+                    result.setPortion(portion);
                     result.setAmount(amount);
                 }
             }
