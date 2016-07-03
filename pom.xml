@@ -11,8 +11,8 @@
 
     <properties>
         <main.class>com.company.Bootstrap</main.class>
-        <restaurant.controller>Restaurant.Controller.Jdbc</restaurant.controller>
-        <!--<restaurant.controller>Restaurant.Controller.Hibernate</restaurant.controller>-->
+        <!--<restaurant.controller>Restaurant.Controller.Jdbc</restaurant.controller>-->
+        <restaurant.controller>Restaurant.Controller.Hibernate</restaurant.controller>
     </properties>
 
     <build>
