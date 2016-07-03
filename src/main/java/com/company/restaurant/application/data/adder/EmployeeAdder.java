@@ -3,6 +3,7 @@ package com.company.restaurant.application.data.adder;
 import com.company.restaurant.application.data.adder.proto.ObjectAdderProto;
 import com.company.restaurant.application.data.chooser.proto.ObjectChooser;
 import com.company.restaurant.controllers.EmployeeController;
+import com.company.restaurant.model.CookAndWaiter;
 import com.company.restaurant.model.Employee;
 import com.company.restaurant.model.JobPosition;
 import com.company.util.Util;
@@ -39,14 +40,14 @@ public class EmployeeAdder extends ObjectAdderProto<Employee> {
                 if (jobPosition != null) {
                     String phoneNumber = Util.readInputString(ENTER_PHONE_NUMBER_MESSAGE);
                     Float salary = Util.readInputPositiveFloat(ENTER_SALARY_MESSAGE, false);
-                    Employee employee = new Employee();
-                    employee.setFirstName(firstName.trim());
-                    employee.setSecondName(secondName.trim());
-                    employee.setJobPosition(jobPosition);
-                    employee.setPhoneNumber(phoneNumber);
-                    employee.setSalary(salary);
+                    CookAndWaiter cookAndWaiter = new CookAndWaiter();
+                    cookAndWaiter.setFirstName(firstName.trim());
+                    cookAndWaiter.setSecondName(secondName.trim());
+                    cookAndWaiter.setJobPosition(jobPosition);
+                    cookAndWaiter.setPhoneNumber(phoneNumber);
+                    cookAndWaiter.setSalary(salary);
 
-                    result = employeeController.addEmployee(employee);
+                    result = employeeController.addEmployee(cookAndWaiter);
                     dataHasBeenSuccessfullyAddedMessage();
                 }
             }
