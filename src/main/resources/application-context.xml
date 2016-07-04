@@ -201,6 +201,12 @@
         <property name="objectTableList" ref="warehouseTableList"/>
     </bean>
 
+    <bean class="com.company.restaurant.application.data.viewer.EmployeeOrdersAndCookedCoursesViewer"
+          id="employeeOrdersAndCookedCoursesView">
+        <property name="employeeController" ref="employeeController"/>
+        <property name="objectChooser" ref="employeeChooser"/>
+    </bean>
+
     <bean class="com.company.restaurant.application.data.remover.CourseRemover" id="courseRemover">
         <property name="courseController" ref="courseController"/>
         <property name="objectChooser" ref="courseChooser"/>
@@ -264,6 +270,13 @@
                                     </bean>
                                 </entry>
                                 <entry key="5">
+                                    <bean class="com.company.restaurant.application.service.SafeMenuItem">
+                                        <property name="itemText" value="View employee orders and cooked courses"/>
+                                        <property name="executor" ref="employeeOrdersAndCookedCoursesView"/>
+                                    </bean>
+                                </entry>
+
+                                <entry key="6">
                                     <bean class="com.company.restaurant.application.service.SimpleMenuItem">
                                         <property name="itemText" value="Exit"/>
                                     </bean>

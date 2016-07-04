@@ -44,8 +44,12 @@ public abstract class ObjectProcessorProto<T> extends DatabaseService implements
         return ACTION_HAS_BEEN_SUCCESSFULLY_PERFORMED;
     }
 
-    private void actionHasBeenSuccessfullyPerformedMessage(T object) {
-        Util.printMessage(getActionHasBeenSuccessfullyPerformedMessage(object));
+    protected void actionHasBeenSuccessfullyPerformedMessage(T object) {
+        String message = getActionHasBeenSuccessfullyPerformedMessage(object);
+
+        if (message != null) {
+            Util.printMessage(message);
+        }
     }
 
     @Override
