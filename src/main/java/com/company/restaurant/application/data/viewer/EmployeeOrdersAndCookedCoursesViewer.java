@@ -1,8 +1,8 @@
 package com.company.restaurant.application.data.viewer;
 
+import com.company.restaurant.application.data.list.EmployeeCookedCourseTableList;
 import com.company.restaurant.application.data.service.Executor;
 import com.company.restaurant.application.data.service.ObjectProcessorProto;
-import com.company.restaurant.controllers.EmployeeController;
 import com.company.restaurant.model.Employee;
 
 /**
@@ -11,10 +11,10 @@ import com.company.restaurant.model.Employee;
 public class EmployeeOrdersAndCookedCoursesViewer
         extends ObjectProcessorProto<Employee> implements Executor {
 
-    private EmployeeController employeeController;
+    private EmployeeCookedCourseTableList employeeCookedCourseTableList;
 
-    public void setEmployeeController(EmployeeController employeeController) {
-        this.employeeController = employeeController;
+    public void setEmployeeCookedCourseTableList(EmployeeCookedCourseTableList employeeCookedCourseTableList) {
+        this.employeeCookedCourseTableList = employeeCookedCourseTableList;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class EmployeeOrdersAndCookedCoursesViewer
         // Show employee orders
 
         // Show employee cooked courses
-
+        employeeCookedCourseTableList.displayObjectList();
 
         return null;
     }

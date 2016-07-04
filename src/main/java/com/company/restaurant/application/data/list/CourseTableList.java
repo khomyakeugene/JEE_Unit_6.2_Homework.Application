@@ -14,7 +14,7 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
  * Created by Yevhen on 28.05.2016.
  */
 public class CourseTableList extends ObjectTableListProto<Course> implements ObjectTableList<Course> {
-    private static final String[] listHeader = new String[] {
+    public static final String[] listHeader = new String[] {
             "Course Id",
             "Course name",
             "Category name",
@@ -38,8 +38,7 @@ public class CourseTableList extends ObjectTableListProto<Course> implements Obj
         return listHeader;
     }
 
-    @Override
-    protected String[] dataSetRowDataToStringArray(Course course) {
+    public static String[] getCourseRowData(Course course) {
         ArrayList<String> arrayList = new ArrayList<>();
 
         arrayList.add(Integer.toString(course.getCourseId()));
@@ -51,4 +50,8 @@ public class CourseTableList extends ObjectTableListProto<Course> implements Obj
         return arrayList.toArray(new String[arrayList.size()]);
     }
 
+    @Override
+    protected String[] dataSetRowDataToStringArray(Course course) {
+        return getCourseRowData(course);
+    }
 }

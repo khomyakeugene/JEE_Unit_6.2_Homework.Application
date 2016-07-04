@@ -19,8 +19,8 @@ import static com.company.util.Util.toStringMaskNullAsEmpty;
  */
 public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
         implements ObjectTableList<CookedCourse> {
-    private static final String THERE_ARE_NO_COOKED_COURSES_YET_MESSAGE = "There are no cooked courses yet";
-    private static final String[] listHeader = new String[]{
+    public static final String THERE_ARE_NO_COOKED_COURSES_MESSAGE = "There are no cooked courses";
+    public static final String[] listHeader = new String[]{
             "Course Id",
             "Course name",
             "Personnel name",
@@ -28,7 +28,7 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
             "Cooking datetime"
     };
 
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 
     private KitchenController kitchenController;
 
@@ -41,8 +41,7 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
         return listHeader;
     }
 
-    @Override
-    protected String[] dataSetRowDataToStringArray(CookedCourse cookedCourse) {
+    public static String[] getCookedCourseRowData(CookedCourse cookedCourse) {
         ArrayList<String> arrayList = new ArrayList<>();
 
         Course course = cookedCourse.getCourse();
@@ -57,12 +56,17 @@ public class CookedCourseTableList extends ObjectTableListProto<CookedCourse>
     }
 
     @Override
+    protected String[] dataSetRowDataToStringArray(CookedCourse cookedCourse) {
+        return getCookedCourseRowData(cookedCourse);
+    }
+
+    @Override
     public Collection<CookedCourse> prepareObjectList() {
         return kitchenController.findAllCookedCourses();
     }
 
     @Override
     protected void listDataHasNotBeenFoundMessage() {
-        Util.printMessage(THERE_ARE_NO_COOKED_COURSES_YET_MESSAGE);
+        Util.printMessage(THERE_ARE_NO_COOKED_COURSES_MESSAGE);
     }
 }
